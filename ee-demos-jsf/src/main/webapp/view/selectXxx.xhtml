@@ -1,0 +1,48 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <title>Auswahl-Tags h:selectXxx</title>
+</h:head>
+
+<h:body>
+  <h:form>
+    <h:panelGrid columns="2">
+      <h:outputLabel value="h:selectBooleanCheckbox" for="selectBooleanCheckbox" />
+      <h:selectBooleanCheckbox value="#{selectXxxModel.someBoolean}" id="selectBooleanCheckbox" />
+
+      <h:outputLabel value="h:selectOneListbox" for="selectOneListbox" />
+      <h:selectOneListbox value="#{selectXxxModel.note}" id="selectOneListbox">
+        <f:selectItems value="#{selectXxxModel.notenListe}" />
+      </h:selectOneListbox>
+      
+      <h:outputLabel value="h:selectOneMenu" for="selectOneMenu" />
+      <h:selectOneMenu value="#{selectXxxModel.note}" id="selectOneMenu">
+        <f:selectItems value="#{selectXxxModel.notenListe}" />
+      </h:selectOneMenu>
+      
+      <h:outputLabel value="h:selectOneRadio" for="selectOneRadio" />
+      <h:selectOneRadio value="#{selectXxxModel.note}" id="selectOneRadio">
+        <f:selectItems value="#{selectXxxModel.notenListe}" />
+      </h:selectOneRadio>
+
+      <h:outputLabel value="h:selectManyListbox" for="selectManyListbox" />
+      <h:selectManyListbox value="#{selectXxxModel.eiskugeln}" id="selectManyListbox">
+        <f:selectItems value="#{selectXxxModel.eisKugelListe}" />
+      </h:selectManyListbox>
+
+      <h:outputLabel value="h:selectManyCheckbox" for="selectManyCheckbox" />
+      <h:selectManyCheckbox value="#{selectXxxModel.eiskugeln}" id="selectManyCheckbox">
+        <f:selectItems value="#{selectXxxModel.eisKugelListe}" />
+      </h:selectManyCheckbox>
+
+      <h:outputLabel value="h:selectOneRadio (enum)" for="selectOneRadioEnum" />
+      <h:selectOneRadio value="#{selectXxxModel.ampel}" id="selectOneRadioEnum">
+        <f:selectItems value="#{selectXxxModel.ampelwerte}"  />
+      </h:selectOneRadio>
+      
+      <h:commandButton value="ok" />
+    </h:panelGrid>
+  </h:form>
+</h:body>
+</html>

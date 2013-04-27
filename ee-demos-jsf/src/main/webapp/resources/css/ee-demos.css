@@ -1,0 +1,33 @@
+.standardTable_Header {
+	color: #000000;
+    background-color: #EEF3FB;
+    padding: 3;
+    text-align: center;
+    border: none;
+}
+
+.standardTable_Row1 {
+    background-color: #FFFFFF;
+}
+
+.standardTable_Row2 {
+    background-color: #EEF3FB;
+}
+
+.ccDemoPanel
+{
+	border: 1px solid black;	
+	margin: 25px;
+	width: 300px;
+}
+
+
+.ccDemoHeader
+{
+	background: #81BEF7;
+	font-style: italic;
+	font-weight: bold;		
+	text-align: center;
+	width: 100%;
+}
+

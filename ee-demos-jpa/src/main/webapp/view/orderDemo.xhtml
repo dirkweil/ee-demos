@@ -1,0 +1,26 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:body>
+  <h:form>
+    <h:outputLabel value="Current Order:" for="currentCountry" />
+    <h:outputText value="#{orderModel.currentOrder}" id="currentCountry" />
+    <h:dataTable value="#{orderModel.currentOrderLines}" var="orderLine">
+      <h:column>
+        <h:outputText value="#{orderLine}" />
+      </h:column>
+    </h:dataTable>
+    <br />
+    <h:commandButton value="insert" actionListener="#{orderModel.insertTestData()}" />
+    <h:commandButton value="reduce" actionListener="#{orderModel.reduceOrder()}"/>
+    <h:commandButton value="delete" actionListener="#{orderModel.deleteOrder()}" />
+  </h:form>
+  <hr/>
+  Mit diesem Dialog kann ein Order-Objekt mit einigen OrderLine-Objekten erzeugt, verändert
+  und gelöscht werden. "Verändern" bedeutet hier, dass das letzte OrderLine-Objekt aus der
+  Order gestrichen wird.<br/>
+  Beobachten Sie die Inhalte der Order- und insbesondere der OrderLine-Tabelle.<br/>
+  Wäre die Relation Order.orderLines nicht mit orphanRemoval=true parametrisiert, würden
+  beim Verkürzen der Order nicht mehr erreichbare Einträge in der OrderLine-Tabelle
+  verbleiben.
+</h:body>
+</html>

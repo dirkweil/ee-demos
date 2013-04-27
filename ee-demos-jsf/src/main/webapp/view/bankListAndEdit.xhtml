@@ -1,0 +1,67 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <title>Bankenliste mit Bearbeitungsmöglichkeit</title>
+  <link rel="stylesheet" type="text/css" href="../resources/seminar.css" />
+</h:head>
+
+<h:body>
+  <h:form>
+
+    <h:panelGrid columns="5">
+      <h:panelGroup>
+        <h:outputLabel for="blz" value="BLZ: " />
+        <h:inputText id="blz" value="#{bankModel.searchObj.blz}" size="8" />
+      </h:panelGroup>
+      <h:panelGroup>
+        <h:outputLabel for="name" value="Name: " />
+        <h:inputText id="name" value="#{bankModel.searchObj.name}" size="30" />
+      </h:panelGroup>
+      <h:panelGroup>
+        <h:outputLabel for="plz" value="PLZ: " />
+        <h:inputText id="plz" value="#{bankModel.searchObj.plz}" size="5" />
+      </h:panelGroup>
+      <h:panelGroup>
+        <h:outputLabel for="ort" value="Ort: " />
+        <h:inputText id="ort" value="#{bankModel.searchObj.ort}" size="30" />
+      </h:panelGroup>
+      <h:commandButton action="#{bankModel.search}" value="Suche" />
+    </h:panelGrid>
+
+    <br />
+
+    <h:dataTable var="bank" value="#{bankModel.searchResult}" rendered="#{! empty bankModel.searchResult}" styleClass="standardTable" headerClass="standardTable_Header"
+      rowClasses="standardTable_Row1,standardTable_Row2" border="1" rules="all" width="100%">
+
+      <f:facet name="footer">Quelle: Deutsche Bundesbank</f:facet>
+
+      <h:column>
+        <f:facet name="header">BLZ</f:facet>
+        <h:outputText value="#{bank.blz}" />
+      </h:column>
+
+      <h:column>
+        <f:facet name="header">Name</f:facet>
+        <h:outputText value="#{bank.name}" />
+      </h:column>
+
+      <h:column>
+        <f:facet name="header">PLZ</f:facet>
+        <h:outputText value="#{bank.plz}" />
+      </h:column>
+
+      <h:column>
+        <f:facet name="header">Ort</f:facet>
+        <h:outputText value="#{bank.ort}" />
+      </h:column>
+
+      <h:column>
+        <h:commandButton value="bearbeiten" action="#{bankModel.edit(bank)}" />
+      </h:column>
+
+    </h:dataTable>
+
+  </h:form>
+</h:body>
+</html>

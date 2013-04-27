@@ -1,0 +1,2 @@
+Die Anwendung ProVS benötigt Testdaten zur ordnungsgemäßen Funktion. Diese können nach dem Deployment durch Aufruf
+des URLs http://localhost:8080/ee-demos-provs/playground/createTestData.xhtml geladen werden. 

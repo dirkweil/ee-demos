@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+  version="2.0">
+  <persistence-unit name="unittest">
+    <class>de.gedoplan.buch.eedemos.bv.validation.entity.Adresse</class>
+    <class>de.gedoplan.buch.eedemos.bv.validation.entity.Fragebogen</class>
+
+    <validation-mode>AUTO</validation-mode>
+
+    <properties>
+      <property name="javax.persistence.validation.group.pre-persist" value="javax.validation.groups.Default"/>
+      <property name="javax.persistence.validation.group.pre-update" value="javax.validation.groups.Default"/>
+      <property name="javax.persistence.validation.group.pre-remove" value=""/>
+
+      <property name="javax.persistence.jdbc.driver" value="org.h2.Driver" />
+      <property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:testDb;DB_CLOSE_DELAY=-1" />
+
+      <!-- DB-Tabellen automatisch verwalten? Erlaubte Werte: none, create-tables, drop-and-create-tables. -->
+      <property name="eclipselink.ddl-generation" value="create-tables" />
+      <property name="eclipselink.ddl-generation.output-mode" value="database" />
+
+      <!-- DB-Tabellen automatisch verwalten? Erlaubte Werte: validate, create, create-drop, update. -->
+      <property name="hibernate.hbm2ddl.auto" value="update" />
+    </properties>
+  </persistence-unit>
+</persistence>

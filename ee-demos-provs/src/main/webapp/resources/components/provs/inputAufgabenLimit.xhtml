@@ -1,0 +1,75 @@
+<html
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:h="http://java.sun.com/jsf/html"
+  xmlns:f="http://java.sun.com/jsf/core"
+  xmlns:p="http://primefaces.org/ui"
+  xmlns:cc="http://java.sun.com/jsf/composite">
+
+<cc:interface>
+  <cc:attribute
+    name="value"
+    required="true"
+    type="de.gedoplan.buch.eedemos.provs.projekt.entity.Limit" />
+</cc:interface>
+
+<cc:implementation>
+  <h:panelGrid
+    columns="3"
+    rules="none">
+    <h:outputLabel
+      value="Startdatum: "
+      for="start" />
+    <p:inputText
+      value="#{cc.attrs.value.start}"
+      size="20"
+      id="start">
+      <f:convertDateTime type="date" />
+    </p:inputText>
+    <p:message
+      for="start"
+      display="text" />
+
+    <h:outputLabel
+      value="Enddatum: "
+      for="ende" />
+    <p:inputText
+      value="#{cc.attrs.value.ende}"
+      size="20"
+      id="ende">
+      <f:convertDateTime type="date" />
+    </p:inputText>
+    <p:message
+      for="ende"
+      display="text" />
+
+    <h:outputLabel
+      value="Budget (EUR): "
+      for="budget" />
+    <p:inputText
+      value="#{cc.attrs.value.budget}"
+      size="20"
+      id="budget">
+      <f:convertNumber
+        minFractionDigits="2"
+        maxFractionDigits="2"
+        groupingUsed="true" />
+    </p:inputText>
+    <p:message
+      for="budget"
+      display="text" />
+
+    <h:outputLabel
+      value="Zeitlimit (Min): "
+      for="maxMinuten" />
+    <p:inputText
+      value="#{cc.attrs.value.maxMinuten}"
+      size="20"
+      id="maxMinuten" />
+    <p:message
+      for="maxMinuten"
+      display="text" />
+
+  </h:panelGrid>
+</cc:implementation>
+
+</html>

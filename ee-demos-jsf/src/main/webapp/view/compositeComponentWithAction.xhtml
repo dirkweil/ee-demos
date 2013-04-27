@@ -1,0 +1,15 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:ee-demos="http://java.sun.com/jsf/composite/components/ee-demos">
+
+<h:head>
+  <meta http-equiv=" content-type" content="text/html; charset=UTF-8" />
+  <title>Composite Components</title>
+</h:head>
+
+<h:body>
+  <h:form>
+    <ee-demos:okCancel action="#{componentDemoModel.doOk}" cancelAction="#{componentDemoModel.doCancel}">
+      <f:actionListener type="de.gedoplan.buch.eedemos.jsf.listener.DemoActionListener" for="all"/>
+    </ee-demos:okCancel>
+  </h:form>
+</h:body>
+</html>

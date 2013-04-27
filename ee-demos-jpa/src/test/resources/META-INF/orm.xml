@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+	version="2.0">
+  <!-- Beispielhafte Deklaration eines Default Listeners
+  <persistence-unit-metadata>
+    <persistence-unit-defaults>
+      <entity-listeners>
+        <entity-listener class="de.gedoplan.buch.eedemos.entitylistener.DebugListener"></entity-listener>
+      </entity-listeners>
+    </persistence-unit-defaults>
+  </persistence-unit-metadata>
+  -->
+  
+  <!-- Diese Definition kann alternativ zu den Annotationen in Country verwendet werden 
+  <entity class="de.gedoplan.buch.eedemos.entity.Country" access="FIELD">
+    <attributes>
+      <id name="isoCode"></id>
+    </attributes>
+  </entity>
+  -->
+
+</entity-mappings>

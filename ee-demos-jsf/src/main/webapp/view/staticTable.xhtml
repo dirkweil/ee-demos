@@ -1,0 +1,36 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+  <title>Statische Tabelle mit h:panelGrid und h:panelGroup</title>
+</h:head>
+
+<h:body>
+  <f:view>
+    <h:panelGrid columns="2" border="1" rules="all">
+      <f:facet name="header">
+        <h:outputText value="Deutsch -> Englisch" />
+      </f:facet>
+      <f:facet name="footer">panelGrid-Beispiel</f:facet>
+
+      <h:outputText value="Haus" />
+      <h:outputText value="house" />
+
+      <h:outputText value="Katze" />
+      <h:outputText value="cat" />
+
+      <h:outputText value="Mutter" />
+      <h:outputText value="mother" />
+
+      <h:outputText value="Strasse" />
+      street
+
+      <h:outputText value="Schneewittchen" />
+      <h:panelGroup>
+        <h:outputText value="Snow" />
+        <h:outputText value="White" />
+      </h:panelGroup>
+    </h:panelGrid>
+  </f:view>
+</h:body>
+</html>

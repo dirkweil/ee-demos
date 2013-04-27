@@ -1,0 +1,25 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <title>Ausgabe-Tags h:inputXxx</title>
+</h:head>
+
+<h:body>
+  <h:form>
+    <h:panelGrid columns="2">
+      <h:outputLabel value="h:inputText" for="inputText" />
+      <h:inputText value="#{inputXxxModel.someString}" id="inputText" />
+      
+      <h:outputLabel value="h:inputHidden" for="inputHidden" />
+      <h:inputHidden value="#{inputXxxModel.someString}" id="inputHidden" />
+      
+      <h:outputLabel value="h:inputSecret" for="inputSecret" />
+      <h:inputSecret value="#{inputXxxModel.someString}" id="inputSecret" />
+      
+      <h:outputLabel value="h:inputTextarea" for="inputTextarea" />
+      <h:inputTextarea value="#{inputXxxModel.someString}" rows="3" id="inputTextarea" />
+    </h:panelGrid>
+  </h:form>
+</h:body>
+</html>

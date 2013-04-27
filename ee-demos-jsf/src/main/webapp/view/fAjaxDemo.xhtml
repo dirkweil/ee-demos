@@ -1,0 +1,75 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <title>Demo: f:ajax</title>
+</h:head>
+
+<h:body>
+  <h2>Form a</h2>
+  <h:form id="a">
+    <h:panelGrid columns="2">
+      <h:outputLabel value="a1: " for="a1" />
+      <h:outputText value="#{ajaxDemoModel.currentDate}" id="a1"/>
+
+      <h:outputLabel value="a2: " for="a2" />
+      <h:outputText value="#{ajaxDemoModel.currentDate}" id="a2" />
+
+      <h:outputLabel value="a3: " for="a3" />
+      <h:outputText value="#{ajaxDemoModel.currentDate}" id="a3" />
+    </h:panelGrid>
+
+    <h:panelGroup>
+      <h:commandButton value="non-ajax" />
+      <h:commandButton value="@this">
+        <f:ajax render="@this" />
+      </h:commandButton>
+      <h:commandButton value="@form">
+        <f:ajax render="@form" />
+      </h:commandButton>
+      <h:commandButton value="@all">
+        <f:ajax render="@all" />
+      </h:commandButton>
+      <h:commandButton value="a1 a2">
+        <f:ajax render="a1 a2" />
+      </h:commandButton>
+    </h:panelGroup>
+  </h:form>
+
+  <h2>Form b</h2>
+  <h:form id="b">
+    <h:panelGrid columns="2">
+      <h:outputLabel value="b1: " for="b1" />
+      <h:outputText value="#{ajaxDemoModel.currentDate}" id="b1" />
+
+      <h:outputLabel value="b2: " for="b2" />
+      <h:outputText value="#{ajaxDemoModel.currentDate}" id="b2" />
+
+      <h:outputLabel value="b3: " for="b3" />
+      <h:inputText value="#{ajaxDemoModel.counter}" id="b3" />
+    </h:panelGrid>
+
+    <h:panelGroup>
+      <h:commandButton value="b1">
+        <f:ajax render="b1" />
+      </h:commandButton>
+      <h:commandButton value="b1 :a:a1">
+        <f:ajax render="b1 :a:a1" />
+      </h:commandButton>
+      <h:commandButton value="b3 (execute+render)">
+        <f:ajax execute="b3" render="b3" />
+      </h:commandButton>
+    </h:panelGroup>
+  </h:form>
+
+  <p/>
+  Bemerkungen:
+  <ul>
+    <li>Der Button "non-ajax" ist ohne &lt;f:ajax&gt; konfiguriert</li>
+    <li>Alle anderen Buttons haben das Subelement &lt;f:ajax render=&quot;<i>Aufschrift</i>&quot;&gt;
+    </li>
+    <li>Der Button "b3" hat im Subelement zusätzlich das Attribut execute=&quot;b3&quot;
+    </li>
+  </ul>
+</h:body>
+</html>

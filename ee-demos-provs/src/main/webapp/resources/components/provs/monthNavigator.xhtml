@@ -1,0 +1,48 @@
+<html
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:f="http://java.sun.com/jsf/core"
+  xmlns:h="http://java.sun.com/jsf/html"
+  xmlns:prime="http://primefaces.org/ui"
+  xmlns:cc="http://java.sun.com/jsf/composite">
+
+<cc:interface componentType="de.gedoplan.MonthNavigator">
+  <cc:attribute
+    name="value"
+    type="java.util.Date" />
+</cc:interface>
+
+<cc:implementation>
+  <h:panelGrid
+    columns="4"
+    rowClasses="middleAlign">
+    <prime:commandButton
+      id="prev"
+      icon="ui-icon-circle-triangle-w"
+      title="voriger Monat"
+      actionListener="#{cc.decMonth}"
+      ajax="true"
+      update="month year">
+    </prime:commandButton>
+    <prime:selectOneMenu
+      id="month"
+      binding="#{cc.currentMonthField}"
+      immediate="true">
+      <f:selectItems value="#{cc.monthSelectList}" />
+    </prime:selectOneMenu>
+    <prime:inputText
+      id="year"
+      size="4"
+      binding="#{cc.currentYearField}"
+      immediate="true" />
+    <prime:commandButton
+      id="next"
+      icon="ui-icon-circle-triangle-e"
+      title="nächster Monat"
+      actionListener="#{cc.incMonth}"
+      ajax="true"
+      update="month year">
+    </prime:commandButton>
+  </h:panelGrid>
+</cc:implementation>
+
+</html>

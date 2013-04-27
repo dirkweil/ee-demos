@@ -1,0 +1,30 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <title>Bankenliste mit Bearbeitungsmöglichkeit</title>
+</h:head>
+<h:body>
+  <h:form>
+    <h:panelGrid columns="2">
+      <h:outputLabel for="blz" value="BLZ:" />
+      <h:inputText id="blz" value="#{bankModel.editObj.blz}" />
+
+      <h:outputLabel for="name" value="Name:" />
+      <h:inputText id="name" value="#{bankModel.editObj.name}" />
+
+      <h:outputLabel for="plz" value="PLZ:" />
+      <h:inputText id="plz" value="#{bankModel.editObj.plz}" />
+
+      <h:outputLabel for="ort" value="Ort:" />
+      <h:inputText id="ort" value="#{bankModel.editObj.ort}" />
+    </h:panelGrid>
+    <br />
+    <h:panelGrid columns="2">
+      <h:commandButton value="speichern" action="#{bankModel.save}" />
+      <h:commandButton value="abbrechen" action="home" />
+    </h:panelGrid>
+  </h:form>
+
+  </h:body>
+</html>

@@ -1,0 +1,51 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
+
+<!-- 
+<f:view locale="#{i18nDemoModel.locale}">
+ -->
+<f:view>
+  <h:head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <title>Internationalisierung</title>
+  </h:head>
+
+  <h:body>
+    <h4>Browser- und View-Locale</h4>
+    <h:panelGrid columns="2" border="1" rules="all">
+      <h:outputLabel for="langHeader" value="Accept-Language: " />
+      <h:outputText id="langHeader" value="#{header['Accept-Language']}" />
+
+      <h:outputLabel for="viewLocale" value="View-Locale: " />
+      <h:outputText id="viewLocale" value="#{view.locale}" />
+    </h:panelGrid>
+
+    <h4>Lokalisierte Ausgaben</h4>
+    <h:panelGrid columns="2" border="1" rules="all">
+      <h:outputLabel for="curDate" value="#{messages.curDate}" />
+      <h:outputText id="curDate" value="#{i18nDemoModel.currentDate}">
+        <f:convertDateTime type="both" />
+      </h:outputText>
+
+      <h:outputLabel for="someDecimal" value="#{messages.someDecimal}" />
+      <h:outputText id="someDecimal" value="#{i18nDemoModel.someDecimalValue}">
+        <f:convertNumber />
+      </h:outputText>
+
+      <h:outputLabel for="someMessage" value="#{messages.someMessage}" />
+      <h:outputFormat id="someMessage" value="#{messages.maxSizeExceeded}">
+        <f:param value="#{i18nDemoModel.maxSize}"/>
+        <f:param value="#{i18nDemoModel.curSize}"/>
+      </h:outputFormat>
+
+      <h:outputLabel for="flag" value="#{messages.flag}" />
+      <h:graphicImage library="images" name="flagge.gif" height="50"/>
+    </h:panelGrid>
+
+    <h4>Direkter Zugriff auf Message Bundle</h4>
+    <h:panelGrid columns="2" border="1" rules="all">
+      <h:outputLabel for="bundleText" value="messages.someMessage: " />
+      <h:outputText id="bundleText" value="#{i18nDemoModel.getMessageFromBundle('messages', 'someMessage')}" />
+    </h:panelGrid>
+  </h:body>
+</f:view>
+</html>

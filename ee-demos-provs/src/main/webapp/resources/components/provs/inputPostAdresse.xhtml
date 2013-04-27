@@ -1,0 +1,32 @@
+<html
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:h="http://java.sun.com/jsf/html"
+  xmlns:f="http://java.sun.com/jsf/core"
+  xmlns:cc="http://java.sun.com/jsf/composite"
+  xmlns:provs="http://java.sun.com/jsf/composite/components/provs">
+
+<cc:interface>
+  <cc:attribute
+    name="value"
+    required="true"
+    type="de.gedoplan.buch.eedemos.provs.firma.entity.PostAdresse" />
+</cc:interface>
+
+<cc:implementation>
+  <h:panelGrid
+    columns="1"
+    rules="none">
+    <h:selectOneRadio value="#{cc.attrs.value.typ}">
+      <f:selectItems value="#{enumHelper.postAdressTypValues}" />
+      <f:ajax render="adresse" />
+    </h:selectOneRadio>
+
+    <h:panelGroup id="adresse">
+      <provs:inputAdresse rendered="#{cc.attrs.value.typ ne 'WIE_BESUCHSADRESSE'}"
+        value="#{cc.attrs.value}"
+        postfach="#{cc.attrs.value.typ eq 'POSTFACH'}" />
+    </h:panelGroup>
+  </h:panelGrid>
+</cc:implementation>
+
+</html>

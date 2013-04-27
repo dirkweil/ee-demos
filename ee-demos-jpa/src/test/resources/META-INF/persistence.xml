@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+  version="2.0">
+  <persistence-unit name="eclipselink">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+
+    <class>de.gedoplan.buch.eedemos.jpa.entity.Application</class>
+    <class>de.gedoplan.buch.eedemos.jpa.entity.Car</class>
+    <class>de.gedoplan.buch.eedemos.jpa.entity.City</class>
+    <class>de.gedoplan.buch.eedemos.jpa.entity.Cocktail</class>
+    <class>de.gedoplan.buch.eedemos.jpa.entity.CocktailZutat</class>
+    <class>de.gedoplan.buch.eedemos.jpa.entity.Country</class>
+    <class>de.gedoplan.buch.eedemos.jpa.entity.Book</class>
+    <class>de.gedoplan.buch.eedemos.jpa.entity.Department</class>
+    <class>de.gedoplan.buch.eedemos.jpa.entity.Employee</class>
+    <class>de.gedoplan.buch.eedemos.jpa.entity.Order</class>
+    <class>de.gedoplan.buch.eedemos.jpa.entity.OrderLine</class>
+    <class>de.gedoplan.buch.eedemos.jpa.entity.Project_CompositeId</class>
+    <class>de.gedoplan.buch.eedemos.jpa.entity.Project_EmbeddedId</class>
+    <class>de.gedoplan.buch.eedemos.jpa.entity.Publisher</class>
+    <class>de.gedoplan.buch.eedemos.jpa.entity.Ship</class>
+    <class>de.gedoplan.buch.eedemos.jpa.entity.SuperMarket_CompositeId</class>
+    <class>de.gedoplan.buch.eedemos.jpa.entity.SuperMarket_EmbeddedId</class>
+    <class>de.gedoplan.buch.eedemos.jpa.entity.User</class>
+    <class>de.gedoplan.buch.eedemos.jpa.entity.Vehicle</class>
+
+    <shared-cache-mode>ENABLE_SELECTIVE</shared-cache-mode>
+
+    <properties>
+      <property name="javax.persistence.jdbc.driver" value="org.h2.Driver" />
+      <property name="javax.persistence.jdbc.url" value="jdbc:h2:~/h2/ee-demos;AUTO_SERVER=TRUE;DB_CLOSE_ON_EXIT=FALSE" />
+      <property name="javax.persistence.jdbc.user" value="sa" />
+      <property name="javax.persistence.jdbc.password" value="" />
+
+      <!-- Auswahl des DB-Dialektes -->
+      <property name="eclipselink.target-database" value="Auto" />
+      <property name="eclipselink.jdbc.native-sql" value="true" />
+
+      <!-- DB-Tabellen automatisch verwalten? Erlaubte Werte: none, create-tables, drop-and-create-tables. -->
+      <property name="eclipselink.ddl-generation" value="create-tables" />
+      <property name="eclipselink.ddl-generation.output-mode" value="database" />
+
+      <!-- Logging level (FINE logs SQL commands) -->
+      <property name="eclipselink.logging.level" value="OFF" />
+    </properties>
+  </persistence-unit>
+
+  <persistence-unit name="hibernate">
+    <provider>org.hibernate.ejb.HibernatePersistence</provider>
+
+    <class>de.gedoplan.buch.eedemos.jpa.entity.Application</class>
+    <class>de.gedoplan.buch.eedemos.jpa.entity.Car</class>
+    <class>de.gedoplan.buch.eedemos.jpa.entity.City</class>
+    <class>de.gedoplan.buch.eedemos.jpa.entity.Cocktail</class>
+    <class>de.gedoplan.buch.eedemos.jpa.entity.CocktailZutat</class>
+    <class>de.gedoplan.buch.eedemos.jpa.entity.Country</class>
+    <class>de.gedoplan.buch.eedemos.jpa.entity.Book</class>
+    <class>de.gedoplan.buch.eedemos.jpa.entity.Department</class>
+    <class>de.gedoplan.buch.eedemos.jpa.entity.Employee</class>
+    <class>de.gedoplan.buch.eedemos.jpa.entity.Order</class>
+    <class>de.gedoplan.buch.eedemos.jpa.entity.OrderLine</class>
+    <class>de.gedoplan.buch.eedemos.jpa.entity.Project_CompositeId</class>
+    <class>de.gedoplan.buch.eedemos.jpa.entity.Project_EmbeddedId</class>
+    <class>de.gedoplan.buch.eedemos.jpa.entity.Publisher</class>
+    <class>de.gedoplan.buch.eedemos.jpa.entity.Ship</class>
+    <class>de.gedoplan.buch.eedemos.jpa.entity.SuperMarket_CompositeId</class>
+    <class>de.gedoplan.buch.eedemos.jpa.entity.SuperMarket_EmbeddedId</class>
+    <class>de.gedoplan.buch.eedemos.jpa.entity.User</class>
+    <class>de.gedoplan.buch.eedemos.jpa.entity.Vehicle</class>
+
+<!-- 
+    <shared-cache-mode>ENABLE_SELECTIVE</shared-cache-mode>
+ -->
+
+    <properties>
+      <property name="javax.persistence.jdbc.driver" value="org.h2.Driver" />
+      <property name="javax.persistence.jdbc.url" value="jdbc:h2:~/h2/ee-demos;AUTO_SERVER=TRUE;DB_CLOSE_ON_EXIT=FALSE" />
+      <property name="javax.persistence.jdbc.user" value="sa" />
+      <property name="javax.persistence.jdbc.password" value="" />
+
+      <!-- Auswahl des DB-Dialektes -->
+      <!-- <property name="hibernate.dialect" value="org.hibernate.dialect.DerbyDialect" /> -->
+
+      <!-- DB-Tabellen automatisch verwalten? Erlaubte Werte: validate, create, create-drop, update. -->
+      <property name="hibernate.hbm2ddl.auto" value="update" />
+
+      <!-- Caches aktivieren
+      <property name="hibernate.cache.use_second_level_cache" value="true" />
+      <property name="hibernate.cache.use_query_cache" value="true" />
+      <property name="hibernate.cache.region.factory_class" value="org.hibernate.cache.infinispan.InfinispanRegionFactory" />
+      -->
+    </properties>
+  </persistence-unit>
+
+  <persistence-unit name="openjpa">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+
+    <class>de.gedoplan.buch.eedemos.jpa.entity.Address</class>
+    <class>de.gedoplan.buch.eedemos.jpa.entity.Car</class>
+    <class>de.gedoplan.buch.eedemos.jpa.entity.City</class>
+    <class>de.gedoplan.buch.eedemos.jpa.entity.Cocktail</class>
+    <class>de.gedoplan.buch.eedemos.jpa.entity.CocktailZutat</class>
+    <class>de.gedoplan.buch.eedemos.jpa.entity.Country</class>
+    <class>de.gedoplan.buch.eedemos.jpa.entity.Book</class>
+    <class>de.gedoplan.buch.eedemos.jpa.entity.Department</class>
+    <class>de.gedoplan.buch.eedemos.jpa.entity.Employee</class>
+    <class>de.gedoplan.buch.eedemos.jpa.entity.Order</class>
+    <class>de.gedoplan.buch.eedemos.jpa.entity.OrderLine</class>
+    <class>de.gedoplan.buch.eedemos.jpa.entity.Project_CompositeId</class>
+    <class>de.gedoplan.buch.eedemos.jpa.entity.Project_EmbeddedId</class>
+    <class>de.gedoplan.buch.eedemos.jpa.entity.Publisher</class>
+    <class>de.gedoplan.buch.eedemos.jpa.entity.Ship</class>
+    <class>de.gedoplan.buch.eedemos.jpa.entity.SuperMarket_CompositeId</class>
+    <class>de.gedoplan.buch.eedemos.jpa.entity.SuperMarket_EmbeddedId</class>
+    <class>de.gedoplan.buch.eedemos.jpa.entity.UuidEntity</class>
+    <class>de.gedoplan.buch.eedemos.jpa.entity.Vehicle</class>
+
+    <shared-cache-mode>ENABLE_SELECTIVE</shared-cache-mode>
+
+    <properties>
+      <property name="javax.persistence.jdbc.driver" value="org.h2.Driver" />
+      <property name="javax.persistence.jdbc.url" value="jdbc:h2:~/h2/ee-demos;AUTO_SERVER=TRUE;DB_CLOSE_ON_EXIT=FALSE" />
+      <property name="javax.persistence.jdbc.user" value="sa" />
+      <property name="javax.persistence.jdbc.password" value="" />
+
+      <!-- Logging -->
+      <property name="openjpa.Log" value="log4j" />
+      <property name="openjpa.Log" value="DefaultLevel=ERROR" />
+
+      <!-- Tabellen automatisch anlegen/anpassen? -->
+      <property name="openjpa.jdbc.SynchronizeMappings" value="buildSchema" />
+
+      <property name="openjpa.DataCache" value="true" />
+      <property name="openjpa.RemoteCommitProvider" value="sjvm" />
+    </properties>
+  </persistence-unit>
+</persistence>

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config version="2.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd">
+  <navigation-rule>
+    <description>Globale Navigation</description>
+    <from-view-id>*</from-view-id>
+    <navigation-case>
+      <from-outcome>loggedOut</from-outcome>
+      <to-view-id>/view/zeitErfassung/zeitAuswahl.xhtml</to-view-id>
+      <redirect />
+    </navigation-case>
+    <navigation-case>
+      <from-outcome>zeitErfassung</from-outcome>
+      <to-view-id>/view/zeitErfassung/zeitAuswahl.xhtml</to-view-id>
+      <redirect />
+    </navigation-case>
+    <navigation-case>
+      <from-outcome>personenVerwaltung</from-outcome>
+      <to-view-id>/view/personenVerwaltung/personenAuswahl.xhtml</to-view-id>
+      <redirect />
+    </navigation-case>
+    <navigation-case>
+      <from-outcome>firmenVerwaltung</from-outcome>
+      <to-view-id>/view/firmenVerwaltung/firmenAuswahl.xhtml</to-view-id>
+      <redirect />
+    </navigation-case>
+    <navigation-case>
+      <from-outcome>projektVerwaltung</from-outcome>
+      <to-view-id>/view/projektVerwaltung/projektAuswahl.xhtml</to-view-id>
+      <redirect />
+    </navigation-case>
+  </navigation-rule>
+
+  <navigation-rule>
+    <description>Navigation in Personenverwaltung</description>
+    <from-view-id>/view/personenVerwaltung/*</from-view-id>
+    <navigation-case>
+      <from-outcome>editPerson</from-outcome>
+      <to-view-id>/view/personenVerwaltung/personEingabe.xhtml</to-view-id>
+    </navigation-case>
+    <navigation-case>
+      <from-outcome>deletePerson</from-outcome>
+      <to-view-id>/view/personenVerwaltung/personLoeschen.xhtml</to-view-id>
+    </navigation-case>
+    <navigation-case>
+      <from-outcome>saved</from-outcome>
+      <to-view-id>/view/personenVerwaltung/personenAuswahl.xhtml</to-view-id>
+      <redirect />
+    </navigation-case>
+    <navigation-case>
+      <from-outcome>cancelled</from-outcome>
+      <to-view-id>/view/personenVerwaltung/personenAuswahl.xhtml</to-view-id>
+      <redirect />
+    </navigation-case>
+  </navigation-rule>
+
+  <navigation-rule>
+    <description>Navigation in FirmenVerwaltung</description>
+    <from-view-id>/view/firmenVerwaltung/*</from-view-id>
+    <navigation-case>
+      <from-outcome>editFirma</from-outcome>
+      <to-view-id>/view/firmenVerwaltung/firmaEingabe.xhtml</to-view-id>
+    </navigation-case>
+    <navigation-case>
+      <from-outcome>deleteFirma</from-outcome>
+      <to-view-id>/view/firmenVerwaltung/firmaLoeschen.xhtml</to-view-id>
+    </navigation-case>
+    <navigation-case>
+      <from-outcome>saved</from-outcome>
+      <to-view-id>/view/firmenVerwaltung/firmenAuswahl.xhtml</to-view-id>
+      <redirect />
+    </navigation-case>
+    <navigation-case>
+      <from-outcome>cancelled</from-outcome>
+      <to-view-id>/view/firmenVerwaltung/firmenAuswahl.xhtml</to-view-id>
+      <redirect />
+    </navigation-case>
+  </navigation-rule>
+
+  <navigation-rule>
+    <description>Navigation in ProjektVerwaltung</description>
+    <from-view-id>/view/projektVerwaltung/*</from-view-id>
+    <navigation-case>
+      <from-outcome>editProjekt</from-outcome>
+      <to-view-id>/view/projektVerwaltung/projektEingabe.xhtml</to-view-id>
+    </navigation-case>
+    <navigation-case>
+      <from-outcome>deleteProjekt</from-outcome>
+      <to-view-id>/view/projektVerwaltung/projektLoeschen.xhtml</to-view-id>
+    </navigation-case>
+    <navigation-case>
+      <from-outcome>saved</from-outcome>
+      <to-view-id>/view/projektVerwaltung/projektAuswahl.xhtml</to-view-id>
+      <redirect />
+    </navigation-case>
+    <navigation-case>
+      <from-outcome>cancelled</from-outcome>
+      <to-view-id>/view/projektVerwaltung/projektAuswahl.xhtml</to-view-id>
+      <redirect />
+    </navigation-case>
+  </navigation-rule>
+
+  <navigation-rule>
+    <description>Navigation innerhalb der Zeiterfassung</description>
+    <from-view-id>/view/zeitErfassung/*</from-view-id>
+    <navigation-case>
+      <from-outcome>editZeiten</from-outcome>
+      <to-view-id>/view/zeitErfassung/zeitEingabe.xhtml</to-view-id>
+    </navigation-case>
+    <navigation-case>
+      <from-outcome>saved</from-outcome>
+      <to-view-id>/view/zeitErfassung/zeitAuswahl.xhtml</to-view-id>
+      <redirect />
+    </navigation-case>
+    <navigation-case>
+      <from-outcome>cancelled</from-outcome>
+      <to-view-id>/view/zeitErfassung/zeitAuswahl.xhtml</to-view-id>
+      <redirect />
+    </navigation-case>
+  </navigation-rule>
+
+  <application>
+    <locale-config>
+      <default-locale>de</default-locale>
+      <supported-locale>de</supported-locale>
+      <supported-locale>en</supported-locale>
+    </locale-config>
+  </application>
+</faces-config>

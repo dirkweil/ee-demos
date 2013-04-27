@@ -1,0 +1,29 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+  <title>Ausgabe-Tags h:outputXxx</title>
+</h:head>
+
+<h:body>
+  <h:outputText value="Einfacher Text" />
+
+  <hr />
+
+  <h:outputFormat value="Sehr geehrte{0} {1}" rendered="false">
+    <f:param value=" Frau" />
+    <f:param value="Mustermann" />
+  </h:outputFormat>
+
+  <hr />
+
+  <h:outputLabel for="farbe" value="Farbe:" />
+  <h:outputText id="farbe" value="rot" />
+
+  <hr />
+
+  <h:outputLink value="http://www.gedoplan.de">
+    <h:graphicImage url="/resources/logos/gedoplan-logo.gif" />
+  </h:outputLink>
+</h:body>
+</html>
