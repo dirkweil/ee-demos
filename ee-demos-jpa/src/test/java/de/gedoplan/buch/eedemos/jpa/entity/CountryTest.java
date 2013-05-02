@@ -81,7 +81,7 @@ public class CountryTest extends TestBase
     {
       Country testCountry = testCountries[i];
       Country country = countries.get(i);
-      ReflectionAssert.assertReflectionEquals("??", testCountry, country);
+      ReflectionAssert.assertReflectionEquals("Country", testCountry, country);
     }
   }
 
