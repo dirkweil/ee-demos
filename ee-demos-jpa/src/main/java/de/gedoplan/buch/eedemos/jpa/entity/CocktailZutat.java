@@ -4,17 +4,21 @@ import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
 @Access(AccessType.FIELD)
+@Table(name = CocktailZutat.TABLE_NAME)
 public class CocktailZutat
 {
+  public static final String TABLE_NAME = "EEDEMOS_COCKTAILZUTAT";
+
   @Id
-  private String id;
+  private String             id;
 
-  private String  name;
+  private String             name;
 
-  private double  volProz;
+  private double             volProz;
 
   public CocktailZutat(String id, String name, double volProz)
   {

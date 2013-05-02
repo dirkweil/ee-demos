@@ -6,21 +6,25 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
 @Access(AccessType.FIELD)
+@Table(name = Book.TABLE_NAME)
 public class Book
 {
+  public static final String TABLE_NAME = "EEDEMOS_BOOK";
+
   @Id
   @GeneratedValue
-  private Integer   id;
-  private String    name;
-  private String    isbn;
-  private int       pages;
+  private Integer            id;
+  private String             name;
+  private String             isbn;
+  private int                pages;
 
   @ManyToOne
   // @JoinTable(name = "BOOK_PUBLISHER", joinColumns = { @JoinColumn(name = "book_id") })
-  private Publisher publisher;
+  private Publisher          publisher;
 
   protected Book()
   {

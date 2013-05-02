@@ -11,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.Table;
 
 @Entity
 // @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
@@ -19,12 +20,15 @@ import javax.persistence.InheritanceType;
 @Inheritance(strategy = InheritanceType.JOINED)
 @DiscriminatorValue("1234")
 @Access(AccessType.FIELD)
+@Table(name = Vehicle.TABLE_NAME)
 public abstract class Vehicle
 {
+  public static final String TABLE_NAME = "EEDEMOS_VEHICLE";
+
   @Id
   @GeneratedValue(strategy = GenerationType.TABLE)
-  private Integer id;
-  private String  name;
+  private Integer            id;
+  private String             name;
 
   protected Vehicle()
   {

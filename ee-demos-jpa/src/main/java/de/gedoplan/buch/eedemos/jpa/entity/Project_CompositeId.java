@@ -6,22 +6,26 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
 @Access(AccessType.FIELD)
 @IdClass(ProjectId.class)
+@Table(name = Project_CompositeId.TABLE_NAME)
 public class Project_CompositeId
 {
+  public static final String TABLE_NAME = "EEDEMOS_PROJECT";
+
   @Id
   @ManyToOne
-  private Department department;
+  private Department         department;
 
   @Id
-  private String     prjId;
+  private String             prjId;
 
-  private String     name;
+  private String             name;
 
-  private double     budget;
+  private double             budget;
 
   public Project_CompositeId(Department department, String prjId, String name, double budget)
   {

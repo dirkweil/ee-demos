@@ -3,12 +3,16 @@ package de.gedoplan.buch.eedemos.jpa.entity;
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
+import javax.persistence.Table;
 
 @Entity
 @Access(AccessType.FIELD)
+@Table(name = Department.TABLE_NAME)
 public class Department extends UuidEntity
 {
-  private String name;
+  public static final String TABLE_NAME = "EEDEMOS_DEPARTMENT";
+
+  private String             name;
 
   public Department(String name)
   {

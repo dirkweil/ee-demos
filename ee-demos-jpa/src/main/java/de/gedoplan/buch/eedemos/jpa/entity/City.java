@@ -23,7 +23,7 @@ public class City
 
   @Id
   @GeneratedValue(strategy = GenerationType.TABLE, generator = "cityGenerator")
-  @TableGenerator(name = "cityGenerator", table = "CITY_GEN", pkColumnName = "GENERATOR", valueColumnName = "NEXT_ID", initialValue = 200000)
+  @TableGenerator(name = "cityGenerator", table = "EEDEMOS_CITY_GEN", pkColumnName = "GENERATOR", valueColumnName = "NEXT_ID", initialValue = 200000)
   private Integer            id;
   private String             name;
 

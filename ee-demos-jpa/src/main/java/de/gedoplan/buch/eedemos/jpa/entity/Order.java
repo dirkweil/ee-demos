@@ -17,20 +17,21 @@ import javax.persistence.OrderColumn;
 import javax.persistence.Table;
 
 @Entity
-// Achtung: ORDER ist ein reserviertes Wort in SQL
-@Table(name = "ORDERS")
 @Access(AccessType.FIELD)
+@Table(name = Order.TABLE_NAME)
 public class Order
 {
+  public static final String TABLE_NAME = "EEDEMOS_ORDER";
+
   @Id
   @GeneratedValue
-  private Integer         id;
+  private Integer            id;
 
   @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
   @JoinColumn(name = "ORDER_ID")
   // @OrderBy("name DESC")
   @OrderColumn(name = "ORDERLINES_ORDER")
-  private List<OrderLine> orderLines = new ArrayList<OrderLine>();
+  private List<OrderLine>    orderLines = new ArrayList<OrderLine>();
 
   public Order()
   {

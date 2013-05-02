@@ -16,11 +16,11 @@ import javax.persistence.Table;
 
 @Entity
 @Access(AccessType.FIELD)
-@Table(name = Country.TABLE_NAME)
 @SecondaryTables({ @SecondaryTable(name = Country.TABLE_2_NAME), @SecondaryTable(name = Country.TABLE_3_NAME, pkJoinColumns = @PrimaryKeyJoinColumn(name = "IC")) })
 @NamedQuery(name = "Country_findByPhonePrefix", query = "select c from Country c where c.phonePrefix=:phonePrefix")
 // @EntityListeners(DebugListener.class)
 @Cacheable(true)
+@Table(name = Country.TABLE_NAME)
 public class Country
 {
   public static final String TABLE_NAME   = "EEDEMOS_COUNTRY";

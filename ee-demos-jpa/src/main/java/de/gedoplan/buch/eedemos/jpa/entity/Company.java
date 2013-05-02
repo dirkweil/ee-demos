@@ -1,23 +1,26 @@
 package de.gedoplan.buch.eedemos.jpa.entity;
 
-
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 @Entity
 @Access(AccessType.FIELD)
+@Table(name = Company.TABLE_NAME)
 public class Company
 {
+  public static final String TABLE_NAME = "EEDEMOS_COMPANY";
+
   @Id
-  private Integer      id;
-  private String       name;
+  private Integer            id;
+  private String             name;
 
   @OneToOne
   // @PrimaryKeyJoinColumn
-  private CommRegEntry commRegEntry;
+  private CommRegEntry       commRegEntry;
 
   public String getName()
   {

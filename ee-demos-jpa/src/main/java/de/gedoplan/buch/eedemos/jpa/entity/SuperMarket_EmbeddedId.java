@@ -4,15 +4,19 @@ import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.Table;
 
 @Entity
 @Access(AccessType.FIELD)
+@Table(name = SuperMarket_EmbeddedId.TABLE_NAME)
 public class SuperMarket_EmbeddedId
 {
-  @EmbeddedId
-  private BranchId id;
+  public static final String TABLE_NAME = "EEDEMOS_SUPERMARKET";
 
-  private String   name;
+  @EmbeddedId
+  private BranchId           id;
+
+  private String             name;
 
   protected SuperMarket_EmbeddedId()
   {

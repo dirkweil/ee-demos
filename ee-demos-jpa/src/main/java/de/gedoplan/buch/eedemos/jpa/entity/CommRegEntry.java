@@ -4,15 +4,19 @@ import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
 @Access(AccessType.FIELD)
+@Table(name = CommRegEntry.TABLE_NAME)
 public class CommRegEntry
 {
-  @Id
-  private Integer id;
+  public static final String TABLE_NAME = "EEDEMOS_COMMREGENTRY";
 
-  private String  legalForm;
+  @Id
+  private Integer            id;
+
+  private String             legalForm;
 
   public Integer getId()
   {

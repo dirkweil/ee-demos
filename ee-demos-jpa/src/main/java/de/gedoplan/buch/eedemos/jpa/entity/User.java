@@ -7,21 +7,26 @@ import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
 @Access(AccessType.FIELD)
 // USER ist für viele DB ein reserviertes Wort
-@Table(name = "USERS")
+@Table(name = User.TABLE_NAME)
 public class User
 {
+  public static final String TABLE_NAME                    = "EEDEMOS_USER";
+  public static final String USABLEAPPLICATIONS_TABLE_NAME = "EEDEMOS_USER_APPLICATION";
+
   @Id
-  private String            id;
-  private String            name;
+  private String             id;
+  private String             name;
 
   @ManyToMany
-  private List<Application> usableApplications;
+  @JoinTable(name = USABLEAPPLICATIONS_TABLE_NAME)
+  private List<Application>  usableApplications;
 
   public User(String id, String name)
   {

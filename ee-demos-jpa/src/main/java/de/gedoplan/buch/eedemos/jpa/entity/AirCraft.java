@@ -5,17 +5,21 @@ import javax.persistence.AccessType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
 @Access(AccessType.FIELD)
+@Table(name = AirCraft.TABLE_NAME)
 public class AirCraft
 {
+  public static final String TABLE_NAME = "EEDEMOS_AIRCRAFT";
+
   @Id
   @GeneratedValue
-  private Integer id;
-  private String  maker;
-  private String  type;
-  private String  serialNo;
+  private Integer            id;
+  private String             maker;
+  private String             type;
+  private String             serialNo;
 
   public String getMaker()
   {

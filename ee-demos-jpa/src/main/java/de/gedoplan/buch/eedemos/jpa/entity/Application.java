@@ -9,18 +9,22 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 
 @Entity
 @Access(AccessType.FIELD)
+@Table(name = Application.TABLE_NAME)
 public class Application
 {
+  public static final String TABLE_NAME = "EEDEMOS_APPLICATION";
+
   @Id
   @GeneratedValue
-  private Integer    id;
-  private String     name;
+  private Integer            id;
+  private String             name;
 
   @ManyToMany(mappedBy = "usableApplications")
-  private List<User> authorizedUsers;
+  private List<User>         authorizedUsers;
 
   public Application(String name)
   {

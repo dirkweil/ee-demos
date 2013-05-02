@@ -4,13 +4,17 @@ import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.Table;
 
 @Entity
 @DiscriminatorValue(value = "34567")
 @Access(AccessType.FIELD)
+@Table(name = Ship.TABLE_NAME)
 public class Ship extends Vehicle
 {
-  private double tonnage;
+  public static final String TABLE_NAME = "EEDEMOS_SHIP";
+
+  private double             tonnage;
 
   protected Ship()
   {

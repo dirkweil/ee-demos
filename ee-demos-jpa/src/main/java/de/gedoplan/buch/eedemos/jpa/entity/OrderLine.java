@@ -6,17 +6,21 @@ import javax.persistence.Cacheable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
 @Cacheable(true)
 @Access(AccessType.FIELD)
+@Table(name = OrderLine.TABLE_NAME)
 public class OrderLine
 {
+  public static final String TABLE_NAME = "EEDEMOS_ORDERLINE";
+
   @Id
   @GeneratedValue
-  private Integer id;
-  private String  name;
-  private int     count;
+  private Integer            id;
+  private String             name;
+  private int                count;
 
   protected OrderLine()
   {

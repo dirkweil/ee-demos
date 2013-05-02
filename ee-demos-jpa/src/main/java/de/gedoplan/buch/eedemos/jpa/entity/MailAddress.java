@@ -5,16 +5,20 @@ import javax.persistence.AccessType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
 @Access(AccessType.FIELD)
+@Table(name = MailAddress.TABLE_NAME)
 public class MailAddress
 {
+  public static final String TABLE_NAME = "EEDEMOS_MAILADDRESS";
+
   @Id
   @GeneratedValue
-  private Integer id;
-  private String  userId;
-  private String  domain;
+  private Integer            id;
+  private String             userId;
+  private String             domain;
 
   public String getUserId()
   {

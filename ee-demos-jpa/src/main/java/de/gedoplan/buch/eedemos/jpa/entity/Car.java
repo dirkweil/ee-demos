@@ -4,13 +4,17 @@ import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.Table;
 
 @Entity
 @DiscriminatorValue(value = "2345")
 @Access(AccessType.FIELD)
+@Table(name = Car.TABLE_NAME)
 public class Car extends Vehicle
 {
-  private int noOfDoors;
+  public static final String TABLE_NAME = "EEDEMOS_CAR";
+
+  private int                noOfDoors;
 
   protected Car()
   {

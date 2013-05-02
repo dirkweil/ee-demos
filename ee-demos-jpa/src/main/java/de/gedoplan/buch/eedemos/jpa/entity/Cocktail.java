@@ -8,22 +8,32 @@ import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
 @Access(AccessType.FIELD)
+@Table(name = Cocktail.TABLE_NAME)
 public class Cocktail implements Comparable<Cocktail>
 {
+  public static final String TABLE_NAME            = "EEDEMOS_COCKTAIL";
+  public static final String ZUTATEN_TABLE_NAME    = "EEDEMOS_COCKTAIL_COCKTAILZUTAT";
+  public static final String BASISZUTAT_TABLE_NAME = "EEDEMOS_COCKTAIL_BASISZUTAT";
+
   @Id
   private String             id;
 
   private String             name;
 
   @ManyToMany
-  private Set<CocktailZutat> zutaten = new HashSet<CocktailZutat>();
+  @JoinTable(name = ZUTATEN_TABLE_NAME)
+  private Set<CocktailZutat> zutaten               = new HashSet<CocktailZutat>();
 
   @ManyToOne
+  @JoinTable(name = BASISZUTAT_TABLE_NAME, joinColumns = @JoinColumn(name = "COCKTAIL_ID"), inverseJoinColumns = @JoinColumn(name = "ZUTAT_ID"))
   private CocktailZutat      basisZutat;
 
   public Cocktail(String id, String name)

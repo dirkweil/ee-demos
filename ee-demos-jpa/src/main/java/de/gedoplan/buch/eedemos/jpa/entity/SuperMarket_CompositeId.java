@@ -5,19 +5,23 @@ import javax.persistence.AccessType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
+import javax.persistence.Table;
 
 @Entity
 @Access(AccessType.FIELD)
 @IdClass(BranchId.class)
+@Table(name = SuperMarket_CompositeId.TABLE_NAME)
 public class SuperMarket_CompositeId
 {
-  @Id
-  private int    companyId;
+  public static final String TABLE_NAME = "EEDEMOS_SUPERMARKET";
 
   @Id
-  private int    branchNo;
+  private int                companyId;
 
-  private String name;
+  @Id
+  private int                branchNo;
+
+  private String             name;
 
   protected SuperMarket_CompositeId()
   {

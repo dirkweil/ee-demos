@@ -11,19 +11,23 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 @Entity
 @Access(AccessType.FIELD)
+@Table(name = Publisher.TABLE_NAME)
 public class Publisher
 {
+  public static final String TABLE_NAME = "EEDEMOS_PUBLISHER";
+
   @Id
   @GeneratedValue
-  private Integer    id;
-  private String     name;
+  private Integer            id;
+  private String             name;
 
   @OneToMany(mappedBy = "publisher", fetch = FetchType.LAZY)
   // @OrderColumn(name = "order_index")
-  private List<Book> books = new ArrayList<Book>();
+  private List<Book>         books      = new ArrayList<Book>();
 
   protected Publisher()
   {
