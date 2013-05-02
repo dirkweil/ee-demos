@@ -16,30 +16,34 @@ import javax.persistence.Table;
 
 @Entity
 @Access(AccessType.FIELD)
-@Table(name = "EEDEMOS_COUNTRY")
-@SecondaryTables({ @SecondaryTable(name = "EEDEMOS_COUNTRY_EXT"), @SecondaryTable(name = "EEDEMOS_COUNTRY_EXT2", pkJoinColumns = @PrimaryKeyJoinColumn(name = "IC")) })
-@NamedQuery(name = "Country_findByPhonePrefix", query = "select c from Country c where c.phonePrefix=?1")
+@Table(name = Country.TABLE_NAME)
+@SecondaryTables({ @SecondaryTable(name = Country.TABLE_2_NAME), @SecondaryTable(name = Country.TABLE_3_NAME, pkJoinColumns = @PrimaryKeyJoinColumn(name = "IC")) })
+@NamedQuery(name = "Country_findByPhonePrefix", query = "select c from Country c where c.phonePrefix=:phonePrefix")
 // @EntityListeners(DebugListener.class)
 @Cacheable(true)
 public class Country
 {
+  public static final String TABLE_NAME   = "EEDEMOS_COUNTRY";
+  public static final String TABLE_2_NAME = "EEDEMOS_COUNTRY_EXT";
+  public static final String TABLE_3_NAME = "EEDEMOS_COUNTRY_EXT2";
+
   @Id
   @Column(name = "ISO_CODE", length = 2)
-  private String    isoCode;
+  private String             isoCode;
 
   @Column(name = "NAME")
-  private String    name;
+  private String             name;
 
-  @Column(table = "EEDEMOS_COUNTRY_EXT", name = "PHONE_PREFIX", length = 5)
-  private String    phonePrefix;
+  @Column(table = TABLE_2_NAME, name = "PHONE_PREFIX", length = 5)
+  private String             phonePrefix;
 
-  @Column(table = "EEDEMOS_COUNTRY_EXT2", name = "CAR_CODE", length = 3)
-  private String    carCode;
+  @Column(table = Country.TABLE_3_NAME, name = "CAR_CODE", length = 3)
+  private String             carCode;
 
-  private long      population;
+  private long               population;
 
   // @Enumerated(EnumType.STRING)
-  private Continent continent;
+  private Continent          continent;
 
   protected Country()
   {
@@ -147,6 +151,7 @@ public class Country
         + ", continent=" + this.continent + "}";
   }
 
+  @SuppressWarnings("unused")
   @PrePersist
   @PreUpdate
   private void validate()
@@ -156,4 +161,59 @@ public class Country
       throw new IllegalArgumentException("name darf nicht leer sein");
     }
   }
+
+  // public boolean deepEquals(Country other)
+  // {
+  // if (!this.equals(other))
+  // {
+  // return false;
+  // }
+  //
+  // if (this.carCode == null)
+  // {
+  // if (other.carCode != null)
+  // {
+  // return false;
+  // }
+  // }
+  // else if (!this.carCode.equals(other.carCode))
+  // {
+  // return false;
+  // }
+  //
+  // if (this.continent != other.continent)
+  // {
+  // return false;
+  // }
+  //
+  // if (this.name == null)
+  // {
+  // if (other.name != null)
+  // {
+  // return false;
+  // }
+  // }
+  // else if (!this.name.equals(other.name))
+  // {
+  // return false;
+  // }
+  //
+  // if (this.phonePrefix == null)
+  // {
+  // if (other.phonePrefix != null)
+  // {
+  // return false;
+  // }
+  // }
+  // else if (!this.phonePrefix.equals(other.phonePrefix))
+  // {
+  // return false;
+  // }
+  // if (this.population != other.population)
+  // {
+  // return false;
+  // }
+  //
+  // return true;
+  // }
 }
