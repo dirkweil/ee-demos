@@ -1,10 +1,10 @@
 package de.gedoplan.buch.eedemos.jpa.entity;
 
+import de.gedoplan.baselibs.persistence.entity.GeneratedIntegerIdEntity;
+
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -12,13 +12,10 @@ import javax.persistence.Table;
 @Entity
 @Access(AccessType.FIELD)
 @Table(name = Flight.TABLE_NAME)
-public class Flight
+public class Flight extends GeneratedIntegerIdEntity
 {
   public static final String TABLE_NAME = "EEDEMOS_FLIGHT";
 
-  @Id
-  @GeneratedValue
-  private Integer            id;
   private String             carrier;
   private int                flightNo;
 
@@ -56,10 +53,4 @@ public class Flight
   {
     this.airCraft = airCraft;
   }
-
-  public Integer getId()
-  {
-    return this.id;
-  }
-
 }
