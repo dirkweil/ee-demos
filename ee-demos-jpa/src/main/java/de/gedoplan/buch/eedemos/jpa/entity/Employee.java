@@ -7,35 +7,42 @@ import java.util.Map;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
+import javax.persistence.CollectionTable;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
 @Access(AccessType.FIELD)
+@Table(name = Employee.TABLE_NAME)
 public class Employee
 {
+  public static final String  TABLE_NAME        = "EEDEMOS_EMPLOYEE";
+  public static final String  SKILLS_TABLE_NAME = "EEDEMOS_EMPLOYEE_SKILLS";
+  public static final String  PHONES_TABLE_NAME = "EEDEMOS_EMPLOYEE_PHONES";
+
   @Id
   private int                 id;
   private String              name;
 
   private Address             address;
 
-  // @AttributeOverrides({ @AttributeOverride(name = "zipCode", column = @Column(name = "homeZipCode")), @AttributeOverride(name =
-  // "town", column = @Column(name = "homeTown")),
-  // @AttributeOverride(name = "street", column = @Column(name = "homeStreet")) })
+  // @AttributeOverrides({
+  //   @AttributeOverride(name = "zipCode", column = @Column(name = "homeZipCode")), @AttributeOverride(name = "town", column = @Column(name = "homeTown")),
+  //   @AttributeOverride(name = "street", column = @Column(name = "homeStreet")) })
   // private Address homeAddress;
 
   @ElementCollection
-  // @CollectionTable(name = "EMPLOYEE_SKILLS", joinColumns = @JoinColumn(name = "EMPLOYEE_ID"))
+  @CollectionTable(name = Employee.SKILLS_TABLE_NAME /* , joinColumns = @JoinColumn(name = "EMPLOYEE_ID") */)
   // @Column(name = "SKILLS")
-  private List<String>        skills = new ArrayList<String>();
+  private List<String>        skills            = new ArrayList<String>();
 
   @ElementCollection
-  // @CollectionTable(name = "EMPLOYEE_PHONES", joinColumns = @JoinColumn(name = "EMPLOYEE_ID"))
+  @CollectionTable(name = Employee.PHONES_TABLE_NAME /* , joinColumns = @JoinColumn(name = "EMPLOYEE_ID") */)
   // @MapKeyColumn(name = "PHONES_KEY")
   // @Column(name = "PHONES")
-  private Map<String, String> phones = new HashMap<String, String>();
+  private Map<String, String> phones            = new HashMap<String, String>();
 
   protected Employee()
   {
