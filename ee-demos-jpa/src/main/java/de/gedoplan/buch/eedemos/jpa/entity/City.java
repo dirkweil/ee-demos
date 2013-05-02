@@ -9,23 +9,27 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedNativeQuery;
 import javax.persistence.SqlResultSetMapping;
+import javax.persistence.Table;
 import javax.persistence.TableGenerator;
 
 @Entity
 @Access(AccessType.FIELD)
-@NamedNativeQuery(name = "City_populationDensity", query = "SELECT NAME, POPULATION/AREA AS DENSITY FROM CITY", resultSetMapping = "City_populationDensity")
+@NamedNativeQuery(name = "City_populationDensity", query = "SELECT NAME, POPULATION/AREA AS DENSITY FROM EEDEMOS_CITY", resultSetMapping = "City_populationDensity")
 @SqlResultSetMapping(name = "City_populationDensity", columns = { @ColumnResult(name = "NAME"), @ColumnResult(name = "DENSITY") })
+@Table(name = City.TABLE_NAME)
 public class City
 {
+  public static final String TABLE_NAME = "EEDEMOS_CITY";
+
   @Id
   @GeneratedValue(strategy = GenerationType.TABLE, generator = "cityGenerator")
   @TableGenerator(name = "cityGenerator", table = "CITY_GEN", pkColumnName = "GENERATOR", valueColumnName = "NEXT_ID", initialValue = 200000)
-  private Integer id;
-  private String  name;
+  private Integer            id;
+  private String             name;
 
-  private int     population;
+  private int                population;
 
-  private int     area;
+  private int                area;
 
   public City()
   {
