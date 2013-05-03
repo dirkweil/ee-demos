@@ -1,5 +1,7 @@
 package de.gedoplan.buch.eedemos.jpa.entity;
 
+import de.gedoplan.baselibs.persistence.entity.UuidEntity;
+
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
