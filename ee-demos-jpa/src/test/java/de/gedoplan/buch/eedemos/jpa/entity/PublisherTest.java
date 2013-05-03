@@ -14,6 +14,7 @@ import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.unitils.reflectionassert.ReflectionAssert;
+import org.unitils.reflectionassert.ReflectionComparatorMode;
 
 /**
  * Test der Persistence-Fuktionalität bzgl. der Entity Publisher.
@@ -108,7 +109,7 @@ public class PublisherTest extends TestBase
 
     String publisherName = testPublisher2.getName();
 
-    TypedQuery<Book> q = this.entityManager.createQuery("select b from Book b where b.publisher.name=:publisherName", Book.class);
+    TypedQuery<Book> q = this.entityManager.createQuery("select b from Book b where b.publisher.name=:publisherName order by b.id", Book.class);
     q.setParameter("publisherName", publisherName);
     List<Book> books = q.getResultList();
     assertResultCorrect("Book", testBooksOfPublisher2, books);
@@ -179,7 +180,7 @@ public class PublisherTest extends TestBase
     Assert.assertEquals(name + " count", expected.length, actual.size());
     for (int i = 0; i < expected.length; ++i)
     {
-      ReflectionAssert.assertReflectionEquals(name, expected[i], actual.get(i));
+      ReflectionAssert.assertReflectionEquals(name, expected[i], actual.get(i), ReflectionComparatorMode.LENIENT_ORDER);
     }
   }
 }
