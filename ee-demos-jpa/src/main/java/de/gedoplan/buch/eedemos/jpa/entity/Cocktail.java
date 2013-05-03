@@ -1,5 +1,7 @@
 package de.gedoplan.buch.eedemos.jpa.entity;
 
+import de.gedoplan.baselibs.persistence.entity.StringIdEntity;
+
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
@@ -7,7 +9,6 @@ import java.util.Set;
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
@@ -17,14 +18,11 @@ import javax.persistence.Table;
 @Entity
 @Access(AccessType.FIELD)
 @Table(name = Cocktail.TABLE_NAME)
-public class Cocktail implements Comparable<Cocktail>
+public class Cocktail extends StringIdEntity implements Comparable<Cocktail>
 {
   public static final String TABLE_NAME            = "EEDEMOS_COCKTAIL";
   public static final String ZUTATEN_TABLE_NAME    = "EEDEMOS_COCKTAIL_COCKTAILZUTAT";
   public static final String BASISZUTAT_TABLE_NAME = "EEDEMOS_COCKTAIL_BASISZUTAT";
-
-  @Id
-  private String             id;
 
   private String             name;
 
@@ -38,13 +36,8 @@ public class Cocktail implements Comparable<Cocktail>
 
   public Cocktail(String id, String name)
   {
-    this.id = id;
+    super(id);
     this.name = name;
-  }
-
-  public String getId()
-  {
-    return this.id;
   }
 
   public String getName()
@@ -77,42 +70,6 @@ public class Cocktail implements Comparable<Cocktail>
   }
 
   @Override
-  public int hashCode()
-  {
-    return this.id != null ? this.id.hashCode() : 0;
-  }
-
-  @Override
-  public boolean equals(Object obj)
-  {
-    if (this == obj)
-    {
-      return true;
-    }
-    if (obj == null)
-    {
-      return false;
-    }
-    if (getClass() != obj.getClass())
-    {
-      return false;
-    }
-    final Cocktail other = (Cocktail) obj;
-
-    return this.id != null && this.id.equals(other.id);
-  }
-
-  @Override
-  public String toString()
-  {
-    return this.getClass().getSimpleName() + "{id=" + this.id + ",name=" + this.name + "}";
-  }
-
-  protected Cocktail()
-  {
-  }
-
-  @Override
   public int compareTo(Cocktail other)
   {
     return this.name.compareTo(other.name);
@@ -141,5 +98,9 @@ public class Cocktail implements Comparable<Cocktail>
       separator = ", ";
     }
     return zutatenliste;
+  }
+
+  protected Cocktail()
+  {
   }
 }
