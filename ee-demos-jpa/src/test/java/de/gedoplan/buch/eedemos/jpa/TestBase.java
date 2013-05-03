@@ -2,6 +2,7 @@ package de.gedoplan.buch.eedemos.jpa;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
 import org.apache.commons.logging.Log;
@@ -26,6 +27,26 @@ public abstract class TestBase
   @After
   public void after()
   {
+    try
+    {
+      EntityTransaction transaction = this.entityManager.getTransaction();
+      if (transaction.isActive())
+      {
+        if (!transaction.getRollbackOnly())
+        {
+          transaction.commit();
+        }
+        else
+        {
+          transaction.rollback();
+        }
+      }
+    }
+    catch (Exception e)
+    {
+      // ignore
+    }
+
     try
     {
       this.entityManager.close();

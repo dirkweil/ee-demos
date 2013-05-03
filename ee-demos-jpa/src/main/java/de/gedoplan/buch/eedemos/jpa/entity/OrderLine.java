@@ -1,24 +1,21 @@
 package de.gedoplan.buch.eedemos.jpa.entity;
 
+import de.gedoplan.baselibs.persistence.entity.GeneratedIntegerIdEntity;
+
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Cacheable;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Cacheable(true)
 @Access(AccessType.FIELD)
 @Table(name = OrderLine.TABLE_NAME)
-public class OrderLine
+public class OrderLine extends GeneratedIntegerIdEntity
 {
   public static final String TABLE_NAME = "EEDEMOS_ORDERLINE";
 
-  @Id
-  @GeneratedValue
-  private Integer            id;
   private String             name;
   private int                count;
 
@@ -32,11 +29,6 @@ public class OrderLine
     this.count = count;
   }
 
-  public Integer getId()
-  {
-    return this.id;
-  }
-
   public String getName()
   {
     return this.name;
@@ -46,37 +38,4 @@ public class OrderLine
   {
     return this.count;
   }
-
-  @Override
-  public int hashCode()
-  {
-    return this.id != null ? this.id.hashCode() : 0;
-  }
-
-  @Override
-  public boolean equals(Object obj)
-  {
-    if (this == obj)
-    {
-      return true;
-    }
-    if (obj == null)
-    {
-      return false;
-    }
-    if (getClass() != obj.getClass())
-    {
-      return false;
-    }
-    final OrderLine other = (OrderLine) obj;
-
-    return this.id != null && this.id.equals(other.id);
-  }
-
-  @Override
-  public String toString()
-  {
-    return this.getClass().getSimpleName() + "{id=" + this.id + ",name=" + this.name + ",isbn=" + this.count + "}";
-  }
-
 }
