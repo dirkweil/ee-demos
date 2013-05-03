@@ -1,5 +1,7 @@
 package de.gedoplan.buch.eedemos.jpa.entity;
 
+import de.gedoplan.baselibs.persistence.entity.SingleIdEntity;
+
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
@@ -7,12 +9,13 @@ import javax.persistence.Id;
 import javax.persistence.IdClass;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Access(AccessType.FIELD)
 @IdClass(ProjectId.class)
 @Table(name = Project_CompositeId.TABLE_NAME)
-public class Project_CompositeId
+public class Project_CompositeId extends SingleIdEntity<ProjectId>
 {
   public static final String TABLE_NAME = "EEDEMOS_PROJECT";
 
@@ -27,12 +30,25 @@ public class Project_CompositeId
 
   private double             budget;
 
+  @Transient
+  private ProjectId          id;
+
   public Project_CompositeId(Department department, String prjId, String name, double budget)
   {
     this.department = department;
     this.prjId = prjId;
     this.name = name;
     this.budget = budget;
+  }
+
+  @Override
+  public ProjectId getId()
+  {
+    if (this.id == null)
+    {
+      this.id = new ProjectId(this.department.getId(), this.prjId);
+    }
+    return this.id;
   }
 
   public Department getDepartment()
@@ -63,43 +79,6 @@ public class Project_CompositeId
   public void setBudget(double budget)
   {
     this.budget = budget;
-  }
-
-  @Override
-  public int hashCode()
-  {
-    final int prime = 31;
-    int result = 1;
-    result = prime * result + this.department.hashCode();
-    result = prime * result + this.prjId.hashCode();
-    return result;
-  }
-
-  @Override
-  public boolean equals(Object obj)
-  {
-    if (this == obj)
-    {
-      return true;
-    }
-    if (obj == null)
-    {
-      return false;
-    }
-    if (getClass() != obj.getClass())
-    {
-      return false;
-    }
-
-    Project_CompositeId other = (Project_CompositeId) obj;
-
-    return this.department.equals(other.department) && this.prjId.equals(other.prjId);
-  }
-
-  @Override
-  public String toString()
-  {
-    return this.getClass().getSimpleName() + "{department=" + this.department + ",prjId=" + this.prjId + ",name=" + this.name + ",budget=" + this.budget + "}";
   }
 
   protected Project_CompositeId()

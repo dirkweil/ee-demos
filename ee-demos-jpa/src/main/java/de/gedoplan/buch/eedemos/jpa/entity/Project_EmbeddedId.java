@@ -1,5 +1,7 @@
 package de.gedoplan.buch.eedemos.jpa.entity;
 
+import de.gedoplan.baselibs.persistence.entity.SingleIdEntity;
+
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.EmbeddedId;
@@ -11,7 +13,7 @@ import javax.persistence.Table;
 @Entity
 @Access(AccessType.FIELD)
 @Table(name = Project_EmbeddedId.TABLE_NAME)
-public class Project_EmbeddedId
+public class Project_EmbeddedId extends SingleIdEntity<ProjectId>
 {
   public static final String TABLE_NAME = "EEDEMOS_PROJECT";
 
@@ -32,6 +34,12 @@ public class Project_EmbeddedId
     this.department = department;
     this.name = name;
     this.budget = budget;
+  }
+
+  @Override
+  public ProjectId getId()
+  {
+    return this.id;
   }
 
   public Department getDepartment()
@@ -62,39 +70,6 @@ public class Project_EmbeddedId
   public void setBudget(double budget)
   {
     this.budget = budget;
-  }
-
-  @Override
-  public int hashCode()
-  {
-    return this.id != null ? this.id.hashCode() : 0;
-  }
-
-  @Override
-  public boolean equals(Object obj)
-  {
-    if (this == obj)
-    {
-      return true;
-    }
-    if (obj == null)
-    {
-      return false;
-    }
-    if (getClass() != obj.getClass())
-    {
-      return false;
-    }
-
-    Project_EmbeddedId other = (Project_EmbeddedId) obj;
-
-    return this.id != null && this.id.equals(other.id);
-  }
-
-  @Override
-  public String toString()
-  {
-    return this.getClass().getSimpleName() + "{id=" + this.id + ",name=" + this.name + ",budget=" + this.budget + "}";
   }
 
   protected Project_EmbeddedId()
