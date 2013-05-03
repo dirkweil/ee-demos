@@ -18,7 +18,6 @@ import javax.persistence.criteria.Root;
 
 import org.junit.Assert;
 import org.junit.BeforeClass;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.unitils.reflectionassert.ReflectionAssert;
 import org.unitils.reflectionassert.ReflectionComparatorMode;
@@ -91,7 +90,7 @@ public class CocktailTest extends TestBase
    * Test: Sind die Testdaten korrekt in der DB?
    */
   @Test
-  @Ignore
+  //  @Ignore
   public void testFindAll()
   {
     System.out.println("----- testFindAll -----");
