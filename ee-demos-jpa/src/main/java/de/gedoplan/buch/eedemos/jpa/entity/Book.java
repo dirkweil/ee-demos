@@ -1,23 +1,20 @@
 package de.gedoplan.buch.eedemos.jpa.entity;
 
+import de.gedoplan.baselibs.persistence.entity.GeneratedIntegerIdEntity;
+
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
 @Access(AccessType.FIELD)
 @Table(name = Book.TABLE_NAME)
-public class Book
+public class Book extends GeneratedIntegerIdEntity
 {
   public static final String TABLE_NAME = "EEDEMOS_BOOK";
 
-  @Id
-  @GeneratedValue
-  private Integer            id;
   private String             name;
   private String             isbn;
   private int                pages;
@@ -35,11 +32,6 @@ public class Book
     this.name = name;
     this.isbn = isbn;
     this.pages = pages;
-  }
-
-  public Integer getId()
-  {
-    return this.id;
   }
 
   public String getName()
@@ -91,37 +83,4 @@ public class Book
       this.publisher.addBook(this);
     }
   }
-
-  @Override
-  public int hashCode()
-  {
-    return this.id != null ? this.id.hashCode() : 0;
-  }
-
-  @Override
-  public boolean equals(Object obj)
-  {
-    if (this == obj)
-    {
-      return true;
-    }
-    if (obj == null)
-    {
-      return false;
-    }
-    if (getClass() != obj.getClass())
-    {
-      return false;
-    }
-    final Book other = (Book) obj;
-
-    return this.id != null && this.id.equals(other.id);
-  }
-
-  @Override
-  public String toString()
-  {
-    return this.getClass().getSimpleName() + "{id=" + this.id + ", name=" + this.name + ", isbn=" + this.isbn + ", pages=" + this.pages + "}";
-  }
-
 }
