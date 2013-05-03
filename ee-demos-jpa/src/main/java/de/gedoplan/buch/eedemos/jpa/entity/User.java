@@ -1,27 +1,25 @@
 package de.gedoplan.buch.eedemos.jpa.entity;
 
+import de.gedoplan.baselibs.persistence.entity.StringIdEntity;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
 @Access(AccessType.FIELD)
-// USER ist für viele DB ein reserviertes Wort
 @Table(name = User.TABLE_NAME)
-public class User
+public class User extends StringIdEntity
 {
   public static final String TABLE_NAME                    = "EEDEMOS_USER";
   public static final String USABLEAPPLICATIONS_TABLE_NAME = "EEDEMOS_USER_APPLICATION";
 
-  @Id
-  private String             id;
   private String             name;
 
   @ManyToMany
@@ -30,11 +28,12 @@ public class User
 
   public User(String id, String name)
   {
-    this.id = id;
+    super(id);
     this.name = name;
     this.usableApplications = new ArrayList<>();
   }
 
+  @Override
   public String getId()
   {
     return this.id;
@@ -48,51 +47,6 @@ public class User
   public List<Application> getUsableApplications()
   {
     return this.usableApplications;
-  }
-
-  @Override
-  public int hashCode()
-  {
-    final int prime = 31;
-    int result = 1;
-    result = prime * result + ((this.id == null) ? 0 : this.id.hashCode());
-    return result;
-  }
-
-  @Override
-  public boolean equals(Object obj)
-  {
-    if (this == obj)
-    {
-      return true;
-    }
-    if (obj == null)
-    {
-      return false;
-    }
-    if (getClass() != obj.getClass())
-    {
-      return false;
-    }
-    User other = (User) obj;
-    if (this.id == null)
-    {
-      if (other.id != null)
-      {
-        return false;
-      }
-    }
-    else if (!this.id.equals(other.id))
-    {
-      return false;
-    }
-    return true;
-  }
-
-  @Override
-  public String toString()
-  {
-    return "User [id=" + this.id + ", name=" + this.name + "]";
   }
 
   protected User()

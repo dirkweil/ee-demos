@@ -9,7 +9,6 @@ import javax.persistence.TypedQuery;
 
 import org.junit.Assert;
 import org.junit.BeforeClass;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.unitils.reflectionassert.ReflectionAssert;
 
@@ -40,19 +39,19 @@ public class CityTest extends TestBase
   /**
    * Alle Testdaten ausgeben.
    * 
-   * Dies ist kein Unit-Test im eigentlichen Sinne. Er kann probeweise für eine Ausgabe der Testdaten aktiviert werden.
+   * Dies ist kein Unit-Test im eigentlichen Sinne. Er kann probeweise für eine Ausgabe der Testdaten genutzt werden.
    */
   @Test
-  @Ignore
+  //  @Ignore
   public void showAll()
   {
     System.out.println("----- showAll -----");
 
-    TypedQuery<City> query = this.entityManager.createQuery("select x from City x order by x.isoCode", City.class);
+    TypedQuery<City> query = this.entityManager.createQuery("select x from City x order by x.id", City.class);
     List<City> cities = query.getResultList();
     for (City city : cities)
     {
-      System.out.println(city);
+      System.out.println(city.toDebugString());
     }
   }
 
@@ -80,10 +79,10 @@ public class CityTest extends TestBase
   /**
    * Demo: Select von Einzelwerten.
    * 
-   * Dies ist kein Unit-Test im eigentlichen Sinne. Er kann probeweise für eine Ausgabe der Daten aktiviert werden.
+   * Dies ist kein Unit-Test im eigentlichen Sinne. Er kann probeweise für eine Ausgabe der Daten genutzt werden.
    */
   @Test
-  @Ignore
+  //  @Ignore
   @SuppressWarnings("unchecked")
   public void showPopulationDensity()
   {
@@ -114,10 +113,10 @@ public class CityTest extends TestBase
   /**
    * Demo: Select eine ad-hoc aus Einzelwerten zusammengestellten City.
    * 
-   * Dies ist kein Unit-Test im eigentlichen Sinne. Er kann probeweise für eine Ausgabe der Daten aktiviert werden.
+   * Dies ist kein Unit-Test im eigentlichen Sinne. Er kann probeweise für eine Ausgabe der Daten genutzt werden.
    */
   @Test
-  @Ignore
+  //  @Ignore
   @SuppressWarnings("unchecked")
   public void showAdHocCity()
   {

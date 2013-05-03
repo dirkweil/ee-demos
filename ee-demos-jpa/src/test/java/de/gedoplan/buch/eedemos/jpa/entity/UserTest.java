@@ -55,10 +55,10 @@ public class UserTest extends TestBase
     List<User> users = query.getResultList();
     for (User user : users)
     {
-      System.out.println(user);
+      System.out.println(user.toDebugString());
       for (Application application : user.getUsableApplications())
       {
-        System.out.println("  " + application);
+        System.out.println("  " + application.toDebugString());
       }
     }
   }
@@ -78,10 +78,10 @@ public class UserTest extends TestBase
     List<Application> applications = query.getResultList();
     for (Application application : applications)
     {
-      System.out.println(application);
+      System.out.println(application.toDebugString());
       for (User user : application.getAuthorizedUsers())
       {
-        System.out.println("  " + user);
+        System.out.println("  " + user.toDebugString());
       }
     }
   }

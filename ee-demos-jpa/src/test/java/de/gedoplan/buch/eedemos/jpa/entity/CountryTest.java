@@ -14,7 +14,6 @@ import javax.persistence.TypedQuery;
 
 import org.junit.Assert;
 import org.junit.BeforeClass;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.unitils.reflectionassert.ReflectionAssert;
 
@@ -48,10 +47,10 @@ public class CountryTest extends TestBase
   /**
    * Alle Testdaten ausgeben.
    * 
-   * Dies ist kein Unit-Test im eigentlichen Sinne. Er kann probeweise für eine Ausgabe der Testdaten aktiviert werden.
+   * Dies ist kein Unit-Test im eigentlichen Sinne. Er kann probeweise für eine Ausgabe der Testdaten genutzt werden.
    */
   @Test
-  @Ignore
+  //  @Ignore
   public void showCountries()
   {
     System.out.println("----- showCountries -----");
