@@ -2,12 +2,11 @@ package de.gedoplan.buch.eedemos.jpa.entity;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
-import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@DiscriminatorValue(value = "34567")
+//@DiscriminatorValue(value = "34567")
 @Access(AccessType.FIELD)
 @Table(name = Ship.TABLE_NAME)
 public class Ship extends Vehicle
@@ -35,11 +34,4 @@ public class Ship extends Vehicle
   {
     this.tonnage = tonnage;
   }
-
-  @Override
-  public String toString()
-  {
-    return this.getClass().getSimpleName() + "{" + super.toStringHelper() + ",tonnage=" + this.tonnage + "}";
-  }
-
 }

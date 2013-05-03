@@ -2,12 +2,11 @@ package de.gedoplan.buch.eedemos.jpa.entity;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
-import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@DiscriminatorValue(value = "2345")
+//@DiscriminatorValue(value = "2345")
 @Access(AccessType.FIELD)
 @Table(name = Car.TABLE_NAME)
 public class Car extends Vehicle
@@ -35,11 +34,4 @@ public class Car extends Vehicle
   {
     this.noOfDoors = noOfDoors;
   }
-
-  @Override
-  public String toString()
-  {
-    return this.getClass().getSimpleName() + "{" + super.toStringHelper() + ",noOfDoors=" + this.noOfDoors + "}";
-  }
-
 }

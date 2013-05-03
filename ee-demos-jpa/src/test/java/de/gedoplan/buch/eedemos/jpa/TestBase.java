@@ -69,16 +69,29 @@ public abstract class TestBase
   protected static void deleteAll(String... tableName)
   {
     EntityManager entityManager = getEntityManagerFactory().createEntityManager();
-    entityManager.getTransaction().begin();
 
     try
     {
       for (String t : tableName)
       {
-        entityManager.createNativeQuery("delete from " + t).executeUpdate();
+        entityManager.getTransaction().begin();
+        try
+        {
+          entityManager.createNativeQuery("delete from " + t).executeUpdate();
+          entityManager.getTransaction().commit();
+        }
+        catch (Exception e)
+        {
+          try
+          {
+            entityManager.getTransaction().rollback();
+          }
+          catch (Exception e2)
+          {
+            // ignore
+          }
+        }
       }
-
-      entityManager.getTransaction().commit();
     }
     finally
     {
