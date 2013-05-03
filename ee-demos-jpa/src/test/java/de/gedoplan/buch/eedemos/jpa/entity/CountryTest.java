@@ -30,7 +30,8 @@ public class CountryTest extends TestBase
   public static Country      testCountryIT   = new Country("IT", "Italy", "39", "I", 60_221_210, Continent.EUROPE);
   public static Country      testCountryUS   = new Country("US", "United States of America", "1", null, 305_548_183, Continent.NORTH_AMERICA);
   public static Country      testCountryVN   = new Country("VN", "Vietnam", "84", null, 87_840_000, Continent.ASIA);
-  public static Country[]    testCountries   = { testCountryCA, testCountryCN, testCountryDE, testCountryIT, testCountryUS, testCountryVN };
+  public static Country      testCountryYU   = new Country("YU", "Yugoslavia", null, null, 0, Continent.EUROPE, false);
+  public static Country[]    testCountries   = { testCountryCA, testCountryCN, testCountryDE, testCountryIT, testCountryUS, testCountryVN, testCountryYU };
 
   private static Set<String> removedIsoCodes = new HashSet<>();
 

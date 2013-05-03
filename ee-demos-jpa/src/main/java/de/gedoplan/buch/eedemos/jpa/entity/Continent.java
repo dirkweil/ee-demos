@@ -2,5 +2,5 @@ package de.gedoplan.buch.eedemos.jpa.entity;
 
 public enum Continent
 {
-  NORTH_AMERICA, SOUTH_AMERICA, EUROPE, ASIA, AUSTRALIA, ANTARCTICA;
+  AFRICA, ANTARCTICA, ASIA, AUSTRALIA, EUROPE, NORTH_AMERICA, SOUTH_AMERICA;
 }

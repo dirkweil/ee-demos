@@ -1,9 +1,12 @@
 package de.gedoplan.buch.eedemos.jpa.entity;
 
+import de.gedoplan.buch.eedemos.jpa.converter.YesNoConverter;
+
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Cacheable;
 import javax.persistence.Column;
+import javax.persistence.Convert;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
@@ -42,8 +45,12 @@ public class Country
 
   private long               population;
 
-  // @Enumerated(EnumType.STRING)
+  //  @Enumerated(EnumType.STRING)
+  //  @Convert(disableConversion = true)
   private Continent          continent;
+
+  @Convert(converter = YesNoConverter.class)
+  private boolean            expired;
 
   protected Country()
   {
@@ -62,6 +69,12 @@ public class Country
     this.carCode = carCode;
     this.population = population;
     this.continent = continent;
+  }
+
+  public Country(String isoCode, String name, String phonePrefix, String carCode, long population, Continent continent, boolean expired)
+  {
+    this(isoCode, name, phonePrefix, carCode, population, continent);
+    this.expired = expired;
   }
 
   public String getIsoCode()
@@ -117,6 +130,16 @@ public class Country
   public void setContinent(Continent continent)
   {
     this.continent = continent;
+  }
+
+  public boolean isExpired()
+  {
+    return this.expired;
+  }
+
+  public void setExpired(boolean expired)
+  {
+    this.expired = expired;
   }
 
   @Override
