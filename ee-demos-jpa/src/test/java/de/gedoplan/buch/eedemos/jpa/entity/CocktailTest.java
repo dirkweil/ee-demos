@@ -609,12 +609,12 @@ public class CocktailTest extends TestBase
     int dummyCocktailCount = createDummyCocktails();
 
     CriteriaBuilder criteriaBuilder = this.entityManager.getCriteriaBuilder();
-    CriteriaDelete<Cocktail> criteriaUpdate = criteriaBuilder.createCriteriaDelete(Cocktail.class);
-    Root<Cocktail> c = criteriaUpdate.from(Cocktail.class);
+    CriteriaDelete<Cocktail> criteriaDelete = criteriaBuilder.createCriteriaDelete(Cocktail.class);
+    Root<Cocktail> c = criteriaDelete.from(Cocktail.class);
     Path<String> cName = c.get(Cocktail_.name);
-    criteriaUpdate.where(criteriaBuilder.equal(cName, "Dummy"));
+    criteriaDelete.where(criteriaBuilder.equal(cName, "Dummy"));
 
-    Query query = this.entityManager.createQuery(criteriaUpdate);
+    Query query = this.entityManager.createQuery(criteriaDelete);
     int deletedRowCount = query.executeUpdate();
 
     Assert.assertEquals("Deleted row count", dummyCocktailCount, deletedRowCount);
