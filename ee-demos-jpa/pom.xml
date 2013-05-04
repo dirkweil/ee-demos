@@ -51,6 +51,11 @@
       <artifactId>h2</artifactId>
       <scope>test</scope>
     </dependency>
+    
+    <dependency>
+      <groupId>${jpa.groupId}</groupId>
+      <artifactId>${jpa.artifactId}</artifactId>
+    </dependency>
 
 <!-- 
     <dependency>
@@ -73,11 +78,6 @@
     <dependency>
       <groupId>log4j</groupId>
       <artifactId>log4j</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>javax.persistence</groupId>
-      <artifactId>persistence-api</artifactId>
     </dependency>
 
     <dependency>
