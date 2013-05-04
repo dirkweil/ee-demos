@@ -32,6 +32,7 @@ public class CountryTest extends TestBase
   public static Country      testCountryVN   = new Country("VN", "Vietnam", "84", null, 87_840_000, Continent.ASIA);
   public static Country      testCountryYU   = new Country("YU", "Yugoslavia", null, null, 0, Continent.EUROPE, false);
   public static Country[]    testCountries   = { testCountryCA, testCountryCN, testCountryDE, testCountryIT, testCountryUS, testCountryVN, testCountryYU };
+  public static Country[]    testCountriesAS = { testCountryCN, testCountryVN };
 
   private static Set<String> removedIsoCodes = new HashSet<>();
 
@@ -76,11 +77,16 @@ public class CountryTest extends TestBase
     TypedQuery<Country> query = this.entityManager.createQuery("select x from Country x order by x.isoCode", Country.class);
     List<Country> countries = query.getResultList();
 
-    Assert.assertEquals("Country count", testCountries.length, countries.size());
-    for (int i = 0; i < testCountries.length; ++i)
+    assertResultCorrect("Country", testCountries, countries);
+  }
+
+  private void assertResultCorrect(String name, Country[] expected, List<Country> actual)
+  {
+    Assert.assertEquals(name + " count", expected.length, actual.size());
+    for (int i = 0; i < expected.length; ++i)
     {
-      Country testCountry = testCountries[i];
-      Country country = countries.get(i);
+      Country testCountry = expected[i];
+      Country country = actual.get(i);
       ReflectionAssert.assertReflectionEquals("Country", testCountry, country);
     }
   }
@@ -296,5 +302,26 @@ public class CountryTest extends TestBase
     }
 
     Assert.fail("Validierung nicht fehlgeschlagen");
+  }
+
+  /**
+   * Test: Dynamische Erzeugung und Nutzung einer Named Query.
+   */
+  @Test
+  // @Ignore
+  public void testDynamicNamedQuery()
+  {
+    System.out.println("----- testDynamicNamedQuery -----");
+
+    TypedQuery<Country> newQuery = this.entityManager.createQuery("select c from Country c where c.continent=:continent order by c.isoCode", Country.class);
+    entityManagerFactory.addNamedQuery("Country_findByContinent", newQuery);
+
+    Continent continent = Continent.ASIA;
+
+    TypedQuery<Country> query = this.entityManager.createNamedQuery("Country_findByContinent", Country.class);
+    query.setParameter("continent", continent);
+    List<Country> countries = query.getResultList();
+    assertResultCorrect("Country", testCountriesAS, countries);
+
   }
 }
