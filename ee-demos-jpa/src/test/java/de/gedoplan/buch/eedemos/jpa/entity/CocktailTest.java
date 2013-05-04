@@ -6,6 +6,7 @@ import de.gedoplan.buch.eedemos.jpa.helper.NameAndVolProz;
 
 import java.util.List;
 
+import javax.persistence.Query;
 import javax.persistence.Tuple;
 import javax.persistence.TupleElement;
 import javax.persistence.TypedQuery;
@@ -527,4 +528,51 @@ public class CocktailTest extends TestBase
     System.out.println("]");
   }
 
+  /**
+   * Test: Bulk Update via JPQL.
+   */
+  @Test
+  //  @Ignore
+  public void testBulkUpdateJpql()
+  {
+    System.out.println("----- testBulkUpdateJpql -----");
+
+    int dummyCocktailCount = createDummyCocktails();
+
+    Query query = this.entityManager.createQuery("update Cocktail c set c.name=concat(c.name,' (a)') where c.name='Dummy'");
+    int changedRowCount = query.executeUpdate();
+
+    Assert.assertEquals("Changed row count", dummyCocktailCount, changedRowCount);
+
+    // Änderungen nicht dauerhaft ablegen
+    this.entityManager.getTransaction().rollback();
+  }
+
+  /**
+   * Test: Bulk Delete via JPQL.
+   */
+  @Test
+  //  @Ignore
+  public void testBulkDeleteJpql()
+  {
+    System.out.println("----- testBulkDeleteJpql -----");
+
+    int dummyCocktailCount = createDummyCocktails();
+
+    Query query = this.entityManager.createQuery("delete from Cocktail c where c.name='Dummy'");
+    int deletedRowCount = query.executeUpdate();
+
+    Assert.assertEquals("Deleted row count", dummyCocktailCount, deletedRowCount);
+
+    // Änderungen nicht dauerhaft ablegen
+    this.entityManager.getTransaction().rollback();
+  }
+
+  private int createDummyCocktails()
+  {
+    this.entityManager.persist(new Cocktail("XXX", "Dummy"));
+    this.entityManager.persist(new Cocktail("YYY", "Dummy"));
+    this.entityManager.flush();
+    return 2;
+  }
 }
