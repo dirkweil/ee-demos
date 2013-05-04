@@ -87,11 +87,6 @@
     </dependency>
 
     <dependency>
-      <groupId>org.apache.openjpa</groupId>
-      <artifactId>openjpa</artifactId>
-    </dependency>
-
-    <dependency>
       <groupId>org.eclipse.persistence</groupId>
       <artifactId>org.eclipse.persistence.jpa</artifactId>
     </dependency>
@@ -140,44 +135,6 @@
         <persistentClasses><![CDATA[
           <jar-file>target/classes</jar-file>
           <exclude-unlisted-classes>false</exclude-unlisted-classes>
-        ]]></persistentClasses>
-      </properties>
-
-    </profile>
-
-    <!-- OpenJPA -->
-    <!-- Achtung: Bei Nutzung dieses Profils Java-Agenten in Aufrufkommando aufnehmen: java  -javaagent:full\path\to\openjpa-all.jar -->
-    <profile>
-      <id>openjpa</id>
-      <activation>
-        <activeByDefault>false</activeByDefault>
-      </activation>
-
-      <properties>
-        <javax.persistence.provider>org.apache.openjpa.persistence.PersistenceProviderImpl</javax.persistence.provider>
-        <persistentClasses><![CDATA[
-          <class>de.gedoplan.baselibs.persistence.entity.SingleIdEntity</class>
-          <class>de.gedoplan.baselibs.persistence.entity.StringIdEntity</class>
-          <class>de.gedoplan.baselibs.persistence.entity.GeneratedIntegerIdEntity</class>
-          <class>de.gedoplan.baselibs.persistence.entity.GeneratedLongIdEntity</class>
-          <class>de.gedoplan.beantrial.jpia.entity.compositeid.Etage</class>
-          <class>de.gedoplan.beantrial.jpia.entity.compositeid.EtageId</class>
-          <class>de.gedoplan.beantrial.jpia.entity.compositeid.Fluegel</class>
-          <class>de.gedoplan.beantrial.jpia.entity.compositeid.Flur</class>
-          <class>de.gedoplan.beantrial.jpia.entity.compositeid.FlurId</class>
-          <class>de.gedoplan.beantrial.jpia.entity.compositeid.Gebaeude</class>
-          <class>de.gedoplan.beantrial.jpia.entity.compositeid.Raum</class>
-          <class>de.gedoplan.beantrial.jpia.entity.compositeid.RaumId</class>
-          <class>de.gedoplan.beantrial.jpia.entity.convert.Projekt</class>
-          <class>de.gedoplan.beantrial.jpia.entity.inherit.Car</class>
-          <class>de.gedoplan.beantrial.jpia.entity.inherit.Lorry</class>
-          <class>de.gedoplan.beantrial.jpia.entity.inherit.Ship</class>
-          <class>de.gedoplan.beantrial.jpia.entity.inherit.Vehicle</class>
-          <class>de.gedoplan.beantrial.jpia.entity.optlock.Person</class>
-          <class>de.gedoplan.beantrial.jpia.entity.performance.Group</class>
-          <class>de.gedoplan.beantrial.jpia.entity.performance.Permission</class>
-          <class>de.gedoplan.beantrial.jpia.entity.performance.User</class>
-          <exclude-unlisted-classes>true</exclude-unlisted-classes>
         ]]></persistentClasses>
       </properties>
 

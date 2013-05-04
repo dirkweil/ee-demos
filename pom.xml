@@ -37,7 +37,6 @@
     <eclipselink.version>2.5.0-RC1</eclipselink.version>
     <h2.version>1.3.171</h2.version>
     <hibernate.version>4.3.0.Beta2</hibernate.version>
-    <openjpa.version>2.2.1</openjpa.version>
 
     <checkstyle.config>GEDOPLAN_SEMINAR</checkstyle.config>
   </properties>
@@ -201,12 +200,6 @@
         <groupId>org.apache.derby</groupId>
         <artifactId>derbynet</artifactId>
         <version>10.10.1.1</version>
-      </dependency>
-
-      <dependency>
-        <groupId>org.apache.openjpa</groupId>
-        <artifactId>openjpa</artifactId>
-        <version>${openjpa.version}</version>
       </dependency>
 
       <dependency>
