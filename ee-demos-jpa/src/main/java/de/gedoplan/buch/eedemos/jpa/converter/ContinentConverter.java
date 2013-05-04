@@ -5,6 +5,13 @@ import de.gedoplan.buch.eedemos.jpa.entity.Continent;
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;
 
+/**
+ * Converter für {@link Continent} <-> VARCHAR.
+ * 
+ * In Hibernate 4.3.0.Beta2 verhindert Bug [HHH-8111] die Funktion des Konverters.
+ * 
+ * @author dw
+ */
 @Converter(autoApply = true)
 public class ContinentConverter implements AttributeConverter<Continent, String>
 {
