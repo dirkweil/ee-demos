@@ -11,7 +11,9 @@ import javax.persistence.Tuple;
 import javax.persistence.TupleElement;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaDelete;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.CriteriaUpdate;
 import javax.persistence.criteria.Join;
 import javax.persistence.criteria.Path;
 import javax.persistence.criteria.Predicate;
@@ -560,6 +562,59 @@ public class CocktailTest extends TestBase
     int dummyCocktailCount = createDummyCocktails();
 
     Query query = this.entityManager.createQuery("delete from Cocktail c where c.name='Dummy'");
+    int deletedRowCount = query.executeUpdate();
+
+    Assert.assertEquals("Deleted row count", dummyCocktailCount, deletedRowCount);
+
+    // Änderungen nicht dauerhaft ablegen
+    this.entityManager.getTransaction().rollback();
+  }
+
+  /**
+   * Test: Bulk Update via Criteria API.
+   */
+  @Test
+  //  @Ignore
+  public void testBulkUpdateCriteria()
+  {
+    System.out.println("----- testBulkUpdateCriteria -----");
+
+    int dummyCocktailCount = createDummyCocktails();
+
+    CriteriaBuilder criteriaBuilder = this.entityManager.getCriteriaBuilder();
+    CriteriaUpdate<Cocktail> criteriaUpdate = criteriaBuilder.createCriteriaUpdate(Cocktail.class);
+    Root<Cocktail> c = criteriaUpdate.from(Cocktail.class);
+    Path<String> cName = c.get(Cocktail_.name);
+    criteriaUpdate.set(cName, criteriaBuilder.concat(cName, " (a)"));
+    criteriaUpdate.where(criteriaBuilder.equal(cName, "Dummy"));
+
+    Query query = this.entityManager.createQuery(criteriaUpdate);
+    int changedRowCount = query.executeUpdate();
+
+    Assert.assertEquals("Changed row count", dummyCocktailCount, changedRowCount);
+
+    // Änderungen nicht dauerhaft ablegen
+    this.entityManager.getTransaction().rollback();
+  }
+
+  /**
+   * Test: Bulk Delete via Criteria API.
+   */
+  @Test
+  //  @Ignore
+  public void testBulkDeleteCriteria()
+  {
+    System.out.println("----- testBulkDeleteCriteria -----");
+
+    int dummyCocktailCount = createDummyCocktails();
+
+    CriteriaBuilder criteriaBuilder = this.entityManager.getCriteriaBuilder();
+    CriteriaDelete<Cocktail> criteriaUpdate = criteriaBuilder.createCriteriaDelete(Cocktail.class);
+    Root<Cocktail> c = criteriaUpdate.from(Cocktail.class);
+    Path<String> cName = c.get(Cocktail_.name);
+    criteriaUpdate.where(criteriaBuilder.equal(cName, "Dummy"));
+
+    Query query = this.entityManager.createQuery(criteriaUpdate);
     int deletedRowCount = query.executeUpdate();
 
     Assert.assertEquals("Deleted row count", dummyCocktailCount, deletedRowCount);
