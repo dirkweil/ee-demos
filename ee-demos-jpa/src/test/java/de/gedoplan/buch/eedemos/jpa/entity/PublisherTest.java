@@ -191,6 +191,8 @@ public class PublisherTest extends TestBase
   //  @Ignore
   public void testFetchPlan()
   {
+    System.out.println("----- testFetchPlan -----");
+
     PersistenceUnitUtil persistenceUnitUtil = entityManagerFactory.getPersistenceUnitUtil();
 
     Map<String, Object> hints = new HashMap<>();

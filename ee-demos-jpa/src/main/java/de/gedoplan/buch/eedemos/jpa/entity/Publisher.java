@@ -8,6 +8,7 @@ import java.util.List;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
+import javax.persistence.Basic;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.NamedAttributeNode;
@@ -23,7 +24,7 @@ public class Publisher extends GeneratedIntegerIdEntity
 {
   public static final String TABLE_NAME = "EEDEMOS_PUBLISHER";
 
-  //  @Basic(fetch = FetchType.LAZY)
+  @Basic(fetch = FetchType.LAZY)
   private String             name;
 
   @OneToMany(mappedBy = "publisher", fetch = FetchType.LAZY)
