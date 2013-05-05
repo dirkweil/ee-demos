@@ -10,16 +10,20 @@ import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.NamedAttributeNode;
+import javax.persistence.NamedEntityGraph;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Access(AccessType.FIELD)
 @Table(name = Publisher.TABLE_NAME)
+@NamedEntityGraph(name = "Publisher", attributeNodes = @NamedAttributeNode("books"))
 public class Publisher extends GeneratedIntegerIdEntity
 {
   public static final String TABLE_NAME = "EEDEMOS_PUBLISHER";
 
+  //  @Basic(fetch = FetchType.LAZY)
   private String             name;
 
   @OneToMany(mappedBy = "publisher", fetch = FetchType.LAZY)

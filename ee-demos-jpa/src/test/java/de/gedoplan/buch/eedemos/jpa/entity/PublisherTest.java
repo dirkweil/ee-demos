@@ -3,8 +3,11 @@ package de.gedoplan.buch.eedemos.jpa.entity;
 import de.gedoplan.buch.eedemos.jpa.TestBase;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import javax.persistence.PersistenceUnitUtil;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -67,7 +70,7 @@ public class PublisherTest extends TestBase
    * Dies ist kein Unit-Test im eigentlichen Sinne. Er kann probeweise für eine Ausgabe der Testdaten genutzt werden.
    */
   @Test
-  //  @Ignore
+  // @Ignore
   public void showAll()
   {
     System.out.println("----- showAll -----");
@@ -88,7 +91,7 @@ public class PublisherTest extends TestBase
    * Test: Sind die Testdaten korrekt in der DB?
    */
   @Test
-  //  @Ignore
+  // @Ignore
   public void testFindAll()
   {
     System.out.println("----- testFindAll -----");
@@ -102,7 +105,7 @@ public class PublisherTest extends TestBase
    * Test: Bücher für einen bestimmten Publisher finden (per JPQL).
    */
   @Test
-  //  @Ignore
+  // @Ignore
   public void testFindBooksByPublisherName()
   {
     System.out.println("----- testFindBooksByPublisherName -----");
@@ -119,7 +122,7 @@ public class PublisherTest extends TestBase
    * Test: Publisher anhand seines Namens finden (per Criteria Query).
    */
   @Test
-  //  @Ignore
+  // @Ignore
   public void testFindPublisherByName()
   {
     System.out.println("----- testFindPublisherByName -----");
@@ -148,7 +151,7 @@ public class PublisherTest extends TestBase
    * Test: Publisher anhand eines Teils eines Buchtitels finden (JPQL).
    */
   @Test
-  //  @Ignore
+  // @Ignore
   public void testFindPublisherByTopic()
   {
     System.out.println("----- testFindPublisherByTopic -----");
@@ -182,5 +185,20 @@ public class PublisherTest extends TestBase
     {
       ReflectionAssert.assertReflectionEquals(name, expected[i], actual.get(i), ReflectionComparatorMode.LENIENT_ORDER);
     }
+  }
+
+  @Test
+  //  @Ignore
+  public void testFetchPlan()
+  {
+    PersistenceUnitUtil persistenceUnitUtil = entityManagerFactory.getPersistenceUnitUtil();
+
+    Map<String, Object> hints = new HashMap<>();
+    hints.put("javax.persistence.fetchgraph", "Publisher");
+    Publisher publisher = this.entityManager.find(Publisher.class, testPublisher1.getId(), hints);
+
+    System.out.println("publisher loaded:       " + persistenceUnitUtil.isLoaded(publisher));
+    System.out.println("publisher.name loaded:  " + persistenceUnitUtil.isLoaded(publisher, Publisher_.name.getName()));
+    System.out.println("publisher.books loaded: " + persistenceUnitUtil.isLoaded(publisher, Publisher_.books.getName()));
   }
 }
