@@ -5,15 +5,32 @@ import de.gedoplan.baselibs.persistence.entity.GeneratedIntegerIdEntity;
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.ColumnResult;
+import javax.persistence.ConstructorResult;
 import javax.persistence.Entity;
+import javax.persistence.NamedNativeQueries;
 import javax.persistence.NamedNativeQuery;
 import javax.persistence.SqlResultSetMapping;
+import javax.persistence.SqlResultSetMappings;
 import javax.persistence.Table;
 
 @Entity
 @Access(AccessType.FIELD)
-@NamedNativeQuery(name = "City_populationDensity", query = "SELECT NAME, POPULATION/AREA AS DENSITY FROM EEDEMOS_CITY", resultSetMapping = "City_populationDensity")
-@SqlResultSetMapping(name = "City_populationDensity", columns = { @ColumnResult(name = "NAME"), @ColumnResult(name = "DENSITY") })
+@NamedNativeQueries({
+    @NamedNativeQuery(
+        name = "City_populationDensity",
+        query = "SELECT NAME, POPULATION/AREA AS DENSITY FROM EEDEMOS_CITY",
+        resultSetMapping = "City_populationDensity"),
+    @NamedNativeQuery(
+        name = "City_populationDensityCtorResult",
+        query = "SELECT NAME, POPULATION/AREA AS DENSITY FROM EEDEMOS_CITY",
+        resultSetMapping = "City_populationDensityCtorResult") })
+@SqlResultSetMappings({
+    @SqlResultSetMapping(
+        name = "City_populationDensity",
+        columns = { @ColumnResult(name = "NAME"), @ColumnResult(name = "DENSITY") }),
+    @SqlResultSetMapping(
+        name = "City_populationDensityCtorResult",
+        classes = @ConstructorResult(targetClass = PopulationDensity.class, columns = { @ColumnResult(name = "NAME"), @ColumnResult(name = "DENSITY") })) })
 @Table(name = City.TABLE_NAME)
 public class City extends GeneratedIntegerIdEntity
 {

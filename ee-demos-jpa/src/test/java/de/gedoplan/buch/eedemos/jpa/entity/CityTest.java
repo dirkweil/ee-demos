@@ -86,7 +86,7 @@ public class CityTest extends TestBase
   @SuppressWarnings("unchecked")
   public void showPopulationDensity()
   {
-    System.out.println("----- testFindAll -----");
+    System.out.println("----- showPopulationDensity -----");
 
     System.out.println("Variante 1 (dynamisch, nur Bielefeld):");
     Query query = this.entityManager.createNativeQuery("SELECT NAME, POPULATION/AREA FROM " + City.TABLE_NAME + " WHERE NAME=?");
@@ -99,6 +99,7 @@ public class CityTest extends TestBase
       System.out.printf("    %s: %.0f Einw./km²\n", name, populationDensity);
     }
 
+    System.out.println("Variante 2 (NamedNativeQuery):");
     System.out.println(" ");
     query = this.entityManager.createNamedQuery("City_populationDensity");
     resultList = query.getResultList();
@@ -106,6 +107,28 @@ public class CityTest extends TestBase
     {
       String name = (String) entry[0];
       double populationDensity = ((Number) entry[1]).doubleValue();
+      System.out.printf("    %s: %.0f Einw./km²\n", name, populationDensity);
+    }
+  }
+
+  /**
+   * Demo: Select von Einzelwerten.
+   * 
+   * Dies ist kein Unit-Test im eigentlichen Sinne. Er kann probeweise für eine Ausgabe der Daten genutzt werden.
+   */
+  @Test
+  //  @Ignore
+  @SuppressWarnings("unchecked")
+  public void showPopulationDensityCtorResult()
+  {
+    System.out.println("----- showPopulationDensityCtorResult -----");
+
+    Query query = this.entityManager.createNamedQuery("City_populationDensityCtorResult");
+    List<PopulationDensity> resultList = query.getResultList();
+    for (PopulationDensity entry : resultList)
+    {
+      String name = entry.getName();
+      double populationDensity = entry.getDensity().doubleValue();
       System.out.printf("    %s: %.0f Einw./km²\n", name, populationDensity);
     }
   }
