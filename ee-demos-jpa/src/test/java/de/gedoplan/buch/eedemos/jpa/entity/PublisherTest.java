@@ -187,6 +187,21 @@ public class PublisherTest extends TestBase
     }
   }
 
+  /**
+   * Demo eine Outer Joins mit ON.
+   */
+  @Test
+  //  @Ignore
+  public void showPublishersWithBigBooks()
+  {
+    TypedQuery<Object[]> query = this.entityManager.createQuery("select p.name, b.name from Publisher p left join p.books b on b.pages>300", Object[].class);
+    for (Object[] entry : query.getResultList())
+    {
+      System.out.printf("%s|%s\n", entry[0], entry[1]);
+    }
+
+  }
+
   @Test
   //  @Ignore
   public void testFetchPlan()
