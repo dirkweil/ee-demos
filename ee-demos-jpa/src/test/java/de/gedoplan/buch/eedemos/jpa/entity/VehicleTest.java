@@ -74,4 +74,26 @@ public class VehicleTest extends TestBase
       Assert.assertEquals(entityClass.getSimpleName() + "[" + i + "]", testEntities[i], entities.get(i));
     }
   }
+
+  @Test
+  //  @Ignore
+  public void testFindCarsExactly()
+  {
+    List<Car> entities = this.entityManager.createQuery("select v from Car v where type(v)=Car order by v.id", Car.class).getResultList();
+    for (Car car : entities)
+    {
+      Assert.assertEquals("Type", Car.class, car.getClass());
+    }
+  }
+
+  @Test
+  //  @Ignore
+  public void testFindLargeVehicles()
+  {
+    List<Vehicle> entities = this.entityManager.createQuery("select v from Vehicle v where treat(v as Lorry).payLoad>30 or treat(v as Ship).tonnage>130000 order by v.id", Vehicle.class).getResultList();
+    for (Vehicle vehicle : entities)
+    {
+      System.out.println(vehicle.toDebugString());
+    }
+  }
 }
