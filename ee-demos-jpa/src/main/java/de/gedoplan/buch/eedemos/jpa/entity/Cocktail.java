@@ -27,7 +27,7 @@ public class Cocktail extends StringIdEntity implements Comparable<Cocktail>
   private String             name;
 
   @ManyToMany
-  @JoinTable(name = ZUTATEN_TABLE_NAME)
+  @JoinTable(name = ZUTATEN_TABLE_NAME, joinColumns = @JoinColumn(name = "COCKTAIL_ID"), inverseJoinColumns = @JoinColumn(name = "ZUTAT_ID"))
   private Set<CocktailZutat> zutaten               = new HashSet<CocktailZutat>();
 
   @ManyToOne
