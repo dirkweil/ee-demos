@@ -630,4 +630,10 @@ public class CocktailTest extends TestBase
     this.entityManager.flush();
     return 2;
   }
+
+  @Test
+  public void testFunction()
+  {
+    this.entityManager.createQuery("select c.name, function('soundex', c.name) from Cocktail c").getResultList();
+  }
 }
