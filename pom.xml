@@ -27,14 +27,17 @@
   <properties>
     <jpa.groupId>org.eclipse.persistence</jpa.groupId>
     <jpa.artifactId>javax.persistence</jpa.artifactId>
-    <jpa.version>2.1.0-RC1</jpa.version>
+    <jpa.version>2.1.0-RC2</jpa.version>
 <!--     
     <jpa.groupId>javax.persistence</jpa.groupId>
     <jpa.artifactId>persistence-api</jpa.artifactId>
     <jpa.version>2.1</jpa.version>
  -->
 
-    <eclipselink.version>2.5.0-RC1</eclipselink.version>
+    <eclipselink.version>2.5.0-RC2</eclipselink.version>
+<!-- 
+    <eclipselink.version>2.6.0-SNAPSHOT</eclipselink.version>
+ -->
     <h2.version>1.3.171</h2.version>
     <hibernate.version>4.3.0.Beta2</hibernate.version>
 
