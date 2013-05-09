@@ -9,26 +9,26 @@ import javax.persistence.Column;
 import javax.persistence.Convert;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Index;
 import javax.persistence.NamedQuery;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.SecondaryTable;
-import javax.persistence.SecondaryTables;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 @Entity
 @Access(AccessType.FIELD)
-@SecondaryTables({ @SecondaryTable(name = Country.TABLE_2_NAME), @SecondaryTable(name = Country.TABLE_3_NAME, pkJoinColumns = @PrimaryKeyJoinColumn(name = "IC")) })
 @NamedQuery(name = "Country_findByPhonePrefix", query = "select c from Country c where c.phonePrefix=:phonePrefix")
 // @EntityListeners(DebugListener.class)
 @Cacheable(true)
-@Table(name = Country.TABLE_NAME)
+@Table(name = Country.TABLE_NAME, uniqueConstraints = @UniqueConstraint(columnNames = "PHONE_PREFIX"), indexes = @Index(columnList = "CONTINENT"))
+@SecondaryTable(name = Country.TABLE_2_NAME, uniqueConstraints = @UniqueConstraint(columnNames = "CAR_CODE"), pkJoinColumns = @PrimaryKeyJoinColumn(name = "IC"))
 public class Country
 {
   public static final String TABLE_NAME   = "EEDEMOS_COUNTRY";
   public static final String TABLE_2_NAME = "EEDEMOS_COUNTRY_EXT";
-  public static final String TABLE_3_NAME = "EEDEMOS_COUNTRY_EXT2";
 
   @Id
   @Column(name = "ISO_CODE", length = 2)
@@ -37,10 +37,10 @@ public class Country
   @Column(name = "NAME")
   private String             name;
 
-  @Column(table = TABLE_2_NAME, name = "PHONE_PREFIX", length = 5)
+  @Column(name = "PHONE_PREFIX", length = 5)
   private String             phonePrefix;
 
-  @Column(table = Country.TABLE_3_NAME, name = "CAR_CODE", length = 3)
+  @Column(table = Country.TABLE_2_NAME, name = "CAR_CODE", length = 3)
   private String             carCode;
 
   private long               population;

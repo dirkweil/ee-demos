@@ -42,7 +42,7 @@ public class CountryTest extends TestBase
   @BeforeClass
   public static void setup()
   {
-    deleteAll(Country.TABLE_2_NAME, Country.TABLE_3_NAME, Country.TABLE_NAME);
+    deleteAll(Country.TABLE_2_NAME, Country.TABLE_NAME);
     insertAll(testCountries);
   }
 
