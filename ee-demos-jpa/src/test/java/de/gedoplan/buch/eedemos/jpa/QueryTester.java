@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 
 /**
  * Testprogramm zum Ausprobieren von JPQL-Queries.
@@ -27,8 +28,17 @@ public class QueryTester
       jpql.append(arg).append(' ');
     }
 
-    @SuppressWarnings("rawtypes")
-    List resultList = entityManager.createQuery(jpql.toString()).getResultList();
+    Query query = entityManager.createQuery(jpql.toString());
+    printResultList(query);
+  }
+
+  public static void printResultList(Query query)
+  {
+    printResultList(query.getResultList());
+  }
+
+  public static void printResultList(List<?> resultList)
+  {
     for (Object result : resultList)
     {
       if (result instanceof Object[])

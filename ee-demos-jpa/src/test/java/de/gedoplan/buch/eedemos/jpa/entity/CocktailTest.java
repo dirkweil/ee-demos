@@ -1,5 +1,6 @@
 package de.gedoplan.buch.eedemos.jpa.entity;
 
+import de.gedoplan.buch.eedemos.jpa.QueryTester;
 import de.gedoplan.buch.eedemos.jpa.TestBase;
 import de.gedoplan.buch.eedemos.jpa.helper.NameAndBasisZutat;
 import de.gedoplan.buch.eedemos.jpa.helper.NameAndVolProz;
@@ -634,6 +635,9 @@ public class CocktailTest extends TestBase
   @Test
   public void testFunction()
   {
-    this.entityManager.createQuery("select c.name, function('soundex', c.name) from Cocktail c").getResultList();
+    System.out.println("----- testFunction -----");
+
+    Query query = this.entityManager.createQuery("select c.name, function('soundex', c.name) from Cocktail c");
+    QueryTester.printResultList(query);
   }
 }
