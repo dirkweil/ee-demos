@@ -22,11 +22,11 @@
 
       <!-- Schemagenerierung -->
       <property name="javax.persistence.schema-generation.database.action" value="drop-and-create" />
+      <property name="javax.persistence.schema-generation.drop-script-source" value="META-INF/drop.sql" />
+      <property name="javax.persistence.schema-generation.drop-source" value="script-then-metadata" />
       <property name="javax.persistence.schema-generation.create-script-source" value="META-INF/create.sql" />
       <property name="javax.persistence.schema-generation.create-source" value="metadata-then-script" />
       <property name="javax.persistence.sql-load-script-source" value="META-INF/sqlLoad.sql" />
-      <property name="javax.persistence.schema-generation.drop-script-source" value="META-INF/drop.sql" />
-      <property name="javax.persistence.schema-generation.drop-source" value="script-then-metadata" />
 <!-- 
       <property name="eclipselink.ddl-generation" value="create-or-extend-tables" />
       <property name="eclipselink.ddl-generation.output-mode" value="database" />
