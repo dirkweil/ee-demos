@@ -13,6 +13,9 @@ import org.junit.Test;
 
 public class SchemaTest extends TestBase
 {
+  /**
+   * Test: Erstellung eines Create Scripts.
+   */
   @Test
   public void testCreateScript()
   {
@@ -33,6 +36,31 @@ public class SchemaTest extends TestBase
     }
 
     System.out.println(createScript);
+  }
+
+  /**
+   * Test: Erstellung eines Drop Scripts.
+   */
+  @Test
+  public void testDropScript()
+  {
+    System.out.println("----- testDropScript -----");
+
+    StringWriter dropWriter = new StringWriter();
+
+    Map<String, Object> properties = new HashMap<>();
+    properties.put("javax.persistence.schema-generation.scripts.action", "drop");
+    properties.put("javax.persistence.schema-generation.scripts.drop-target", dropWriter);
+
+    Persistence.generateSchema("test", properties);
+
+    String dropScript = dropWriter.toString();
+    if (dropScript.isEmpty())
+    {
+      Assert.fail("Script is empty");
+    }
+
+    System.out.println(dropScript);
   }
 
 }
