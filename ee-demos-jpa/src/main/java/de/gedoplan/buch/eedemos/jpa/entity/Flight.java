@@ -4,7 +4,10 @@ import de.gedoplan.baselibs.persistence.entity.GeneratedIntegerIdEntity;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
+import javax.persistence.ConstraintMode;
 import javax.persistence.Entity;
+import javax.persistence.ForeignKey;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -19,7 +22,7 @@ public class Flight extends GeneratedIntegerIdEntity
   private int                flightNo;
 
   @ManyToOne
-  //  @JoinColumn(name = "PLANE_ID")
+  @JoinColumn(name = "PLANE_ID", foreignKey = @ForeignKey(ConstraintMode.CONSTRAINT))
   //  @JoinTable(name = "EEDEMOS_F_A", joinColumns = { @JoinColumn(name = "F_ID") }, inverseJoinColumns = { @JoinColumn(name = "A_ID") })
   private AirCraft           airCraft;
 
