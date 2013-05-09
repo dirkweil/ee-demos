@@ -63,4 +63,13 @@ public class SchemaTest extends TestBase
     System.out.println(dropScript);
   }
 
+  /**
+   * Test: Zusatzskripte für Schemaerstellung und Datenladen.
+   */
+  @Test
+  public void testCreateAndLoadSource()
+  {
+    Number dummyCount = (Number) this.entityManager.createNativeQuery("select count(*) from EEDEMOS_DUMMY").getSingleResult();
+    Assert.assertEquals("Entries in EEDEMOS_DUMMY", 1, dummyCount.intValue());
+  }
 }

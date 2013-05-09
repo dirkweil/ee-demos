@@ -1,0 +1,1 @@
+insert into EEDEMOS_DUMMY values ('A')

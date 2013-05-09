@@ -1,0 +1,1 @@
+create table EEDEMOS_DUMMY (id char(1))
