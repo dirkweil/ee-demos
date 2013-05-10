@@ -13,6 +13,7 @@ import org.apache.commons.logging.Log;
 
 public class DebugListener
 {
+  // Im EE-Umfeld wird diese Injektion ausgeführt; im SE-Umfeld bleibt die Variable null
   @Inject
   Log log;
 
