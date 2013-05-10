@@ -55,6 +55,7 @@
     <dependency>
       <groupId>${jpa.groupId}</groupId>
       <artifactId>${jpa.artifactId}</artifactId>
+      <scope>provided</scope>
     </dependency>
 
 <!-- 
@@ -78,6 +79,7 @@
     <dependency>
       <groupId>log4j</groupId>
       <artifactId>log4j</artifactId>
+      <scope>test</scope>
     </dependency>
 
     <dependency>
@@ -89,11 +91,13 @@
     <dependency>
       <groupId>org.eclipse.persistence</groupId>
       <artifactId>org.eclipse.persistence.jpa</artifactId>
+      <scope>provided</scope>
     </dependency>
 
     <dependency>
       <groupId>org.hibernate</groupId>
       <artifactId>hibernate-entitymanager</artifactId>
+      <scope>provided</scope>
     </dependency>
 
     <dependency>

@@ -1,5 +1,6 @@
 package de.gedoplan.buch.eedemos.jpa.entitylistener;
 
+import javax.inject.Inject;
 import javax.persistence.PostLoad;
 import javax.persistence.PostPersist;
 import javax.persistence.PostRemove;
@@ -8,48 +9,62 @@ import javax.persistence.PrePersist;
 import javax.persistence.PreRemove;
 import javax.persistence.PreUpdate;
 
+import org.apache.commons.logging.Log;
+
 public class DebugListener
 {
+  @Inject
+  Log log;
+
   @PrePersist
   public void prePersist(Object entity)
   {
-    System.out.println("prePersist(" + entity + ")");
+    doLog("prePersist(" + entity + ")");
   }
 
   @PostPersist
   public void postPersist(Object entity)
   {
-    System.out.println("postPersist(" + entity + ")");
+    doLog("postPersist(" + entity + ")");
   }
 
   @PreRemove
   public void preRemove(Object entity)
   {
-    System.out.println("preRemove(" + entity + ")");
+    doLog("preRemove(" + entity + ")");
   }
 
   @PostRemove
   public void postRemove(Object entity)
   {
-    System.out.println("postRemove(" + entity + ")");
+    doLog("postRemove(" + entity + ")");
   }
 
   @PreUpdate
   public void preUpdate(Object entity)
   {
-    System.out.println("preUpdate(" + entity + ")");
+    doLog("preUpdate(" + entity + ")");
   }
 
   @PostUpdate
   public void postUpdate(Object entity)
   {
-    System.out.println("postUpdate(" + entity + ")");
+    doLog("postUpdate(" + entity + ")");
   }
 
   @PostLoad
   public void postLoad(Object entity)
   {
-    System.out.println("postLoad(" + entity + ")");
+    doLog("postLoad(" + entity + ")");
+  }
+
+  private void doLog(String string)
+  {
+    if (this.log != null && this.log.isDebugEnabled())
+    {
+      this.log.debug(string);
+    }
+
   }
 
 }
