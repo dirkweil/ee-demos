@@ -23,7 +23,7 @@ import javax.persistence.UniqueConstraint;
 @NamedQuery(name = "Country_findByPhonePrefix", query = "select c from Country c where c.phonePrefix=:phonePrefix")
 // @EntityListeners(DebugListener.class)
 @Cacheable(true)
-@Table(name = Country.TABLE_NAME, uniqueConstraints = @UniqueConstraint(columnNames = "PHONE_PREFIX"), indexes = @Index(columnList = "CONTINENT"))
+@Table(name = Country.TABLE_NAME, uniqueConstraints = @UniqueConstraint(columnNames = "NAME"), indexes = @Index(columnList = "PHONE_PREFIX"))
 @SecondaryTable(name = Country.TABLE_2_NAME, uniqueConstraints = @UniqueConstraint(columnNames = "CAR_CODE"), pkJoinColumns = @PrimaryKeyJoinColumn(name = "IC"))
 public class Country
 {
