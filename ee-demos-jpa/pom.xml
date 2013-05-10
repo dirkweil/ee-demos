@@ -150,7 +150,7 @@
         <javax.persistence.jdbc.driver>org.h2.Driver</javax.persistence.jdbc.driver>
         <javax.persistence.jdbc.url>jdbc:h2:~/h2/ee-demos;AUTO_SERVER=TRUE</javax.persistence.jdbc.url>
         <javax.persistence.jdbc.user>sa</javax.persistence.jdbc.user>
-        <javax.persistence.jdbc.password></javax.persistence.jdbc.password>
+        <javax.persistence.jdbc.password>sa</javax.persistence.jdbc.password>
       </properties>
     </profile>
   </profiles>
