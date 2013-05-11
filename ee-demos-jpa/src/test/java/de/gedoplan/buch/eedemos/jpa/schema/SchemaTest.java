@@ -24,6 +24,7 @@ public class SchemaTest extends TestBase
     StringWriter createWriter = new StringWriter();
 
     Map<String, Object> properties = new HashMap<>();
+    properties.put("javax.persistence.schema-generation.database.action", "none");
     properties.put("javax.persistence.schema-generation.scripts.action", "create");
     properties.put("javax.persistence.schema-generation.scripts.create-target", createWriter);
 
@@ -49,6 +50,7 @@ public class SchemaTest extends TestBase
     StringWriter dropWriter = new StringWriter();
 
     Map<String, Object> properties = new HashMap<>();
+    properties.put("javax.persistence.schema-generation.database.action", "none");
     properties.put("javax.persistence.schema-generation.scripts.action", "drop");
     properties.put("javax.persistence.schema-generation.scripts.drop-target", dropWriter);
 

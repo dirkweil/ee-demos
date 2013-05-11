@@ -15,11 +15,13 @@ public abstract class TestBase
   protected static EntityManagerFactory entityManagerFactory;
   protected EntityManager               entityManager;
 
+  private static final Log              LOG = LogFactory.getLog(TestBase.class);
   protected Log                         log = LogFactory.getLog(getClass());
 
   @Before
   public void before()
   {
+    this.log.debug("create entitymanager and start transaction");
     this.entityManager = getEntityManagerFactory().createEntityManager();
     this.entityManager.getTransaction().begin();
   }
@@ -34,10 +36,12 @@ public abstract class TestBase
       {
         if (!transaction.getRollbackOnly())
         {
+          this.log.debug("commit transaction");
           transaction.commit();
         }
         else
         {
+          this.log.debug("rollback transaction");
           transaction.rollback();
         }
       }
@@ -49,6 +53,7 @@ public abstract class TestBase
 
     try
     {
+      this.log.debug("close entitymanager");
       this.entityManager.close();
     }
     catch (Exception e)
@@ -61,6 +66,7 @@ public abstract class TestBase
   {
     if (entityManagerFactory == null)
     {
+      LOG.debug("create entitymanager factory");
       entityManagerFactory = Persistence.createEntityManagerFactory("test");
     }
     return entityManagerFactory;
@@ -77,6 +83,7 @@ public abstract class TestBase
         entityManager.getTransaction().begin();
         try
         {
+          LOG.debug("delete from " + t);
           entityManager.createNativeQuery("delete from " + t).executeUpdate();
           entityManager.getTransaction().commit();
         }
@@ -140,5 +147,4 @@ public abstract class TestBase
       entityManager.persist(entity);
     }
   }
-
 }
