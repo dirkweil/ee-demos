@@ -7,6 +7,7 @@ import java.util.List;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
@@ -17,13 +18,27 @@ import javax.persistence.Table;
 @Table(name = Person.TABLE_NAME)
 public class Person extends GeneratedIntegerIdEntity
 {
-  public static final String TABLE_NAME    = "EEDEMOS_PERSON";
+  public static final String TABLE_NAME = "EEDEMOS_PERSON";
 
   private String             name;
 
-  @OneToMany
+  @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
   @JoinColumn(name = "PERSON_ID")
-  private List<MailAddress>  mailAddresses = new ArrayList<MailAddress>();
+  private List<MailAddress>  mailAddresses;
+
+  public Person(String name, MailAddress... mailAddress)
+  {
+    this.name = name;
+    this.mailAddresses = new ArrayList<MailAddress>();
+    for (MailAddress ma : mailAddress)
+    {
+      this.mailAddresses.add(ma);
+    }
+  }
+
+  protected Person()
+  {
+  }
 
   public String getName()
   {

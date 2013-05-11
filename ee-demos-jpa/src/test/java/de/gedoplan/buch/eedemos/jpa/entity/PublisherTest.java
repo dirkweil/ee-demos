@@ -29,7 +29,11 @@ public class PublisherTest extends TestBase
   public static Publisher   testPublisher1        = new Publisher("O'Melly Publishing");
   public static Publisher   testPublisher2        = new Publisher("Expert Press");
   public static Publisher   testPublisher3        = new Publisher("Books reloaded");
-  public static Publisher[] expected              = { testPublisher1, testPublisher2, testPublisher3 };
+  public static Publisher[] testPublishers        = { testPublisher1, testPublisher2, testPublisher3 };
+
+  public static Person      testPerson1           = new Person("Brummer, Bernd", new MailAddress("brummer", "gmx.de"));
+  public static Person      testPerson2           = new Person("Wacker, Willi", new MailAddress("wacker", "web.de"));
+  public static Person[]    testPersons           = { testPerson1, testPerson2 };
 
   public static Book        testBook11            = new Book("Better JPA Programs", "12345-6789-0", 340);
   public static Book        testBook12            = new Book("Inside JPA", "54321-9876-X", 265);
@@ -37,21 +41,25 @@ public class PublisherTest extends TestBase
   public static Book        testBook21            = new Book("Java for Beginners", "564534-432-2", 735);
   public static Book        testBook22            = new Book("Java vs. C#", "333333-123-0", 145);
   public static Book        testBook23            = new Book("Optimizing Java Programs", "765432-767-8", 230);
-  public static Book        testBook24            = new Book("Is there a World after Java?", null, 1);
-  public static Book[]      testBooks             = { testBook11, testBook12, testBook13, testBook21, testBook22, testBook23, testBook24 };
+  public static Book        testBook30            = new Book("Is there a World after Java?", null, 1);
+  public static Book[]      testBooks             = { testBook11, testBook12, testBook13, testBook21, testBook22, testBook23, testBook30 };
   public static Book[]      testBooksOfPublisher1 = { testBook11, testBook12, testBook13 };
-  public static Book[]      testBooksOfPublisher2 = { testBook21, testBook22, testBook23, testBook24 };
+  public static Book[]      testBooksOfPublisher2 = { testBook21, testBook22, testBook23 };
   static
   {
     for (Book book : testBooksOfPublisher1)
     {
       book.setPublisher(testPublisher1);
+      book.getAuthors().add(testPerson1);
     }
 
     for (Book book : testBooksOfPublisher2)
     {
       book.setPublisher(testPublisher2);
+      book.getAuthors().add(testPerson2);
     }
+
+    testBook13.getAuthors().add(testPerson2);
   }
 
   /**
@@ -60,8 +68,8 @@ public class PublisherTest extends TestBase
   @BeforeClass
   public static void setup()
   {
-    deleteAll(Book.TABLE_NAME, Publisher.TABLE_NAME);
-    insertAll(expected, testBooks);
+    deleteAll(Book.AUTHORS_TABLE_NAME, MailAddress.TABLE_NAME, Person.TABLE_NAME, Book.TABLE_NAME, Publisher.TABLE_NAME);
+    insertAll(testPublishers, testPersons, testBooks);
   }
 
   /**
@@ -98,7 +106,7 @@ public class PublisherTest extends TestBase
 
     TypedQuery<Publisher> query = this.entityManager.createQuery("select x from Publisher x order by x.id", Publisher.class);
     List<Publisher> publishers = query.getResultList();
-    assertResultCorrect("Publisher", expected, publishers);
+    assertResultCorrect("Publisher", testPublishers, publishers);
   }
 
   /**

@@ -17,6 +17,16 @@ public class MailAddress extends GeneratedIntegerIdEntity
   private String             userId;
   private String             domain;
 
+  public MailAddress(String userId, String domain)
+  {
+    this.userId = userId;
+    this.domain = domain;
+  }
+
+  protected MailAddress()
+  {
+  }
+
   public String getUserId()
   {
     return this.userId;

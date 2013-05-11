@@ -2,9 +2,15 @@ package de.gedoplan.buch.eedemos.jpa.entity;
 
 import de.gedoplan.baselibs.persistence.entity.GeneratedIntegerIdEntity;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -13,15 +19,20 @@ import javax.persistence.Table;
 @Table(name = Book.TABLE_NAME)
 public class Book extends GeneratedIntegerIdEntity
 {
-  public static final String TABLE_NAME = "EEDEMOS_BOOK";
+  public static final String TABLE_NAME         = "EEDEMOS_BOOK";
+  public static final String AUTHORS_TABLE_NAME = "EEDEMOS_BOOK_AUTHORS";
 
   private String             name;
   private String             isbn;
   private int                pages;
 
   @ManyToOne
-  // @JoinTable(name = "BOOK_PUBLISHER", joinColumns = { @JoinColumn(name = "book_id") })
+  // @JoinTable(name = "EEDEMOS_BOOK_PUBLISHER", joinColumns = { @JoinColumn(name = "book_id") })
   private Publisher          publisher;
+
+  @ManyToMany
+  @JoinTable(name = AUTHORS_TABLE_NAME, joinColumns = @JoinColumn(name = "book_id"), inverseJoinColumns = @JoinColumn(name = "author_id"))
+  private Set<Person>        authors;
 
   protected Book()
   {
@@ -32,6 +43,8 @@ public class Book extends GeneratedIntegerIdEntity
     this.name = name;
     this.isbn = isbn;
     this.pages = pages;
+
+    this.authors = new HashSet<>();
   }
 
   public String getName()
@@ -82,5 +95,10 @@ public class Book extends GeneratedIntegerIdEntity
     {
       this.publisher.addBook(this);
     }
+  }
+
+  public Set<Person> getAuthors()
+  {
+    return this.authors;
   }
 }
