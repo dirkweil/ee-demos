@@ -19,7 +19,7 @@ import javax.persistence.Table;
 @Entity
 @Access(AccessType.FIELD)
 @Table(name = Publisher.TABLE_NAME)
-@NamedEntityGraph(name = "Publisher", attributeNodes = @NamedAttributeNode("books"))
+@NamedEntityGraph(name = "Publisher_books", attributeNodes = @NamedAttributeNode("books"))
 public class Publisher extends GeneratedIntegerIdEntity
 {
   public static final String TABLE_NAME = "EEDEMOS_PUBLISHER";

@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.persistence.EntityGraph;
 import javax.persistence.PersistenceUnitUtil;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
@@ -212,18 +213,51 @@ public class PublisherTest extends TestBase
 
   @Test
   //  @Ignore
-  public void testFetchPlan()
+  public void testSimpleFetchPlan()
   {
-    System.out.println("----- testFetchPlan -----");
-
-    PersistenceUnitUtil persistenceUnitUtil = entityManagerFactory.getPersistenceUnitUtil();
+    System.out.println("----- testSimpleFetchPlan -----");
 
     Map<String, Object> hints = new HashMap<>();
-    hints.put("javax.persistence.fetchgraph", "Publisher");
+    hints.put("javax.persistence.fetchgraph", "Publisher_books");
     Publisher publisher = this.entityManager.find(Publisher.class, testPublisher1.getId(), hints);
 
-    System.out.println("publisher loaded:       " + persistenceUnitUtil.isLoaded(publisher));
-    System.out.println("publisher.name loaded:  " + persistenceUnitUtil.isLoaded(publisher, Publisher_.name.getName()));
-    System.out.println("publisher.books loaded: " + persistenceUnitUtil.isLoaded(publisher, Publisher_.books.getName()));
+    assertLoaded(publisher, true, false, false);
+  }
+
+  @Test
+  //  @Ignore
+  public void testSimpleFetchPlanDynamic()
+  {
+    System.out.println("----- testSimpleFetchPlanDynamic -----");
+
+    EntityGraph<Publisher> entityGraph = this.entityManager.createEntityGraph(Publisher.class);
+    entityGraph.addAttributeNodes(Publisher_.books.getName());
+    entityManagerFactory.addNamedEntityGraph("Publisher_books(dynamic)", entityGraph);
+
+    Map<String, Object> hints = new HashMap<>();
+    hints.put("javax.persistence.fetchgraph", "Publisher_books(dynamic)");
+    Publisher publisher = this.entityManager.find(Publisher.class, testPublisher1.getId(), hints);
+
+    assertLoaded(publisher, true, false, false);
+  }
+
+  private void assertLoaded(Publisher publisher, boolean booksLoaded, boolean authorsLoaded, boolean mailAddressesLoaded)
+  {
+    PersistenceUnitUtil persistenceUnitUtil = entityManagerFactory.getPersistenceUnitUtil();
+    Assert.assertEquals("publisher.books loaded", booksLoaded, persistenceUnitUtil.isLoaded(publisher, Publisher_.books.getName()));
+    if (booksLoaded)
+    {
+      for (Book book : publisher.getBooks())
+      {
+        Assert.assertEquals("books.authors loaded", authorsLoaded, persistenceUnitUtil.isLoaded(book, Book_.authors.getName()));
+        if (authorsLoaded)
+        {
+          for (Person person : book.getAuthors())
+          {
+            Assert.assertEquals("person.mailAddresses loaded", mailAddressesLoaded, persistenceUnitUtil.isLoaded(person, Person_.mailAddresses.getName()));
+          }
+        }
+      }
+    }
   }
 }
