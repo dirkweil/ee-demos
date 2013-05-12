@@ -213,9 +213,9 @@ public class PublisherTest extends TestBase
 
   @Test
   //  @Ignore
-  public void testSimpleFetchPlan()
+  public void testSimpleFetchGraph()
   {
-    System.out.println("----- testSimpleFetchPlan -----");
+    System.out.println("----- testSimpleFetchGraph -----");
 
     Map<String, Object> hints = new HashMap<>();
     hints.put("javax.persistence.fetchgraph", "Publisher_books");
@@ -226,9 +226,9 @@ public class PublisherTest extends TestBase
 
   @Test
   //  @Ignore
-  public void testSimpleFetchPlanDynamic()
+  public void testSimpleFetchGraphDynamic()
   {
-    System.out.println("----- testSimpleFetchPlanDynamic -----");
+    System.out.println("----- testSimpleFetchGraphDynamic -----");
 
     EntityGraph<Publisher> entityGraph = this.entityManager.createEntityGraph(Publisher.class);
     entityGraph.addAttributeNodes(Publisher_.books.getName());
@@ -239,6 +239,19 @@ public class PublisherTest extends TestBase
     Publisher publisher = this.entityManager.find(Publisher.class, testPublisher1.getId(), hints);
 
     assertLoaded(publisher, true, false, false);
+  }
+
+  @Test
+  //  @Ignore
+  public void testComplexLoadGraph()
+  {
+    System.out.println("----- testComplexLoadGraph -----");
+
+    Map<String, Object> hints = new HashMap<>();
+    hints.put("javax.persistence.loadgraph", "Publisher_booksAndAuthors");
+    Publisher publisher = this.entityManager.find(Publisher.class, testPublisher1.getId(), hints);
+
+    assertLoaded(publisher, true, true, false);
   }
 
   private void assertLoaded(Publisher publisher, boolean booksLoaded, boolean authorsLoaded, boolean mailAddressesLoaded)
