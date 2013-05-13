@@ -629,7 +629,7 @@ public abstract class SingleIdEntityRepository<K, E extends SingleIdEntity<K>> i
           @SuppressWarnings("unchecked")
           final Path<String> stringPath = (Path<String>) path;
           condition[i] = criteriaBuilder.like(stringPath, criteriaBuilder.parameter(String.class, parameterName));
-          parameterValue += "%";
+          parameterValue = parameterValue + "%";
           break;
 
         default:
