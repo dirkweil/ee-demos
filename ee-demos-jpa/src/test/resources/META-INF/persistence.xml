@@ -18,7 +18,6 @@
       <!-- Auswahl des DB-Dialektes -->
       <property name="eclipselink.target-database" value="Auto" />
       <property name="eclipselink.jdbc.native-sql" value="true" />
-      <!-- <property name="hibernate.dialect" value="org.hibernate.dialect.DerbyDialect" /> -->
 
       <!-- Schemagenerierung -->
       <property name="javax.persistence.schema-generation.database.action" value="drop-and-create" />

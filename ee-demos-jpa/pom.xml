@@ -73,6 +73,11 @@
 
     <dependency>
       <groupId>de.gedoplan</groupId>
+      <artifactId>baselibs-faces</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>de.gedoplan</groupId>
       <artifactId>baselibs-persistence</artifactId>
     </dependency>
 
