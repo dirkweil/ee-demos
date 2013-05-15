@@ -59,4 +59,9 @@ public class Address
     return this.getClass().getSimpleName() + "{zipCode=" + this.zipCode + ",town=" + this.town + ",street=" + this.street + "}";
   }
 
+  public boolean isNull()
+  {
+    return this.zipCode == null && this.town == null && this.street == null;
+  }
+
 }

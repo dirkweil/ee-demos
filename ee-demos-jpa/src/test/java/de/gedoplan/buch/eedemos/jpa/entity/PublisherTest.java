@@ -32,8 +32,8 @@ public class PublisherTest extends TestBase
   public static Publisher   testPublisher3        = new Publisher("Books reloaded");
   public static Publisher[] testPublishers        = { testPublisher1, testPublisher2, testPublisher3 };
 
-  public static Person      testPerson1           = new Person("Brummer, Bernd", new MailAddress("brummer", "gmx.de"));
-  public static Person      testPerson2           = new Person("Wacker, Willi", new MailAddress("wacker", "web.de"));
+  public static Person      testPerson1           = new Person("Brummer", "Bernd", new MailAddress("brummer", "gmx.de"));
+  public static Person      testPerson2           = new Person("Wacker", "Willi", new MailAddress("wacker", "web.de"));
   public static Person[]    testPersons           = { testPerson1, testPerson2 };
 
   public static Book        testBook11            = new Book("Better JPA Programs", "12345-6789-0", 340);
@@ -69,7 +69,7 @@ public class PublisherTest extends TestBase
   @BeforeClass
   public static void setup()
   {
-    deleteAll(Book.AUTHORS_TABLE_NAME, MailAddress.TABLE_NAME, Person.TABLE_NAME, Book.TABLE_NAME, Publisher.TABLE_NAME);
+    deleteAll(Book.AUTHORS_TABLE_NAME, MailAddress.TABLE_NAME, Person.TABLE_NAME_HOBBIES, Person.TABLE_NAME_PHONES, Person.TABLE_NAME, Book.TABLE_NAME, Publisher.TABLE_NAME);
     insertAll(testPublishers, testPersons, testBooks);
   }
 
