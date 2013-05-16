@@ -17,8 +17,6 @@ import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OrderColumn;
-import javax.persistence.PrePersist;
-import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
@@ -44,7 +42,9 @@ public class Person extends GeneratedIntegerIdEntity
   /**
    * (Privat-)Adresse.
    */
-  private volatile Address   address;
+  private String             zipCode;
+  private String             town;
+  private String             street;
 
   @ElementCollection(fetch = FetchType.LAZY)
   @CollectionTable(name = TABLE_NAME_PHONES)
@@ -72,8 +72,6 @@ public class Person extends GeneratedIntegerIdEntity
   {
     this.name = name;
     this.firstname = firstname;
-
-    this.address = new Address();
 
     this.phones = new ArrayList<>();
     this.hobbies = new ArrayList<>();
@@ -109,27 +107,34 @@ public class Person extends GeneratedIntegerIdEntity
     this.firstname = interpretEmptyAsNull(firstname);
   }
 
-  public Address getAddress()
+  public String getZipCode()
   {
-    /*
-     * Die Spec sagt nicht eindeutig, ob ein Embeddable, dessen Attribute sämtlich null sind, instanziert wird. Um NPEs aus dem
-     * Weg zu gehen, wird hier sichergestellt, dass die Adresse erzeugt wurde. Dies geschieht nach dem Double Check Lock Idiom von
-     * Joshua Bloch. this.address ist dazu volatile!
-     */
-    Address tmp = this.address;
-    if (tmp == null)
-    {
-      synchronized (this)
-      {
-        tmp = this.address;
-        if (tmp == null)
-        {
-          tmp = new Address();
-          this.address = tmp;
-        }
-      }
-    }
-    return tmp;
+    return this.zipCode;
+  }
+
+  public void setZipCode(String zipCode)
+  {
+    this.zipCode = interpretEmptyAsNull(zipCode);
+  }
+
+  public String getTown()
+  {
+    return this.town;
+  }
+
+  public void setTown(String town)
+  {
+    this.town = interpretEmptyAsNull(town);
+  }
+
+  public String getStreet()
+  {
+    return this.street;
+  }
+
+  public void setStreet(String street)
+  {
+    this.street = interpretEmptyAsNull(street);
   }
 
   /**
@@ -202,21 +207,6 @@ public class Person extends GeneratedIntegerIdEntity
   public List<MailAddress> getMailAddresses()
   {
     return this.mailAddresses;
-  }
-
-  /**
-   * Leeres Adressobjekt vor dem Speichern durch <code>null</code> ersetzen. Hierdurch wird verhindert, dass durch das Late Init
-   * in {@link #getAddress()} bei unverändert leerer Adresse eine Änderung in die DB geschrieben wird.
-   */
-  @SuppressWarnings("unused")
-  @PrePersist
-  @PreUpdate
-  private void preSave()
-  {
-    if (this.address != null && this.address.isNull())
-    {
-      this.address = null;
-    }
   }
 
   /*
