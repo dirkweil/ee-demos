@@ -147,9 +147,8 @@ public class PersonModel implements Serializable
 
   private void logPerson(String action, Person person)
   {
-    Object attachedEM = "???"; //LogEntityManagerInterceptor.getAttachedEntityManager(person);
     boolean phonesLoaded = Persistence.getPersistenceUtil().isLoaded(person, Person_.phones.getName());
     boolean hobbiesLoaded = Persistence.getPersistenceUtil().isLoaded(person, Person_.hobbies.getName());
-    this.logger.debug(action + " " + person.toDebugString() + " (attachedEM=" + attachedEM + ", phonesLoaded=" + phonesLoaded + ", hobbiesLoaded=" + hobbiesLoaded + ")");
+    this.logger.debug(action + " " + person.toDebugString() + " (phonesLoaded=" + phonesLoaded + ", hobbiesLoaded=" + hobbiesLoaded + ")");
   }
 }
