@@ -64,4 +64,36 @@
     TARGET="rules:#view#appmngd#personEdit.xhtml" TITLE="back" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#view#unsync#*" PATH="/view/unsync/*"
+  SHAPE="240,289,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#view#unsync#*:0" NAME="item"
+   PATH="/view/unsync/*" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="edit::#view#unsync#personEdit.xhtml"
+    NAME="output" PATH="/view/unsync/personEdit.xhtml"
+    TARGET="rules:#view#unsync#personEdit.xhtml" TITLE="edit" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="ok::#view#unsync#personList.xhtml"
+    NAME="output1" PATH="/view/unsync/personList.xhtml"
+    TARGET="rules:#view#unsync#personList.xhtml" TITLE="ok" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#view#unsync#personEdit.xhtml"
+  PATH="/view/unsync/personEdit.xhtml" SHAPE="480,417,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#view#unsync#personEdit.xhtml:0" NAME="item"
+   PATH="/view/unsync/personEdit.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="next::#view#unsync#personEdit2.xhtml"
+    NAME="output" PATH="/view/unsync/personEdit2.xhtml"
+    TARGET="rules:#view#unsync#personEdit2.xhtml" TITLE="next" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#view#unsync#personList.xhtml"
+  PATH="/view/unsync/personList.xhtml" SHAPE="464,529,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#view#unsync#personEdit2.xhtml"
+  PATH="/view/unsync/personEdit2.xhtml" SHAPE="672,433,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#view#unsync#personEdit2.xhtml:0" NAME="item"
+   PATH="/view/unsync/personEdit2.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="back::#view#unsync#personEdit.xhtml"
+    NAME="output" PATH="/view/unsync/personEdit.xhtml"
+    TARGET="rules:#view#unsync#personEdit.xhtml" TITLE="back" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
 </PROCESS>

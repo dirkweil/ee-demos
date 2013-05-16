@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+</h:head>
+<h:body>
+  <h:form>
+    <h:panelGrid columns="3">
+      <h:outputLabel value="Name: " for="name" />
+      <h:inputText value="#{personModel_UnsynchronizedEntityManager.person.name}" id="name" readonly="true" />
+      <h:message for="name" />
+
+      <h:outputLabel value="Vorname: " for="vorname" />
+      <h:inputText value="#{personModel_UnsynchronizedEntityManager.person.firstname}" id="vorname" readonly="true" />
+      <h:message for="vorname" />
+
+      <h:outputLabel value="Hobbies:" for="hobbies" />
+      <h:inputTextarea value="#{personModel_UnsynchronizedEntityManager.person.hobbiesAsString}" id="hobbies" />
+      <h:message for="hobbies" />
+    </h:panelGrid>
+
+    <h:commandButton value="cancel" action="#{personModel_UnsynchronizedEntityManager.cancel()}" immediate="true" />
+    <h:commandButton value="back" action="back" />
+    <h:commandButton value="finish" action="#{personModel_UnsynchronizedEntityManager.save()}" />
+  </h:form>
+
+  <h:messages globalOnly="true" />
+</h:body>
+</html>
