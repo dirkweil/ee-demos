@@ -1,7 +1,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:ui="http://java.sun.com/jsf/facelets">
 
-<h:head></h:head>
+<h:head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+</h:head>
 <h:body>
   <h:form>
     <h:panelGrid columns="3">
@@ -14,13 +16,13 @@
       <h:message for="vorname" />
 
       <h:outputLabel value="Strasse: " for="strasse" />
-      <h:inputText value="#{personModel_ApplicationManagedEntityManager.person.address.street}" id="strasse" />
+      <h:inputText value="#{personModel_ApplicationManagedEntityManager.person.street}" id="strasse" />
       <h:message for="strasse" />
 
       <h:outputLabel value="PLZ/Ort: " for="plz_ort" />
       <h:panelGroup id="plz_ort">
-        <h:inputText value="#{personModel_ApplicationManagedEntityManager.person.address.zipCode}" size="5" id="plz" />
-        <h:inputText value="#{personModel_ApplicationManagedEntityManager.person.address.town}" id="ort" />
+        <h:inputText value="#{personModel_ApplicationManagedEntityManager.person.zipCode}" size="5" id="plz" />
+        <h:inputText value="#{personModel_ApplicationManagedEntityManager.person.town}" id="ort" />
       </h:panelGroup>
       <h:panelGroup>
         <h:message for="plz" />
