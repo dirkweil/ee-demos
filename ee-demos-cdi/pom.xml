@@ -26,10 +26,17 @@
       <artifactId>commons-logging</artifactId>
     </dependency>
 
+<!-- 
     <dependency>
       <groupId>de.gedoplan.buch</groupId>
       <artifactId>ee-demos-baselibs</artifactId>
       <version>${project.version}</version>
+    </dependency>
+ -->
+
+    <dependency>
+      <groupId>de.gedoplan</groupId>
+      <artifactId>baselibs-enterprise</artifactId>
     </dependency>
 
     <dependency>
