@@ -30,7 +30,7 @@ public class Address
 
   public void setZipCode(String zipCode)
   {
-    this.zipCode = zipCode;
+    this.zipCode = interpretEmptyAsNull(zipCode);
   }
 
   public String getTown()
@@ -40,7 +40,7 @@ public class Address
 
   public void setTown(String town)
   {
-    this.town = town;
+    this.town = interpretEmptyAsNull(town);
   }
 
   public String getStreet()
@@ -50,7 +50,7 @@ public class Address
 
   public void setStreet(String street)
   {
-    this.street = street;
+    this.street = interpretEmptyAsNull(street);
   }
 
   @Override
@@ -64,4 +64,12 @@ public class Address
     return this.zipCode == null && this.town == null && this.street == null;
   }
 
+  /*
+   * Workaround um Bug im GLF 4:javax.faces.INTERPRET_EMPTY_STRING_SUBMITTED_VALUES_AS_NULL funktioniert nicht
+   * TODO: Raus, wenn Bug gefixt
+   */
+  private static String interpretEmptyAsNull(String s)
+  {
+    return s == null || s.isEmpty() ? null : s;
+  }
 }

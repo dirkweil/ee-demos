@@ -96,7 +96,7 @@ public class Person extends GeneratedIntegerIdEntity
 
   public void setName(String name)
   {
-    this.name = name;
+    this.name = interpretEmptyAsNull(name);
   }
 
   public String getFirstname()
@@ -106,7 +106,7 @@ public class Person extends GeneratedIntegerIdEntity
 
   public void setFirstname(String firstname)
   {
-    this.firstname = firstname;
+    this.firstname = interpretEmptyAsNull(firstname);
   }
 
   public Address getAddress()
@@ -217,6 +217,15 @@ public class Person extends GeneratedIntegerIdEntity
     {
       this.address = null;
     }
+  }
+
+  /*
+   * Workaround um Bug im GLF 4:javax.faces.INTERPRET_EMPTY_STRING_SUBMITTED_VALUES_AS_NULL funktioniert nicht
+   * TODO: Raus, wenn Bug gefixt
+   */
+  private static String interpretEmptyAsNull(String s)
+  {
+    return s == null || s.isEmpty() ? null : s;
   }
 
 }
