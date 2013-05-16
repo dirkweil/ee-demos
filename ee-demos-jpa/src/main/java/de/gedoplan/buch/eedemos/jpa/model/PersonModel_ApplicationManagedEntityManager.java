@@ -2,7 +2,7 @@ package de.gedoplan.buch.eedemos.jpa.model;
 
 import de.gedoplan.buch.eedemos.jpa.entity.Person;
 import de.gedoplan.buch.eedemos.jpa.entity.Person_;
-import de.gedoplan.buch.eedemos.jpa.repository.PersonRepository;
+import de.gedoplan.buch.eedemos.jpa.repository.PersonRepository_ApplicationManagedEntityManager;
 import de.gedoplan.buch.eedemos.jpa.service.ConversationService;
 
 import java.io.Serializable;
@@ -22,20 +22,20 @@ import org.apache.commons.logging.Log;
  */
 @Model
 @ConversationScoped
-public class PersonModel implements Serializable
+public class PersonModel_ApplicationManagedEntityManager implements Serializable
 {
   @Inject
-  PersonRepository    personRepository;
+  PersonRepository_ApplicationManagedEntityManager personRepository;
 
   @Inject
-  ConversationService conversationService;
+  ConversationService                              conversationService;
 
   @Inject
-  Log                 logger;
+  Log                                              logger;
 
-  List<Person>        personen;
+  List<Person>                                     personen;
 
-  Person              person;
+  Person                                           person;
 
   /**
    * Alle Personen aus der DB liefern.
@@ -79,7 +79,9 @@ public class PersonModel implements Serializable
   {
     this.conversationService.beginConversation();
 
-    this.person = this.personRepository.findByIdEager(person.getId());
+    // TALKABOUT A5) Person ist vom EM gemanagt - keine besondere Behandlung nötig
+
+    this.person = person;
 
     logPerson("Edit", this.person);
 
@@ -111,6 +113,7 @@ public class PersonModel implements Serializable
     logPerson("Delete", person);
 
     this.personRepository.remove(person);
+    this.personRepository.saveAll();
 
     this.personen = null;
   }
@@ -124,7 +127,8 @@ public class PersonModel implements Serializable
   {
     logPerson("Save", this.person);
 
-    this.personRepository.merge(this.person);
+    this.personRepository.persist(this.person);
+    this.personRepository.saveAll();
 
     this.conversationService.endConversation();
     this.personen = null;

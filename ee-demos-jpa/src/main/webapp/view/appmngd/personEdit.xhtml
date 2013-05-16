@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head></h:head>
+<h:body>
+  <h:form>
+    <h:panelGrid columns="3">
+      <h:outputLabel value="Name: " for="name" />
+      <h:inputText value="#{personModel_ApplicationManagedEntityManager.person.name}" id="name" />
+      <h:message for="name" />
+
+      <h:outputLabel value="Vorname: " for="vorname" />
+      <h:inputText value="#{personModel_ApplicationManagedEntityManager.person.firstname}" id="vorname" />
+      <h:message for="vorname" />
+
+      <h:outputLabel value="Strasse: " for="strasse" />
+      <h:inputText value="#{personModel_ApplicationManagedEntityManager.person.address.street}" id="strasse" />
+      <h:message for="strasse" />
+
+      <h:outputLabel value="PLZ/Ort: " for="plz_ort" />
+      <h:panelGroup id="plz_ort">
+        <h:inputText value="#{personModel_ApplicationManagedEntityManager.person.address.zipCode}" size="5" id="plz" />
+        <h:inputText value="#{personModel_ApplicationManagedEntityManager.person.address.town}" id="ort" />
+      </h:panelGroup>
+      <h:panelGroup>
+        <h:message for="plz" />
+        <h:message for="ort" />
+      </h:panelGroup>
+
+      <h:outputLabel value="Telefon:" for="telefonNummern" />
+      <h:inputTextarea value="#{personModel_ApplicationManagedEntityManager.person.phonesAsString}" id="telefonNummern" />
+      <h:message for="telefonNummern" />
+    </h:panelGrid>
+
+    <h:commandButton value="cancel" action="#{personModel_ApplicationManagedEntityManager.cancel()}" immediate="true" />
+    <h:commandButton value="next" action="next" />
+    <h:commandButton value="finish" action="#{personModel_ApplicationManagedEntityManager.save()}" />
+  </h:form>
+
+  <h:messages globalOnly="true" />
+</h:body>
+</html>

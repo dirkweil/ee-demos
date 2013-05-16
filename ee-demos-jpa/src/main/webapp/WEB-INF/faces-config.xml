@@ -3,32 +3,54 @@
 <faces-config xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd"
   version="2.0">
   <navigation-rule>
-    <from-view-id>/view/personList.xhtml</from-view-id>
+    <from-view-id>/view/default/*</from-view-id>
     <navigation-case>
       <from-outcome>edit</from-outcome>
-      <to-view-id>/view/personEdit.xhtml</to-view-id>
+      <to-view-id>/view/default/personEdit.xhtml</to-view-id>
+    </navigation-case>
+    <navigation-case>
+      <from-outcome>ok</from-outcome>
+      <to-view-id>/view/default/personList.xhtml</to-view-id>
     </navigation-case>
   </navigation-rule>
   <navigation-rule>
-    <from-view-id>/view/personEdit.xhtml</from-view-id>
-    <navigation-case>
-      <from-outcome>ok</from-outcome>
-      <to-view-id>/view/personList.xhtml</to-view-id>
-    </navigation-case>
+    <from-view-id>/view/default/personEdit.xhtml</from-view-id>
     <navigation-case>
       <from-outcome>next</from-outcome>
-      <to-view-id>/view/personEdit2.xhtml</to-view-id>
+      <to-view-id>/view/default/personEdit2.xhtml</to-view-id>
     </navigation-case>
   </navigation-rule>
   <navigation-rule>
-    <from-view-id>/view/personEdit2.xhtml</from-view-id>
+    <from-view-id>/view/default/personEdit2.xhtml</from-view-id>
     <navigation-case>
       <from-outcome>back</from-outcome>
-      <to-view-id>/view/personEdit.xhtml</to-view-id>
+      <to-view-id>/view/default/personEdit.xhtml</to-view-id>
+    </navigation-case>
+  </navigation-rule>
+
+  <navigation-rule>
+    <from-view-id>/view/appmngd/*</from-view-id>
+    <navigation-case>
+      <from-outcome>edit</from-outcome>
+      <to-view-id>/view/appmngd/personEdit.xhtml</to-view-id>
     </navigation-case>
     <navigation-case>
       <from-outcome>ok</from-outcome>
-      <to-view-id>/view/personList.xhtml</to-view-id>
+      <to-view-id>/view/appmngd/personList.xhtml</to-view-id>
+    </navigation-case>
+  </navigation-rule>
+  <navigation-rule>
+    <from-view-id>/view/appmngd/personEdit.xhtml</from-view-id>
+    <navigation-case>
+      <from-outcome>next</from-outcome>
+      <to-view-id>/view/appmngd/personEdit2.xhtml</to-view-id>
+    </navigation-case>
+  </navigation-rule>
+  <navigation-rule>
+    <from-view-id>/view/appmngd/personEdit2.xhtml</from-view-id>
+    <navigation-case>
+      <from-outcome>back</from-outcome>
+      <to-view-id>/view/appmngd/personEdit.xhtml</to-view-id>
     </navigation-case>
   </navigation-rule>
 

@@ -1,36 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PROCESS model-entity="JSFProcess">
- <PROCESS-ITEM NAME="rules:#view#personList.xhtml"
-  PATH="/view/personList.xhtml" SHAPE="256,33,0,0" model-entity="JSFProcessGroup">
-  <PROCESS-ITEM ID="rules:#view#personList.xhtml:0" NAME="item"
-   PATH="/view/personList.xhtml" model-entity="JSFProcessItem">
-   <PROCESS-ITEM-OUTPUT ID="edit::#view#personEdit.xhtml" NAME="output"
-    PATH="/view/personEdit.xhtml" TARGET="rules:#view#personEdit.xhtml"
-    TITLE="edit" model-entity="JSFProcessItemOutput"/>
+ <PROCESS-ITEM NAME="rules:#view#default#personList.xhtml"
+  PATH="/view/default/personList.xhtml" SHAPE="256,33,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#view#default#personEdit.xhtml"
+  PATH="/view/default/personEdit.xhtml" SHAPE="480,17,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#view#default#personEdit.xhtml:0" NAME="item"
+   PATH="/view/default/personEdit.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="next::#view#default#personEdit2.xhtml"
+    NAME="output1" PATH="/view/default/personEdit2.xhtml"
+    TARGET="rules:#view#default#personEdit2.xhtml" TITLE="next" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
- <PROCESS-ITEM NAME="rules:#view#personEdit.xhtml"
-  PATH="/view/personEdit.xhtml" SHAPE="480,17,0,0" model-entity="JSFProcessGroup">
-  <PROCESS-ITEM ID="rules:#view#personEdit.xhtml:0" NAME="item"
-   PATH="/view/personEdit.xhtml" model-entity="JSFProcessItem">
-   <PROCESS-ITEM-OUTPUT ID="ok::#view#personList.xhtml" NAME="output"
-    PATH="/view/personList.xhtml" TARGET="rules:#view#personList.xhtml"
-    TITLE="ok" model-entity="JSFProcessItemOutput"/>
-   <PROCESS-ITEM-OUTPUT ID="next::#view#personEdit2.xhtml"
-    NAME="output1" PATH="/view/personEdit2.xhtml"
-    TARGET="rules:#view#personEdit2.xhtml" TITLE="next" model-entity="JSFProcessItemOutput"/>
+ <PROCESS-ITEM NAME="rules:#view#default#personEdit2.xhtml"
+  PATH="/view/default/personEdit2.xhtml" SHAPE="32,17,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#view#default#personEdit2.xhtml:0" NAME="item"
+   PATH="/view/default/personEdit2.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="back::#view#default#personEdit.xhtml"
+    NAME="output" PATH="/view/default/personEdit.xhtml"
+    TARGET="rules:#view#default#personEdit.xhtml" TITLE="back" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
- <PROCESS-ITEM NAME="rules:#view#personEdit2.xhtml"
-  PATH="/view/personEdit2.xhtml" SHAPE="32,17,0,0" model-entity="JSFProcessGroup">
-  <PROCESS-ITEM ID="rules:#view#personEdit2.xhtml:0" NAME="item"
-   PATH="/view/personEdit2.xhtml" model-entity="JSFProcessItem">
-   <PROCESS-ITEM-OUTPUT ID="back::#view#personEdit.xhtml" NAME="output"
-    PATH="/view/personEdit.xhtml" TARGET="rules:#view#personEdit.xhtml"
-    TITLE="back" model-entity="JSFProcessItemOutput"/>
-   <PROCESS-ITEM-OUTPUT ID="ok::#view#personList.xhtml" NAME="output1"
-    PATH="/view/personList.xhtml" TARGET="rules:#view#personList.xhtml"
-    TITLE="ok" model-entity="JSFProcessItemOutput"/>
+ <PROCESS-ITEM NAME="rules:#view#default#*" PATH="/view/default/*"
+  SHAPE="32,129,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#view#default#*:0" NAME="item"
+   PATH="/view/default/*" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="edit::#view#default#personEdit.xhtml"
+    NAME="output" PATH="/view/default/personEdit.xhtml"
+    TARGET="rules:#view#default#personEdit.xhtml" TITLE="edit" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="ok::#view#default#personList.xhtml"
+    NAME="output1" PATH="/view/default/personList.xhtml"
+    TARGET="rules:#view#default#personList.xhtml" TITLE="ok" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#view#appmngd#*" PATH="/view/appmngd/*"
+  SHAPE="272,177,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#view#appmngd#*:0" NAME="item"
+   PATH="/view/appmngd/*" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="edit::#view#appmngd#personEdit.xhtml"
+    NAME="output" PATH="/view/appmngd/personEdit.xhtml"
+    TARGET="rules:#view#appmngd#personEdit.xhtml" TITLE="edit" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="ok::#view#appmngd#personList.xhtml"
+    NAME="output1" PATH="/view/appmngd/personList.xhtml"
+    TARGET="rules:#view#appmngd#personList.xhtml" TITLE="ok" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#view#appmngd#personEdit.xhtml"
+  PATH="/view/appmngd/personEdit.xhtml" SHAPE="512,161,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#view#appmngd#personEdit.xhtml:0" NAME="item"
+   PATH="/view/appmngd/personEdit.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="next::#view#appmngd#personEdit2.xhtml"
+    NAME="output" PATH="/view/appmngd/personEdit2.xhtml"
+    TARGET="rules:#view#appmngd#personEdit2.xhtml" TITLE="next" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#view#appmngd#personList.xhtml"
+  PATH="/view/appmngd/personList.xhtml" SHAPE="464,305,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#view#appmngd#personEdit2.xhtml"
+  PATH="/view/appmngd/personEdit2.xhtml" SHAPE="672,321,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#view#appmngd#personEdit2.xhtml:0" NAME="item"
+   PATH="/view/appmngd/personEdit2.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="back::#view#appmngd#personEdit.xhtml"
+    NAME="output" PATH="/view/appmngd/personEdit.xhtml"
+    TARGET="rules:#view#appmngd#personEdit.xhtml" TITLE="back" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
 </PROCESS>
