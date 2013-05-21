@@ -1,9 +1,11 @@
 <?xml version="1.0"?>
 <!-- 
+  Diese Datei wird im akuelen Projekt nicht benötigt. Sie zeigt den Inhalt des Deskriptors beans.xml, der in der Version CDI 1.0
+  in diesem Verzeichnis hätte platziert werden müssen.
+  
+  Der Deskriptor für die aktuelle Version liegt im Verzeichnis src/main/resources/META-INF.  
+  -->
 <beans xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/beans_1_0.xsd">
- -->
-<beans xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/beans_1_1.xsd"
-  bean-discovery-mode="all" version="1.1">
   <interceptors>
     <class>de.gedoplan.baselibs.enterprise.interceptor.TransactionRequiredInterceptor</class>
     <class>de.gedoplan.baselibs.enterprise.interceptor.TraceCallInterceptor</class>
