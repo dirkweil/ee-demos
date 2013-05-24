@@ -12,9 +12,14 @@ import javax.enterprise.inject.Disposes;
 import javax.enterprise.inject.Produces;
 import javax.sql.DataSource;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
 @ApplicationScoped
 public class DatabaseConnectionProducer
 {
+  private static Log LOG = LogFactory.getLog(DatabaseConnectionProducer.class);
+
   @Resource(lookup = "jdbc/ee-demos")
   @Produces
   private DataSource dataSource;
@@ -22,7 +27,9 @@ public class DatabaseConnectionProducer
   @Produces
   public Connection createConnection() throws SQLException
   {
-    return this.dataSource.getConnection();
+    Connection connection = this.dataSource.getConnection();
+    LOG.debug("Produced " + connection);
+    return connection;
   }
 
   // @Resource(lookup = "java:comp/env/jdbc/tempDb")
@@ -35,13 +42,16 @@ public class DatabaseConnectionProducer
   @TempDb
   public Connection createTempConnection() throws SQLException
   {
-    return this.tempDataSource.getConnection();
+    Connection connection = this.tempDataSource.getConnection();
+    LOG.debug("Produced " + connection);
+    return connection;
   }
 
-  public boolean disposeConnection(@Disposes @Any Connection connection) throws SQLException
+  public static boolean disposeConnection(@Disposes @Any Connection connection) throws SQLException
   {
     if (!connection.isClosed())
     {
+      LOG.debug("Dispose " + connection);
       connection.close();
     }
 
