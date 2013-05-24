@@ -2,7 +2,6 @@ package de.gedoplan.buch.eedemos.cdi.model;
 
 import de.gedoplan.baselibs.enterprise.interceptor.TraceCall;
 import de.gedoplan.buch.eedemos.cdi.beans.GreetingBean;
-import de.gedoplan.buch.eedemos.cdi.qualifier.Formal;
 
 import java.io.Serializable;
 import java.sql.Connection;
@@ -23,8 +22,8 @@ public class DemoModel implements Serializable
   private Log          logger;
 
   @Inject
-  @Formal
-  // @Greeting(type = GreetingType.NORMAL, additionalInfo = "...")
+  //  @Formal
+  //  @Greeting(type = GreetingType.NORMAL, additionalInfo = "...")
   private GreetingBean greetingBean;
 
   /*
