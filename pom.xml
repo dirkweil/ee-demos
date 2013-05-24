@@ -18,6 +18,7 @@
     <module>ee-demos-baselibs</module>
     <module>ee-demos-bv</module>
     <module>ee-demos-cdi</module>
+    <module>ee-demos-cdi-sublib</module>
     <module>ee-demos-jpa</module>
     <module>ee-demos-ejb</module>
     <module>ee-demos-jsf</module>
