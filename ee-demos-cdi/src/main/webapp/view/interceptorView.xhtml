@@ -4,11 +4,11 @@
 </h:head>
 <h:body>
   <h:form>
-    <h:commandButton action="#{demoModel.doSomething()}" value="doSomething" />
+    <h:commandButton action="#{interceptModel.doSomething()}" value="doSomething" />
   </h:form>
   
   <hr/>
-  Bei Betätigung des Buttons wird die Methode DemoModel.doSomething aufgerufen, die mit @TraceCall versehen ist. Ihr Aufruf wird somit
+  Bei Betätigung des Buttons wird die Methode InterceptModel.doSomething aufgerufen, die mit @TraceCall versehen ist. Ihr Aufruf wird somit
   im Server-Log protokolliert (auf Level TRACE)
 </h:body>
 </html>
