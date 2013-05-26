@@ -27,7 +27,7 @@ public class DatabaseConnectionProducer
   @Produces
   public Connection createConnection() throws SQLException
   {
-    Connection connection = this.dataSource.getConnection();
+    Connection connection = this.dataSource != null ? this.dataSource.getConnection() : null;
     LOG.debug("Produced " + connection);
     return connection;
   }
@@ -42,14 +42,14 @@ public class DatabaseConnectionProducer
   @TempDb
   public Connection createTempConnection() throws SQLException
   {
-    Connection connection = this.tempDataSource.getConnection();
+    Connection connection = this.tempDataSource != null ? this.tempDataSource.getConnection() : null;
     LOG.debug("Produced " + connection);
     return connection;
   }
 
   public static boolean disposeConnection(@Disposes @Any Connection connection) throws SQLException
   {
-    if (!connection.isClosed())
+    if (connection != null && !connection.isClosed())
     {
       LOG.debug("Dispose " + connection);
       connection.close();
