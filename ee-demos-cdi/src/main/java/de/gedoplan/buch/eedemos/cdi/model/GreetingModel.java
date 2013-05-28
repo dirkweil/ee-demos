@@ -1,12 +1,8 @@
 package de.gedoplan.buch.eedemos.cdi.model;
 
-import de.gedoplan.baselibs.enterprise.interceptor.TraceCall;
 import de.gedoplan.buch.eedemos.cdi.beans.GreetingBean;
 
 import java.io.Serializable;
-import java.sql.Connection;
-import java.sql.DatabaseMetaData;
-import java.sql.SQLException;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -16,7 +12,7 @@ import org.apache.commons.logging.Log;
 
 @Named
 @RequestScoped
-public class DemoModel implements Serializable
+public class GreetingModel implements Serializable
 {
   @Inject
   private Log          logger;
@@ -47,28 +43,5 @@ public class DemoModel implements Serializable
   {
     this.logger.debug("getHelloWorld()");
     return this.greetingBean.getGreeting() + ", dies ist \"Hello, world\" auf CDI-Basis.";
-  }
-
-  @Inject
-  // @TempDb
-  private Connection dbConnection;
-
-  public String getDbMake()
-  {
-    try
-    {
-      DatabaseMetaData metaData = this.dbConnection.getMetaData();
-      return metaData.getDatabaseProductName() + " " + metaData.getDatabaseProductVersion();
-    }
-    catch (SQLException e)
-    {
-      return e.toString();
-    }
-  }
-
-  @TraceCall
-  public String doSomething()
-  {
-    return "OK";
   }
 }

@@ -5,12 +5,12 @@ import de.gedoplan.buch.eedemos.cdi.TestBase;
 import org.apache.deltaspike.core.api.provider.BeanProvider;
 import org.junit.Test;
 
-public class DemoModelTest extends TestBase
+public class GreetingModelTest extends TestBase
 {
   @Test
   public void testGetHelloWorld()
   {
-    DemoModel demoModel = BeanProvider.getContextualReference(DemoModel.class);
-    System.out.println(demoModel.getHelloWorld());
+    GreetingModel greetingModel = BeanProvider.getContextualReference(GreetingModel.class);
+    System.out.println(greetingModel.getHelloWorld());
   }
 }

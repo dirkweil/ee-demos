@@ -47,7 +47,7 @@ Die folgenden Teilprojekte sind unterhalb von "ee-demos" vorhanden:
 Server
 ======
 
-Die Projekte sind grundsätzlich unabhängig vom Ziel-Server. Getestet wurden Sie auf GlassFish 3.1.2 und JBoss 7.1.1.
+Die Projekte sind grundsätzlich unabhängig vom Ziel-Server. Getestet wurden Sie auf GlassFish 4.0.x und WildFly 8.0.0.
 Siehe server-readme.txt.
 
 
@@ -57,9 +57,9 @@ Datenbank
 Die Projekte benötigen eine Datenbank.
 
 In den SE-Anteilen der Projekte ist der Zugriff auf eine H2-Datenbank mit den folgenden Verbindungsparametern konfiguriert:
-  Connect-URL: jdbc:h2:~/h2/ee-demos;AUTO_SERVER=TRUE;DB_CLOSE_ON_EXIT=FALSE
+  Connect-URL: jdbc:h2:~/h2/ee-demos;AUTO_SERVER=TRUE
   User: sa
-  Passwort: (keins).
+  Passwort: sa
   
 Im verwendeten Applikationsserver muss eine Datasource mit dem JNDI-Namen jdbc/ee-demos konfiguriert werden, die auf die gleiche Datenbank verweist.
 Dazu bitte je nach Applikationsserver wie in database/xxx/xxx-database-readme.txt angegeben vorgehen.
