@@ -28,6 +28,12 @@
     </dependency>
 
     <dependency>
+      <groupId>de.gedoplan.buch</groupId>
+      <artifactId>ee-demos-cdi-sublib2</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+
+    <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <scope>test</scope>

@@ -1,11 +1,11 @@
 package de.gedoplan.buch.eedemos.cdi.model;
 
 import de.gedoplan.buch.eedemos.cdi.TestBase;
-import de.gedoplan.buch.eedemos.cdi.sub.beans.SomeService;
-import de.gedoplan.buch.eedemos.cdi.sub.interceptor.OneInterceptor;
-import de.gedoplan.buch.eedemos.cdi.sub.interceptor.OneTwoThreeInterceptor;
-import de.gedoplan.buch.eedemos.cdi.sub.interceptor.ThreeInterceptor;
-import de.gedoplan.buch.eedemos.cdi.sub.interceptor.TwoInterceptor;
+import de.gedoplan.buch.eedemos.cdi.sub1.beans.SomeService;
+import de.gedoplan.buch.eedemos.cdi.sub1.interceptor.OneInterceptor;
+import de.gedoplan.buch.eedemos.cdi.sub1.interceptor.OneTwoThreeInterceptor;
+import de.gedoplan.buch.eedemos.cdi.sub1.interceptor.ThreeInterceptor;
+import de.gedoplan.buch.eedemos.cdi.sub1.interceptor.TwoInterceptor;
 
 import java.util.ArrayList;
 import java.util.List;

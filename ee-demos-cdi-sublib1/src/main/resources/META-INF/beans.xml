@@ -2,6 +2,11 @@
 <beans xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/beans_1_1.xsd"
   bean-discovery-mode="all" version="1.1">
   <interceptors>
-    <class>de.gedoplan.buch.eedemos.cdi.sub.interceptor.ThreeInterceptor</class>
-   </interceptors>
+    <class>de.gedoplan.buch.eedemos.cdi.sub1.interceptor.ThreeInterceptor</class>
+  </interceptors>
+
+  <scan>
+    <exclude name="de.gedoplan.buch.eedemos.cdi.sub1.beans.DiscoverableBean12"></exclude>
+    <exclude name="de.gedoplan.buch.eedemos.cdi.sub1.beans.excluded.**"></exclude>
+  </scan>
 </beans>

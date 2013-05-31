@@ -1,4 +1,4 @@
-package de.gedoplan.buch.eedemos.cdi.sub.interceptor;
+package de.gedoplan.buch.eedemos.cdi.sub1.interceptor;
 
 import javax.annotation.Priority;
 import javax.interceptor.Interceptor;
