@@ -8,7 +8,7 @@
     <version>7.0.0-SNAPSHOT</version>
   </parent>
 
-  <artifactId>ee-demos-cdi-sublib</artifactId>
+  <artifactId>ee-demos-cdi-sublib2</artifactId>
 
   <packaging>jar</packaging>
 
