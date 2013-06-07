@@ -17,6 +17,16 @@
   </build>
 
   <dependencies>
+    <!--
+      Die Dependency javax:javaee-api ist hier am Anfang aufgeführt, obwohl sie im Parent auch eingetragen ist.
+      Damit wird ereicht, dass die Java-EE-7-API am Anfang des Classpath ist. 
+    -->
+    <dependency>
+      <groupId>javax</groupId>
+      <artifactId>javaee-api</artifactId>
+      <scope>provided</scope>
+    </dependency>
+
     <dependency>
       <groupId>commons-logging</groupId>
       <artifactId>commons-logging</artifactId>

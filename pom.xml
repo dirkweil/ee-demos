@@ -28,16 +28,6 @@
 
   <properties>
     <!-- TODO: Finale Version -->
-    <jpa.groupId>org.eclipse.persistence</jpa.groupId>
-    <jpa.artifactId>javax.persistence</jpa.artifactId>
-    <jpa.version>2.1.0-RC2</jpa.version>
-<!--     
-    <jpa.groupId>javax.persistence</jpa.groupId>
-    <jpa.artifactId>persistence-api</jpa.artifactId>
-    <jpa.version>2.1</jpa.version>
- -->
-
-    <!-- TODO: Finale Version -->
     <eclipselink.version>2.5.0-RC2</eclipselink.version>
 <!-- 
     <eclipselink.version>2.6.0-SNAPSHOT</eclipselink.version>
@@ -115,24 +105,30 @@
         <version>1.0.15-SNAPSHOT</version>
       </dependency>
 
+<!-- 
       <dependency>
         <groupId>javax.annotation</groupId>
         <artifactId>javax.annotation-api</artifactId>
-        <!-- TODO: Finale Version -->
-        <version>1.2-b04</version>
+      <version>1.2-b04</version>
+    </dependency>
+      -->
+
+      <dependency>
+        <groupId>javax</groupId>
+        <artifactId>javaee-api</artifactId>
+        <version>7.0</version>
       </dependency>
 
+<!-- 
       <dependency>
         <groupId>javax.ejb</groupId>
         <artifactId>ejb</artifactId>
-        <!-- TODO: Finale Version -->
-        <version>3.1</version>
-      </dependency>
+      <version>3.1</version>
+    </dependency>
 
       <dependency>
         <groupId>javax.faces</groupId>
         <artifactId>jsf-api</artifactId>
-        <!-- TODO: Finale Version -->
         <version>2.0</version>
       </dependency>
 
@@ -157,7 +153,6 @@
       <dependency>
         <groupId>javax.jms</groupId>
         <artifactId>jms</artifactId>
-        <!-- TODO: Finale Version -->
         <version>1.1</version>
       </dependency>
 
@@ -170,30 +165,27 @@
       <dependency>
         <groupId>javax.resource</groupId>
         <artifactId>connector-api</artifactId>
-        <!-- TODO: Finale Version -->
         <version>1.6</version>
       </dependency>
 
       <dependency>
         <groupId>javax.servlet</groupId>
         <artifactId>servlet-api</artifactId>
-        <!-- TODO: Finale Version -->
         <version>3.0</version>
       </dependency>
 
       <dependency>
         <groupId>javax.transaction</groupId>
         <artifactId>transaction-api</artifactId>
-        <!-- TODO: Finale Version -->
         <version>1.2-b03</version>
       </dependency>
 
       <dependency>
         <groupId>javax.validation</groupId>
         <artifactId>validation-api</artifactId>
-        <!-- TODO: Finale Version -->
         <version>1.1.0.Final</version>
       </dependency>
+      -->
 
       <dependency>
         <groupId>joda-time</groupId>
@@ -382,6 +374,13 @@
 
   <dependencies>
     <dependency>
+      <groupId>javax</groupId>
+      <artifactId>javaee-api</artifactId>
+      <scope>provided</scope>
+    </dependency>
+
+<!-- 
+    <dependency>
       <groupId>javax.annotation</groupId>
       <artifactId>javax.annotation-api</artifactId>
       <scope>provided</scope>
@@ -446,5 +445,6 @@
       <artifactId>validation-api</artifactId>
       <scope>provided</scope>
     </dependency>
+ -->
   </dependencies>
 </project>
