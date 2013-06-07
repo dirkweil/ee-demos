@@ -6,7 +6,10 @@
   </interceptors>
 
   <scan>
-    <exclude name="de.gedoplan.buch.eedemos.cdi.sub1.beans.DiscoverableBean12"></exclude>
-    <exclude name="de.gedoplan.buch.eedemos.cdi.sub1.beans.excluded.**"></exclude>
+    <exclude name="de.gedoplan.buch.eedemos.cdi.sub1.beans.DiscoverableBean12"/>
+    <exclude name="de.gedoplan.buch.eedemos.cdi.sub1.beans.excluded.**"/>
+    <exclude name="de.gedoplan.buch.eedemos.cdi.dummy.**">
+      <if-system-property name="NO_DUMMY" value="true" />
+    </exclude>
   </scan>
 </beans>

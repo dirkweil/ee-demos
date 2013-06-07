@@ -28,7 +28,7 @@
 
   <properties>
     <!-- TODO: Finale Version -->
-    <eclipselink.version>2.5.0-RC2</eclipselink.version>
+    <eclipselink.version>2.5.0</eclipselink.version>
 <!-- 
     <eclipselink.version>2.6.0-SNAPSHOT</eclipselink.version>
  -->

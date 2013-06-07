@@ -19,7 +19,6 @@ import org.unitils.reflectionassert.ReflectionAssert;
 
 public class BeanDiscoveryTest extends TestBase
 {
-
   @Test
   public void showBeans()
   {
