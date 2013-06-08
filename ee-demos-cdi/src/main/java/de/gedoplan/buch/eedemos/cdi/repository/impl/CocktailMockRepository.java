@@ -11,11 +11,9 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
-import javax.annotation.Priority;
-
 //@Alternative
 @Mock
-@Priority(10)
+//@Priority(10)
 public class CocktailMockRepository implements CocktailRepository
 {
   private static Set<Cocktail> COCKTAILS = new HashSet<Cocktail>();
