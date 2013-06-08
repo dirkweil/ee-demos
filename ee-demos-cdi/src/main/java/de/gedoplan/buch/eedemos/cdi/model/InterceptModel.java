@@ -10,6 +10,7 @@ import javax.enterprise.inject.Model;
 import javax.inject.Inject;
 
 @Model
+@TraceCall
 public class InterceptModel
 {
   @Inject
@@ -18,7 +19,6 @@ public class InterceptModel
   @One
   @Two
   @Three
-  @TraceCall
   public void doSomething()
   {
     this.someService.doSomething();
