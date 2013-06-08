@@ -13,6 +13,7 @@ import java.util.Set;
 
 //@Alternative
 @Mock
+//@Priority(10)
 public class CocktailMockRepository implements CocktailRepository
 {
   private static Set<Cocktail> COCKTAILS = new HashSet<Cocktail>();
