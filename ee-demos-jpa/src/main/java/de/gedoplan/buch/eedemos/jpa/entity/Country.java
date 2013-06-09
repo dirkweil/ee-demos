@@ -1,7 +1,7 @@
 package de.gedoplan.buch.eedemos.jpa.entity;
 
 import de.gedoplan.buch.eedemos.jpa.converter.YesNoConverter;
-import de.gedoplan.buch.eedemos.jpa.entitylistener.DebugListener;
+import de.gedoplan.buch.eedemos.jpa.entitylistener.TraceListener;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
@@ -23,7 +23,7 @@ import javax.persistence.UniqueConstraint;
 @Entity
 @Access(AccessType.FIELD)
 @NamedQuery(name = "Country_findByPhonePrefix", query = "select c from Country c where c.phonePrefix=:phonePrefix")
-@EntityListeners(DebugListener.class)
+@EntityListeners(TraceListener.class)
 @Cacheable(true)
 @Table(name = Country.TABLE_NAME, uniqueConstraints = @UniqueConstraint(columnNames = "NAME"), indexes = @Index(columnList = "PHONE_PREFIX"))
 @SecondaryTable(name = Country.TABLE_2_NAME, uniqueConstraints = @UniqueConstraint(columnNames = "CAR_CODE"), pkJoinColumns = @PrimaryKeyJoinColumn(name = "IC"))

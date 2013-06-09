@@ -1,17 +1,18 @@
 package de.gedoplan.buch.eedemos.jpa.repository;
 
-import de.gedoplan.baselibs.enterprise.interceptor.TransactionRequired;
 import de.gedoplan.buch.eedemos.jpa.entity.Country;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
+import javax.transaction.Transactional.TxType;
 
 public class CountryRepository
 {
   @PersistenceContext(name = "ee_demos")
   private EntityManager entityManager;
 
-  @TransactionRequired
+  @Transactional(value = TxType.REQUIRED)
   public void insert(Country country)
   {
     this.entityManager.persist(country);
@@ -22,13 +23,13 @@ public class CountryRepository
     return this.entityManager.find(Country.class, id);
   }
 
-  @TransactionRequired
+  @Transactional(value = TxType.REQUIRED)
   public void update(Country country)
   {
     this.entityManager.merge(country);
   }
 
-  @TransactionRequired
+  @Transactional(value = TxType.REQUIRED)
   public void delete(String id)
   {
     Country country = findById(id);

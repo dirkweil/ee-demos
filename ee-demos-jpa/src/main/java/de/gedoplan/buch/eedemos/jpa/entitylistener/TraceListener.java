@@ -11,7 +11,7 @@ import javax.persistence.PreUpdate;
 
 import org.apache.commons.logging.Log;
 
-public class DebugListener
+public class TraceListener
 {
   // Im EE-Umfeld wird diese Injektion ausgeführt; im SE-Umfeld bleibt die Variable null
   @Inject
@@ -61,9 +61,9 @@ public class DebugListener
 
   private void doLog(String string)
   {
-    if (this.log != null && this.log.isDebugEnabled())
+    if (this.log != null && this.log.isTraceEnabled())
     {
-      this.log.debug(string);
+      this.log.trace(string);
     }
 
   }
