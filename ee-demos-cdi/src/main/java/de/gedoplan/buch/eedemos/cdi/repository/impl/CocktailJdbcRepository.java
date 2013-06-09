@@ -1,6 +1,5 @@
 package de.gedoplan.buch.eedemos.cdi.repository.impl;
 
-import de.gedoplan.baselibs.enterprise.interceptor.TransactionRequired;
 import de.gedoplan.buch.eedemos.cdi.entity.Cocktail;
 import de.gedoplan.buch.eedemos.cdi.repository.CocktailRepository;
 
@@ -12,6 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.transaction.Transactional;
+import javax.transaction.Transactional.TxType;
 
 /*
  * Achtung: Dies ist eine unvollständige Implementierung des DB-Zugriffs:
@@ -25,7 +26,7 @@ public class CocktailJdbcRepository implements CocktailRepository
   private Connection dbConnection;
 
   @Override
-  @TransactionRequired
+  @Transactional(value = TxType.REQUIRED /*, dontRollbackOn={HarmlessException.class}*/)
   public void insert(Cocktail cocktail)
   {
     throw new RuntimeException("Not yet implemented");
@@ -69,14 +70,14 @@ public class CocktailJdbcRepository implements CocktailRepository
   }
 
   @Override
-  @TransactionRequired
+  @Transactional(value = TxType.REQUIRED /*, dontRollbackOn={HarmlessException.class}*/)
   public void update(Cocktail cocktail)
   {
     throw new RuntimeException("Not yet implemented");
   }
 
   @Override
-  @TransactionRequired
+  @Transactional(value = TxType.REQUIRED /*, dontRollbackOn={HarmlessException.class}*/)
   public void delete(String id)
   {
     throw new RuntimeException("Not yet implemented");
