@@ -1,7 +1,7 @@
 package de.gedoplan.buch.eedemos.cdi.model;
 
 import de.gedoplan.buch.eedemos.cdi.beans.GreetingBean;
-import de.gedoplan.buch.eedemos.cdi.qualifier.FormalLiteral;
+import de.gedoplan.buch.eedemos.cdi.qualifier.Formal;
 
 import java.io.Serializable;
 import java.lang.annotation.Annotation;
@@ -38,7 +38,9 @@ public class BeanModel implements Serializable
   public List<Class<?>> getFormalGreetingBeanClasses()
   {
     List<Class<?>> classes = new ArrayList<>();
-    Instance<GreetingBean> selectedBeans = this.greetingBeans.select(FormalLiteral.INSTANCE);
+    Instance<GreetingBean> selectedBeans = this.greetingBeans.select(new AnnotationLiteral<Formal>()
+    {
+    });
     for (GreetingBean bean : selectedBeans)
     {
       classes.add(bean.getClass());

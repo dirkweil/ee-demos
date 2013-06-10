@@ -78,6 +78,9 @@ public class CocktailModel implements Serializable
 
         // Version 2: Dynamisch hinzugefügter Qualifier
         // this.cocktailOrderEvent.select(new AnnotationLiteral<Takeaway>(){}).fire(this.cocktailOrder);
+
+        // Version 2b: Wie 2, aber mit Annotationsliteral
+        // this.cocktailOrderEvent.select(TakeawayLiteral.INSTANCE).fire(this.cocktailOrder);
       }
       else
       {
