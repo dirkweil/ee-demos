@@ -28,12 +28,6 @@ public class CocktailModel implements Serializable
   @Inject
   private CocktailRepository cocktailRepository;
 
-  // @Inject
-  // private void setCocktailRepository(@Mock CocktailRepository cocktailRepository)
-  // {
-  // this.cocktailRepository = cocktailRepository;
-  // }
-
   public List<Cocktail> getNonAlcoholicCocktails()
   {
     return this.nonAlcoholicCocktails;
@@ -52,7 +46,7 @@ public class CocktailModel implements Serializable
 
   @Inject
   @Inhouse
-  private Event<CocktailOrder> cocktailInhouseOrderEvent;
+  private Event<CocktailOrder> cocktailOrderEvent;
 
   @Inject
   @Takeaway
@@ -79,11 +73,15 @@ public class CocktailModel implements Serializable
     {
       if (takeaway)
       {
+        // Version 1: Spezielle Event Source
         this.cocktailTakeawayOrderEvent.fire(this.cocktailOrder);
+
+        // Version 2: Dynamisch hinzugefügter Qualifier
+        // this.cocktailOrderEvent.select(new AnnotationLiteral<Takeaway>(){}).fire(this.cocktailOrder);
       }
       else
       {
-        this.cocktailInhouseOrderEvent.fire(this.cocktailOrder);
+        this.cocktailOrderEvent.fire(this.cocktailOrder);
       }
 
       beenden();

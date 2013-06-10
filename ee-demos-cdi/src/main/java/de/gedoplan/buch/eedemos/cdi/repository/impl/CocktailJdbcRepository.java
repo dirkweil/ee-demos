@@ -55,7 +55,7 @@ public class CocktailJdbcRepository implements CocktailRepository
     }
     catch (SQLException sqlException)
     {
-      throw new RuntimeException(sqlException);
+      throw new RuntimeException("Fehler beim Lesen der Cockails aus der Datenbank. Ist die Tabelle COCKTAIL mit den Spalten ID und NAME vorhanden?", sqlException);
     }
     finally
     {
