@@ -22,10 +22,39 @@
   <hr />
 
   <h:outputText value="Alle verfügbaren Beans:" />
-  <h:dataTable var="b" value="#{beanModel.allBeanDescriptions}">
+  <h:dataTable var="b" value="#{beanModel.allBeans}" rules="all">
     <h:column>
-      <h:outputText value="#{b}" />
+      <f:facet name="header">
+        <h:outputText value="Class" />
+      </f:facet>
+      <h:outputText value="#{b.beanClass.name}" />
+    </h:column>
+
+    <h:column>
+      <f:facet name="header">
+        <h:outputText value="Qualifiers" />
+      </f:facet>
+      <h:outputText value="#{b.qualifiers}" />
+    </h:column>
+
+    <h:column>
+      <f:facet name="header">
+        <h:outputText value="Bean Types" />
+      </f:facet>
+      <h:outputText value="#{b.types}" />
+    </h:column>
+
+    <h:column>
+      <f:facet name="header">
+        <h:outputText value="Scope" />
+      </f:facet>
+      <h:outputText value="#{b.scope}" />
     </h:column>
   </h:dataTable>
+
+  <hr />
+
+  <h:outputText value="Formelle Begrüßung: "/>
+  <h:outputText value="#{beanModel.formalGreeting}" />
 </h:body>
 </html>

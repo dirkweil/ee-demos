@@ -4,11 +4,12 @@ import de.gedoplan.buch.eedemos.cdi.beans.GreetingBean;
 import de.gedoplan.buch.eedemos.cdi.qualifier.Formal;
 
 import java.io.Serializable;
-import java.lang.annotation.Annotation;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import javax.enterprise.context.RequestScoped;
+import javax.enterprise.context.spi.CreationalContext;
 import javax.enterprise.inject.Any;
 import javax.enterprise.inject.Instance;
 import javax.enterprise.inject.spi.Bean;
@@ -51,22 +52,33 @@ public class BeanModel implements Serializable
   @Inject
   private BeanManager beanManager;
 
-  public List<CharSequence> getAllBeanDescriptions()
+  public List<Bean<?>> getAllBeans()
   {
-    List<CharSequence> list = new ArrayList<>();
+    List<Bean<?>> list = new ArrayList<Bean<?>>();
     for (Bean<?> bean : this.beanManager.getBeans(Object.class, new AnnotationLiteral<Any>()
     {
     }))
     {
-      StringBuilder beanDescription = new StringBuilder();
-      for (Annotation qualifier : bean.getQualifiers())
-      {
-        beanDescription.append(qualifier).append(' ');
-      }
-      beanDescription.append(bean.getBeanClass().getName());
-
-      list.add(beanDescription);
+      list.add(bean);
     }
+
     return list;
+  }
+
+  @SuppressWarnings({ "unchecked", "rawtypes" })
+  public String getFormalGreeting()
+  {
+    Set<Bean<? extends GreetingBean>> beans = (Set) this.beanManager.getBeans(GreetingBean.class, new AnnotationLiteral<Formal>()
+    {
+    });
+    if (beans.size() != 1)
+    {
+      return "Fehler: Nicht genau eine formelle GreetingBean gefunden!";
+    }
+
+    Bean<? extends GreetingBean> bean = beans.iterator().next();
+    CreationalContext<? extends GreetingBean> beanContext = this.beanManager.createCreationalContext(bean);
+    GreetingBean greetingBean = (GreetingBean) this.beanManager.getReference(bean, GreetingBean.class, beanContext);
+    return greetingBean.getGreeting();
   }
 }
