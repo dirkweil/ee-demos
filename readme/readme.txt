@@ -58,10 +58,10 @@ Die Projekte benötigen eine Datenbank.
 
 In den SE-Anteilen der Projekte ist der Zugriff auf eine H2-Datenbank mit den folgenden Verbindungsparametern konfiguriert:
   Connect-URL: jdbc:h2:~/h2/ee-demos;AUTO_SERVER=TRUE
-  User: sa
-  Passwort: sa
+  User: ee-demos
+  Passwort: ee-demos
   
-Im verwendeten Applikationsserver muss eine Datasource mit dem JNDI-Namen jdbc/ee-demos konfiguriert werden, die auf die gleiche Datenbank verweist.
+Im verwendeten Applikationsserver muss eine Datasource mit dem JNDI-Namen jdbc/eeDemos konfiguriert werden, die auf die gleiche Datenbank verweist.
 Dazu bitte je nach Applikationsserver wie in database/xxx/xxx-database-readme.txt angegeben vorgehen.
 
 Zum direkten Betrachten und Bearbeiten der DB-Inhalte eignen sich diverse JDBC-Tools, z. B. 

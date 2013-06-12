@@ -1,4 +1,4 @@
-Im GlassFish kann mit den folgenden Schritten eine Datasource mit dem JNDI-Namen jdbc/ee-demos konfiguriert werden:
+Im GlassFish kann mit den folgenden Schritten eine Datasource mit dem JNDI-Namen jdbc/eeDemos konfiguriert werden:
 
 - Bereitstellung des JDBC-Treibers:
   Die Projekte verwenden per Default eine H2-Datenbank. Ihr Treiber ist nach einem erfolgreichen Maven-Build im 
@@ -13,10 +13,10 @@ Im GlassFish kann mit den folgenden Schritten eine Datasource mit dem JNDI-Namen
      Pool Name              eeDemosPool
      Resource Type          javax.sql.DataSource
      Database Driver Vendor H2
-     User                   sa
-     Password	            sa
+     User                   ee-demos
+     Password	            ee-demos
      URL                    jdbc:h2:~/h2/ee-demos;AUTO_SERVER=TRUE
   - Im Menüpunkt "Resources -> JDBC -> JDBC Resources" mit dem Button "New" einen neuen Eintrag erzeugen mit diesen Parametern:
-     JNDI Name              jdbc/ee-demos
+     JNDI Name              jdbc/eeDemos
      Pool Name              eeDemosPool
      Status	                enabled
