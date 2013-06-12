@@ -43,9 +43,9 @@ public class ScopeLifecycleLogger
 
   private static void logScopeLifecycleEvent(boolean init, String scopeName, Log log)
   {
-    if (log.isDebugEnabled())
+    if (log.isTraceEnabled())
     {
-      log.debug((init ? "Initialized" : "Destroyed") + " " + scopeName + " scope");
+      log.trace((init ? "Initialized" : "Destroyed") + " " + scopeName + " scope");
     }
   }
 }
