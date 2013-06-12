@@ -23,7 +23,7 @@ public class DatabaseConnectionProducer
   /*
    * Achtung: Dies benötigt eine im Server konfigurierte DataSource. S. readme.txt
    */
-  @Resource(lookup = "jdbc/ee-demos")
+  @Resource(lookup = "jdbc/eeDemos")
   @Produces
   private DataSource dataSource;
 

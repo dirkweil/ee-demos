@@ -5,7 +5,7 @@
   <!-- 
     <provider>org.hibernate.ejb.HibernatePersistence</provider>
    -->
-    <jta-data-source>jdbc/ee-demos</jta-data-source>
+    <jta-data-source>jdbc/eeDemos</jta-data-source>
     <properties>
       <property name="eclipselink.ddl-generation" value="create-tables" />
       <property name="eclipselink.ddl-generation.output-mode" value="database" />
