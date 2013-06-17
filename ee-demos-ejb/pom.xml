@@ -12,24 +12,29 @@
 
   <packaging>war</packaging>
 
-  <properties>
-    <deploy2server>true</deploy2server>
-  </properties>
-
   <build>
     <finalName>${project.artifactId}</finalName>
   </build>
 
   <dependencies>
+    <!--
+      Die Dependency javax:javaee-api ist hier am Anfang aufgeführt, obwohl sie im Parent auch eingetragen ist.
+      Damit wird ereicht, dass die Java-EE-7-API am Anfang des Classpath ist. 
+    -->
+    <dependency>
+      <groupId>javax</groupId>
+      <artifactId>javaee-api</artifactId>
+      <scope>provided</scope>
+    </dependency>
+
     <dependency>
       <groupId>commons-logging</groupId>
       <artifactId>commons-logging</artifactId>
     </dependency>
 
     <dependency>
-      <groupId>de.gedoplan.buch</groupId>
-      <artifactId>ee-demos-baselibs</artifactId>
-      <version>${project.version}</version>
+      <groupId>de.gedoplan</groupId>
+      <artifactId>baselibs-enterprise</artifactId>
     </dependency>
 
     <dependency>
