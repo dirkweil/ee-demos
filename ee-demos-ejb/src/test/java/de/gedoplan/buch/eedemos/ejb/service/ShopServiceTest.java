@@ -3,13 +3,12 @@ package de.gedoplan.buch.eedemos.ejb.service;
 import de.gedoplan.buch.eedemos.ejb.entity.ShopItem;
 import de.gedoplan.buch.eedemos.ejb.util.LookupHelper;
 
-import junit.framework.Assert;
-
 import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
 
+import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 

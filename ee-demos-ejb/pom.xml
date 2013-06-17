@@ -49,4 +49,67 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+  
+    <!--
+    Ab hier folgen Profile für die unterstützten Application Server. Es darf nur eines davon aktiv sein.
+  -->
+  <profiles>
+    <!-- ******************** GlassFish 3.1.x ******************** -->
+    <profile>
+      <id>glassfish-4.0</id>
+
+      <activation>
+        <activeByDefault>false</activeByDefault>
+      </activation>
+
+      <properties>
+        <server.type>glassfish</server.type>
+        <server.version>4.0</server.version>
+        <jndi.properties>
+          java.naming.factory.initial=com.sun.enterprise.naming.SerialInitContextFactory
+        </jndi.properties>
+      </properties>
+
+      <dependencies>
+      <!-- 
+        <dependency>
+          <groupId>org.glassfish.appclient</groupId>
+          <artifactId>gf-client</artifactId>
+          <version>3.1</version>
+          <scope>test</scope>
+          <exclusions>
+            <exclusion>
+              <groupId>com.ctc.wstx</groupId>
+              <artifactId>woodstox-osgi</artifactId>
+            </exclusion>
+            <exclusion>
+              <groupId>org.eclipse.persistence</groupId>
+              <artifactId>org.eclipse.persistence.core</artifactId>
+            </exclusion>
+            <exclusion>
+              <groupId>org.eclipse.persistence</groupId>
+              <artifactId>org.eclipse.persistence.jpa</artifactId>
+            </exclusion>
+            <exclusion>
+              <groupId>org.eclipse.persistence</groupId>
+              <artifactId>org.eclipse.persistence.jpa.modelgen</artifactId>
+            </exclusion>
+            <exclusion>
+              <groupId>org.eclipse.persistence</groupId>
+              <artifactId>org.eclipse.persistence.oracle</artifactId>
+            </exclusion>
+            <exclusion>
+              <groupId>org.eclipse.persistence</groupId>
+              <artifactId>org.eclipse.persistence.antlr</artifactId>
+            </exclusion>
+            <exclusion>
+              <groupId>org.eclipse.persistence</groupId>
+              <artifactId>org.eclipse.persistence.asm</artifactId>
+            </exclusion>
+          </exclusions>
+        </dependency>
+       -->
+      </dependencies>
+    </profile>
+  </profiles>
 </project>
