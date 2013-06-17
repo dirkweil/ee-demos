@@ -1,6 +1,7 @@
 package de.gedoplan.buch.eedemos.bv.validation.model;
 
 import de.gedoplan.buch.eedemos.bv.validation.entity.Fragebogen;
+import de.gedoplan.buch.eedemos.bv.validation.service.UmfrageService;
 import de.gedoplan.buch.eedemos.bv.validation.util.FragebogenSamples;
 
 import java.io.Serializable;
@@ -68,5 +69,13 @@ public class BeanValDemoModel implements Serializable
     {
       this.message.append(constraintViolation.getPropertyPath()).append(' ').append(constraintViolation.getMessage()).append('\n');
     }
+  }
+
+  @Inject
+  UmfrageService umfrageService;
+
+  public void createUmfrage(int personenZahl)
+  {
+    this.umfrageService.createUmfrage(personenZahl);
   }
 }

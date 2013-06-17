@@ -8,19 +8,14 @@
     <validation-mode>AUTO</validation-mode>
 
     <properties>
-      <property name="javax.persistence.validation.group.pre-persist" value="javax.validation.groups.Default"/>
-      <property name="javax.persistence.validation.group.pre-update" value="javax.validation.groups.Default"/>
-      <property name="javax.persistence.validation.group.pre-remove" value=""/>
-
       <property name="javax.persistence.jdbc.driver" value="org.h2.Driver" />
       <property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:testDb;DB_CLOSE_DELAY=-1" />
 
-      <!-- DB-Tabellen automatisch verwalten? Erlaubte Werte: none, create-tables, drop-and-create-tables. -->
-      <property name="eclipselink.ddl-generation" value="create-tables" />
-      <property name="eclipselink.ddl-generation.output-mode" value="database" />
+      <property name="javax.persistence.schema-generation.database.action" value="create" />
 
-      <!-- DB-Tabellen automatisch verwalten? Erlaubte Werte: validate, create, create-drop, update. -->
-      <property name="hibernate.hbm2ddl.auto" value="update" />
+      <property name="javax.persistence.validation.group.pre-persist" value="javax.validation.groups.Default"/>
+      <property name="javax.persistence.validation.group.pre-update" value="javax.validation.groups.Default"/>
+      <property name="javax.persistence.validation.group.pre-remove" value=""/>
     </properties>
   </persistence-unit>
 </persistence>

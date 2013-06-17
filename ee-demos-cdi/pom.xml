@@ -12,10 +12,6 @@
 
   <packaging>war</packaging>
 
-  <properties>
-    <deploy2server>true</deploy2server>
-  </properties>
-
   <build>
     <finalName>${project.artifactId}</finalName>
   </build>

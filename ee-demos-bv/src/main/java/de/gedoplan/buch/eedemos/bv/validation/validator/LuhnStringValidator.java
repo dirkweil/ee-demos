@@ -17,7 +17,6 @@ import javax.validation.ConstraintValidatorContext;
  */
 public class LuhnStringValidator implements ConstraintValidator<Luhn, String>
 {
-
   @Override
   public void initialize(Luhn constraintAnnotation)
   {

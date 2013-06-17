@@ -1,6 +1,6 @@
 package de.gedoplan.buch.eedemos.bv.validation.entity;
 
-import de.gedoplan.baselibs.utils.validation.constraint.NotEmpty;
+import de.gedoplan.baselibs.utils.constraint.NotEmpty;
 import de.gedoplan.buch.eedemos.bv.validation.group.InitialInput;
 
 import java.util.Date;

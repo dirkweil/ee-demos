@@ -20,6 +20,18 @@
     <finalName>${project.artifactId}</finalName>
   </build>
 
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.jboss.seam</groupId>
+        <artifactId>seam-bom</artifactId>
+        <version>${seam.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
   <dependencies>
     <dependency>
       <groupId>commons-logging</groupId>

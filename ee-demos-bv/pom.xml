@@ -12,15 +12,31 @@
 
   <packaging>war</packaging>
 
-  <properties>
-    <deploy2server>true</deploy2server>
-  </properties>
-
   <build>
     <finalName>${project.artifactId}</finalName>
   </build>
 
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-validator</artifactId>
+        <version>5.0.1.Final</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
   <dependencies>
+    <!--
+      Die Dependency javax:javaee-api ist hier am Anfang aufgeführt, obwohl sie im Parent auch eingetragen ist.
+      Damit wird ereicht, dass die Java-EE-7-API am Anfang des Classpath ist. 
+    -->
+    <dependency>
+      <groupId>javax</groupId>
+      <artifactId>javaee-api</artifactId>
+      <scope>provided</scope>
+    </dependency>
+
     <dependency>
       <groupId>com.h2database</groupId>
       <artifactId>h2</artifactId>
@@ -32,10 +48,11 @@
       <artifactId>commons-logging</artifactId>
     </dependency>
 
+<!-- 
+ -->
     <dependency>
-      <groupId>de.gedoplan.buch</groupId>
-      <artifactId>ee-demos-baselibs</artifactId>
-      <version>${project.version}</version>
+      <groupId>de.gedoplan</groupId>
+      <artifactId>baselibs-utils</artifactId>
     </dependency>
 
     <dependency>
@@ -51,15 +68,15 @@
     </dependency>
 
     <dependency>
-      <groupId>org.apache.derby</groupId>
-      <artifactId>derbynet</artifactId>
+      <groupId>org.eclipse.persistence</groupId>
+      <artifactId>org.eclipse.persistence.jpa</artifactId>
       <scope>test</scope>
     </dependency>
 
     <dependency>
-      <groupId>org.hibernate</groupId>
-      <artifactId>hibernate-entitymanager</artifactId>
-      <scope>test</scope>
+      <groupId>org.glassfish.web</groupId>
+      <artifactId>javax.el</artifactId>
+      <scope>provided</scope>
     </dependency>
 
     <dependency>

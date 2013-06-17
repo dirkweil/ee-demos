@@ -1,0 +1,17 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <title>Demo von Constraints auf Parametern und Returnwerten</title>
+</h:head>
+
+<h:body>
+  Die drei Buttons rufen die Methode createUmfrage mit unterschiedlichen Parametern auf, was nur im ersten Fall die Constraints erfüllt.
+  <h:form>
+    <h:commandButton value="U10" action="#{beanValDemoModel.createUmfrage(10)}" />
+    <br/>
+    <h:commandButton value="U5" action="#{beanValDemoModel.createUmfrage(5)}" />
+  </h:form>
+</h:body>
+
+</html>

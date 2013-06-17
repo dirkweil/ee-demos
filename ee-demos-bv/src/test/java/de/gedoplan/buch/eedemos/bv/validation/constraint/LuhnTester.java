@@ -1,11 +1,12 @@
 package de.gedoplan.buch.eedemos.bv.validation.constraint;
 
-import de.gedoplan.buch.eedemos.bv.validation.constraint.Luhn;
+import java.util.Set;
 
+import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.Validator;
 
-public class LuhnTest
+public class LuhnTester
 {
   private static Validator validator;
 
@@ -25,14 +26,26 @@ public class LuhnTest
 
   private static void validate(String stringValue)
   {
-    boolean ok = validator.validateValue(ConstraintHolder.class, "stringValue", stringValue).isEmpty();
-    System.out.println("\"" + stringValue + "\": " + ok);
+    validate("stringValue", stringValue);
   }
 
   private static void validate(int intValue)
   {
-    boolean ok = validator.validateValue(ConstraintHolder.class, "intValue", intValue).isEmpty();
-    System.out.println(intValue + ": " + ok);
+    validate("intValue", intValue);
+  }
+
+  private static void validate(String fieldName, Object value)
+  {
+    Set<ConstraintViolation<ConstraintHolder>> violations = validator.validateValue(ConstraintHolder.class, fieldName, value);
+    boolean ok = violations.isEmpty();
+    System.out.println("\"" + value + "\": " + ok);
+    if (!ok)
+    {
+      for (ConstraintViolation<ConstraintHolder> violation : violations)
+      {
+        System.out.println("  " + violation.getMessage());
+      }
+    }
   }
 
   @SuppressWarnings("unused")
