@@ -16,6 +16,15 @@
     <finalName>${project.artifactId}</finalName>
   </build>
 
+  <properties>
+    <javax.persistence.provider>org.eclipse.persistence.jpa.PersistenceProvider</javax.persistence.provider>
+
+    <javax.persistence.jdbc.driver>org.h2.Driver</javax.persistence.jdbc.driver>
+    <javax.persistence.jdbc.url>jdbc:h2:mem:test;DB_CLOSE_DELAY=-1</javax.persistence.jdbc.url>
+    <javax.persistence.jdbc.user>test</javax.persistence.jdbc.user>
+    <javax.persistence.jdbc.password>test</javax.persistence.jdbc.password>
+  </properties>
+
   <dependencies>
     <!--
       Die Dependency javax:javaee-api ist hier am Anfang aufgeführt, obwohl sie im Parent auch eingetragen ist.
@@ -40,6 +49,11 @@
 
     <dependency>
       <groupId>de.gedoplan</groupId>
+      <artifactId>baselibs-persistence</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>de.gedoplan</groupId>
       <artifactId>baselibs-utils</artifactId>
     </dependency>
 
@@ -58,6 +72,12 @@
     <dependency>
       <groupId>org.eclipse.persistence</groupId>
       <artifactId>org.eclipse.persistence.jpa</artifactId>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-entitymanager</artifactId>
       <scope>test</scope>
     </dependency>
 
@@ -85,4 +105,34 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+
+  <profiles>
+    <!-- Hibernate -->
+    <profile>
+      <id>hibernate</id>
+      <activation>
+        <activeByDefault>false</activeByDefault>
+      </activation>
+
+      <properties>
+        <javax.persistence.provider>org.hibernate.ejb.HibernatePersistence</javax.persistence.provider>
+      </properties>
+
+    </profile>
+
+    <profile>
+      <id>h2-file</id>
+      <activation>
+        <activeByDefault>false</activeByDefault>
+      </activation>
+
+      <properties>
+        <javax.persistence.jdbc.driver>org.h2.Driver</javax.persistence.jdbc.driver>
+        <javax.persistence.jdbc.url>jdbc:h2:~/h2/ee-demos;AUTO_SERVER=TRUE</javax.persistence.jdbc.url>
+        <javax.persistence.jdbc.user>ee-demos</javax.persistence.jdbc.user>
+        <javax.persistence.jdbc.password>ee-demos</javax.persistence.jdbc.password>
+      </properties>
+    </profile>
+  </profiles>
+
 </project>
