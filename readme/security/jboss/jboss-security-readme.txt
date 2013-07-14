@@ -1,15 +1,17 @@
 Zur Demonstration von Security benötigen die Projekte User mit passenden Rechte, d. h. Rollen.
 Die Namen der User sind natürlich frei wählbar. Im Folgenden werden diese verwendet:
 
-Username Rollen
-======== =============
-kirk     provsUser
-spock    provsUser
-mccoy    provsUser
-hugo     eeDemoUser,demoRole
-otto     eeDemoUser
+Username  Rollen
+========  =============
+kirk      provsUser
+spock     provsUser
+mccoy     provsUser
+hugo      eeDemoUser,demoRole
+otto      eeDemoUser
+anonymous guest
 
-Die ersten drei User werden in Projekt ee-demos-provs genutzt, die beiden anderen in ee-demos-ejb und ee-demos-jsf.
+Die ersten drei User werden in Projekt ee-demos-provs genutzt, die nächsten beiden in ee-demos-ejb und ee-demos-jsf. Der User anonymous wird benötigt,
+da JBoss 7 keine Remote-Aufrufe ohne Autentisierung erlaubt. Unsere Client-Bibliothek benutzt in einem solchen Fall den User anonymous.
 
 Für den JBoss 7 ist die Einrichtung wie folgt durchzuführen:
 
@@ -18,5 +20,8 @@ Für den JBoss 7 ist die Einrichtung wie folgt durchzuführen:
     Typ des Benutzers: Applikationsbenutzer
     Bereich:           ApplicationRealm
     Benutzername:      (s. oben)
-    Passwort:          (frei wählbar; muss min. 8 Zeichen lang sein und Buchstaben, Ziffern und Sonderzeichen enthalten)
+    Passwort:          (frei wählbar*; muss min. 8 Zeichen lang sein und Buchstaben, Ziffern und Sonderzeichen enthalten)
     Rollen:            (Kommagetrennte Liste von Rollennamen; s. oben)
+ 
+    *) mit Ausnahme des Users anonymous: Hier muss das Passwort anonymous_123 sein.
+    
