@@ -16,7 +16,8 @@ import java.util.Set;
 //@Priority(10)
 public class CocktailMockRepository implements CocktailRepository
 {
-  private static Set<Cocktail> COCKTAILS = new HashSet<Cocktail>();
+
+  private static Set<Cocktail> COCKTAILS = new HashSet<>();
 
   static
   {
@@ -116,5 +117,4 @@ public class CocktailMockRepository implements CocktailRepository
       }
     }
   }
-
 }
