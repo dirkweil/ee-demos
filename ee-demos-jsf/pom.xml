@@ -14,6 +14,7 @@
 
   <properties>
     <deploy2server>true</deploy2server>
+    <netbeans.hint.deploy.server>gfv3ee6</netbeans.hint.deploy.server>
   </properties>
 
   <build>
@@ -26,10 +27,21 @@
       <artifactId>commons-logging</artifactId>
     </dependency>
 
+    <!--
+        <dependency>
+          <groupId>de.gedoplan.buch</groupId>
+          <artifactId>ee-demos-baselibs</artifactId>
+          <version>${project.version}</version>
+        </dependency>
+    -->
     <dependency>
-      <groupId>de.gedoplan.buch</groupId>
-      <artifactId>ee-demos-baselibs</artifactId>
-      <version>${project.version}</version>
+      <groupId>de.gedoplan</groupId>
+      <artifactId>baselibs-enterprise</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>de.gedoplan</groupId>
+      <artifactId>baselibs-faces</artifactId>
     </dependency>
 
     <dependency>

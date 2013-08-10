@@ -1,6 +1,6 @@
 package de.gedoplan.buch.eedemos.jsf.model;
 
-import de.gedoplan.baselibs.enterprise.faces.validation.FacesValidationHelper;
+import de.gedoplan.baselibs.faces.validation.FacesValidationHelper;
 import de.gedoplan.buch.eedemos.jsf.entity.Auto;
 import de.gedoplan.buch.eedemos.jsf.repository.AutoRepository;
 
@@ -17,23 +17,21 @@ import org.apache.commons.logging.Log;
 
 /**
  * Model zur Demonstration verschiedener Verfahren zur feldübergreifenden Validierung.
- * 
+ *
  * @author dw
- * 
+ *
  */
 @Model
 public class ValidationModel implements Serializable
 {
-  @Inject
-  private AutoRepository        autoRepository;
 
+  @Inject
+  private AutoRepository autoRepository;
   @Inject
   private FacesValidationHelper facesValidationHelper;
-
   @Inject
-  private Log                   log;
-
-  private Auto                  auto = new Auto();
+  private Log log;
+  private Auto auto = new Auto();
 
   public Auto getAuto()
   {
@@ -87,9 +85,9 @@ public class ValidationModel implements Serializable
 
   /**
    * Feldübergreifende Validierung der Eingabewerte.
-   * 
+   *
    * Diese Methode muss als Event Listener für den postValidata-Event registriert werden.
-   * 
+   *
    * @param componentSystemEvent Event
    */
   public void validateCrossComponents(ComponentSystemEvent componentSystemEvent)
@@ -122,7 +120,7 @@ public class ValidationModel implements Serializable
 
   /**
    * Hilfsmethode zum Auslesen eines Komponentenwertes.
-   * 
+   *
    * @param <T> Erwarteter Ziel-Typ
    * @param anchorComponent Anker-Komponente, i. d. R. h:form
    * @param componentId Id der Eingabekomponente
@@ -134,5 +132,4 @@ public class ValidationModel implements Serializable
     UIInput component = (UIInput) anchorComponent.findComponent(componentId);
     return (T) component.getValue();
   }
-
 }

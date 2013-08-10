@@ -10,6 +10,7 @@ import javax.persistence.PersistenceContext;
 @ApplicationScoped
 public class AutoRepository
 {
+
   @PersistenceContext(name = "ee_demos")
   private EntityManager entityManager;
 
@@ -18,5 +19,4 @@ public class AutoRepository
   {
     this.entityManager.merge(auto);
   }
-
 }
