@@ -5,12 +5,12 @@ import javax.interceptor.Interceptor;
 
 /**
  * Interceptor-Implementierung zu {@link Two}.
- * 
+ *
  * @author dw
  */
 @Two
 @Interceptor
-@Priority(2)
+@Priority(Interceptor.Priority.APPLICATION + 2)
 public class TwoInterceptor extends OneTwoThreeInterceptor
 {
 }
