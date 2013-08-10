@@ -18,7 +18,7 @@
     <module>ee-demos-baselibs</module>
     <module>ee-demos-bv</module>
     <module>ee-demos-cdi</module>
-    <module>ee-demos-cdi-entension</module>
+    <module>ee-demos-cdi-extension</module>
     <module>ee-demos-cdi-sublib1</module>
     <module>ee-demos-cdi-sublib2</module>
     <module>ee-demos-jpa</module>
@@ -30,7 +30,7 @@
   <properties>
     <!-- TODO: Finale Version -->
     <eclipselink.version>2.5.0</eclipselink.version>
-<!-- 
+<!--
     <eclipselink.version>2.6.0-SNAPSHOT</eclipselink.version>
  -->
     <h2.version>1.3.171</h2.version>
@@ -106,7 +106,7 @@
         <version>1.0.15</version>
       </dependency>
 
-<!-- 
+<!--
       <dependency>
         <groupId>javax.annotation</groupId>
         <artifactId>javax.annotation-api</artifactId>
@@ -120,7 +120,7 @@
         <version>7.0</version>
       </dependency>
 
-<!-- 
+<!--
       <dependency>
         <groupId>javax.ejb</groupId>
         <artifactId>ejb</artifactId>
@@ -378,7 +378,7 @@
       <scope>provided</scope>
     </dependency>
 
-<!-- 
+<!--
     <dependency>
       <groupId>javax.annotation</groupId>
       <artifactId>javax.annotation-api</artifactId>
@@ -439,11 +439,11 @@
       <scope>provided</scope>
     </dependency>
 
-    <dependency>
-      <groupId>javax.validation</groupId>
-      <artifactId>validation-api</artifactId>
-      <scope>provided</scope>
-    </dependency>
- -->
+       <dependency>
+         <groupId>javax.validation</groupId>
+         <artifactId>validation-api</artifactId>
+         <scope>provided</scope>
+       </dependency>
+    -->
   </dependencies>
 </project>
