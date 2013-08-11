@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Scene Scope="Project" version="2">
+    <Scope Scope="Faces Configuration Only"/>
+    <Scope Scope="Project">
+        <Node id="view/validationDemo.xhtml" x="1900" y="300" zoom="true"/>
+        <Node id="view/firstCompositeComponent.xhtml" x="1650" y="450" zoom="true"/>
+        <Node id="view/waehrungsRechner_help.xhtml" x="150" y="150" zoom="true"/>
+        <Node id="view/getSupport.xhtml" x="400" y="1200" zoom="true"/>
+        <Node id="view/templatedPage2.xhtml" x="400" y="450" zoom="true"/>
+        <Node id="resources/components/ee-demos/labeledInputText.xhtml" x="1150" y="750" zoom="true"/>
+        <Node id="view/fAjaxDemo.xhtml" x="1900" y="150" zoom="true"/>
+        <Node id="view/eventDemo.xhtml" x="650" y="450" zoom="true"/>
+        <Node id="view/compositeComponentWithAction.xhtml" x="400" y="300" zoom="true"/>
+        <Node id="view/compositeComponentWithChildren.xhtml" x="900" y="1050" zoom="true"/>
+        <Node id="view/bankEdit.xhtml" x="2150" y="150" zoom="true"/>
+        <Node id="view/compositeComponentWithFacets.xhtml" x="1400" y="450" zoom="true"/>
+        <Node id="login_insufficient.xhtml" x="1400" y="300" zoom="true"/>
+        <Node id="view/waehrungsRechner.xhtml" x="650" y="750" zoom="true"/>
+        <Node id="view/customConverterDemo.xhtml" x="900" y="600" zoom="true"/>
+        <Node id="view/inputXxx.xhtml" x="1400" y="750" zoom="true"/>
+        <Node id="view/bankListAndEdit.xhtml" x="400" y="900" zoom="true"/>
+        <Node id="view/bank*" x="400" y="1050" zoom="true"/>
+        <Node id="view/dateTimeConverterDemo.xhtml" x="400" y="600" zoom="true"/>
+        <Node id="flow1/flow1a.xhtml" x="900" y="150" zoom="true"/>
+        <Node id="checkoutFlow/checkoutFlow3.xhtml" x="400" y="150" zoom="true"/>
+        <Node id="view/staticTable.xhtml" x="400" y="750" zoom="true"/>
+        <Node id="checkoutFlow/checkoutFlow4.xhtml" x="650" y="600" zoom="true"/>
+        <Node id="view/numberConverterDemo.xhtml" x="1900" y="450" zoom="true"/>
+        <Node id="view/templatedPage3.xhtml" x="150" y="450" zoom="true"/>
+        <Node id="checkoutFlow/checkoutFlow.xhtml" x="1400" y="150" zoom="true"/>
+        <Node id="view/compositeComponentWithAttributes.xhtml" x="900" y="450" zoom="true"/>
+        <Node id="resources/components/ee-demos/headerFooterBox.xhtml" x="1150" y="150" zoom="true"/>
+        <Node id="view/getSupport*" x="150" y="300" zoom="true"/>
+        <Node id="flow1/flow1b.xhtml" x="900" y="900" zoom="true"/>
+        <Node id="login_error.xhtml" x="150" y="1200" zoom="true"/>
+        <Node id="view/selectXxx.xhtml" x="1150" y="300" zoom="true"/>
+        <Node id="view/templatedPage1.xhtml" x="1650" y="150" zoom="true"/>
+        <Node id="view/waehrungsRechner*" x="1650" y="300" zoom="true"/>
+        <Node id="view/compositeComponentWithInternalLogic.xhtml" x="150" y="900" zoom="true"/>
+        <Node id="view/i18nDemo.xhtml" x="650" y="900" zoom="true"/>
+        <Node id="view/bankList.xhtml" x="650" y="150" zoom="true"/>
+        <Node id="resources/components/ee-demos/helloComponentWorld.xhtml" x="1150" y="900" zoom="true"/>
+        <Node id="view/ajaxEventDemo.xhtml" x="1150" y="600" zoom="true"/>
+        <Node id="checkoutFlow/checkoutFlow2.xhtml" x="150" y="1350" zoom="true"/>
+        <Node id="login.xhtml" x="650" y="1050" zoom="true"/>
+        <Node id="resources/components/ee-demos/titledBox.xhtml" x="900" y="300" zoom="true"/>
+        <Node id="view/helloWorld.xhtml" x="900" y="750" zoom="true"/>
+        <Node id="view/templatedPage4.xhtml" x="1400" y="600" zoom="true"/>
+        <Node id="flow1/flow1.xhtml" x="150" y="750" zoom="true"/>
+        <Node id="view/ajaxCallbackDemo.xhtml" x="1150" y="450" zoom="true"/>
+        <Node id="view/private/privatePage.xhtml" x="1650" y="600" zoom="true"/>
+        <Node id="resources/components/ee-demos/okCancel.xhtml" x="150" y="600" zoom="true"/>
+        <Node id="view/outputXxx.xhtml" x="650" y="300" zoom="true"/>
+        <Node id="index.xhtml" x="2150" y="300" zoom="true"/>
+        <Node id="view/getSupport2.xhtml" x="2400" y="150" zoom="true"/>
+        <Node id="view/waehrungsRechner_rates.xhtml" x="150" y="1050" zoom="true"/>
+        <Node id="view/immediateDemo.xhtml" x="650" y="1200" zoom="true"/>
+    </Scope>
+    <Scope Scope="All Faces Configurations"/>
+</Scene>

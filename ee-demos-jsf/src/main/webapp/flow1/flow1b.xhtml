@@ -1,19 +1,21 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:ui="http://java.sun.com/jsf/facelets"> 
+      xmlns:ui="http://java.sun.com/jsf/facelets">
 
-<h:head></h:head> 
-<h:body>
+  <h:head></h:head>
+  <h:body>
 
-<h2>Flow 1, Page 1b</h2>
+    <h2>Flow 1, Page 1b</h2>
 
-Current flow: #{facesContext.application.flowHandler.currentFlow}
+    Current flow: #{facesContext.application.flowHandler.currentFlow}
 
-<h:form>
-  <h:commandButton value="next" /><h:commandButton value="prev" action="flow1a"/><h:commandButton value="exit" action="/index" />
-</h:form> 
+    <h:form>
+      <h:commandButton value="next" />
+      <h:commandButton value="prev" action="flow1a"/>
+      <h:commandButton value="exit" action="exitFlow" />
+    </h:form>
 
-</h:body> 
+  </h:body>
 </html>
