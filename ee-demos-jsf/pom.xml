@@ -21,6 +21,18 @@
     <finalName>${project.artifactId}</finalName>
   </build>
 
+<!-- 
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>de.gedoplan</groupId>
+        <artifactId>baselibs-faces</artifactId>
+        <version>1.0.3-SNAPSHOT</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+ -->
+
   <dependencies>
     <dependency>
       <groupId>commons-logging</groupId>

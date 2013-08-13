@@ -1,4 +1,4 @@
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:ee-demos="http://java.sun.com/jsf/composite/components/ee-demos">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:ee-demos="http://xmlns.jcp.org/jsf/composite/components/ee-demos">
 
 <h:head>
   <meta http-equiv=" content-type" content="text/html; charset=UTF-8" />
@@ -6,15 +6,18 @@
 </h:head>
 
 <h:body>
-	<ee-demos:titledBox title="Block 1"> 
+  <ee-demos:titledBox title="Block 1"> 
 		Nur mal eine kurze News
 	</ee-demos:titledBox>
-	
-	<ee-demos:titledBox title="Block 2"> 
-		<h:form> 
-			<h:outputText value="Eingabe:" />
-			<h:inputText value="" />
-		</h:form>
-	</ee-demos:titledBox>
+
+  <ee-demos:titledBox title="Block 2">
+    <h:form>
+      <h:outputText value="Eingabe:" />
+      <h:inputText value="" />
+    </h:form>
+  </ee-demos:titledBox>
+
+  <hr />
+  <h:link value="home" outcome="home" />
 </h:body>
 </html>

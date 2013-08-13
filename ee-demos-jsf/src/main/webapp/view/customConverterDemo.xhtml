@@ -1,4 +1,4 @@
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:f="http://xmlns.jcp.org/jsf/core">
 
 <h:head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
@@ -12,15 +12,15 @@
       <h:inputText id="text" value="#{converterModel.someInt}">
         <f:converter converterId="de.gedoplan.jsf.TextToIntConverter" />
       </h:inputText>
-      <h:message for="text" warnStyle="color: orange" errorStyle="color: red" fatalStyle="color: red"/>
+      <h:message for="text" warnStyle="color: orange" errorStyle="color: red" fatalStyle="color: red" />
 
       <h:outputLabel value="Farbe als Text:" for="farbe" />
       <h:inputText id="farbe" value="#{converterModel.someColor}">
-      <!-- 
+        <!-- 
         <f:converter converterId="de.gedoplan.jsf.TextToColorConverter" />
        -->
       </h:inputText>
-      <h:message for="farbe" warnStyle="color: orange" errorStyle="color: red" fatalStyle="color: red"/>
+      <h:message for="farbe" warnStyle="color: orange" errorStyle="color: red" fatalStyle="color: red" />
 
       <h:commandButton value="ok" />
       <h:panelGroup />
@@ -36,6 +36,9 @@
     </h:panelGrid>
   </h:form>
 
-  <h:messages globalOnly="true" warnStyle="color: orange" errorStyle="color: red" fatalStyle="color: red"/>
+  <h:messages globalOnly="true" warnStyle="color: orange" errorStyle="color: red" fatalStyle="color: red" />
+
+  <hr />
+  <h:link value="home" outcome="home" />
 </h:body>
 </html>

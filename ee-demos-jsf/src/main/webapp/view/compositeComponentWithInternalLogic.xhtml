@@ -1,5 +1,5 @@
 
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:gedoplan="http://java.sun.com/jsf/composite/components/gedoplan">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:gedoplan="http://xmlns.jcp.org/jsf/composite/components/gedoplan">
 
 <h:head>
   <meta http-equiv=" content-type" content="text/html; charset=UTF-8" />
@@ -8,9 +8,12 @@
 
 <h:body>
   <h:form>
-    <gedoplan:monthNavigator value="#{componentDemoModel.someDate}"/>
-    <br/>
+    <gedoplan:monthNavigator value="#{componentDemoModel.someDate}" />
+    <br />
     <h:commandButton value="ok" />
   </h:form>
+
+  <hr />
+  <h:link value="home" outcome="home" />
 </h:body>
 </html>
