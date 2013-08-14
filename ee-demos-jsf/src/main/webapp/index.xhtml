@@ -1,4 +1,4 @@
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:f="http://xmlns.jcp.org/jsf/core">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
 
   <h:head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
@@ -95,14 +95,8 @@
       <h:outputLink value="${request.contextPath}/view/private/privatePage.xhtml">view/private/privatePage.xhtml</h:outputLink>
       Security-Demo: Aufruf einer geschützten Seite (nur erreichbar mit Rolle demoRole)
 
-      <h:form prependId="false"><h:commandButton value="flow1" action="flow1"/></h:form>
-      Einfacher Faces Flow
-
-      <h:form prependId="false"><h:commandButton value="flow2" action="flow2"/></h:form>
-      Einfacher Faces Flow
-
-      <h:form prependId="false"><h:commandButton value="checkoutFlow" action="checkoutFlow"/></h:form>
-      Einfacher Faces Flow
+      <h:outputLink value="${request.contextPath}/view/flowDemo.xhtml">view/flowDemo.xhtml</h:outputLink>
+      Faces Flows
 
       <h:outputLink value="${request.contextPath}/view/waehrungsRechner.xhtml">view/waehrungsRechner.xhtml</h:outputLink>
       Währungsrechner
