@@ -3,7 +3,7 @@
  *
  * You may not modify, use, reproduce, or distribute this software except in compliance with the terms of the License at: http://java.net/projects/javaeetutorial/pages/BerkeleyLicense
  */
-package de.gedoplan.buch.eedemos.jsf.flow1;
+package de.gedoplan.buch.eedemos.jsf.flow;
 
 import java.io.Serializable;
 
