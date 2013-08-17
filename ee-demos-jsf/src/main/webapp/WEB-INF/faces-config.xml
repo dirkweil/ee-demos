@@ -42,6 +42,30 @@
       <to-view-id>/view/getSupport2.xhtml</to-view-id>
     </navigation-case>
   </navigation-rule>
+  <navigation-rule>
+    <description>Navigation für /flow1/*</description>
+    <from-view-id>/flow1/*</from-view-id>
+    <navigation-case>
+      <from-outcome>exitFlow</from-outcome>
+      <to-view-id>/view/flowDemo.xhtml</to-view-id>
+    </navigation-case>
+  </navigation-rule>
+  <navigation-rule>
+    <description>Navigation für /flow2/*</description>
+    <from-view-id>/flow2/*</from-view-id>
+    <navigation-case>
+      <from-outcome>exitFlow</from-outcome>
+      <to-view-id>/view/flowDemo.xhtml</to-view-id>
+    </navigation-case>
+  </navigation-rule>
+  <navigation-rule>
+    <description>Navigation für /flow/flow3/*</description>
+    <from-view-id>/flow/flow3/*</from-view-id>
+    <navigation-case>
+      <from-outcome>exitFlow</from-outcome>
+      <to-view-id>/view/flowDemo.xhtml</to-view-id>
+    </navigation-case>
+  </navigation-rule>
   <application>
     <locale-config>
       <default-locale>en</default-locale>

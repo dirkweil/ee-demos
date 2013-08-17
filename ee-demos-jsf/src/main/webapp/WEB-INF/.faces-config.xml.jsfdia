@@ -49,4 +49,29 @@
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#index" PATH="/index" SHAPE="240,657,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#flow1#*" PATH="/flow1/*" SHAPE="32,753,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#flow1#*:0" NAME="item" PATH="/flow1/*" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="exitFlow::#view#flowDemo.xhtml"
+    NAME="output" PATH="/view/flowDemo.xhtml"
+    TARGET="rules:#view#flowDemo.xhtml" TITLE="exitFlow" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#flow2#*" PATH="/flow2/*" SHAPE="32,865,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#flow2#*:0" NAME="item" PATH="/flow2/*" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="exitFlow::#view#flowDemo.xhtml"
+    NAME="output" PATH="/view/flowDemo.xhtml"
+    TARGET="rules:#view#flowDemo.xhtml" TITLE="exitFlow" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#view#flowDemo.xhtml"
+  PATH="/view/flowDemo.xhtml" SHAPE="256,769,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#flow#flow3#*" PATH="/flow/flow3/*"
+  SHAPE="32,977,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#flow#flow3#*:0" NAME="item"
+   PATH="/flow/flow3/*" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="exitFlow::#view#flowDemo.xhtml"
+    NAME="output" PATH="/view/flowDemo.xhtml"
+    TARGET="rules:#view#flowDemo.xhtml" TITLE="exitFlow" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
 </PROCESS>
