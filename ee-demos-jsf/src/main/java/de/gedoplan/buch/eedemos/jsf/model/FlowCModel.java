@@ -9,22 +9,21 @@ import javax.faces.flow.builder.FlowDefinition;
 import javax.inject.Named;
 
 @Named
-@FlowScoped("flow1")
-public class Flow1Model extends FlowModelBase
+@FlowScoped("flowC")
+public class FlowCModel extends FlowModelBase
 {
   @Produces
   @FlowDefinition
   public static Flow defineFlow(@FlowBuilderParameter FlowBuilder flowBuilder)
   {
+    flowBuilder.id("", "flowC");
 
-    flowBuilder.id("", "flow1");
+    flowBuilder.viewNode("flowCa", "/flow/flowC/flowCa.xhtml").markAsStartNode();
 
-    flowBuilder.viewNode("flow1", "/flow1/flow1a.xhtml").
-        markAsStartNode();
+    flowBuilder.viewNode("flowCb", "/flow/flowC/flowCb.xhtml");
 
-    flowBuilder.returnNode("exitFlow").fromOutcome("exitFlow");
+    flowBuilder.returnNode("exitFlow").fromOutcome("exitFlowC");
 
     return flowBuilder.getFlow();
   }
-
 }

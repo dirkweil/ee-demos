@@ -4,7 +4,7 @@ import javax.faces.flow.FlowScoped;
 import javax.inject.Named;
 
 @Named
-@FlowScoped("flow2")
-public class Flow2Model extends FlowModelBase
+@FlowScoped("flowB2")
+public class FlowB2Model extends FlowModelBase
 {
 }

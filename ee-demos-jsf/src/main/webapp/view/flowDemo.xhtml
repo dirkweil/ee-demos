@@ -4,14 +4,24 @@
 </head>
 <body>
   <h:form>
-    <h:panelGrid columns="1">
+    <h:panelGrid columns="2">
       <h:commandButton value="flowA" action="flowA" />
+      <h:outputText value="Auf Basis von Defaults definierter einfacher Flow" />
+      
       <hr/>
-      <h:commandButton value="flow1" action="flow1" />
-      <h:commandButton value="flow2" action="flow2" />
-      <h:commandButton value="flow3" action="flow3" />
+      <h:panelGroup/>
+      
+      <h:commandButton value="flowB1" action="flowB1" />
+      <h:outputText value="Mittels API definierter einfacher Flow" />
+      
+      <h:commandButton value="flowB2" action="flowB2" />
+      <h:outputText value="Mittels Descriptor definierter Flow, der flowB1 aufruft" />
+      
       <hr/>
-      <h:commandButton value="checkoutFlow" action="checkoutFlow" />
+      <h:panelGroup/>
+      
+      <h:commandButton value="flowC" action="flowC" />
+      <h:outputText value="Mittels API definierter Flow mit View Files in Nicht-standard-Verzeichnis" />
     </h:panelGrid>
   </h:form>
 

@@ -7,15 +7,16 @@
   <h:head></h:head>
   <h:body>
 
-    <h2>Flow 2, Page 2a</h2>
+    <h2>Flow B2, Page B2a</h2>
 
     Current flow: #{facesContext.application.flowHandler.currentFlow.id}
 
-    #{flow2Model.dummy}
+    #{flowB2Model.dummy}
 
     <h:form>
       <h:commandButton value="next" action="next" />
       <h:commandButton value="exit" action="exitFlow" />
+      <h:commandButton value="flowB1" action="callFlowB1" />
     </h:form>
 
   </h:body>

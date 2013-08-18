@@ -7,14 +7,14 @@
   <h:head></h:head>
   <h:body>
 
-    <h2>Flow 1, Page 1b</h2>
+    <h2>Flow B1, Page B1a</h2>
 
     Current flow: #{facesContext.application.flowHandler.currentFlow.id}
 
-    #{flow1Model.dummy}
+    #{flowB1Model.dummy}
     
     <h:form>
-      <h:commandButton value="prev" action="flow1a"/>
+      <h:commandButton value="next" action="flowB1b" />
       <h:commandButton value="exit" action="exitFlow" />
     </h:form>
 
