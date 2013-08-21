@@ -49,31 +49,22 @@
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#index" PATH="/index" SHAPE="240,657,0,0" model-entity="JSFProcessGroup"/>
- <PROCESS-ITEM NAME="rules:#flowB1#*" PATH="/flowB1/*"
-  SHAPE="32,753,0,0" model-entity="JSFProcessGroup">
-  <PROCESS-ITEM ID="rules:#flowB1#*:0" NAME="item" PATH="/flowB1/*" model-entity="JSFProcessItem">
+ <PROCESS-ITEM NAME="rules:#view#flowDemo.xhtml"
+  PATH="/view/flowDemo.xhtml" SHAPE="272,769,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:*" PATH="*" SHAPE="32,753,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:*:0" NAME="item" PATH="*" model-entity="JSFProcessItem">
    <PROCESS-ITEM-OUTPUT ID="exitFlowB1::#view#flowDemo.xhtml"
     NAME="output" PATH="/view/flowDemo.xhtml"
     TARGET="rules:#view#flowDemo.xhtml" TITLE="exitFlowB1" model-entity="JSFProcessItemOutput"/>
-  </PROCESS-ITEM>
- </PROCESS-ITEM>
- <PROCESS-ITEM NAME="rules:#flowB2#*" PATH="/flowB2/*"
-  SHAPE="32,865,0,0" model-entity="JSFProcessGroup">
-  <PROCESS-ITEM ID="rules:#flowB2#*:0" NAME="item" PATH="/flowB2/*" model-entity="JSFProcessItem">
    <PROCESS-ITEM-OUTPUT ID="exitFlowB2::#view#flowDemo.xhtml"
-    NAME="output" PATH="/view/flowDemo.xhtml"
+    NAME="output1" PATH="/view/flowDemo.xhtml"
     TARGET="rules:#view#flowDemo.xhtml" TITLE="exitFlowB2" model-entity="JSFProcessItemOutput"/>
-  </PROCESS-ITEM>
- </PROCESS-ITEM>
- <PROCESS-ITEM NAME="rules:#flow#flowC#*" PATH="/flow/flowC/*"
-  SHAPE="32,977,0,0" model-entity="JSFProcessGroup">
-  <PROCESS-ITEM ID="rules:#flow#flowC#*:0" NAME="item"
-   PATH="/flow/flowC/*" model-entity="JSFProcessItem">
    <PROCESS-ITEM-OUTPUT ID="exitFlowC::#view#flowDemo.xhtml"
-    NAME="output" PATH="/view/flowDemo.xhtml"
+    NAME="output2" PATH="/view/flowDemo.xhtml"
     TARGET="rules:#view#flowDemo.xhtml" TITLE="exitFlowC" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="exitFlowD::#view#flowDemo.xhtml"
+    NAME="output3" PATH="/view/flowDemo.xhtml"
+    TARGET="rules:#view#flowDemo.xhtml" TITLE="exitFlowD" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
- <PROCESS-ITEM NAME="rules:#view#flowDemo.xhtml"
-  PATH="/view/flowDemo.xhtml" SHAPE="272,769,0,0" model-entity="JSFProcessGroup"/>
 </PROCESS>
