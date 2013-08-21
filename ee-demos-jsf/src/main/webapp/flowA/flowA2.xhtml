@@ -4,19 +4,15 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://java.sun.com/jsf/facelets">
 
-  <h:head></h:head>
-  <h:body>
+<ui:composition template="/WEB-INF/templates/flowView.xhtml">
+  <ui:param name="created" value="#{flowAModel.created}" />
 
-    <h2>Flow A, Page 2</h2>
-
-    Current flow: #{facesContext.application.flowHandler.currentFlow.id}
-
-    #{flowAModel.dummy}
-
+  <ui:define name="content">
     <h:form>
-      <h:commandButton value="prev" action="flowA"/>
+      <h:commandButton value="prev" action="flowA" />
       <h:commandButton value="exit" action="flowA-return" />
     </h:form>
+  </ui:define>
+</ui:composition>
 
-  </h:body>
 </html>

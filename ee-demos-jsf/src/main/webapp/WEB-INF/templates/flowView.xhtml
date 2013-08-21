@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <title>Flow-Demo</title>
+</h:head>
+
+<h:body>
+  <h:panelGrid columns="2">
+    <h:outputText value="Flow:"/>
+    <h:outputText value="#{facesContext.application.flowHandler.currentFlow.id}" />
+    
+    <h:outputText value="Created:"/>
+    <h:outputText value="#{created}" />
+    
+    <h:outputText value="Page:"/>
+    <h:outputText value="#{facesContext.viewRoot.viewId}" />
+  </h:panelGrid>
+
+  <h:panelGroup>
+    <ui:insert name="content"/>
+  </h:panelGroup>
+</h:body>
+</html>

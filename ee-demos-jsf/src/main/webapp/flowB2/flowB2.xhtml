@@ -2,12 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:ui="http://java.sun.com/jsf/facelets">
 
 <ui:composition template="/WEB-INF/templates/flowView.xhtml">
-  <ui:param name="created" value="#{flowAModel.created}" />
+  <ui:param name="created" value="#{flowB2Model.created}" />
 
   <ui:define name="content">
     <h:form>
-      <h:commandButton value="next" action="flowA2" />
-      <h:commandButton value="exit" action="flowA-return" />
+      <h:commandButton value="next" action="flowB2b" />
+      <h:commandButton value="exit" action="exitFlow" />
+      <h:commandButton value="flowB1" action="callFlowB1" />
     </h:form>
   </ui:define>
 </ui:composition>

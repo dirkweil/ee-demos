@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+  <flow-definition id="flowB1">
+    <flow-return id="exitFlow">
+      <from-outcome>exitFlowB1</from-outcome>
+    </flow-return>
+
+    <navigation-rule>
+      <description>Navigation von flowB1 nach flowB1b</description>
+      <from-view-id>/flowB1/flowB1.xhtml</from-view-id>
+      <navigation-case>
+        <from-outcome>next</from-outcome>
+        <to-view-id>/flowB1/flowB1b.xhtml</to-view-id>
+      </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+      <description>Navigation von flowB1b nach flowB1</description>
+      <from-view-id>/flowB1/flowB1b.xhtml</from-view-id>
+      <navigation-case>
+        <from-outcome>prev</from-outcome>
+        <to-view-id>/flowB1/flowB1.xhtml</to-view-id>
+      </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+      <description>Navigation bei Rückkehr von flowA</description>
+      <from-view-id>*</from-view-id>
+      <navigation-case>
+        <from-outcome>/flowA-return</from-outcome>
+        <to-view-id>/flowB1/flowB1.xhtml</to-view-id>
+      </navigation-case>
+    </navigation-rule>
+    
+    <flow-call id="callFlowA">
+      <flow-reference>
+        <flow-id>flowA</flow-id>
+      </flow-reference>
+    </flow-call>
+    
+  </flow-definition>
+</faces-config>
