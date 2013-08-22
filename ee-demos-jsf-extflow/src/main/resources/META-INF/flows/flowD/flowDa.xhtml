@@ -7,6 +7,9 @@
     <h:outputText value="Flow:"/>
     <h:outputText value="#{facesContext.application.flowHandler.currentFlow.id}" />
     
+    <h:outputText value="Created:"/>
+    <h:outputText value="#{flowDModel.created}" />
+    
     <h:outputText value="Page:"/>
     <h:outputText value="#{facesContext.viewRoot.viewId}" />
   </h:panelGrid>
