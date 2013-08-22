@@ -61,6 +61,10 @@
       <from-outcome>exitFlowD</from-outcome>
       <to-view-id>/view/flowDemo.xhtml</to-view-id>
     </navigation-case>
+    <navigation-case>
+      <from-outcome>exitFlowE</from-outcome>
+      <to-view-id>/view/flowDemo.xhtml</to-view-id>
+    </navigation-case>
   </navigation-rule>
   <application>
     <locale-config>

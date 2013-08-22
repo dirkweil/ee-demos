@@ -65,6 +65,9 @@
    <PROCESS-ITEM-OUTPUT ID="exitFlowD::#view#flowDemo.xhtml"
     NAME="output3" PATH="/view/flowDemo.xhtml"
     TARGET="rules:#view#flowDemo.xhtml" TITLE="exitFlowD" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="exitFlowE::#view#flowDemo.xhtml"
+    NAME="output4" PATH="/view/flowDemo.xhtml"
+    TARGET="rules:#view#flowDemo.xhtml" TITLE="exitFlowE" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
 </PROCESS>

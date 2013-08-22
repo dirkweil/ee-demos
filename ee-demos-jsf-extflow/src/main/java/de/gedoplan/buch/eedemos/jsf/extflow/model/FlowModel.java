@@ -1,4 +1,4 @@
-package de.gedoplan.buch.eedemos.jsf.model;
+package de.gedoplan.buch.eedemos.jsf.extflow.model;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -6,15 +6,11 @@ import java.util.Date;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
-import javax.faces.flow.FlowScoped;
-import javax.inject.Named;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-@Named
-@FlowScoped("flowD")
-public class FlowDModel
+public abstract class FlowModel
 {
   protected Log                   log               = LogFactory.getLog(this.getClass());
 
