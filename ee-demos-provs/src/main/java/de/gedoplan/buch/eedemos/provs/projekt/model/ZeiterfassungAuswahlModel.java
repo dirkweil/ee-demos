@@ -45,7 +45,6 @@ public class ZeiterfassungAuswahlModel implements Serializable
   @Angemeldet
   private Person                       buchungsPerson;
 
-  @SuppressWarnings("unused")
   @PostConstruct
   private void init()
   {

@@ -29,7 +29,7 @@ public class ProjektLazyDataModel extends SingleIdEntityLazyDataModel<Projekt>
   @Override
   protected FilterOperation getFilterOperation(String field)
   {
-    if (field.equals("nummer"))
+    if ("nummer".equals(field))
     {
       return FilterOperation.CONTAINS;
     }

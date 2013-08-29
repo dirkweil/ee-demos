@@ -1,7 +1,7 @@
 package de.gedoplan.buch.eedemos.provs.projekt.model;
 
-import de.gedoplan.baselibs.enterprise.faces.validation.FacesValidationHelper;
 import de.gedoplan.baselibs.enterprise.interceptor.TraceCall;
+import de.gedoplan.baselibs.faces.validation.FacesValidationHelper;
 import de.gedoplan.buch.eedemos.provs.common.repository.RepositoryMaster;
 import de.gedoplan.buch.eedemos.provs.common.service.SessionService;
 import de.gedoplan.buch.eedemos.provs.firma.entity.Firma;

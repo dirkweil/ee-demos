@@ -1,7 +1,7 @@
 package de.gedoplan.buch.eedemos.provs.projekt.entity;
 
 import de.gedoplan.baselibs.persistence.entity.GeneratedIntegerIdEntity;
-import de.gedoplan.baselibs.utils.validation.constraint.NotEmpty;
+import de.gedoplan.baselibs.utils.constraint.NotEmpty;
 import de.gedoplan.buch.eedemos.provs.firma.entity.Mitarbeiter;
 
 import java.util.ArrayList;
@@ -379,7 +379,6 @@ public class Aufgabe extends GeneratedIntegerIdEntity
   // return (Projekt) aufgabe;
   // }
 
-  @SuppressWarnings("unused")
   @PostLoad
   private void postLoad()
   {

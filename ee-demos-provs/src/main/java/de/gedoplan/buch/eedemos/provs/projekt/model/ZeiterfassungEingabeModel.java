@@ -1,6 +1,6 @@
 package de.gedoplan.buch.eedemos.provs.projekt.model;
 
-import de.gedoplan.baselibs.enterprise.faces.validation.FacesValidationHelper;
+import de.gedoplan.baselibs.faces.validation.FacesValidationHelper;
 import de.gedoplan.baselibs.utils.util.Tree;
 import de.gedoplan.buch.eedemos.provs.common.qualifier.Current;
 import de.gedoplan.buch.eedemos.provs.common.repository.RepositoryMaster;

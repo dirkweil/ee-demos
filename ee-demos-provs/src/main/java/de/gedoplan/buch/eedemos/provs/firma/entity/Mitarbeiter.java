@@ -1,9 +1,9 @@
 package de.gedoplan.buch.eedemos.provs.firma.entity;
 
 import de.gedoplan.baselibs.persistence.entity.GeneratedIntegerIdEntity;
-import de.gedoplan.baselibs.utils.validation.constraint.ValidMailAddress;
-import de.gedoplan.baselibs.utils.validation.constraint.ValidTelNumber;
-import de.gedoplan.baselibs.utils.validation.validator.TelNumberValidator;
+import de.gedoplan.baselibs.utils.constraint.ValidMailAddress;
+import de.gedoplan.baselibs.utils.constraint.ValidTelNumber;
+import de.gedoplan.baselibs.utils.validator.TelNumberValidator;
 
 import java.util.ArrayList;
 import java.util.List;

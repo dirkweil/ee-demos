@@ -5,7 +5,7 @@
   <parent>
     <groupId>de.gedoplan</groupId>
     <artifactId>build-master</artifactId>
-    <version>7.0.10</version>
+    <version>7.0.11</version>
   </parent>
 
   <groupId>de.gedoplan.buch</groupId>
@@ -15,7 +15,6 @@
   <packaging>pom</packaging>
 
   <modules>
-    <module>ee-demos-baselibs</module>
     <module>ee-demos-bv</module>
     <module>ee-demos-cdi</module>
     <module>ee-demos-cdi-extension</module>

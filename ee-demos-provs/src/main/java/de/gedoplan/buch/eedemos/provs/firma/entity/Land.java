@@ -1,7 +1,7 @@
 package de.gedoplan.buch.eedemos.provs.firma.entity;
 
 import de.gedoplan.baselibs.persistence.entity.StringIdEntity;
-import de.gedoplan.baselibs.utils.validation.constraint.NotEmpty;
+import de.gedoplan.baselibs.utils.constraint.NotEmpty;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;

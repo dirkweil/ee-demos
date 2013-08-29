@@ -1,9 +1,9 @@
 package de.gedoplan.buch.eedemos.provs.firma.entity;
 
 import de.gedoplan.baselibs.persistence.entity.GeneratedIntegerIdEntity;
-import de.gedoplan.baselibs.utils.validation.constraint.NotEmpty;
-import de.gedoplan.baselibs.utils.validation.constraint.ValidMailAddress;
-import de.gedoplan.baselibs.utils.validation.constraint.ValidTelNumber;
+import de.gedoplan.baselibs.utils.constraint.NotEmpty;
+import de.gedoplan.baselibs.utils.constraint.ValidMailAddress;
+import de.gedoplan.baselibs.utils.constraint.ValidTelNumber;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
@@ -209,7 +209,6 @@ public class Standort extends GeneratedIntegerIdEntity
     return this.name;
   }
 
-  @SuppressWarnings("unused")
   @PostLoad
   private void postLoad()
   {
@@ -227,7 +226,6 @@ public class Standort extends GeneratedIntegerIdEntity
     }
   }
 
-  @SuppressWarnings("unused")
   @PrePersist
   @PreUpdate
   private void preStore()

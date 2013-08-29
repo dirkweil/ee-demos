@@ -65,13 +65,11 @@ public class PlayGroundModel implements Serializable
       for (Standort standort : firma.getStandorte())
       {
         new DefaultTreeNode("Standort: " + standort, firmaNode).setExpanded(true);
-        ;
       }
 
       for (Mitarbeiter mitarbeiter : firma.getMitarbeiter())
       {
         new DefaultTreeNode("Mitarbeiter: " + mitarbeiter, firmaNode).setExpanded(true);
-        ;
       }
     }
 
@@ -103,7 +101,6 @@ public class PlayGroundModel implements Serializable
     for (MitarbeiterAufgabe mitarbeiterAufgabe : aufgabe.getMitarbeiterAufgaben())
     {
       new DefaultTreeNode("Mitarbeiter: " + mitarbeiterAufgabe.getMitarbeiter(), aufgabeNode).setExpanded(true);
-      ;
     }
 
     for (Aufgabe teilProjekt : aufgabe.getTeilAufgaben())

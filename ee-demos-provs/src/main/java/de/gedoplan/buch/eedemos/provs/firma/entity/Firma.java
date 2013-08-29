@@ -1,9 +1,9 @@
 package de.gedoplan.buch.eedemos.provs.firma.entity;
 
 import de.gedoplan.baselibs.persistence.entity.GeneratedIntegerIdEntity;
-import de.gedoplan.baselibs.utils.validation.constraint.NotEmpty;
-import de.gedoplan.baselibs.utils.validation.constraint.ValidMailAddress;
-import de.gedoplan.baselibs.utils.validation.constraint.ValidTelNumber;
+import de.gedoplan.baselibs.utils.constraint.NotEmpty;
+import de.gedoplan.baselibs.utils.constraint.ValidMailAddress;
+import de.gedoplan.baselibs.utils.constraint.ValidTelNumber;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -358,7 +358,6 @@ public class Firma extends GeneratedIntegerIdEntity
   {
   }
 
-  @SuppressWarnings("unused")
   @PostLoad
   private void postLoad()
   {
@@ -376,7 +375,6 @@ public class Firma extends GeneratedIntegerIdEntity
     }
   }
 
-  @SuppressWarnings("unused")
   @PrePersist
   @PreUpdate
   private void preStore()
