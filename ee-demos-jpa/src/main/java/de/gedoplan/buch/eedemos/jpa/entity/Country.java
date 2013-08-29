@@ -176,7 +176,6 @@ public class Country
         + ", continent=" + this.continent + "}";
   }
 
-  @SuppressWarnings("unused")
   @PrePersist
   @PreUpdate
   private void validate()
@@ -186,59 +185,4 @@ public class Country
       throw new IllegalArgumentException("name darf nicht leer sein");
     }
   }
-
-  // public boolean deepEquals(Country other)
-  // {
-  // if (!this.equals(other))
-  // {
-  // return false;
-  // }
-  //
-  // if (this.carCode == null)
-  // {
-  // if (other.carCode != null)
-  // {
-  // return false;
-  // }
-  // }
-  // else if (!this.carCode.equals(other.carCode))
-  // {
-  // return false;
-  // }
-  //
-  // if (this.continent != other.continent)
-  // {
-  // return false;
-  // }
-  //
-  // if (this.name == null)
-  // {
-  // if (other.name != null)
-  // {
-  // return false;
-  // }
-  // }
-  // else if (!this.name.equals(other.name))
-  // {
-  // return false;
-  // }
-  //
-  // if (this.phonePrefix == null)
-  // {
-  // if (other.phonePrefix != null)
-  // {
-  // return false;
-  // }
-  // }
-  // else if (!this.phonePrefix.equals(other.phonePrefix))
-  // {
-  // return false;
-  // }
-  // if (this.population != other.population)
-  // {
-  // return false;
-  // }
-  //
-  // return true;
-  // }
 }
