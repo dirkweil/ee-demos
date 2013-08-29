@@ -15,12 +15,14 @@ import javax.validation.Validator;
 @Model
 public class BeanValDemoModel implements Serializable
 {
+  private static final long serialVersionUID = 1L;
+
   @Inject
-  private Validator     validator;
+  private Validator         validator;
 
-  private StringBuilder message;
+  private StringBuilder     message;
 
-  private Fragebogen    fragebogen = new Fragebogen();
+  private Fragebogen        fragebogen       = new Fragebogen();
 
   public StringBuilder getMessage()
   {

@@ -48,7 +48,6 @@ public class LuhnTester
     }
   }
 
-  @SuppressWarnings("unused")
   private static class ConstraintHolder
   {
     @Luhn

@@ -3,6 +3,8 @@ package de.gedoplan.buch.eedemos.bv.validation.entity;
 import de.gedoplan.buch.eedemos.bv.validation.constraint.ValidAdresse;
 import de.gedoplan.buch.eedemos.bv.validation.constraint.ValidPlz;
 
+import java.io.Serializable;
+
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Embeddable;
@@ -11,17 +13,19 @@ import javax.validation.constraints.Size;
 @Embeddable
 @Access(AccessType.FIELD)
 @ValidAdresse
-public class Adresse
+public class Adresse implements Serializable
 {
+  private static final long serialVersionUID = 1L;
+
   @Size(min = 1)
-  private String strasse;
+  private String            strasse;
 
   // @Pattern(regexp = "\\d{5}", message = "muss genau 5 Ziffern enthalten")
   @ValidPlz
-  private String plz;
+  private String            plz;
 
   @Size(min = 1)
-  private String ort;
+  private String            ort;
 
   public String getStrasse()
   {
