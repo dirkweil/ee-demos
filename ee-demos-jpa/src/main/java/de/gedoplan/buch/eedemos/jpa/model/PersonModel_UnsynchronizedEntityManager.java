@@ -24,6 +24,8 @@ import org.apache.commons.logging.Log;
 @ConversationScoped
 public class PersonModel_UnsynchronizedEntityManager implements Serializable
 {
+  private static final long                    serialVersionUID = 1L;
+
   @Inject
   PersonRepository_UnsynchronizedEntityManager personRepository;
 
@@ -50,9 +52,9 @@ public class PersonModel_UnsynchronizedEntityManager implements Serializable
 
       this.personen = this.personRepository.findAll();
 
-      for (Person person : this.personen)
+      for (Person p : this.personen)
       {
-        logPerson("  ", person);
+        logPerson("  ", p);
       }
     }
 

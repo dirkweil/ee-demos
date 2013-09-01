@@ -26,7 +26,7 @@ public class YesNoConverter implements AttributeConverter<Boolean, String>
       return null;
     }
 
-    return columnValue.equals("Y");
+    return "Y".equals(columnValue);
   }
 
 }

@@ -19,6 +19,8 @@ import javax.persistence.Table;
 @Table(name = Book.TABLE_NAME)
 public class Book extends GeneratedIntegerIdEntity
 {
+  private static final long  serialVersionUID   = 1L;
+
   public static final String TABLE_NAME         = "EEDEMOS_BOOK";
   public static final String AUTHORS_TABLE_NAME = "EEDEMOS_BOOK_AUTHORS";
 

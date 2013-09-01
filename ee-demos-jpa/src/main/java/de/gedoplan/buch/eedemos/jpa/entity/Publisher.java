@@ -14,25 +14,27 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.NamedAttributeNode;
 import javax.persistence.NamedEntityGraph;
-import javax.persistence.NamedEntityGraphs;
-import javax.persistence.NamedSubgraph;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Access(AccessType.FIELD)
 @Table(name = Publisher.TABLE_NAME)
-@NamedEntityGraphs({
-    @NamedEntityGraph(
-        name = "Publisher_books",
-        attributeNodes = @NamedAttributeNode("books")),
-    @NamedEntityGraph(
-        name = "Publisher_booksAndAuthors",
-        attributeNodes = @NamedAttributeNode(value = "books", subgraph = "Book_authors"),
-        subgraphs = @NamedSubgraph(name = "Book_authors", attributeNodes = @NamedAttributeNode("authors"))) })
+//@NamedEntityGraphs({
+@NamedEntityGraph(
+    name = "Publisher_books",
+    attributeNodes = @NamedAttributeNode(value = "books"))
+//,
+//    @NamedEntityGraph(
+//        name = "Publisher_booksAndAuthors",
+//        attributeNodes = @NamedAttributeNode(value = "books", subgraph = "Book_authors"),
+//        subgraphs = @NamedSubgraph(name = "Book_authors", attributeNodes = @NamedAttributeNode("authors")))
+//})
 public class Publisher extends GeneratedIntegerIdEntity
 {
-  public static final String TABLE_NAME = "EEDEMOS_PUBLISHER";
+  private static final long  serialVersionUID = 1L;
+
+  public static final String TABLE_NAME       = "EEDEMOS_PUBLISHER";
 
   private String             name;
 
@@ -40,7 +42,7 @@ public class Publisher extends GeneratedIntegerIdEntity
   // @OrderColumn(name = "order_index")
   private List<Book>         books;
 
-  @ElementCollection(fetch = FetchType.EAGER)
+  @ElementCollection(fetch = FetchType.LAZY)
   private List<String>       categories;
 
   protected Publisher()

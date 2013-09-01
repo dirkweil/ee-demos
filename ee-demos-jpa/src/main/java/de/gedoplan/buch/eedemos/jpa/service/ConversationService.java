@@ -16,11 +16,13 @@ import org.apache.commons.logging.Log;
 @ApplicationScoped
 public class ConversationService implements Serializable
 {
-  @Inject
-  private Log          logger;
+  private static final long serialVersionUID = 1L;
 
   @Inject
-  private Conversation conversation;
+  private Log               logger;
+
+  @Inject
+  private Conversation      conversation;
 
   /**
    * Conversation beginnen.

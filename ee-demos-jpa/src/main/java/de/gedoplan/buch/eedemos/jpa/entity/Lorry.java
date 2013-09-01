@@ -10,7 +10,9 @@ import javax.persistence.Table;
 @Table(name = Lorry.TABLE_NAME)
 public class Lorry extends Car
 {
-  public static final String TABLE_NAME = "EEDEMOS_LORRY";
+  private static final long  serialVersionUID = 1L;
+
+  public static final String TABLE_NAME       = "EEDEMOS_LORRY";
 
   /**
    * Nutzlast.

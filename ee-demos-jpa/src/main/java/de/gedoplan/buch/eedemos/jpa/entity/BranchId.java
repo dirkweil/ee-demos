@@ -10,8 +10,10 @@ import javax.persistence.Embeddable;
 @Access(AccessType.FIELD)
 public class BranchId implements Serializable
 {
-  private int companyId;
-  private int branchNo;
+  private static final long serialVersionUID = 1L;
+
+  private int               companyId;
+  private int               branchNo;
 
   public BranchId()
   {

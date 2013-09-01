@@ -14,7 +14,9 @@ import javax.persistence.Table;
 @Table(name = OrderLine.TABLE_NAME)
 public class OrderLine extends GeneratedIntegerIdEntity
 {
-  public static final String TABLE_NAME = "EEDEMOS_ORDERLINE";
+  private static final long  serialVersionUID = 1L;
+
+  public static final String TABLE_NAME       = "EEDEMOS_ORDERLINE";
 
   private String             name;
   private int                count;

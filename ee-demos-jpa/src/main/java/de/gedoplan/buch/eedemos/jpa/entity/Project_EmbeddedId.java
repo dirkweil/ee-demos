@@ -15,7 +15,9 @@ import javax.persistence.Table;
 @Table(name = Project_EmbeddedId.TABLE_NAME)
 public class Project_EmbeddedId extends SingleIdEntity<ProjectId>
 {
-  public static final String TABLE_NAME = "EEDEMOS_PROJECT";
+  private static final long  serialVersionUID = 1L;
+
+  public static final String TABLE_NAME       = "EEDEMOS_PROJECT";
 
   @EmbeddedId
   private ProjectId          id;

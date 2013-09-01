@@ -12,7 +12,9 @@ import javax.persistence.Table;
 @Table(name = CocktailZutat.TABLE_NAME)
 public class CocktailZutat extends StringIdEntity
 {
-  public static final String TABLE_NAME = "EEDEMOS_COCKTAILZUTAT";
+  private static final long  serialVersionUID = 1L;
+
+  public static final String TABLE_NAME       = "EEDEMOS_COCKTAILZUTAT";
 
   private String             name;
 

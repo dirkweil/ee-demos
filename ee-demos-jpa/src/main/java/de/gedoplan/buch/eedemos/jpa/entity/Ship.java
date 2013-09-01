@@ -11,7 +11,9 @@ import javax.persistence.Table;
 @Table(name = Ship.TABLE_NAME)
 public class Ship extends Vehicle
 {
-  public static final String TABLE_NAME = "EEDEMOS_SHIP";
+  private static final long  serialVersionUID = 1L;
+
+  public static final String TABLE_NAME       = "EEDEMOS_SHIP";
 
   private double             tonnage;
 

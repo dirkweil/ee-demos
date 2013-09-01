@@ -21,13 +21,15 @@ import javax.persistence.Table;
 @Table(name = Order.TABLE_NAME)
 public class Order extends GeneratedIntegerIdEntity
 {
-  public static final String TABLE_NAME = "EEDEMOS_ORDER";
+  private static final long  serialVersionUID = 1L;
+
+  public static final String TABLE_NAME       = "EEDEMOS_ORDER";
 
   @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
   @JoinColumn(name = "ORDER_ID")
   // @OrderBy("name DESC")
   @OrderColumn(name = "ORDERLINES_ORDER")
-  private List<OrderLine>    orderLines = new ArrayList<OrderLine>();
+  private List<OrderLine>    orderLines       = new ArrayList<OrderLine>();
 
   public List<OrderLine> getOrderLines()
   {

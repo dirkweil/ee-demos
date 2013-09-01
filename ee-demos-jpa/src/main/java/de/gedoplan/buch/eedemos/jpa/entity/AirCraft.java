@@ -12,7 +12,9 @@ import javax.persistence.Table;
 @Table(name = AirCraft.TABLE_NAME)
 public class AirCraft extends GeneratedIntegerIdEntity
 {
-  public static final String TABLE_NAME = "EEDEMOS_AIRCRAFT";
+  private static final long  serialVersionUID = 1L;
+
+  public static final String TABLE_NAME       = "EEDEMOS_AIRCRAFT";
 
   private String             maker;
   private String             type;

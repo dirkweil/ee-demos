@@ -46,9 +46,11 @@ public class ContinentConverter implements AttributeConverter<Continent, String>
 
     case SOUTH_AMERICA:
       return "SA";
+
+    default:
+      throw new IllegalArgumentException("Unmapped continent: " + fieldValue);
     }
 
-    throw new IllegalArgumentException("Unmapped continent: " + fieldValue);
   }
 
   @Override
@@ -81,9 +83,11 @@ public class ContinentConverter implements AttributeConverter<Continent, String>
 
     case "SA":
       return Continent.SOUTH_AMERICA;
+
+    default:
+      throw new IllegalArgumentException("Illegal continent code");
     }
 
-    throw new IllegalArgumentException("Illegal continent code");
   }
 
 }

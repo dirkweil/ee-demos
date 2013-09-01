@@ -16,7 +16,9 @@ import javax.persistence.Table;
 @Table(name = Flight.TABLE_NAME)
 public class Flight extends GeneratedIntegerIdEntity
 {
-  public static final String TABLE_NAME = "EEDEMOS_FLIGHT";
+  private static final long  serialVersionUID = 1L;
+
+  public static final String TABLE_NAME       = "EEDEMOS_FLIGHT";
 
   private String             carrier;
   private int                flightNo;

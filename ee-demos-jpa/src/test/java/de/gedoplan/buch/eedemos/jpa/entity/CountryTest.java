@@ -294,7 +294,7 @@ public class CountryTest extends TestBase
     {
       this.entityManager.getTransaction().commit();
     }
-    catch (Exception e)
+    catch (Exception e) // CHECKSTYLE:IGNORE
     {
       IllegalArgumentException expectedException = ExceptionUtil.getException(e, IllegalArgumentException.class);
       Assert.assertNotNull("Validierungs-Exception", expectedException);

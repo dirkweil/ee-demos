@@ -16,7 +16,9 @@ import javax.persistence.Table;
 @Table(name = Application.TABLE_NAME)
 public class Application extends GeneratedIntegerIdEntity
 {
-  public static final String TABLE_NAME = "EEDEMOS_APPLICATION";
+  private static final long  serialVersionUID = 1L;
+
+  public static final String TABLE_NAME       = "EEDEMOS_APPLICATION";
 
   private String             name;
 

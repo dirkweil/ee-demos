@@ -34,7 +34,9 @@ import javax.persistence.Table;
 @Table(name = City.TABLE_NAME)
 public class City extends GeneratedIntegerIdEntity
 {
-  public static final String TABLE_NAME = "EEDEMOS_CITY";
+  private static final long  serialVersionUID = 1L;
+
+  public static final String TABLE_NAME       = "EEDEMOS_CITY";
 
   // Durch die Ableitung von GeneratedIntegerIdEntity lässt sich dieser Code einsparen
   //  @Id

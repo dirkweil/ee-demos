@@ -12,7 +12,9 @@ import javax.persistence.Table;
 @Table(name = Department.TABLE_NAME)
 public class Department extends UuidEntity
 {
-  public static final String TABLE_NAME = "EEDEMOS_DEPARTMENT";
+  private static final long  serialVersionUID = 1L;
+
+  public static final String TABLE_NAME       = "EEDEMOS_DEPARTMENT";
 
   private String             name;
 

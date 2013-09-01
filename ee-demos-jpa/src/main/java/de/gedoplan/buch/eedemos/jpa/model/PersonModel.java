@@ -24,18 +24,20 @@ import org.apache.commons.logging.Log;
 @ConversationScoped
 public class PersonModel implements Serializable
 {
-  @Inject
-  PersonRepository    personRepository;
+  private static final long serialVersionUID = 1L;
 
   @Inject
-  ConversationService conversationService;
+  PersonRepository          personRepository;
 
   @Inject
-  Log                 logger;
+  ConversationService       conversationService;
 
-  List<Person>        personen;
+  @Inject
+  Log                       logger;
 
-  Person              person;
+  List<Person>              personen;
+
+  Person                    person;
 
   /**
    * Alle Personen aus der DB liefern.
@@ -50,9 +52,9 @@ public class PersonModel implements Serializable
 
       this.personen = this.personRepository.findAll();
 
-      for (Person person : this.personen)
+      for (Person p : this.personen)
       {
-        logPerson("  ", person);
+        logPerson("  ", p);
       }
     }
 

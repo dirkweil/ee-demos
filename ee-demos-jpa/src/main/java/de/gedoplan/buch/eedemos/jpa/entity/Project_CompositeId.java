@@ -17,7 +17,9 @@ import javax.persistence.Transient;
 @Table(name = Project_CompositeId.TABLE_NAME)
 public class Project_CompositeId extends SingleIdEntity<ProjectId>
 {
-  public static final String TABLE_NAME = "EEDEMOS_PROJECT";
+  private static final long  serialVersionUID = 1L;
+
+  public static final String TABLE_NAME       = "EEDEMOS_PROJECT";
 
   @Id
   @ManyToOne

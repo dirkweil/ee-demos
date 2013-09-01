@@ -19,7 +19,9 @@ import javax.persistence.Table;
 @Table(name = Vehicle.TABLE_NAME)
 public abstract class Vehicle extends GeneratedIntegerIdEntity
 {
-  public static final String TABLE_NAME = "EEDEMOS_VEHICLE";
+  private static final long  serialVersionUID = 1L;
+
+  public static final String TABLE_NAME       = "EEDEMOS_VEHICLE";
 
   private String             name;
 

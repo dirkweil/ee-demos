@@ -10,8 +10,10 @@ import javax.persistence.Embeddable;
 @Access(AccessType.FIELD)
 public class ProjectId implements Serializable
 {
-  private String department;
-  private String prjId;
+  private static final long serialVersionUID = 1L;
+
+  private String            department;
+  private String            prjId;
 
   public ProjectId(String departmentId, String prjId)
   {

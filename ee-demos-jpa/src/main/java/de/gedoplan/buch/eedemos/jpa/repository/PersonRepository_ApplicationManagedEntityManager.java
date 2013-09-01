@@ -12,6 +12,8 @@ import javax.persistence.EntityManager;
 @ApplicationScoped
 public class PersonRepository_ApplicationManagedEntityManager extends SingleIdEntityRepository<Integer, Person>
 {
+  private static final long serialVersionUID = 1L;
+
   @Override
   @Inject
   public void setEntityManager(@ApplicationManaged EntityManager entityManager)

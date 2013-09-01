@@ -46,7 +46,7 @@ public abstract class TestBase
         }
       }
     }
-    catch (Exception e)
+    catch (Exception e) // CHECKSTYLE:IGNORE
     {
       // ignore
     }
@@ -56,7 +56,7 @@ public abstract class TestBase
       this.log.debug("close entitymanager");
       this.entityManager.close();
     }
-    catch (Exception e)
+    catch (Exception e) // CHECKSTYLE:IGNORE
     {
       // ignore
     }
@@ -87,13 +87,13 @@ public abstract class TestBase
           entityManager.createNativeQuery("delete from " + t).executeUpdate();
           entityManager.getTransaction().commit();
         }
-        catch (Exception e)
+        catch (Exception e) // CHECKSTYLE:IGNORE
         {
           try
           {
             entityManager.getTransaction().rollback();
           }
-          catch (Exception e2)
+          catch (Exception e2) // CHECKSTYLE:IGNORE
           {
             // ignore
           }
@@ -106,7 +106,7 @@ public abstract class TestBase
       {
         entityManager.close();
       }
-      catch (Exception e)
+      catch (Exception e) // CHECKSTYLE:IGNORE
       {
         // ignore
       }
@@ -133,7 +133,7 @@ public abstract class TestBase
       {
         entityManager.close();
       }
-      catch (Exception e)
+      catch (Exception e) // CHECKSTYLE:IGNORE
       {
         // ignore
       }

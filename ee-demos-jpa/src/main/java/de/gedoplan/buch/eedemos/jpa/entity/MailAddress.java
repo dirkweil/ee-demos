@@ -12,7 +12,9 @@ import javax.persistence.Table;
 @Table(name = MailAddress.TABLE_NAME)
 public class MailAddress extends GeneratedIntegerIdEntity
 {
-  public static final String TABLE_NAME = "EEDEMOS_MAILADDRESS";
+  private static final long  serialVersionUID = 1L;
+
+  public static final String TABLE_NAME       = "EEDEMOS_MAILADDRESS";
 
   private String             userId;
   private String             domain;

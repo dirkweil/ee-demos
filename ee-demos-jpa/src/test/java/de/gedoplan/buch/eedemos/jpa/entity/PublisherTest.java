@@ -5,8 +5,6 @@ import de.gedoplan.buch.eedemos.jpa.TestBase;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.EntityGraph;
-import javax.persistence.PersistenceUnitUtil;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -17,6 +15,8 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.unitils.reflectionassert.ReflectionAssert;
 import org.unitils.reflectionassert.ReflectionComparatorMode;
+
+// CHECKSTYLE:OFF
 
 /**
  * Test der Persistence-Fuktionalität bzgl. der Entity Publisher.
@@ -209,105 +209,4 @@ public class PublisherTest extends TestBase
 
   }
 
-  @Test
-  //  @Ignore
-  public void testGetEntityGraph()
-  {
-    System.out.println("----- testGetEntityGraph -----");
-
-    for (String name : new String[] { "Publisher_books", "Publisher_booksAndAuthors" })
-    {
-      EntityGraph<?> entityGraph = this.entityManager.getEntityGraph(name);
-      Assert.assertNotNull("Entity graph " + name, entityGraph);
-    }
-  }
-
-  @Test
-  //  @Ignore
-  public void testQueryWithoutEntityGraph()
-  {
-    System.out.println("----- testQueryWithoutEntityGraph -----");
-
-    testFetchOrLoad(null, null, false, false, false, true);
-  }
-
-  @Test
-  //  @Ignore
-  public void testQueryWithSimpleLoadGraph()
-  {
-    System.out.println("----- testQueryWithSimpleLoadGraph -----");
-
-    testFetchOrLoad("javax.persistence.loadgraph", "Publisher_books", true, false, false, true);
-  }
-
-  @Test
-  //  @Ignore
-  public void testQueryWithSimpleFetchGraph()
-  {
-    System.out.println("----- testQueryWithSimpleFetchGraph -----");
-
-    testFetchOrLoad("javax.persistence.fetchgraph", "Publisher_books", true, false, false, false);
-  }
-
-  @Test
-  //  @Ignore
-  public void testQueryWithSimpleFetchGraphDynamic()
-  {
-    System.out.println("----- testQueryWithSimpleFetchGraphDynamic -----");
-
-    EntityGraph<Publisher> entityGraph = this.entityManager.createEntityGraph(Publisher.class);
-    entityGraph.addAttributeNodes(Publisher_.books.getName());
-    entityManagerFactory.addNamedEntityGraph("Publisher_books(dynamic)", entityGraph);
-
-    testFetchOrLoad("javax.persistence.fetchgraph", "Publisher_books(dynamic)", true, false, false, false);
-  }
-
-  @Test
-  //  @Ignore
-  public void testQueryWithComplexLoadGraph()
-  {
-    System.out.println("----- testQueryWithComplexLoadGraph -----");
-
-    testFetchOrLoad("javax.persistence.loadgraph", "Publisher_booksAndAuthors", true, true, false, true);
-  }
-
-  private void testFetchOrLoad(String hintKey, Object hintValue, boolean booksLoaded, boolean authorsLoaded, boolean mailAddressesLoaded, boolean categoriesLoaded)
-  {
-    TypedQuery<Publisher> query = this.entityManager.createQuery("select p from Publisher p where p.id=:id", Publisher.class);
-    query.setParameter("id", testPublisher1.getId());
-
-    if (hintKey != null)
-    {
-      // TODO: EclipseLink findet den Entity Graph nicht immer, wenn er nur als Name angegeben wird. Daher separat suchen.
-      EntityGraph<?> entityGraph = this.entityManager.getEntityGraph((String) hintValue);
-      query.setHint(hintKey, entityGraph);
-    }
-
-    Publisher publisher = query.getSingleResult();
-
-    //    System.out.println("Hint: " + hintKey + " = " + hintValue);
-    //    PersistenceUnitUtil persistenceUnitUtil = entityManagerFactory.getPersistenceUnitUtil();
-    //    for (String fieldName : new String[] { "books", "categories" })
-    //    {
-    //      System.out.println(fieldName + " loaded: " + persistenceUnitUtil.isLoaded(publisher, fieldName));
-    //    }
-
-    PersistenceUnitUtil persistenceUnitUtil = entityManagerFactory.getPersistenceUnitUtil();
-    Assert.assertEquals("publisher.books loaded", booksLoaded, persistenceUnitUtil.isLoaded(publisher, Publisher_.books.getName()));
-    if (booksLoaded)
-    {
-      for (Book book : publisher.getBooks())
-      {
-        Assert.assertEquals("books.authors loaded", authorsLoaded, persistenceUnitUtil.isLoaded(book, Book_.authors.getName()));
-        if (authorsLoaded)
-        {
-          for (Person person : book.getAuthors())
-          {
-            Assert.assertEquals("person.mailAddresses loaded", mailAddressesLoaded, persistenceUnitUtil.isLoaded(person, Person_.mailAddresses.getName()));
-          }
-        }
-      }
-    }
-    Assert.assertEquals("publisher.categories loaded", categoriesLoaded, persistenceUnitUtil.isLoaded(publisher, Publisher_.categories.getName()));
-  }
 }
