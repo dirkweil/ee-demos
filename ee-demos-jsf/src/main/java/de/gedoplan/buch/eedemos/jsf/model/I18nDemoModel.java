@@ -46,7 +46,7 @@ public class I18nDemoModel
       ResourceBundle bundle = facesContext.getApplication().getResourceBundle(facesContext, bundleVarName);
       return bundle.getString(messageKey);
     }
-    catch (Exception e)
+    catch (Exception e) // CHECKSTYLE:IGNORE
     {
       return "???" + messageKey + "???";
     }

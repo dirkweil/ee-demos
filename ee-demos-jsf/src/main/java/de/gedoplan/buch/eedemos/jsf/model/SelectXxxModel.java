@@ -12,7 +12,9 @@ import javax.inject.Named;
 @SessionScoped
 public class SelectXxxModel implements Serializable
 {
-  private boolean someBoolean = true;
+  private static final long serialVersionUID = 1L;
+
+  private boolean           someBoolean      = true;
 
   public boolean isSomeBoolean()
   {
@@ -63,7 +65,7 @@ public class SelectXxxModel implements Serializable
     return new String[] { "Vanille", "Schoko", "Erdbeer" };
   }
 
-  private Ampel ampel = Ampel.ROT; ;
+  private Ampel ampel = Ampel.ROT;
 
   /**
    * Wert liefern: {@link #ampel}.

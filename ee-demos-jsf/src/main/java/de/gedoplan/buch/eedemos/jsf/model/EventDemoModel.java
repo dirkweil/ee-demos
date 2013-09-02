@@ -17,10 +17,12 @@ import org.apache.commons.logging.Log;
 @Named
 public class EventDemoModel implements Serializable
 {
-  @Inject
-  private Log    log;
+  private static final long serialVersionUID = 1L;
 
-  private String someText = "";
+  @Inject
+  private Log               log;
+
+  private String            someText         = "";
 
   public String getSomeText()
   {

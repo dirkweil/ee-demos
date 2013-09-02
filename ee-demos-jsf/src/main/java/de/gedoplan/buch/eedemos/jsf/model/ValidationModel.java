@@ -17,21 +17,22 @@ import org.apache.commons.logging.Log;
 
 /**
  * Model zur Demonstration verschiedener Verfahren zur feldübergreifenden Validierung.
- *
+ * 
  * @author dw
- *
+ * 
  */
 @Model
 public class ValidationModel implements Serializable
 {
+  private static final long     serialVersionUID = 1L;
 
   @Inject
-  private AutoRepository autoRepository;
+  private AutoRepository        autoRepository;
   @Inject
   private FacesValidationHelper facesValidationHelper;
   @Inject
-  private Log log;
-  private Auto auto = new Auto();
+  private Log                   log;
+  private Auto                  auto             = new Auto();
 
   public Auto getAuto()
   {
@@ -62,7 +63,7 @@ public class ValidationModel implements Serializable
 
       this.log.debug("Saved: " + this.auto);
     }
-    catch (Exception e)
+    catch (Exception e) // CHECKSTYLE:IGNORE
     {
       // Validierungsmeldungen aus Exception holen
       if (this.facesValidationHelper.convertToFacesMessages(e) != 0)
@@ -85,9 +86,9 @@ public class ValidationModel implements Serializable
 
   /**
    * Feldübergreifende Validierung der Eingabewerte.
-   *
+   * 
    * Diese Methode muss als Event Listener für den postValidata-Event registriert werden.
-   *
+   * 
    * @param componentSystemEvent Event
    */
   public void validateCrossComponents(ComponentSystemEvent componentSystemEvent)
@@ -120,7 +121,7 @@ public class ValidationModel implements Serializable
 
   /**
    * Hilfsmethode zum Auslesen eines Komponentenwertes.
-   *
+   * 
    * @param <T> Erwarteter Ziel-Typ
    * @param anchorComponent Anker-Komponente, i. d. R. h:form
    * @param componentId Id der Eingabekomponente

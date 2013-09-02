@@ -2,7 +2,6 @@ package de.gedoplan.buch.eedemos.jsf.repository;
 
 import de.gedoplan.buch.eedemos.jsf.entity.Bank;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -13,7 +12,7 @@ import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 
 @ApplicationScoped
-public class BankRepository implements Serializable
+public class BankRepository
 {
   private Set<Bank> dbMock = new TreeSet<Bank>();
 
@@ -51,7 +50,7 @@ public class BankRepository implements Serializable
     }
   }
 
-  @SuppressWarnings("unused")
+  //CHECKSTYLE:OFF
   @PostConstruct
   private void init()
   {

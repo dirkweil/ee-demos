@@ -2,7 +2,6 @@ package de.gedoplan.buch.eedemos.jsf.repository;
 
 import de.gedoplan.buch.eedemos.jsf.entity.Waehrung;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -12,7 +11,7 @@ import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 
 @ApplicationScoped
-public class WaehrungRepository implements Serializable
+public class WaehrungRepository
 {
   private Map<String, Waehrung> waehrungMap;
 
@@ -26,7 +25,6 @@ public class WaehrungRepository implements Serializable
     return new ArrayList<>(this.waehrungMap.values());
   }
 
-  @SuppressWarnings("unused")
   @PostConstruct
   private void init()
   {

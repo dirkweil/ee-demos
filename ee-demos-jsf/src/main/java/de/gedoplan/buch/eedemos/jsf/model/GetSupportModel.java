@@ -14,9 +14,11 @@ import org.apache.commons.logging.LogFactory;
 @RequestScoped
 public class GetSupportModel implements Serializable
 {
-  private Log    log = LogFactory.getLog(GetSupportModel.class);
+  private static final long serialVersionUID = 1L;
 
-  private String name;
+  private Log               log              = LogFactory.getLog(GetSupportModel.class);
+
+  private String            name;
 
   public String getName()
   {

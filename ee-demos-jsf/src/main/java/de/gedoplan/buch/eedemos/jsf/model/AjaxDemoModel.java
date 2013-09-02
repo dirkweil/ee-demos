@@ -14,11 +14,13 @@ import javax.inject.Named;
 @Named
 public class AjaxDemoModel implements Serializable
 {
-  private static final SimpleDateFormat FORMATTER = new SimpleDateFormat("dd.MM.yyyy hh:mm:ss");
+  private static final long             serialVersionUID = 1L;
+
+  private static final SimpleDateFormat FORMATTER        = new SimpleDateFormat("dd.MM.yyyy hh:mm:ss");
 
   private int                           counter;
 
-  private StringBuffer                  message   = new StringBuffer();
+  private StringBuffer                  message          = new StringBuffer();
 
   public String getCurrentDate()
   {

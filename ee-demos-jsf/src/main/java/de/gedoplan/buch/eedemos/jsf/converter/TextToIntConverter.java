@@ -50,6 +50,8 @@ public class TextToIntConverter implements Converter
         return "zwei";
       case 3:
         return "drei";
+      default:
+        return null;
       }
     }
     return null;

@@ -14,13 +14,15 @@ import javax.inject.Named;
 @SessionScoped
 public class BankModel implements Serializable
 {
+  private static final long serialVersionUID = 1L;
+
   @Inject
-  private BankRepository bankRepository;
+  private BankRepository    bankRepository;
 
-  private Bank           searchObj = new Bank();
-  private List<Bank>     searchResult;
+  private Bank              searchObj        = new Bank();
+  private List<Bank>        searchResult;
 
-  private Bank           editObj;
+  private Bank              editObj;
 
   public Bank getSearchObj()
   {

@@ -46,7 +46,7 @@ public class AutoValidator implements ConstraintValidator<ValidAuto, Auto>
     }
 
     validationContext.disableDefaultConstraintViolation();
-    validationContext.buildConstraintViolationWithTemplate(errorMessage).addNode("anzahlTueren").addConstraintViolation();
+    validationContext.buildConstraintViolationWithTemplate(errorMessage).addPropertyNode("anzahlTueren").addConstraintViolation();
     return false;
   }
 }

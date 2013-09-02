@@ -7,6 +7,7 @@ import de.gedoplan.buch.eedemos.jsf.service.WaehrungService;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.application.NavigationHandler;
 import javax.faces.context.FacesContext;
@@ -17,11 +18,15 @@ import javax.inject.Named;
 @SessionScoped
 public class WaehrungsRechnerModel implements Serializable
 {
+  private static final long  serialVersionUID      = 1L;
+
   @Inject
   private WaehrungService    waehrungService;
 
   @Inject
   private WaehrungRepository waehrungRepository;
+
+  private List<Waehrung>     waehrungen;
 
   private String             fremdWaehrungsKuerzel = "USD";
   private double             fremdWaehrungsBetrag;
@@ -68,6 +73,12 @@ public class WaehrungsRechnerModel implements Serializable
 
   public List<Waehrung> getWaehrungen()
   {
-    return this.waehrungRepository.findAll();
+    return this.waehrungen;
+  }
+
+  @PostConstruct
+  private void postConstruct()
+  {
+    this.waehrungen = this.waehrungRepository.findAll();
   }
 }

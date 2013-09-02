@@ -9,7 +9,9 @@ import javax.inject.Named;
 @SessionScoped
 public class InputXxxModel implements Serializable
 {
-  private String someString = "some string";
+  private static final long serialVersionUID = 1L;
+
+  private String            someString       = "some string";
 
   public String getSomeString()
   {

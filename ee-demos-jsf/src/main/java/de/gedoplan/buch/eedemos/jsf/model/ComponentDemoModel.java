@@ -13,12 +13,14 @@ import org.apache.commons.logging.Log;
 @SessionScoped
 public class ComponentDemoModel implements Serializable
 {
-  @Inject
-  private Log    log;
+  private static final long serialVersionUID = 1L;
 
-  private int    someInt    = 42;
-  private double someDouble = 42;
-  private Date   someDate   = new Date();
+  @Inject
+  private Log               log;
+
+  private int               someInt          = 42;
+  private double            someDouble       = 42;
+  private Date              someDate         = new Date();
 
   public int getSomeInt()
   {

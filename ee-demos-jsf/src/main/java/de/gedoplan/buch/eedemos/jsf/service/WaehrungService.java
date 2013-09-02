@@ -9,6 +9,8 @@ import javax.inject.Inject;
 
 public class WaehrungService implements Serializable
 {
+  private static final long  serialVersionUID = 1L;
+
   @Inject
   private WaehrungRepository waehrungRepository;
 

@@ -10,8 +10,10 @@ import org.apache.commons.logging.LogFactory;
 
 public class DemoPhaseListener implements PhaseListener
 {
+  private static final long serialVersionUID = 1L;
+
   // Injection per @Inject hier leider nicht möglich
-  private Log log = LogFactory.getLog(DemoPhaseListener.class);
+  private Log               log              = LogFactory.getLog(DemoPhaseListener.class);
 
   @Override
   public PhaseId getPhaseId()

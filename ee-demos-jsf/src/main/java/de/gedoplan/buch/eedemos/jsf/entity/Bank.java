@@ -4,10 +4,12 @@ import java.io.Serializable;
 
 public class Bank implements Comparable<Bank>, Serializable
 {
-  private String blz;
-  private String name;
-  private String plz;
-  private String ort;
+  private static final long serialVersionUID = 1L;
+
+  private String            blz;
+  private String            name;
+  private String            plz;
+  private String            ort;
 
   public Bank()
   {
