@@ -11,4 +11,5 @@ import javax.interceptor.Interceptor;
 @Interceptor
 public class ThreeInterceptor extends OneTwoThreeInterceptor
 {
+  private static final long serialVersionUID = 1L;
 }

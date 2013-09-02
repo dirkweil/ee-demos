@@ -18,7 +18,9 @@ import org.apache.commons.logging.LogFactory;
  */
 public abstract class OneTwoThreeInterceptor implements Serializable
 {
-  protected Log logger = LogFactory.getLog(this.getClass());
+  private static final long serialVersionUID = 1L;
+
+  protected Log             logger           = LogFactory.getLog(this.getClass());
 
   /**
    * Interceptor-Arbeitsmethode.

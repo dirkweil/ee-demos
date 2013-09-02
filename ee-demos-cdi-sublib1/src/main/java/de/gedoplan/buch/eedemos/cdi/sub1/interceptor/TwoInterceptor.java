@@ -5,7 +5,7 @@ import javax.interceptor.Interceptor;
 
 /**
  * Interceptor-Implementierung zu {@link Two}.
- *
+ * 
  * @author dw
  */
 @Two
@@ -13,4 +13,5 @@ import javax.interceptor.Interceptor;
 @Priority(Interceptor.Priority.APPLICATION + 2)
 public class TwoInterceptor extends OneTwoThreeInterceptor
 {
+  private static final long serialVersionUID = 1L;
 }
