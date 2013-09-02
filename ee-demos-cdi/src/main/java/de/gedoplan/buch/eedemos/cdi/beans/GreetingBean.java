@@ -7,6 +7,8 @@ import java.util.Calendar;
 //@Greeting(type = GreetingType.NORMAL)
 public class GreetingBean implements Serializable
 {
+  private static final long serialVersionUID = 1L;
+
   public String getGreeting()
   {
     int hourOfDay = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);

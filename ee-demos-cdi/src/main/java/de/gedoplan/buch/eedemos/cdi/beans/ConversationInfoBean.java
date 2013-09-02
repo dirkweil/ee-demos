@@ -8,9 +8,11 @@ import javax.enterprise.context.ConversationScoped;
 @ConversationScoped
 public class ConversationInfoBean implements Serializable
 {
-  private static int nextNumber = 1;
+  private static final long serialVersionUID = 1L;
 
-  private int        conversationNumber;
+  private static int        nextNumber       = 1;
+
+  private int               conversationNumber;
 
   public int getConversationNumber()
   {

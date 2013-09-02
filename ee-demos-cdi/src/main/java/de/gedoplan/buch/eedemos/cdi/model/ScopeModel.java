@@ -17,6 +17,8 @@ import javax.inject.Named;
 @ConversationScoped
 public class ScopeModel implements Serializable
 {
+  private static final long    serialVersionUID = 1L;
+
   @Inject
   private RequestInfoBean      requestInfoBean;
 

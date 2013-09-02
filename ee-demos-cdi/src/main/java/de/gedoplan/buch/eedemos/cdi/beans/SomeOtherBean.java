@@ -10,6 +10,8 @@ import javax.inject.Named;
 @RequestScoped
 public class SomeOtherBean implements Serializable
 {
+  private static final long    serialVersionUID = 1L;
+
   @Inject
   private RequestInfoBean      requestInfoBean;
 

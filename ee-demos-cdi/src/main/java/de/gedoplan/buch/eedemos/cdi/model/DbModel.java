@@ -15,8 +15,10 @@ import javax.inject.Named;
 @RequestScoped
 public class DbModel implements Serializable
 {
+  private static final long serialVersionUID = 1L;
+
   @Inject
-  private Connection dbConnection;
+  private Connection        dbConnection;
 
   public String getDbMake()
   {

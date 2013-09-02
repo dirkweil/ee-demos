@@ -16,8 +16,9 @@ import java.util.Set;
 //@Priority(10)
 public class CocktailMockRepository implements CocktailRepository
 {
+  private static final long          serialVersionUID = 1L;
 
-  private static Set<Cocktail> COCKTAILS = new HashSet<>();
+  private static final Set<Cocktail> COCKTAILS        = new HashSet<>();
 
   static
   {

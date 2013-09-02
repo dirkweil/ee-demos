@@ -8,9 +8,11 @@ import javax.enterprise.context.SessionScoped;
 @SessionScoped
 public class SessionInfoBean implements Serializable
 {
-  private static int nextNumber = 1;
+  private static final long serialVersionUID = 1L;
 
-  private int        sessionNumber;
+  private static int        nextNumber       = 1;
+
+  private int               sessionNumber;
 
   public int getSessionNumber()
   {

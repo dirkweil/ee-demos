@@ -14,13 +14,15 @@ import org.apache.commons.logging.Log;
 @RequestScoped
 public class GreetingModel implements Serializable
 {
+  private static final long serialVersionUID = 1L;
+
   @Inject
-  private Log          logger;
+  private Log               logger;
 
   @Inject
   //  @Formal
   //  @Greeting(type = GreetingType.NORMAL, additionalInfo = "...")
-  private GreetingBean greetingBean;
+  private GreetingBean      greetingBean;
 
   /*
    * Alternativen zur Field Injection: @Inject für GreetingBean oben deaktivieren und Kommentar um Konstruktor *oder* Setter

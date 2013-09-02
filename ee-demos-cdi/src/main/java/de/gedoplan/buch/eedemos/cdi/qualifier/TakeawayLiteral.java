@@ -4,5 +4,7 @@ import javax.enterprise.util.AnnotationLiteral;
 
 public class TakeawayLiteral extends AnnotationLiteral<Takeaway> implements Takeaway
 {
-  public static final TakeawayLiteral INSTANCE = new TakeawayLiteral();
+  private static final long           serialVersionUID = 1L;
+
+  public static final TakeawayLiteral INSTANCE         = new TakeawayLiteral();
 }

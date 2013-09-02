@@ -22,6 +22,7 @@ import javax.inject.Named;
 @RequestScoped
 public class BeanModel implements Serializable
 {
+  private static final long      serialVersionUID = 1L;
   @Inject
   @Any
   private Instance<GreetingBean> greetingBeans;
@@ -41,6 +42,7 @@ public class BeanModel implements Serializable
     List<Class<?>> classes = new ArrayList<>();
     Instance<GreetingBean> selectedBeans = this.greetingBeans.select(new AnnotationLiteral<Formal>()
     {
+      private static final long serialVersionUID = 1L;
     });
     for (GreetingBean bean : selectedBeans)
     {
@@ -57,6 +59,7 @@ public class BeanModel implements Serializable
     List<Bean<?>> list = new ArrayList<Bean<?>>();
     for (Bean<?> bean : this.beanManager.getBeans(Object.class, new AnnotationLiteral<Any>()
     {
+      private static final long serialVersionUID = 1L;
     }))
     {
       list.add(bean);
@@ -70,6 +73,7 @@ public class BeanModel implements Serializable
   {
     Set<Bean<? extends GreetingBean>> beans = (Set) this.beanManager.getBeans(GreetingBean.class, new AnnotationLiteral<Formal>()
     {
+      private static final long serialVersionUID = 1L;
     });
     if (beans.size() != 1)
     {

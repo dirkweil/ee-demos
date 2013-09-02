@@ -8,9 +8,11 @@ import javax.enterprise.context.Dependent;
 @Dependent
 public class DependentInfoBean implements Serializable
 {
-  private static int nextNumber = 1;
+  private static final long serialVersionUID = 1L;
 
-  private int        dependentNumber;
+  private static int        nextNumber       = 1;
+
+  private int               dependentNumber;
 
   public int getDependentNumber()
   {

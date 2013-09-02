@@ -18,14 +18,14 @@ import org.apache.commons.logging.LogFactory;
 @ApplicationScoped
 public class DatabaseConnectionProducer
 {
-  private static Log LOG = LogFactory.getLog(DatabaseConnectionProducer.class);
+  private static final Log LOG = LogFactory.getLog(DatabaseConnectionProducer.class);
 
   /*
    * Achtung: Dies benötigt eine im Server konfigurierte DataSource. S. readme.txt
    */
   @Resource(lookup = "jdbc/eeDemos")
   @Produces
-  private DataSource dataSource;
+  private DataSource       dataSource;
 
   @Produces
   public Connection createConnection() throws SQLException

@@ -25,6 +25,7 @@ public class BeanDiscoveryTest extends TestBase
     BeanManager beanManager = BeanProvider.getContextualReference(BeanManager.class);
     Set<Bean<?>> beans = beanManager.getBeans(Discoverable.class, new AnnotationLiteral<Any>()
     {
+      private static final long serialVersionUID = 1L;
     });
     Set<Class<?>> beanClasses = new HashSet<>();
     for (Bean<?> bean : beans)

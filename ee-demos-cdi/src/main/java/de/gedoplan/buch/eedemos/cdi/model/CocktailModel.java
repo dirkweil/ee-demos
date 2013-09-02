@@ -13,15 +13,15 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.Conversation;
-import javax.enterprise.context.ConversationScoped;
 import javax.enterprise.event.Event;
 import javax.enterprise.inject.Model;
 import javax.inject.Inject;
 
-@ConversationScoped
 @Model
 public class CocktailModel implements Serializable
 {
+  private static final long  serialVersionUID = 1L;
+
   private List<Cocktail>     nonAlcoholicCocktails;
   private List<Cocktail>     alcoholicCocktails;
 

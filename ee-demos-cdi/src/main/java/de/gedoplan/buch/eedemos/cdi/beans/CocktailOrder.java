@@ -6,9 +6,14 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.enterprise.context.ConversationScoped;
+
+@ConversationScoped
 public class CocktailOrder implements Serializable
 {
-  private List<Cocktail> cocktails = new ArrayList<>();
+  private static final long serialVersionUID = 1L;
+
+  private List<Cocktail>    cocktails        = new ArrayList<>();
 
   public List<Cocktail> getCocktails()
   {

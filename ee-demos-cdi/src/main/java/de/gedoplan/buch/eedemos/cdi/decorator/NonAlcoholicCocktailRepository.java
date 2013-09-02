@@ -14,6 +14,8 @@ import javax.inject.Inject;
 @Decorator
 public abstract class NonAlcoholicCocktailRepository implements CocktailRepository
 {
+  private static final long  serialVersionUID = 1L;
+
   @Inject
   @Delegate
   @Any

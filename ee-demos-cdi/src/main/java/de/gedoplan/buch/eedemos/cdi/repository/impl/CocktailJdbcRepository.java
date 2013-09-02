@@ -22,8 +22,10 @@ import javax.transaction.Transactional.TxType;
  */
 public class CocktailJdbcRepository implements CocktailRepository
 {
+  private static final long serialVersionUID = 1L;
+
   @Inject
-  private Connection dbConnection;
+  private Connection        dbConnection;
 
   @Override
   @Transactional(value = TxType.REQUIRED /*, dontRollbackOn={HarmlessException.class}*/)
