@@ -12,13 +12,15 @@ import javax.persistence.Id;
 @Access(AccessType.FIELD)
 public class ShopItem implements Serializable
 {
+  private static final long serialVersionUID = 1L;
+
   @Id
   @GeneratedValue
-  private Integer id;
+  private Integer           id;
 
-  private String  name;
+  private String            name;
 
-  private double  price;
+  private double            price;
 
   public ShopItem(String name, double price)
   {

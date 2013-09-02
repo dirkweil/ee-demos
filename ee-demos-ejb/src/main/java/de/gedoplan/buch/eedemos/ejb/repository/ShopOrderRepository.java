@@ -12,8 +12,8 @@ public class ShopOrderRepository
   @PersistenceContext(unitName = "ee-demos")
   private EntityManager entityManager;
 
-  public void insert(ShopOrder ShopOrder)
+  public void insert(ShopOrder shopOrder)
   {
-    this.entityManager.persist(ShopOrder);
+    this.entityManager.persist(shopOrder);
   }
 }

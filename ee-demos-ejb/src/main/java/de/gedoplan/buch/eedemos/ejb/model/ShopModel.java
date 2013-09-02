@@ -15,11 +15,13 @@ import javax.inject.Inject;
 @Model
 public class ShopModel implements Serializable
 {
-  @Inject
-  private ShopServiceBean shopService;
+  private static final long serialVersionUID = 1L;
 
   @Inject
-  private Conversation    conversation;
+  private ShopServiceBean   shopService;
+
+  @Inject
+  private Conversation      conversation;
 
   public List<ShopItem> getShopItems()
   {

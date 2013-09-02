@@ -7,15 +7,15 @@ import java.util.Properties;
 
 public class LookupHelper
 {
-  public static boolean initialized = false;
+  private static boolean initialized = false;
 
-  public static String  moduleName;
+  private static String  moduleName;
 
-  private static String serverType;
+  private static String  serverType;
 
-  private static String serverVersion;
+  private static String  serverVersion;
 
-  private static String applicationName;
+  private static String  applicationName;
 
   public static String getEjbLookupName(Class<?> remoteClass, boolean stateful)
   {
@@ -127,7 +127,7 @@ public class LookupHelper
 
       initialized = true;
     }
-    catch (Exception exception)
+    catch (Exception exception) // CHECKSTYLE:IGNORE
     {
       throw new RuntimeException("Kann Applikationsproperties nicht lesen", exception);
     }

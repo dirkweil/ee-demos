@@ -15,12 +15,14 @@ import javax.persistence.ManyToMany;
 @Access(AccessType.FIELD)
 public class ShopOrder implements Serializable
 {
+  private static final long serialVersionUID = 1L;
+
   @Id
   @GeneratedValue
-  private Integer        id;
+  private Integer           id;
 
   @ManyToMany
-  private List<ShopItem> shopItems = new ArrayList<>();
+  private List<ShopItem>    shopItems        = new ArrayList<>();
 
   public Integer getId()
   {

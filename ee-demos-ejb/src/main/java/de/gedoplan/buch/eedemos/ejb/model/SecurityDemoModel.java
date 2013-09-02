@@ -34,7 +34,7 @@ public class SecurityDemoModel
     {
       return this.securityDemoService.getCallerName();
     }
-    catch (Exception e)
+    catch (Exception e) // CHECKSTYLE:IGNORE
     {
       return createExceptionDescription(e);
     }
@@ -46,7 +46,7 @@ public class SecurityDemoModel
     {
       return "" + this.securityDemoService.isCallerInDemoRole();
     }
-    catch (Exception e)
+    catch (Exception e) // CHECKSTYLE:IGNORE
     {
       return createExceptionDescription(e);
     }
@@ -59,7 +59,7 @@ public class SecurityDemoModel
       this.securityDemoService.unrestrictedMethod();
       return "OK";
     }
-    catch (Exception e)
+    catch (Exception e) // CHECKSTYLE:IGNORE
     {
       return createExceptionDescription(e);
     }
@@ -72,7 +72,7 @@ public class SecurityDemoModel
       this.securityDemoService.restrictedMethod();
       return "OK";
     }
-    catch (Exception e)
+    catch (Exception e) // CHECKSTYLE:IGNORE
     {
       return createExceptionDescription(e);
     }
@@ -95,7 +95,7 @@ public class SecurityDemoModel
       this.securityDemoService.partlyRestrictedMethod(amount);
       return "OK";
     }
-    catch (Exception e)
+    catch (Exception e) // CHECKSTYLE:IGNORE
     {
       return createExceptionDescription(e);
     }
