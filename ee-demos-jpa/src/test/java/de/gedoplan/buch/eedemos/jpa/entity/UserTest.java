@@ -9,6 +9,8 @@ import javax.persistence.TypedQuery;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+//CHECKSTYLE:OFF
+
 /**
  * Test der Persistence-Fuktionalität bzgl. der Entity User.
  * 

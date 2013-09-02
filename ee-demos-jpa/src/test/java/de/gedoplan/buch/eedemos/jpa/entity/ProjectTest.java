@@ -10,6 +10,8 @@ import javax.persistence.TypedQuery;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+//CHECKSTYLE:OFF
+
 /**
  * Test der Persistence-Fuktionalität bzgl. der Entity Project_xxx.
  * 
@@ -17,12 +19,12 @@ import org.junit.Test;
  */
 public class ProjectTest extends TestBase
 {
-  public static Department          testDepartment  = new Department("Enterprise Java Team");
-  public static Department[]        testDepartments = { testDepartment };
+  public static Department         testDepartment  = new Department("Enterprise Java Team");
+  public static Department[]       testDepartments = { testDepartment };
 
-  public static Project_CompositeId testProject1    = new Project_CompositeId(testDepartment, "ee_demos6", "Java-EE-Demos (v6)", 9000);
-  public static Project_EmbeddedId  testProject2    = new Project_EmbeddedId(testDepartment, "ee_demos7", "Java-EE-Demos (v7)", 9000);
-  public static Object[]            testProjects    = { testProject1, testProject2 };
+  public static ProjectCompositeId testProject1    = new ProjectCompositeId(testDepartment, "ee_demos6", "Java-EE-Demos (v6)", 9000);
+  public static ProjectEmbeddedId  testProject2    = new ProjectEmbeddedId(testDepartment, "ee_demos7", "Java-EE-Demos (v7)", 9000);
+  public static Object[]           testProjects    = { testProject1, testProject2 };
 
   /**
    * Testdaten aufsetzen.
@@ -30,7 +32,7 @@ public class ProjectTest extends TestBase
   @BeforeClass
   public static void setup()
   {
-    deleteAll(Project_CompositeId.TABLE_NAME, Department.TABLE_NAME);
+    deleteAll(ProjectCompositeId.TABLE_NAME, Department.TABLE_NAME);
     insertAll(testDepartments, testProjects);
   }
 
@@ -45,7 +47,7 @@ public class ProjectTest extends TestBase
   {
     System.out.println("----- showAllCompositeId -----");
 
-    TypedQuery<Project_CompositeId> query = this.entityManager.createQuery("select x from Project_CompositeId x", Project_CompositeId.class);
+    TypedQuery<ProjectCompositeId> query = this.entityManager.createQuery("select x from Project_CompositeId x", ProjectCompositeId.class);
     showList(query.getResultList());
   }
 
@@ -60,7 +62,7 @@ public class ProjectTest extends TestBase
   {
     System.out.println("----- showAllEmbeddedId -----");
 
-    TypedQuery<Project_EmbeddedId> query = this.entityManager.createQuery("select x from Project_EmbeddedId x", Project_EmbeddedId.class);
+    TypedQuery<ProjectEmbeddedId> query = this.entityManager.createQuery("select x from Project_EmbeddedId x", ProjectEmbeddedId.class);
     showList(query.getResultList());
   }
 

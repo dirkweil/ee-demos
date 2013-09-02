@@ -10,7 +10,7 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
 @ApplicationScoped
-public class PersonRepository_UnsynchronizedEntityManager extends SingleIdEntityRepository<Integer, Person>
+public class PersonRepositoryUnsynchronizedEntityManager extends SingleIdEntityRepository<Integer, Person>
 {
   private static final long serialVersionUID = 1L;
 

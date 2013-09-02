@@ -2,7 +2,7 @@ package de.gedoplan.buch.eedemos.jpa.model;
 
 import de.gedoplan.buch.eedemos.jpa.entity.Person;
 import de.gedoplan.buch.eedemos.jpa.entity.Person_;
-import de.gedoplan.buch.eedemos.jpa.repository.PersonRepository_UnsynchronizedEntityManager;
+import de.gedoplan.buch.eedemos.jpa.repository.PersonRepositoryUnsynchronizedEntityManager;
 import de.gedoplan.buch.eedemos.jpa.service.ConversationService;
 
 import java.io.Serializable;
@@ -22,12 +22,12 @@ import org.apache.commons.logging.Log;
  */
 @Model
 @ConversationScoped
-public class PersonModel_UnsynchronizedEntityManager implements Serializable
+public class PersonModelUnsynchronizedEntityManager implements Serializable
 {
   private static final long                    serialVersionUID = 1L;
 
   @Inject
-  PersonRepository_UnsynchronizedEntityManager personRepository;
+  PersonRepositoryUnsynchronizedEntityManager personRepository;
 
   @Inject
   ConversationService                          conversationService;

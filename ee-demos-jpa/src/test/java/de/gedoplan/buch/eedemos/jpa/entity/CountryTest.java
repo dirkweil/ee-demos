@@ -17,6 +17,8 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.unitils.reflectionassert.ReflectionAssert;
 
+//CHECKSTYLE:OFF
+
 /**
  * Test der Persistence-Fuktionalität bzgl. der Entity Country.
  * 

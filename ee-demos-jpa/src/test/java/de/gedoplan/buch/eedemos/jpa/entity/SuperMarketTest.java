@@ -9,6 +9,8 @@ import javax.persistence.TypedQuery;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+//CHECKSTYLE:OFF
+
 /**
  * Test der Persistence-Fuktionalität bzgl. der Entity SuperMarket_xxx.
  * 
@@ -16,9 +18,9 @@ import org.junit.Test;
  */
 public class SuperMarketTest extends TestBase
 {
-  public static SuperMarket_CompositeId testSuperMarket1 = new SuperMarket_CompositeId(1, 555, "Tante Emmas Superstore");
-  public static SuperMarket_EmbeddedId  testSuperMarket2 = new SuperMarket_EmbeddedId(1, 556, "Tante Emmas Kiosk");
-  public static Object[]                testSuperMarkets = { testSuperMarket1, testSuperMarket2 };
+  public static SuperMarketCompositeId testSuperMarket1 = new SuperMarketCompositeId(1, 555, "Tante Emmas Superstore");
+  public static SuperMarketEmbeddedId  testSuperMarket2 = new SuperMarketEmbeddedId(1, 556, "Tante Emmas Kiosk");
+  public static Object[]               testSuperMarkets = { testSuperMarket1, testSuperMarket2 };
 
   /**
    * Testdaten aufsetzen.
@@ -26,7 +28,7 @@ public class SuperMarketTest extends TestBase
   @BeforeClass
   public static void setup()
   {
-    deleteAll(SuperMarket_CompositeId.TABLE_NAME);
+    deleteAll(SuperMarketCompositeId.TABLE_NAME);
     insertAll(testSuperMarkets);
   }
 
@@ -41,7 +43,7 @@ public class SuperMarketTest extends TestBase
   {
     System.out.println("----- showAllCompositeId -----");
 
-    TypedQuery<SuperMarket_CompositeId> query = this.entityManager.createQuery("select x from SuperMarket_CompositeId x", SuperMarket_CompositeId.class);
+    TypedQuery<SuperMarketCompositeId> query = this.entityManager.createQuery("select x from SuperMarket_CompositeId x", SuperMarketCompositeId.class);
     showList(query.getResultList());
   }
 
@@ -56,7 +58,7 @@ public class SuperMarketTest extends TestBase
   {
     System.out.println("----- showAllEmbeddedId -----");
 
-    TypedQuery<SuperMarket_EmbeddedId> query = this.entityManager.createQuery("select x from SuperMarket_EmbeddedId x", SuperMarket_EmbeddedId.class);
+    TypedQuery<SuperMarketEmbeddedId> query = this.entityManager.createQuery("select x from SuperMarket_EmbeddedId x", SuperMarketEmbeddedId.class);
     showList(query.getResultList());
   }
 

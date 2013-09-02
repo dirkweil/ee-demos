@@ -4,41 +4,36 @@ import de.gedoplan.baselibs.persistence.entity.SingleIdEntity;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.IdClass;
 import javax.persistence.ManyToOne;
+import javax.persistence.MapsId;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 
 @Entity
 @Access(AccessType.FIELD)
-@IdClass(ProjectId.class)
-@Table(name = Project_CompositeId.TABLE_NAME)
-public class Project_CompositeId extends SingleIdEntity<ProjectId>
+@Table(name = ProjectEmbeddedId.TABLE_NAME)
+public class ProjectEmbeddedId extends SingleIdEntity<ProjectId>
 {
   private static final long  serialVersionUID = 1L;
 
   public static final String TABLE_NAME       = "EEDEMOS_PROJECT";
 
-  @Id
+  @EmbeddedId
+  private ProjectId          id;
+
+  @MapsId("department")
   @ManyToOne
   private Department         department;
-
-  @Id
-  private String             prjId;
 
   private String             name;
 
   private double             budget;
 
-  @Transient
-  private ProjectId          id;
-
-  public Project_CompositeId(Department department, String prjId, String name, double budget)
+  public ProjectEmbeddedId(Department department, String prjId, String name, double budget)
   {
+    this.id = new ProjectId(department.getId(), prjId);
     this.department = department;
-    this.prjId = prjId;
     this.name = name;
     this.budget = budget;
   }
@@ -46,10 +41,6 @@ public class Project_CompositeId extends SingleIdEntity<ProjectId>
   @Override
   public ProjectId getId()
   {
-    if (this.id == null)
-    {
-      this.id = new ProjectId(this.department.getId(), this.prjId);
-    }
     return this.id;
   }
 
@@ -60,7 +51,7 @@ public class Project_CompositeId extends SingleIdEntity<ProjectId>
 
   public String getPrjId()
   {
-    return this.prjId;
+    return this.id.getPrjId();
   }
 
   public String getName()
@@ -83,7 +74,7 @@ public class Project_CompositeId extends SingleIdEntity<ProjectId>
     this.budget = budget;
   }
 
-  protected Project_CompositeId()
+  protected ProjectEmbeddedId()
   {
   }
 }

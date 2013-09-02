@@ -26,6 +26,8 @@ import org.junit.Test;
 import org.unitils.reflectionassert.ReflectionAssert;
 import org.unitils.reflectionassert.ReflectionComparatorMode;
 
+// CHECKSTYLE:OFF
+
 /**
  * Test der Persistence-Fuktionalität bzgl. der Entity Cocktail.
  * 

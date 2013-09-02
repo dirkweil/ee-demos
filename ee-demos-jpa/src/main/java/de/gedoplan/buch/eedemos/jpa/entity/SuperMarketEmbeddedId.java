@@ -8,8 +8,8 @@ import javax.persistence.Table;
 
 @Entity
 @Access(AccessType.FIELD)
-@Table(name = SuperMarket_EmbeddedId.TABLE_NAME)
-public class SuperMarket_EmbeddedId
+@Table(name = SuperMarketEmbeddedId.TABLE_NAME)
+public class SuperMarketEmbeddedId
 {
   public static final String TABLE_NAME = "EEDEMOS_SUPERMARKET";
 
@@ -18,11 +18,11 @@ public class SuperMarket_EmbeddedId
 
   private String             name;
 
-  protected SuperMarket_EmbeddedId()
+  protected SuperMarketEmbeddedId()
   {
   }
 
-  public SuperMarket_EmbeddedId(int companyId, int branchNo, String name)
+  public SuperMarketEmbeddedId(int companyId, int branchNo, String name)
   {
     this.id = new BranchId(companyId, branchNo);
     this.name = name;
@@ -64,7 +64,7 @@ public class SuperMarket_EmbeddedId
     {
       return false;
     }
-    final SuperMarket_EmbeddedId other = (SuperMarket_EmbeddedId) obj;
+    final SuperMarketEmbeddedId other = (SuperMarketEmbeddedId) obj;
     return this.id.equals(other.id);
   }
 

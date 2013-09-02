@@ -10,8 +10,8 @@ import javax.persistence.Table;
 @Entity
 @Access(AccessType.FIELD)
 @IdClass(BranchId.class)
-@Table(name = SuperMarket_CompositeId.TABLE_NAME)
-public class SuperMarket_CompositeId
+@Table(name = SuperMarketCompositeId.TABLE_NAME)
+public class SuperMarketCompositeId
 {
   public static final String TABLE_NAME = "EEDEMOS_SUPERMARKET";
 
@@ -23,11 +23,11 @@ public class SuperMarket_CompositeId
 
   private String             name;
 
-  protected SuperMarket_CompositeId()
+  protected SuperMarketCompositeId()
   {
   }
 
-  public SuperMarket_CompositeId(int companyId, int branchNo, String name)
+  public SuperMarketCompositeId(int companyId, int branchNo, String name)
   {
     this.companyId = companyId;
     this.branchNo = branchNo;
@@ -79,7 +79,7 @@ public class SuperMarket_CompositeId
     {
       return false;
     }
-    final SuperMarket_CompositeId other = (SuperMarket_CompositeId) obj;
+    final SuperMarketCompositeId other = (SuperMarketCompositeId) obj;
     if (this.branchNo != other.branchNo)
     {
       return false;

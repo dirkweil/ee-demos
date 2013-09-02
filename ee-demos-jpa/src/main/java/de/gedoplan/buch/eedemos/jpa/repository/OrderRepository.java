@@ -1,19 +1,19 @@
 package de.gedoplan.buch.eedemos.jpa.repository;
 
-import de.gedoplan.baselibs.enterprise.interceptor.TransactionRequired;
 import de.gedoplan.buch.eedemos.jpa.entity.Order;
 
 import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
 
 public class OrderRepository
 {
   @PersistenceContext(name = "ee_demos")
   EntityManager entityManager;
 
-  @TransactionRequired
+  @Transactional
   public void insert(Order order)
   {
     this.entityManager.persist(order);
@@ -29,13 +29,13 @@ public class OrderRepository
     return this.entityManager.createQuery("select o from Order o", Order.class).getResultList();
   }
 
-  @TransactionRequired
+  @Transactional
   public void update(Order order)
   {
     this.entityManager.merge(order);
   }
 
-  @TransactionRequired
+  @Transactional
   public void delete(Integer id)
   {
     Order order = findById(id);
