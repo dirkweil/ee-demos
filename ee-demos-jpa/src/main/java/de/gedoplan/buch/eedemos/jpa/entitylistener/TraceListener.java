@@ -1,6 +1,5 @@
 package de.gedoplan.buch.eedemos.jpa.entitylistener;
 
-import javax.inject.Inject;
 import javax.persistence.PostLoad;
 import javax.persistence.PostPersist;
 import javax.persistence.PostRemove;
@@ -10,12 +9,15 @@ import javax.persistence.PreRemove;
 import javax.persistence.PreUpdate;
 
 import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 public class TraceListener
 {
   // Im EE-Umfeld wird diese Injektion ausgeführt; im SE-Umfeld bleibt die Variable null
-  @Inject
-  Log log;
+  // Ein Bug in WildFly 8.0.0.Alpha4 verhindert das Deployment der Anwendung, wenn die Injektion aktiviert wird
+  //  @Inject
+  //  Log log;
+  Log log = LogFactory.getLog(TraceListener.class);
 
   @PrePersist
   public void prePersist(Object entity)

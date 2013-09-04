@@ -1,13 +1,11 @@
 package de.gedoplan.buch.eedemos.jpa.entity;
 
-import de.gedoplan.buch.eedemos.jpa.converter.YesNoConverter;
 import de.gedoplan.buch.eedemos.jpa.entitylistener.TraceListener;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Cacheable;
 import javax.persistence.Column;
-import javax.persistence.Convert;
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
 import javax.persistence.Id;
@@ -48,10 +46,12 @@ public class Country
   private long               population;
 
   //  @Enumerated(EnumType.STRING)
+  // TODO: Konverter wegen Hibernate/WildFly-Bugs HHH-8111 und HHH-8316 derzeit deaktiviert
   //  @Convert(disableConversion = true)
   private Continent          continent;
 
-  @Convert(converter = YesNoConverter.class)
+  // TODO: Konverter wegen Hibernate/WildFly-Bugs HHH-8111 und HHH-8316 derzeit deaktiviert
+  //  @Convert(converter = YesNoConverter.class)
   private boolean            expired;
 
   protected Country()
