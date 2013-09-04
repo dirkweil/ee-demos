@@ -43,7 +43,7 @@ public class SuperMarketTest extends TestBase
   {
     System.out.println("----- showAllCompositeId -----");
 
-    TypedQuery<SuperMarketCompositeId> query = this.entityManager.createQuery("select x from SuperMarket_CompositeId x", SuperMarketCompositeId.class);
+    TypedQuery<SuperMarketCompositeId> query = this.entityManager.createQuery("select x from SuperMarketCompositeId x", SuperMarketCompositeId.class);
     showList(query.getResultList());
   }
 
@@ -58,7 +58,7 @@ public class SuperMarketTest extends TestBase
   {
     System.out.println("----- showAllEmbeddedId -----");
 
-    TypedQuery<SuperMarketEmbeddedId> query = this.entityManager.createQuery("select x from SuperMarket_EmbeddedId x", SuperMarketEmbeddedId.class);
+    TypedQuery<SuperMarketEmbeddedId> query = this.entityManager.createQuery("select x from SuperMarketEmbeddedId x", SuperMarketEmbeddedId.class);
     showList(query.getResultList());
   }
 

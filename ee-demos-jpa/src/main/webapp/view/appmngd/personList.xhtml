@@ -6,7 +6,7 @@
 </h:head>
 <h:body>
   <h:form>
-    <h:dataTable value="#{personModel_ApplicationManagedEntityManager.personen}" var="person" rules="all">
+    <h:dataTable value="#{personModelApplicationManagedEntityManager.personen}" var="person" rules="all">
       <h:column>
         <f:facet name="header">Name</f:facet>
         <h:outputText value="#{person.name}" />
@@ -18,14 +18,14 @@
       </h:column>
 
       <h:column>
-        <h:commandButton value="edit" action="#{personModel_ApplicationManagedEntityManager.edit(person)}" />
+        <h:commandButton value="edit" action="#{personModelApplicationManagedEntityManager.edit(person)}" />
       </h:column>
 
       <h:column>
         <f:facet name="header">
-          <h:commandButton value="new" action="#{personModel_ApplicationManagedEntityManager.create()}" />
+          <h:commandButton value="new" action="#{personModelApplicationManagedEntityManager.create()}" />
         </f:facet>
-        <h:commandButton value="delete" action="#{personModel_ApplicationManagedEntityManager.delete(person)}" />
+        <h:commandButton value="delete" action="#{personModelApplicationManagedEntityManager.delete(person)}" />
       </h:column>
     </h:dataTable>
   </h:form>

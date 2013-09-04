@@ -47,7 +47,7 @@ public class ProjectTest extends TestBase
   {
     System.out.println("----- showAllCompositeId -----");
 
-    TypedQuery<ProjectCompositeId> query = this.entityManager.createQuery("select x from Project_CompositeId x", ProjectCompositeId.class);
+    TypedQuery<ProjectCompositeId> query = this.entityManager.createQuery("select x from ProjectCompositeId x", ProjectCompositeId.class);
     showList(query.getResultList());
   }
 
@@ -62,7 +62,7 @@ public class ProjectTest extends TestBase
   {
     System.out.println("----- showAllEmbeddedId -----");
 
-    TypedQuery<ProjectEmbeddedId> query = this.entityManager.createQuery("select x from Project_EmbeddedId x", ProjectEmbeddedId.class);
+    TypedQuery<ProjectEmbeddedId> query = this.entityManager.createQuery("select x from ProjectEmbeddedId x", ProjectEmbeddedId.class);
     showList(query.getResultList());
   }
 

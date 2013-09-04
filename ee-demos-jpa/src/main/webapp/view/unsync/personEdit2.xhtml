@@ -8,21 +8,21 @@
   <h:form>
     <h:panelGrid columns="3">
       <h:outputLabel value="Name: " for="name" />
-      <h:inputText value="#{personModel_UnsynchronizedEntityManager.person.name}" id="name" readonly="true" />
+      <h:inputText value="#{personModelUnsynchronizedEntityManager.person.name}" id="name" readonly="true" />
       <h:message for="name" />
 
       <h:outputLabel value="Vorname: " for="vorname" />
-      <h:inputText value="#{personModel_UnsynchronizedEntityManager.person.firstname}" id="vorname" readonly="true" />
+      <h:inputText value="#{personModelUnsynchronizedEntityManager.person.firstname}" id="vorname" readonly="true" />
       <h:message for="vorname" />
 
       <h:outputLabel value="Hobbies:" for="hobbies" />
-      <h:inputTextarea value="#{personModel_UnsynchronizedEntityManager.person.hobbiesAsString}" id="hobbies" />
+      <h:inputTextarea value="#{personModelUnsynchronizedEntityManager.person.hobbiesAsString}" id="hobbies" />
       <h:message for="hobbies" />
     </h:panelGrid>
 
-    <h:commandButton value="cancel" action="#{personModel_UnsynchronizedEntityManager.cancel()}" immediate="true" />
+    <h:commandButton value="cancel" action="#{personModelUnsynchronizedEntityManager.cancel()}" immediate="true" />
     <h:commandButton value="back" action="back" />
-    <h:commandButton value="finish" action="#{personModel_UnsynchronizedEntityManager.save()}" />
+    <h:commandButton value="finish" action="#{personModelUnsynchronizedEntityManager.save()}" />
   </h:form>
 
   <h:messages globalOnly="true" />

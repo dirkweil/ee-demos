@@ -8,21 +8,21 @@
   <h:form>
     <h:panelGrid columns="3">
       <h:outputLabel value="Name: " for="name" />
-      <h:inputText value="#{personModel_ApplicationManagedEntityManager.person.name}" id="name" />
+      <h:inputText value="#{personModelApplicationManagedEntityManager.person.name}" id="name" />
       <h:message for="name" />
 
       <h:outputLabel value="Vorname: " for="vorname" />
-      <h:inputText value="#{personModel_ApplicationManagedEntityManager.person.firstname}" id="vorname" />
+      <h:inputText value="#{personModelApplicationManagedEntityManager.person.firstname}" id="vorname" />
       <h:message for="vorname" />
 
       <h:outputLabel value="Strasse: " for="strasse" />
-      <h:inputText value="#{personModel_ApplicationManagedEntityManager.person.street}" id="strasse" />
+      <h:inputText value="#{personModelApplicationManagedEntityManager.person.street}" id="strasse" />
       <h:message for="strasse" />
 
       <h:outputLabel value="PLZ/Ort: " for="plz_ort" />
       <h:panelGroup id="plz_ort">
-        <h:inputText value="#{personModel_ApplicationManagedEntityManager.person.zipCode}" size="5" id="plz" />
-        <h:inputText value="#{personModel_ApplicationManagedEntityManager.person.town}" id="ort" />
+        <h:inputText value="#{personModelApplicationManagedEntityManager.person.zipCode}" size="5" id="plz" />
+        <h:inputText value="#{personModelApplicationManagedEntityManager.person.town}" id="ort" />
       </h:panelGroup>
       <h:panelGroup>
         <h:message for="plz" />
@@ -30,13 +30,13 @@
       </h:panelGroup>
 
       <h:outputLabel value="Telefon:" for="telefonNummern" />
-      <h:inputTextarea value="#{personModel_ApplicationManagedEntityManager.person.phonesAsString}" id="telefonNummern" />
+      <h:inputTextarea value="#{personModelApplicationManagedEntityManager.person.phonesAsString}" id="telefonNummern" />
       <h:message for="telefonNummern" />
     </h:panelGrid>
 
-    <h:commandButton value="cancel" action="#{personModel_ApplicationManagedEntityManager.cancel()}" immediate="true" />
+    <h:commandButton value="cancel" action="#{personModelApplicationManagedEntityManager.cancel()}" immediate="true" />
     <h:commandButton value="next" action="next" />
-    <h:commandButton value="finish" action="#{personModel_ApplicationManagedEntityManager.save()}" />
+    <h:commandButton value="finish" action="#{personModelApplicationManagedEntityManager.save()}" />
   </h:form>
 
   <h:messages globalOnly="true" />

@@ -6,7 +6,7 @@
 </h:head>
 <h:body>
   <h:form>
-    <h:dataTable value="#{personModel_UnsynchronizedEntityManager.personen}" var="person" rules="all">
+    <h:dataTable value="#{personModelUnsynchronizedEntityManager.personen}" var="person" rules="all">
       <h:column>
         <f:facet name="header">Name</f:facet>
         <h:outputText value="#{person.name}" />
@@ -18,14 +18,14 @@
       </h:column>
 
       <h:column>
-        <h:commandButton value="edit" action="#{personModel_UnsynchronizedEntityManager.edit(person)}" />
+        <h:commandButton value="edit" action="#{personModelUnsynchronizedEntityManager.edit(person)}" />
       </h:column>
 
       <h:column>
         <f:facet name="header">
-          <h:commandButton value="new" action="#{personModel_UnsynchronizedEntityManager.create()}" />
+          <h:commandButton value="new" action="#{personModelUnsynchronizedEntityManager.create()}" />
         </f:facet>
-        <h:commandButton value="delete" action="#{personModel_UnsynchronizedEntityManager.delete(person)}" />
+        <h:commandButton value="delete" action="#{personModelUnsynchronizedEntityManager.delete(person)}" />
       </h:column>
     </h:dataTable>
   </h:form>
