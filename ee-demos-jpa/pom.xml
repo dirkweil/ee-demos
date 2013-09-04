@@ -45,7 +45,7 @@
       <artifactId>h2</artifactId>
       <scope>test</scope>
     </dependency>
-    
+
     <dependency>
       <groupId>de.gedoplan</groupId>
       <artifactId>baselibs-enterprise</artifactId>
@@ -77,6 +77,12 @@
     <dependency>
       <groupId>org.hibernate</groupId>
       <artifactId>hibernate-entitymanager</artifactId>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-ehcache</artifactId>
       <scope>provided</scope>
     </dependency>
 
