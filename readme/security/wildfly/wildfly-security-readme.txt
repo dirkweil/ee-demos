@@ -11,9 +11,9 @@ otto      eeDemoUser
 anonymous guest
 
 Die ersten drei User werden in Projekt ee-demos-provs genutzt, die nächsten beiden in ee-demos-ejb und ee-demos-jsf. Der User anonymous wird benötigt,
-da JBoss 7 keine Remote-Aufrufe ohne Autentisierung erlaubt. Unsere Client-Bibliothek benutzt in einem solchen Fall den User anonymous.
+da WildFly keine Remote-Aufrufe ohne Autentisierung erlaubt. Unsere Client-Bibliothek benutzt in einem solchen Fall den User anonymous.
 
-Für den JBoss 7 ist die Einrichtung wie folgt durchzuführen:
+Für WildFly ist die Einrichtung wie folgt durchzuführen:
 
 - Im Verzeichnis bin der Serverinstallation befindet sich ein Skript namens add-user.bat bzw. add-user.sh, mit dem neue User angelegt werden können.
   Es wird einfach von der Kommandozeile aus gestartet und fragt die folgenden Informationen ab:

@@ -18,7 +18,9 @@ ist das JBoss Developer Studio (https://devstudio.jboss.com). Anders als der Nam
 Application Server nutzbar. Diese beiden Varianten erlauben den Import des Projektes als Maven-Projekt:
 File -> Import -> Maven -> Existing Maven Projects. Als Root Directory dann das Startverzeichnis der Projekte auswählen. Ggf. wird 
 während des Imports noch das eine oder andere Plugin in Eclipse installiert; dieser Prozess sollte aber einigermaßen selbsterklärend 
-sein.
+sein. Eclipse enthält diverse Validatoren, die die Korrektheit von Deskriptoren etc. testen sollen. Leider funktionieren diese
+Validatoren (zumindest für Maven-Projekte) nicht korrekt. Wenn nach dem Import der Beispielprojekte Validierungsfehler (z. B. "JPA Problem")
+angezeigt werden, sollten Sie die Validatoren deaktiviern (Window -> Preferences -> Validation: Disable All).
 
 Die folgenden Teilprojekte sind unterhalb von "ee-demos" vorhanden:
 
