@@ -9,6 +9,7 @@ import java.util.List;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
+import javax.persistence.CollectionTable;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -32,9 +33,10 @@ import javax.persistence.Table;
 //})
 public class Publisher extends GeneratedIntegerIdEntity
 {
-  private static final long  serialVersionUID = 1L;
+  private static final long  serialVersionUID      = 1L;
 
-  public static final String TABLE_NAME       = "EEDEMOS_PUBLISHER";
+  public static final String TABLE_NAME            = "EEDEMOS_PUBLISHER";
+  public static final String CATEGORIES_TABLE_NAME = "EEDEMOS_PUBLISHER_CATEGORIES";
 
   private String             name;
 
@@ -43,6 +45,7 @@ public class Publisher extends GeneratedIntegerIdEntity
   private List<Book>         books;
 
   @ElementCollection(fetch = FetchType.LAZY)
+  @CollectionTable(name = Publisher.CATEGORIES_TABLE_NAME)
   private List<String>       categories;
 
   protected Publisher()
