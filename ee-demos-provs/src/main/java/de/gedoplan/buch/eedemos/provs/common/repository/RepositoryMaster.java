@@ -4,10 +4,9 @@ import de.gedoplan.baselibs.enterprise.stereotype.DataRepository;
 
 import java.io.Serializable;
 
-import javax.ejb.TransactionAttribute;
-import javax.ejb.TransactionAttributeType;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
+import javax.transaction.Transactional;
 
 /**
  * Repository-Master für ProVS.
@@ -25,7 +24,7 @@ public class RepositoryMaster implements Serializable
   /**
    * Alle Änderungen abspeichern.
    */
-  @TransactionAttribute(TransactionAttributeType.REQUIRED)
+  @Transactional
   public void saveAll()
   {
     // Dies sollte eigentlich unnötig sein, da alle Änderungen ohnehin bei TX-Ende abgespeichert werden.

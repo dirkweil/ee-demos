@@ -10,25 +10,24 @@ import de.gedoplan.buch.eedemos.provs.projekt.entity.MitarbeiterAufgabe;
 import de.gedoplan.buch.eedemos.provs.projekt.entity.Projekt;
 import de.gedoplan.buch.eedemos.provs.projekt.repository.ProjektRepository;
 
-import java.io.Serializable;
 import java.util.List;
 
 import javax.ejb.TransactionAttribute;
 import javax.ejb.TransactionAttributeType;
-import javax.enterprise.context.ConversationScoped;
 import javax.enterprise.inject.Model;
 import javax.inject.Inject;
 import javax.transaction.Status;
 import javax.transaction.SystemException;
+import javax.transaction.Transactional;
 import javax.transaction.UserTransaction;
 
 import org.apache.commons.logging.Log;
 import org.primefaces.model.DefaultTreeNode;
 import org.primefaces.model.TreeNode;
 
-@ConversationScoped
+//@ConversationScoped
 @Model
-public class PlayGroundModel implements Serializable
+public class PlayGroundModel //implements Serializable
 {
   @Inject
   MasterTestDataService masterTestDataService;
@@ -42,7 +41,7 @@ public class PlayGroundModel implements Serializable
   @Inject
   Log                   logger;
 
-  @TransactionAttribute(TransactionAttributeType.REQUIRED)
+  @Transactional
   public void createTestFixture()
   {
     this.masterTestDataService.createTestFixture(null, null);
