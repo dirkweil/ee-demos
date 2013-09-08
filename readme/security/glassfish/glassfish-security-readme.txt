@@ -1,4 +1,4 @@
-Zur Demonstration von Security benötigen die Projekte User mit passenden Rechte, d. h. Rollen.
+Zur Demonstration von Security benötigen die Projekte User mit passenden Rechten, d. h. Rollen.
 Die Namen der User sind natürlich frei wählbar. Im Folgenden werden diese verwendet:
 
 Username Rollen
@@ -6,7 +6,7 @@ Username Rollen
 kirk     provsUser
 spock    provsUser
 mccoy    provsUser
-hugo     eeDemoUser,demoRole
+hugo     eeDemoUser:demoRole
 otto     eeDemoUser
 
 Die ersten drei User werden in Projekt ee-demos-provs genutzt, die beiden anderen in ee-demos-ejb und ee-demos-jsf.
