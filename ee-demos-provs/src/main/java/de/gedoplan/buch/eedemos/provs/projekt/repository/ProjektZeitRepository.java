@@ -29,6 +29,8 @@ import javax.persistence.criteria.Root;
 @DataRepository
 public class ProjektZeitRepository extends SingleIdEntityRepository<Integer, ProjektZeit>
 {
+  private static final long serialVersionUID = 1L;
+
   /**
    * Projektzeiten für Mitarbeiteraufgabe finden.
    * 

@@ -24,6 +24,8 @@ import javax.validation.constraints.Pattern;
 @Table(name = Land.TABLE_NAME)
 public class Land extends StringIdEntity
 {
+  private static final long  serialVersionUID        = 1L;
+
   /**
    * Tabellenname.
    */

@@ -11,8 +11,10 @@ import javax.inject.Inject;
 @SessionScoped
 public class PersonLazyDataModel extends SingleIdEntityLazyDataModel<Person>
 {
+  private static final long serialVersionUID = 1L;
+
   @Inject
-  private PersonRepository personRepository;
+  private PersonRepository  personRepository;
 
   @Override
   protected SingleIdEntityRepository<?, Person> getRepository()

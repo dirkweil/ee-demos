@@ -39,6 +39,8 @@ import javax.validation.constraints.Size;
 @Table(name = Person.TABLE_NAME)
 public class Person extends GeneratedIntegerIdEntity implements Comparable<Person>
 {
+  private static final long  serialVersionUID          = 1L;
+
   /**
    * Name der Haupt-Tabelle.
    */

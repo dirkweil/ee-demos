@@ -38,6 +38,8 @@ import javax.validation.constraints.Size;
 @Table(name = Mitarbeiter.TABLE_NAME)
 public class Mitarbeiter extends GeneratedIntegerIdEntity
 {
+  private static final long  serialVersionUID          = 1L;
+
   /**
    * Name der Haupt-Tabelle.
    */

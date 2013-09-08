@@ -15,6 +15,8 @@ import java.util.List;
 @DataRepository
 public class FirmaRepository extends SingleIdEntityRepository<Integer, Firma>
 {
+  private static final long serialVersionUID = 1L;
+
   /**
    * Firma anhand ihres Namens finden.
    * 

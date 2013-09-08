@@ -12,4 +12,5 @@ import de.gedoplan.buch.eedemos.provs.firma.entity.Standort;
 @DataRepository
 public class StandortRepository extends SingleIdEntityRepository<Integer, Standort>
 {
+  private static final long serialVersionUID = 1L;
 }

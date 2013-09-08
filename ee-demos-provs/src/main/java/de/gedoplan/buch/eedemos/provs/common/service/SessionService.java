@@ -27,14 +27,16 @@ import org.apache.commons.logging.Log;
 @DomainService
 public class SessionService implements Serializable
 {
-  @Inject
-  private Log          logger;
+  private static final long serialVersionUID = 1L;
 
   @Inject
-  private Conversation conversation;
+  private Log               logger;
 
-  private Principal    userPrincipal;
-  private Principal    effectiveUserPrincipal;
+  @Inject
+  private Conversation      conversation;
+
+  private Principal         userPrincipal;
+  private Principal         effectiveUserPrincipal;
 
   /**
    * Aktuell angemeldeten User liefern.

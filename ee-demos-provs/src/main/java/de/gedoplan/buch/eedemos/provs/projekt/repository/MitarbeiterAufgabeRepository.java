@@ -31,6 +31,8 @@ import javax.persistence.criteria.Root;
 @DataRepository
 public class MitarbeiterAufgabeRepository extends SingleIdEntityRepository<Integer, Projekt>
 {
+  private static final long serialVersionUID = 1L;
+
   /**
    * Personen finden, die aktiven Mitarbeiteraufgaben zugeordnet sind.
    * 

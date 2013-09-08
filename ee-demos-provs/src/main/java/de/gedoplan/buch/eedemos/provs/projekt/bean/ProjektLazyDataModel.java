@@ -12,6 +12,8 @@ import javax.inject.Inject;
 @SessionScoped
 public class ProjektLazyDataModel extends SingleIdEntityLazyDataModel<Projekt>
 {
+  private static final long serialVersionUID = 1L;
+
   @Inject
   private ProjektRepository projektRepository;
 

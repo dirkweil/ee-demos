@@ -32,10 +32,12 @@ import javax.persistence.Table;
 @Table(name = Aufgabe.TABLE_NAME)
 public class Aufgabe extends GeneratedIntegerIdEntity
 {
+  private static final long        serialVersionUID = 1L;
+
   /**
    * Tabellenname.
    */
-  public static final String       TABLE_NAME = "PROVS_AUFGABE";
+  public static final String       TABLE_NAME       = "PROVS_AUFGABE";
 
   /**
    * (Teil-)Projektnummer.

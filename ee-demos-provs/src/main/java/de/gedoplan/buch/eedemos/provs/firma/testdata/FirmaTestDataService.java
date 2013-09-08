@@ -33,23 +33,25 @@ import org.apache.commons.logging.Log;
  */
 public class FirmaTestDataService implements TestDataService
 {
-  @Inject
-  FirmaRepository       firmaRepository;
+  private static final long serialVersionUID = 1L;
 
   @Inject
-  LandRepository        landRepository;
+  FirmaRepository           firmaRepository;
 
   @Inject
-  PersonRepository      personRepository;
+  LandRepository            landRepository;
 
   @Inject
-  MitarbeiterRepository mitarbeiterRepository;
+  PersonRepository          personRepository;
 
   @Inject
-  EntityManager         entityManager;
+  MitarbeiterRepository     mitarbeiterRepository;
 
   @Inject
-  Log                   logger;
+  EntityManager             entityManager;
+
+  @Inject
+  Log                       logger;
 
   /**
    * {@inheritDoc}
@@ -107,19 +109,19 @@ public class FirmaTestDataService implements TestDataService
           this.standort = null;
         }
         else
-          if ("S".equalsIgnoreCase(discriminator))
-          {
-            this.standort = loadStandort(szenario, moment, stringSplitter, this.firma);
-          }
-          else
-            if ("M".equalsIgnoreCase(discriminator))
-            {
-              loadMitarbeiter(szenario, moment, stringSplitter, this.firma, this.standort);
-            }
-            else
-            {
-              throw new BugException("Ungültiger Diskriminator: " + discriminator);
-            }
+        if ("S".equalsIgnoreCase(discriminator))
+        {
+          this.standort = loadStandort(szenario, moment, stringSplitter, this.firma);
+        }
+        else
+        if ("M".equalsIgnoreCase(discriminator))
+        {
+          loadMitarbeiter(szenario, moment, stringSplitter, this.firma, this.standort);
+        }
+        else
+        {
+          throw new BugException("Ungültiger Diskriminator: " + discriminator);
+        }
       }
     };
 

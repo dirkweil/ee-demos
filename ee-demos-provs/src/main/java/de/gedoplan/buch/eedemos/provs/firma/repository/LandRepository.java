@@ -12,4 +12,5 @@ import de.gedoplan.buch.eedemos.provs.firma.entity.Land;
 @DataRepository
 public class LandRepository extends SingleIdEntityRepository<String, Land>
 {
+  private static final long serialVersionUID = 1L;
 }

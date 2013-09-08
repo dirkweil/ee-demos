@@ -34,10 +34,12 @@ import javax.validation.constraints.NotNull;
 @Table(name = MitarbeiterAufgabe.TABLE_NAME, uniqueConstraints = { @UniqueConstraint(columnNames = { "AUFGABE_ID", "MITARBEITER_ID" }) })
 public class MitarbeiterAufgabe extends GeneratedIntegerIdEntity
 {
+  private static final long  serialVersionUID = 1L;
+
   /**
    * Tabellenname.
    */
-  public static final String TABLE_NAME  = "PROVS_MITARBEITER_AUFGABE";
+  public static final String TABLE_NAME       = "PROVS_MITARBEITER_AUFGABE";
 
   @NotNull
   @ManyToOne
@@ -65,7 +67,7 @@ public class MitarbeiterAufgabe extends GeneratedIntegerIdEntity
   @Min(0)
   @Max(100)
   @Column(name = "PLANPROZ")
-  private int                planProzent = 100;
+  private int                planProzent      = 100;
 
   /**
    * Limits.

@@ -12,4 +12,5 @@ import de.gedoplan.buch.eedemos.provs.projekt.entity.Projekt;
 @DataRepository
 public class ProjektRepository extends SingleIdEntityRepository<Integer, Projekt>
 {
+  private static final long serialVersionUID = 1L;
 }

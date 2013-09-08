@@ -15,6 +15,8 @@ import java.util.List;
 @DataRepository
 public class PersonRepository extends SingleIdEntityRepository<Integer, Person>
 {
+  private static final long serialVersionUID = 1L;
+
   /**
    * Person anhand ihrer User-ID suchen.
    * 

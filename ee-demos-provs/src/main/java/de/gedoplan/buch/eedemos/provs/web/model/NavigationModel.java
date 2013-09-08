@@ -19,11 +19,13 @@ import javax.inject.Inject;
 @Model
 public class NavigationModel implements Serializable
 {
-  @Inject
-  private PersonService  personService;
+  private static final long serialVersionUID = 1L;
 
   @Inject
-  private SessionService sessionService;
+  private PersonService     personService;
+
+  @Inject
+  private SessionService    sessionService;
 
   /**
    * Aktuell angemeldeten User liefern.

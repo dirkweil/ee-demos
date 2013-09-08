@@ -5,7 +5,6 @@ import de.gedoplan.buch.eedemos.provs.firma.repository.PersonRepository;
 
 import java.util.List;
 
-import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -20,7 +19,7 @@ import javax.inject.Inject;
  * @author dw
  */
 @FacesConverter(forClass = Person.class)
-@RequestScoped
+//@RequestScoped
 public class PersonConverter implements Converter
 {
   @Inject

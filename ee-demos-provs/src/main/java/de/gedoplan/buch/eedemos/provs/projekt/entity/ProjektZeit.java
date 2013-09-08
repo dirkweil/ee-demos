@@ -29,10 +29,12 @@ import javax.validation.constraints.NotNull;
 @Table(name = ProjektZeit.TABLE_NAME, uniqueConstraints = { @UniqueConstraint(columnNames = { "MITARBEITERAUFGABE_ID", "TAG" }) })
 public class ProjektZeit extends GeneratedIntegerIdEntity
 {
+  private static final long  serialVersionUID = 1L;
+
   /**
    * Tabellenname.
    */
-  public static final String TABLE_NAME  = "PROVS_PROJEKTZEIT";
+  public static final String TABLE_NAME       = "PROVS_PROJEKTZEIT";
 
   /**
    * Buchungstag.
@@ -60,7 +62,7 @@ public class ProjektZeit extends GeneratedIntegerIdEntity
    * Flag: Zeit wurde abgerechnet.
    */
   @Column(name = "ABGERECHNET")
-  private boolean            abgerechnet = false;
+  private boolean            abgerechnet      = false;
 
   /**
    * Konstruktor.

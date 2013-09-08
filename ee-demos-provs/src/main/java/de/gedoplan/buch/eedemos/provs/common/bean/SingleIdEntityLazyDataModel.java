@@ -15,6 +15,7 @@ import org.primefaces.model.SortOrder;
 
 public abstract class SingleIdEntityLazyDataModel<E extends SingleIdEntity<?>> extends LazyDataModel<E>
 {
+  private static final long serialVersionUID = 1L;
 
   @Override
   public List<E> load(int first, int pageSize, String sortField, SortOrder sortOrder, Map<String, String> filters)

@@ -33,6 +33,8 @@ import org.primefaces.model.TreeNode;
 @Model
 public class ZeiterfassungEingabeModel implements Serializable
 {
+  private static final long                                serialVersionUID        = 1L;
+
   @Inject
   private SessionService                                   sessionService;
 

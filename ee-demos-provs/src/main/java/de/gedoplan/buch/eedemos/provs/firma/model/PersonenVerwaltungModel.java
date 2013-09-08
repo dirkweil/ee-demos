@@ -23,6 +23,8 @@ import javax.inject.Inject;
 @Model
 public class PersonenVerwaltungModel implements Serializable
 {
+  private static final long     serialVersionUID = 1L;
+
   @Inject
   private SessionService        sessionService;
 

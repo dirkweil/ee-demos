@@ -31,10 +31,12 @@ import javax.validation.Valid;
 @Table(name = Standort.TABLE_NAME)
 public class Standort extends GeneratedIntegerIdEntity
 {
+  private static final long  serialVersionUID = 1L;
+
   /**
    * Tabellenname.
    */
-  public static final String TABLE_NAME = "PROVS_STANDORT";
+  public static final String TABLE_NAME       = "PROVS_STANDORT";
 
   /**
    * Name.

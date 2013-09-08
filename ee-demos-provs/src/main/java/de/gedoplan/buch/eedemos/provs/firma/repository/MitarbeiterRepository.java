@@ -22,6 +22,7 @@ import javax.persistence.criteria.Root;
 @DataRepository
 public class MitarbeiterRepository extends SingleIdEntityRepository<Integer, Mitarbeiter>
 {
+  private static final long serialVersionUID = 1L;
 
   /**
    * Mitarbeiter anhand von Firma, Name und Vorname suchen.

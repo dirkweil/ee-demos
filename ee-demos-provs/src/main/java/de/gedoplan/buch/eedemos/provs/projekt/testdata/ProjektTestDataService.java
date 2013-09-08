@@ -37,7 +37,7 @@ import javax.persistence.EntityManager;
  */
 public class ProjektTestDataService implements TestDataService
 {
-  // private static final Log LOGGER = LogFactory.getLog(ProjektMgmtTestDataServiceBean.class);
+  private static final long     serialVersionUID = 1L;
 
   @Inject
   private ProjektRepository     projektDao;

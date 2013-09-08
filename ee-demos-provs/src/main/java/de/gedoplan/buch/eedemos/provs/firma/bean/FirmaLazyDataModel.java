@@ -11,8 +11,10 @@ import javax.inject.Inject;
 @SessionScoped
 public class FirmaLazyDataModel extends SingleIdEntityLazyDataModel<Firma>
 {
+  private static final long serialVersionUID = 1L;
+
   @Inject
-  private FirmaRepository firmaRepository;
+  private FirmaRepository   firmaRepository;
 
   @Override
   protected SingleIdEntityRepository<?, Firma> getRepository()

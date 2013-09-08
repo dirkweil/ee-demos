@@ -24,13 +24,15 @@ import javax.inject.Inject;
 @SessionScoped
 public class PersonService implements Serializable
 {
-  @Inject
-  private SessionService   sessionService;
+  private static final long serialVersionUID = 1L;
 
   @Inject
-  private PersonRepository personRepository;
+  private SessionService    sessionService;
 
-  private Person           currentPerson;
+  @Inject
+  private PersonRepository  personRepository;
+
+  private Person            currentPerson;
 
   /**
    * Aktuell angemeldeten User liefern.

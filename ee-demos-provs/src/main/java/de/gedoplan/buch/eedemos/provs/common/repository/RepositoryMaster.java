@@ -18,8 +18,10 @@ import javax.transaction.Transactional;
 @DataRepository
 public class RepositoryMaster implements Serializable
 {
+  private static final long serialVersionUID = 1L;
+
   @Inject
-  EntityManager entityManager;
+  EntityManager             entityManager;
 
   /**
    * Alle Änderungen abspeichern.

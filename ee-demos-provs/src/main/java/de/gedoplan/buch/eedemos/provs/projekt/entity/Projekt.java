@@ -28,10 +28,12 @@ import javax.validation.constraints.Size;
 @Table(name = Projekt.TABLE_NAME)
 public class Projekt extends Aufgabe
 {
+  private static final long  serialVersionUID = 1L;
+
   /**
    * Tabellenname.
    */
-  public static final String TABLE_NAME = "PROVS_PROJEKT";
+  public static final String TABLE_NAME       = "PROVS_PROJEKT";
 
   /**
    * Typ.
@@ -39,7 +41,7 @@ public class Projekt extends Aufgabe
   @NotNull
   @Enumerated(EnumType.STRING)
   @Column(name = "TYP")
-  private ProjektTyp         typ        = ProjektTyp.AW;
+  private ProjektTyp         typ              = ProjektTyp.AW;
 
   /**
    * Status.
@@ -47,7 +49,7 @@ public class Projekt extends Aufgabe
   @NotNull
   @Enumerated(EnumType.STRING)
   @Column(name = "STATUS")
-  private ProjektStatus      status     = ProjektStatus.ANFRAGE;
+  private ProjektStatus      status           = ProjektStatus.ANFRAGE;
 
   /**
    * Auftragsnummer

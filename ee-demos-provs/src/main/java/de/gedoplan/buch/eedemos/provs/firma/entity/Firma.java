@@ -38,10 +38,12 @@ import javax.validation.Valid;
 @Table(name = Firma.TABLE_NAME)
 public class Firma extends GeneratedIntegerIdEntity
 {
+  private static final long  serialVersionUID = 1L;
+
   /**
    * Tabellenname.
    */
-  public static final String TABLE_NAME = "PROVS_FIRMA";
+  public static final String TABLE_NAME       = "PROVS_FIRMA";
 
   /**
    * Name.
