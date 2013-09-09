@@ -5,7 +5,6 @@ import de.gedoplan.buch.eedemos.provs.firma.repository.MitarbeiterRepository;
 
 import java.util.List;
 
-import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -14,13 +13,14 @@ import javax.faces.convert.ConverterException;
 import javax.faces.convert.FacesConverter;
 import javax.inject.Inject;
 
+import org.apache.deltaspike.core.api.provider.BeanProvider;
+
 /**
  * Converter für {@link Mitarbeiter}.
  * 
  * @author dw
  */
 @FacesConverter(forClass = Mitarbeiter.class)
-@RequestScoped
 public class MitarbeiterConverter implements Converter
 {
   @Inject
@@ -32,6 +32,15 @@ public class MitarbeiterConverter implements Converter
     if (value == null)
     {
       return "";
+    }
+
+    /*
+     * Die Injektion von CDI Beans in Faces Converter ist leider nicht in JSF 2.2 enthalten. Mojarra 2.2.2 unterstützt
+     * @Inject schon in einigen Fällen. Falls die Injektion nicht durchgeführt wurde, Bean per DeltaSpike BeanProvider holen. 
+     */
+    if (this.mitarbeiterRepository == null)
+    {
+      this.mitarbeiterRepository = BeanProvider.getContextualReference(MitarbeiterRepository.class);
     }
 
     try
@@ -66,5 +75,4 @@ public class MitarbeiterConverter implements Converter
     Mitarbeiter mitarbeiter = (Mitarbeiter) value;
     return mitarbeiter.getId().toString();
   }
-
 }

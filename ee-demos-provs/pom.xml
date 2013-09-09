@@ -20,18 +20,6 @@
     <finalName>${project.artifactId}</finalName>
   </build>
 
-  <dependencyManagement>
-    <dependencies>
-      <dependency>
-        <groupId>org.jboss.seam</groupId>
-        <artifactId>seam-bom</artifactId>
-        <version>${seam.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-    </dependencies>
-  </dependencyManagement>
-
   <dependencies>
     <!--
       Die Dependency javax:javaee-api ist hier am Anfang aufgeführt, obwohl sie im Parent auch eingetragen ist.
@@ -75,6 +63,17 @@
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.deltaspike.core</groupId>
+      <artifactId>deltaspike-core-api</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.deltaspike.core</groupId>
+      <artifactId>deltaspike-core-impl</artifactId>
+      <scope>runtime</scope>
     </dependency>
 
 <!-- 

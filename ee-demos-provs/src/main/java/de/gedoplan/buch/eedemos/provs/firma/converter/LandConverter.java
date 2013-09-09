@@ -3,12 +3,13 @@ package de.gedoplan.buch.eedemos.provs.firma.converter;
 import de.gedoplan.buch.eedemos.provs.firma.entity.Land;
 import de.gedoplan.buch.eedemos.provs.firma.repository.LandRepository;
 
-import javax.enterprise.context.RequestScoped;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 import javax.inject.Inject;
+
+import org.apache.deltaspike.core.api.provider.BeanProvider;
 
 /**
  * Converter für {@link Land}.
@@ -16,7 +17,6 @@ import javax.inject.Inject;
  * @author dw
  */
 @FacesConverter(forClass = Land.class)
-@RequestScoped
 public class LandConverter implements Converter
 {
   @Inject
@@ -28,6 +28,15 @@ public class LandConverter implements Converter
     if (value == null)
     {
       return "";
+    }
+
+    /*
+     * Die Injektion von CDI Beans in Faces Converter ist leider nicht in JSF 2.2 enthalten. Mojarra 2.2.2 unterstützt
+     * @Inject schon in einigen Fällen. Falls die Injektion nicht durchgeführt wurde, Bean per DeltaSpike BeanProvider holen. 
+     */
+    if (this.landRepository == null)
+    {
+      this.landRepository = BeanProvider.getContextualReference(LandRepository.class);
     }
 
     return this.landRepository.findById(value);
@@ -44,5 +53,4 @@ public class LandConverter implements Converter
     Land land = (Land) value;
     return land.getId();
   }
-
 }

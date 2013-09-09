@@ -13,13 +13,14 @@ import javax.faces.convert.ConverterException;
 import javax.faces.convert.FacesConverter;
 import javax.inject.Inject;
 
+import org.apache.deltaspike.core.api.provider.BeanProvider;
+
 /**
  * Converter für {@link Person}.
  * 
  * @author dw
  */
 @FacesConverter(forClass = Person.class)
-//@RequestScoped
 public class PersonConverter implements Converter
 {
   @Inject
@@ -31,6 +32,15 @@ public class PersonConverter implements Converter
     if (value == null)
     {
       return "";
+    }
+
+    /*
+     * Die Injektion von CDI Beans in Faces Converter ist leider nicht in JSF 2.2 enthalten. Mojarra 2.2.2 unterstützt
+     * @Inject schon in einigen Fällen. Falls die Injektion nicht durchgeführt wurde, Bean per DeltaSpike BeanProvider holen. 
+     */
+    if (this.personRepository == null)
+    {
+      this.personRepository = BeanProvider.getContextualReference(PersonRepository.class);
     }
 
     try
@@ -65,5 +75,4 @@ public class PersonConverter implements Converter
     Person person = (Person) value;
     return person.getId().toString();
   }
-
 }
