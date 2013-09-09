@@ -8,6 +8,8 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
 
+import org.apache.commons.logging.Log;
+
 /**
  * Repository-Master für ProVS.
  * 
@@ -23,15 +25,23 @@ public class RepositoryMaster implements Serializable
   @Inject
   EntityManager             entityManager;
 
+  @Inject
+  Log                       log;
+
   /**
    * Alle Änderungen abspeichern.
    */
   @Transactional
   public void saveAll()
   {
-    // Dies sollte eigentlich unnötig sein, da alle Änderungen ohnehin bei TX-Ende abgespeichert werden.
-    // Der von Seam erzeugte Entity Manager bindet sich allerdings nur dann an eine Transaktion,
-    // wenn in ihm eine Methode aufgerufen wird. Dazu wird hier flush verwendet, was dann ohnehin ausgeführt würde.
-    this.entityManager.flush();
+    try
+    {
+      this.entityManager.joinTransaction();
+      this.entityManager.flush();
+    }
+    catch (RuntimeException e) // CHECKSTYLE:IGNORE
+    {
+      this.log.error("Fehler beim Speichern", e);
+    }
   }
 }
