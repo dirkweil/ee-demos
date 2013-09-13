@@ -1,1 +1,1 @@
-drop table EEDEMOS_DUMMY
+drop table JPA_DUMMY

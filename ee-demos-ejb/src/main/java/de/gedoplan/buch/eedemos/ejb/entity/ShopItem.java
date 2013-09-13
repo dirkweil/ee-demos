@@ -7,20 +7,24 @@ import javax.persistence.AccessType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = ShopItem.TABLE_NAME)
 @Access(AccessType.FIELD)
 public class ShopItem implements Serializable
 {
-  private static final long serialVersionUID = 1L;
+  private static final long  serialVersionUID = 1L;
+
+  public static final String TABLE_NAME       = "EJB_SHOPITEM";
 
   @Id
   @GeneratedValue
-  private Integer           id;
+  private Integer            id;
 
-  private String            name;
+  private String             name;
 
-  private double            price;
+  private double             price;
 
   public ShopItem(String name, double price)
   {

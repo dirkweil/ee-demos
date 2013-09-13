@@ -14,7 +14,7 @@ public class CocktailZutat extends StringIdEntity
 {
   private static final long  serialVersionUID = 1L;
 
-  public static final String TABLE_NAME       = "EEDEMOS_COCKTAILZUTAT";
+  public static final String TABLE_NAME       = "JPA_COCKTAILZUTAT";
 
   private String             name;
 

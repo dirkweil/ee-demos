@@ -18,9 +18,9 @@ import javax.persistence.Table;
 @Table(name = Employee.TABLE_NAME)
 public class Employee
 {
-  public static final String  TABLE_NAME        = "EEDEMOS_EMPLOYEE";
-  public static final String  SKILLS_TABLE_NAME = "EEDEMOS_EMPLOYEE_SKILLS";
-  public static final String  PHONES_TABLE_NAME = "EEDEMOS_EMPLOYEE_PHONES";
+  public static final String  TABLE_NAME        = "JPA_EMPLOYEE";
+  public static final String  SKILLS_TABLE_NAME = "JPA_EMPLOYEE_SKILLS";
+  public static final String  PHONES_TABLE_NAME = "JPA_EMPLOYEE_PHONES";
 
   @Id
   private int                 id;

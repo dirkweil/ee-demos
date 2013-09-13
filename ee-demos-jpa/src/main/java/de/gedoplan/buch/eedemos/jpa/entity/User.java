@@ -19,8 +19,8 @@ public class User extends StringIdEntity
 {
   private static final long  serialVersionUID              = 1L;
 
-  public static final String TABLE_NAME                    = "EEDEMOS_USER";
-  public static final String USABLEAPPLICATIONS_TABLE_NAME = "EEDEMOS_USER_APPLICATION";
+  public static final String TABLE_NAME                    = "JPA_USER";
+  public static final String USABLEAPPLICATIONS_TABLE_NAME = "JPA_USER_APPLICATION";
 
   private String             name;
 

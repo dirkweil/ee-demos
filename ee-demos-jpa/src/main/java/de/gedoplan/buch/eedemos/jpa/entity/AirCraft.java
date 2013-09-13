@@ -14,7 +14,7 @@ public class AirCraft extends GeneratedIntegerIdEntity
 {
   private static final long  serialVersionUID = 1L;
 
-  public static final String TABLE_NAME       = "EEDEMOS_AIRCRAFT";
+  public static final String TABLE_NAME       = "JPA_AIRCRAFT";
 
   private String             maker;
   private String             type;

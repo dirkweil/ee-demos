@@ -18,11 +18,11 @@ import javax.persistence.Table;
 @NamedNativeQueries({
     @NamedNativeQuery(
         name = "City_populationDensity",
-        query = "SELECT NAME, POPULATION/AREA AS DENSITY FROM EEDEMOS_CITY",
+        query = "SELECT NAME, POPULATION/AREA AS DENSITY FROM JPA_CITY",
         resultSetMapping = "City_populationDensity"),
     @NamedNativeQuery(
         name = "City_populationDensityCtorResult",
-        query = "SELECT NAME, POPULATION/AREA AS DENSITY FROM EEDEMOS_CITY",
+        query = "SELECT NAME, POPULATION/AREA AS DENSITY FROM JPA_CITY",
         resultSetMapping = "City_populationDensityCtorResult") })
 @SqlResultSetMappings({
     @SqlResultSetMapping(
@@ -36,12 +36,12 @@ public class City extends GeneratedIntegerIdEntity
 {
   private static final long  serialVersionUID = 1L;
 
-  public static final String TABLE_NAME       = "EEDEMOS_CITY";
+  public static final String TABLE_NAME       = "JPA_CITY";
 
   // Durch die Ableitung von GeneratedIntegerIdEntity lässt sich dieser Code einsparen
   //  @Id
   //  @GeneratedValue(strategy = GenerationType.TABLE, generator = "cityGenerator")
-  //  @TableGenerator(name = "cityGenerator", table = "EEDEMOS_CITY_GEN", pkColumnName = "GENERATOR", valueColumnName = "NEXT_ID", initialValue = 200000)
+  //  @TableGenerator(name = "cityGenerator", table = "JPA_CITY_GEN", pkColumnName = "GENERATOR", valueColumnName = "NEXT_ID", initialValue = 200000)
   //  private Integer            id;
   private String             name;
 

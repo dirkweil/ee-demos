@@ -23,7 +23,7 @@ public class Order extends GeneratedIntegerIdEntity
 {
   private static final long  serialVersionUID = 1L;
 
-  public static final String TABLE_NAME       = "EEDEMOS_ORDER";
+  public static final String TABLE_NAME       = "JPA_ORDER";
 
   @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
   @JoinColumn(name = "ORDER_ID")

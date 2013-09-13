@@ -12,7 +12,7 @@ public class Lorry extends Car
 {
   private static final long  serialVersionUID = 1L;
 
-  public static final String TABLE_NAME       = "EEDEMOS_LORRY";
+  public static final String TABLE_NAME       = "JPA_LORRY";
 
   /**
    * Nutzlast.

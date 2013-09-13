@@ -14,7 +14,7 @@ public class MailAddress extends GeneratedIntegerIdEntity
 {
   private static final long  serialVersionUID = 1L;
 
-  public static final String TABLE_NAME       = "EEDEMOS_MAILADDRESS";
+  public static final String TABLE_NAME       = "JPA_MAILADDRESS";
 
   private String             userId;
   private String             domain;

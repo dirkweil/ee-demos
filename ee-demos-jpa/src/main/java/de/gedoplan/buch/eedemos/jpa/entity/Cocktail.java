@@ -22,9 +22,9 @@ public class Cocktail extends StringIdEntity implements Comparable<Cocktail>
 {
   private static final long  serialVersionUID      = 1L;
 
-  public static final String TABLE_NAME            = "EEDEMOS_COCKTAIL";
-  public static final String ZUTATEN_TABLE_NAME    = "EEDEMOS_COCKTAIL_COCKTAILZUTAT";
-  public static final String BASISZUTAT_TABLE_NAME = "EEDEMOS_COCKTAIL_BASISZUTAT";
+  public static final String TABLE_NAME            = "JPA_COCKTAIL";
+  public static final String ZUTATEN_TABLE_NAME    = "JPA_COCKTAIL_COCKTAILZUTAT";
+  public static final String BASISZUTAT_TABLE_NAME = "JPA_COCKTAIL_BASISZUTAT";
 
   private String             name;
 

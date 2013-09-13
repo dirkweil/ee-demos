@@ -1,1 +1,1 @@
-create table EEDEMOS_DUMMY (id char(1))
+create table JPA_DUMMY (id char(1))

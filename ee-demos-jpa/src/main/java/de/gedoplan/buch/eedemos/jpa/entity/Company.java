@@ -12,7 +12,7 @@ import javax.persistence.Table;
 @Table(name = Company.TABLE_NAME)
 public class Company
 {
-  public static final String TABLE_NAME = "EEDEMOS_COMPANY";
+  public static final String TABLE_NAME = "JPA_COMPANY";
 
   @Id
   private Integer            id;

@@ -27,9 +27,9 @@ public class Person extends GeneratedIntegerIdEntity
 {
   private static final long  serialVersionUID   = 1L;
 
-  public static final String TABLE_NAME         = "EEDEMOS_PERSON";
-  public static final String TABLE_NAME_PHONES  = "EEDEMOS_PERSON_PHONE";
-  public static final String TABLE_NAME_HOBBIES = "EEDEMOS_PERSON_HOBBY";
+  public static final String TABLE_NAME         = "JPA_PERSON";
+  public static final String TABLE_NAME_PHONES  = "JPA_PERSON_PHONE";
+  public static final String TABLE_NAME_HOBBIES = "JPA_PERSON_HOBBY";
 
   /**
    * Name.

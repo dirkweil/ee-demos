@@ -21,15 +21,15 @@ public class Book extends GeneratedIntegerIdEntity
 {
   private static final long  serialVersionUID   = 1L;
 
-  public static final String TABLE_NAME         = "EEDEMOS_BOOK";
-  public static final String AUTHORS_TABLE_NAME = "EEDEMOS_BOOK_AUTHORS";
+  public static final String TABLE_NAME         = "JPA_BOOK";
+  public static final String AUTHORS_TABLE_NAME = "JPA_BOOK_AUTHORS";
 
   private String             name;
   private String             isbn;
   private int                pages;
 
   @ManyToOne
-  // @JoinTable(name = "EEDEMOS_BOOK_PUBLISHER", joinColumns = { @JoinColumn(name = "book_id") })
+  // @JoinTable(name = "JPA_BOOK_PUBLISHER", joinColumns = { @JoinColumn(name = "book_id") })
   private Publisher          publisher;
 
   @ManyToMany

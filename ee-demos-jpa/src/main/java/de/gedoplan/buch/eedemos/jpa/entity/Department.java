@@ -14,7 +14,7 @@ public class Department extends UuidEntity
 {
   private static final long  serialVersionUID = 1L;
 
-  public static final String TABLE_NAME       = "EEDEMOS_DEPARTMENT";
+  public static final String TABLE_NAME       = "JPA_DEPARTMENT";
 
   private String             name;
 

@@ -1,1 +1,1 @@
-insert into EEDEMOS_DUMMY values ('A')
+insert into JPA_DUMMY values ('A')

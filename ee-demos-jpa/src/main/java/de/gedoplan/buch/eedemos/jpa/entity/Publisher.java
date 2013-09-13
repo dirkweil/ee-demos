@@ -35,8 +35,8 @@ public class Publisher extends GeneratedIntegerIdEntity
 {
   private static final long  serialVersionUID      = 1L;
 
-  public static final String TABLE_NAME            = "EEDEMOS_PUBLISHER";
-  public static final String CATEGORIES_TABLE_NAME = "EEDEMOS_PUBLISHER_CATEGORIES";
+  public static final String TABLE_NAME            = "JPA_PUBLISHER";
+  public static final String CATEGORIES_TABLE_NAME = "JPA_PUBLISHER_CATEGORIES";
 
   private String             name;
 

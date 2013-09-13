@@ -13,7 +13,7 @@ public class Car extends Vehicle
 {
   private static final long  serialVersionUID = 1L;
 
-  public static final String TABLE_NAME       = "EEDEMOS_CAR";
+  public static final String TABLE_NAME       = "JPA_CAR";
 
   private int                noOfDoors;
 

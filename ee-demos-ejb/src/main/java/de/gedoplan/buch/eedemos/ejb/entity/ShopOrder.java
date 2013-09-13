@@ -10,19 +10,23 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = ShopOrder.TABLE_NAME)
 @Access(AccessType.FIELD)
 public class ShopOrder implements Serializable
 {
-  private static final long serialVersionUID = 1L;
+  private static final long  serialVersionUID = 1L;
+
+  public static final String TABLE_NAME       = "EJB_SHOPORDER";
 
   @Id
   @GeneratedValue
-  private Integer           id;
+  private Integer            id;
 
   @ManyToMany
-  private List<ShopItem>    shopItems        = new ArrayList<>();
+  private List<ShopItem>     shopItems        = new ArrayList<>();
 
   public Integer getId()
   {

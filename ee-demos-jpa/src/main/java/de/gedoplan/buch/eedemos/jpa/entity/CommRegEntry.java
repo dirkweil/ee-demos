@@ -11,7 +11,7 @@ import javax.persistence.Table;
 @Table(name = CommRegEntry.TABLE_NAME)
 public class CommRegEntry
 {
-  public static final String TABLE_NAME = "EEDEMOS_COMMREGENTRY";
+  public static final String TABLE_NAME = "JPA_COMMREGENTRY";
 
   @Id
   private Integer            id;

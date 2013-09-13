@@ -11,7 +11,7 @@ import javax.persistence.Table;
 @Table(name = SuperMarketEmbeddedId.TABLE_NAME)
 public class SuperMarketEmbeddedId
 {
-  public static final String TABLE_NAME = "EEDEMOS_SUPERMARKET";
+  public static final String TABLE_NAME = "JPA_SUPERMARKET";
 
   @EmbeddedId
   private BranchId           id;

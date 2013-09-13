@@ -17,7 +17,7 @@ public class ProjectEmbeddedId extends SingleIdEntity<ProjectId>
 {
   private static final long  serialVersionUID = 1L;
 
-  public static final String TABLE_NAME       = "EEDEMOS_PROJECT";
+  public static final String TABLE_NAME       = "JPA_PROJECT";
 
   @EmbeddedId
   private ProjectId          id;

@@ -13,7 +13,7 @@ import javax.persistence.Table;
 @Table(name = SuperMarketCompositeId.TABLE_NAME)
 public class SuperMarketCompositeId
 {
-  public static final String TABLE_NAME = "EEDEMOS_SUPERMARKET";
+  public static final String TABLE_NAME = "JPA_SUPERMARKET";
 
   @Id
   private int                companyId;

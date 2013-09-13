@@ -18,7 +18,7 @@ public class Application extends GeneratedIntegerIdEntity
 {
   private static final long  serialVersionUID = 1L;
 
-  public static final String TABLE_NAME       = "EEDEMOS_APPLICATION";
+  public static final String TABLE_NAME       = "JPA_APPLICATION";
 
   private String             name;
 

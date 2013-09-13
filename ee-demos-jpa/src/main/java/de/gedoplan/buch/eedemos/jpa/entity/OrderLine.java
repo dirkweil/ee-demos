@@ -16,7 +16,7 @@ public class OrderLine extends GeneratedIntegerIdEntity
 {
   private static final long  serialVersionUID = 1L;
 
-  public static final String TABLE_NAME       = "EEDEMOS_ORDERLINE";
+  public static final String TABLE_NAME       = "JPA_ORDERLINE";
 
   private String             name;
   private int                count;

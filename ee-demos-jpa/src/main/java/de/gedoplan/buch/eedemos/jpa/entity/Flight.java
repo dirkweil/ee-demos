@@ -18,14 +18,14 @@ public class Flight extends GeneratedIntegerIdEntity
 {
   private static final long  serialVersionUID = 1L;
 
-  public static final String TABLE_NAME       = "EEDEMOS_FLIGHT";
+  public static final String TABLE_NAME       = "JPA_FLIGHT";
 
   private String             carrier;
   private int                flightNo;
 
   @ManyToOne
   @JoinColumn(name = "PLANE_ID", foreignKey = @ForeignKey(ConstraintMode.CONSTRAINT))
-  //  @JoinTable(name = "EEDEMOS_F_A", joinColumns = { @JoinColumn(name = "F_ID") }, inverseJoinColumns = { @JoinColumn(name = "A_ID") })
+  //  @JoinTable(name = "JPA_F_A", joinColumns = { @JoinColumn(name = "F_ID") }, inverseJoinColumns = { @JoinColumn(name = "A_ID") })
   private AirCraft           airCraft;
 
   public String getCarrier()

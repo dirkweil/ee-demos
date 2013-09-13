@@ -27,8 +27,8 @@ import javax.persistence.UniqueConstraint;
 @SecondaryTable(name = Country.TABLE_2_NAME, uniqueConstraints = @UniqueConstraint(columnNames = "CAR_CODE"), pkJoinColumns = @PrimaryKeyJoinColumn(name = "IC"))
 public class Country
 {
-  public static final String TABLE_NAME   = "EEDEMOS_COUNTRY";
-  public static final String TABLE_2_NAME = "EEDEMOS_COUNTRY_EXT";
+  public static final String TABLE_NAME   = "JPA_COUNTRY";
+  public static final String TABLE_2_NAME = "JPA_COUNTRY_EXT";
 
   @Id
   @Column(name = "ISO_CODE", length = 2)

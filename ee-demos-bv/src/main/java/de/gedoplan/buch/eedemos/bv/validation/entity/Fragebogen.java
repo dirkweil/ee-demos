@@ -11,6 +11,7 @@ import javax.persistence.AccessType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.Valid;
@@ -23,39 +24,42 @@ import javax.validation.constraints.Size;
 import javax.validation.groups.Default;
 
 @Entity
+@Table(name = Fragebogen.TABLE_NAME)
 @Access(AccessType.FIELD)
 public class Fragebogen implements Serializable
 {
-  private static final long serialVersionUID = 1L;
+  private static final long  serialVersionUID = 1L;
+
+  public static final String TABLE_NAME       = "BV_FRAGEBOGEN";
 
   @Id
   @GeneratedValue
-  private Integer           id;
+  private Integer            id;
 
   @NotNull(groups = { InitialInput.class, Default.class })
   @Past(groups = { InitialInput.class, Default.class })
   @Temporal(TemporalType.DATE)
-  private Date              umfrageDatum;
+  private Date               umfrageDatum;
 
   // @NotNull(groups={InitialInput.class, Default.class})
   // @Size(min = 1, groups={InitialInput.class, Default.class})
   @NotEmpty(groups = { InitialInput.class, Default.class })
-  private String            name;
+  private String             name;
 
   @Valid
-  private Adresse           adresse          = new Adresse();
+  private Adresse            adresse          = new Adresse();
 
   @Min(value = 18, groups = { InitialInput.class, Default.class })
   @Max(value = 120, groups = { InitialInput.class, Default.class })
-  private int               lebensalter;
+  private int                lebensalter;
 
   @Pattern(regexp = "[^@]+@[^@]+\\.[^@]+", groups = { InitialInput.class, Default.class })
-  private String            email;
+  private String             email;
 
   // implizit: groups = Default.class
   @NotNull
   @Size(min = 10, max = 140, groups = { InitialInput.class, Default.class })
-  private String            bemerkungen;
+  private String             bemerkungen;
 
   public Date getUmfrageDatum()
   {

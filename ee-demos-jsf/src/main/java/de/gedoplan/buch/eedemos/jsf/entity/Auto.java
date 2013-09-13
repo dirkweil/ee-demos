@@ -6,26 +6,30 @@ import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
+@Table(name = Auto.TABLE_NAME)
 @Access(AccessType.FIELD)
 @ValidAuto
 public class Auto
 {
+  public static final String TABLE_NAME = "JSF_AUTO";
+
   @Id
   @NotNull
   @Size(min = 1)
-  private String  name;
+  private String             name;
 
-  private boolean kombi;
+  private boolean            kombi;
 
   @Min(2)
   @Max(5)
-  private int     anzahlTueren;
+  private int                anzahlTueren;
 
   public Auto(String name, boolean kombi, int anzahlTueren)
   {
@@ -100,11 +104,10 @@ public class Auto
         return false;
       }
     }
-    else
-      if (!this.name.equals(other.name))
-      {
-        return false;
-      }
+    else if (!this.name.equals(other.name))
+    {
+      return false;
+    }
     return true;
   }
 

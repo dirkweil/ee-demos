@@ -13,7 +13,7 @@ public class Ship extends Vehicle
 {
   private static final long  serialVersionUID = 1L;
 
-  public static final String TABLE_NAME       = "EEDEMOS_SHIP";
+  public static final String TABLE_NAME       = "JPA_SHIP";
 
   private double             tonnage;
 

@@ -71,7 +71,7 @@ public class SchemaTest extends TestBase
   @Test
   public void testCreateAndLoadSource()
   {
-    Number dummyCount = (Number) this.entityManager.createNativeQuery("select count(*) from EEDEMOS_DUMMY").getSingleResult();
-    Assert.assertEquals("Entries in EEDEMOS_DUMMY", 1, dummyCount.intValue());
+    Number dummyCount = (Number) this.entityManager.createNativeQuery("select count(*) from JPA_DUMMY").getSingleResult();
+    Assert.assertEquals("Entries in JPA_DUMMY", 1, dummyCount.intValue());
   }
 }
