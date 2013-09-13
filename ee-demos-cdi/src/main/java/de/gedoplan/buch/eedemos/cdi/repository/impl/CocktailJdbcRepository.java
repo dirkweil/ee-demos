@@ -48,7 +48,7 @@ public class CocktailJdbcRepository implements CocktailRepository
     try
     {
       statement = this.dbConnection.createStatement();
-      ResultSet resultSet = statement.executeQuery("SELECT ID,NAME FROM COCKTAIL");
+      ResultSet resultSet = statement.executeQuery("SELECT ID,NAME FROM CDI_COCKTAIL");
       while (resultSet.next())
       {
         cocktails.add(new Cocktail(resultSet.getString(1), resultSet.getString(2)));
@@ -57,7 +57,7 @@ public class CocktailJdbcRepository implements CocktailRepository
     }
     catch (SQLException sqlException)
     {
-      throw new RuntimeException("Fehler beim Lesen der Cockails aus der Datenbank. Ist die Tabelle COCKTAIL mit den Spalten ID und NAME vorhanden?", sqlException);
+      throw new RuntimeException("Fehler beim Lesen der Cockails aus der Datenbank. Ist die Tabelle CDI_COCKTAIL mit den Spalten ID und NAME vorhanden?", sqlException);
     }
     finally
     {

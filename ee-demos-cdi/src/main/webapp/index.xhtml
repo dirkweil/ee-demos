@@ -1,0 +1,34 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
+
+  <h:head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <title>ee-demos-cdi</title>
+  </h:head>
+  <h:body>
+    <h2>Demoprojekt zum Buchkapitel CDI</h2>
+
+    <h:panelGrid columns="2">
+      <h:outputLink value="${request.contextPath}/view/greetingView.jsp">view/greetingView.jsp</h:outputLink>
+      Zugriff auf eine CDI Bean aus JSP heraus
+
+      <h:outputLink value="${request.contextPath}/view/greetingView.xhtml">view/greetingView.xhtml</h:outputLink>
+      Zugriff auf eine CDI Bean aus JSF heraus
+
+      <h:outputLink value="${request.contextPath}/view/dbView.xhtml">view/dbView.xhtml</h:outputLink>
+      Demo Producer und Disposer
+
+      <h:outputLink value="${request.contextPath}/view/scopeView.xhtml">view/scopeView.xhtml</h:outputLink>
+      Demonstration verschiedener Scopes
+
+      <h:outputLink value="${request.contextPath}/view/interceptorView.xhtml">view/interceptorView.xhtml</h:outputLink>
+      Demonstration eines Interceptors
+
+      <h:outputLink value="${request.contextPath}/view/cocktailView.xhtml">view/cocktailView.xhtml</h:outputLink>
+      Nutzung von Conversations / Demonstration von Events
+
+      <h:outputLink value="${request.contextPath}/view/beanView.xhtml">view/beanView.xhtml</h:outputLink>
+      Demonstration des programmatischen Zugriffs auf CDI Beans
+    </h:panelGrid>
+
+  </h:body>
+</html>

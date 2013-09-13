@@ -6,9 +6,11 @@
   <h:form>
     <h:commandButton action="#{interceptModel.doSomething()}" value="doSomething" />
   </h:form>
-  
-  <hr/>
+
+  <hr />
   Bei Betätigung des Buttons wird die Methode InterceptModel.doSomething aufgerufen, die mit @TraceCall versehen ist. Ihr Aufruf wird somit
   im Server-Log protokolliert (auf Level TRACE)
+  <hr />
+  <h:link value="home" outcome="home" />
 </h:body>
 </html>

@@ -36,10 +36,24 @@ public class DbModel implements Serializable
 
   private static String getDescription(Connection connection)
   {
+    if (connection == null)
+    {
+      return "null";
+    }
+
+    String url = "";
+    try
+    {
+      url = connection.getMetaData().getURL();
+    }
+    catch (Exception ignore) // CHECKSTYLE:IGNORE
+    {
+    }
+
     try
     {
       DatabaseMetaData metaData = connection.getMetaData();
-      return metaData.getDatabaseProductName() + " " + metaData.getDatabaseProductVersion();
+      return metaData.getDatabaseProductName() + " " + metaData.getDatabaseProductVersion() + " " + url;
     }
     catch (SQLException e)
     {

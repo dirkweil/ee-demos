@@ -1,16 +1,24 @@
 package de.gedoplan.buch.eedemos.cdi.entity;
 
+import javax.persistence.Access;
+import javax.persistence.AccessType;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-//@Entity
-//@Access(AccessType.FIELD)
+@Entity
+@Table(name = CocktailZutat.TABLE_NAME)
+@Access(AccessType.FIELD)
 public class CocktailZutat
 {
-  // @Id
-  private String id;
+  public static final String TABLE_NAME = "CDI_COCKTAIL";
 
-  private String name;
+  @Id
+  private String             id;
 
-  private double volProz;
+  private String             name;
+
+  private double             volProz;
 
   public CocktailZutat(String id, String name, double volProz)
   {

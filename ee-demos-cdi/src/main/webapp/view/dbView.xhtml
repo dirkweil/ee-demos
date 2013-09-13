@@ -3,12 +3,14 @@
   <title>dbView.xhtml</title>
 </h:head>
 <h:body>
-<h:panelGrid columns="2">
-  <h:outputLabel value="Datenbank: " for="dbmake" />
-  <h:outputText value="#{dbModel.dbMake}" id="dbmake" />
+  <h:panelGrid columns="2">
+    <h:outputLabel value="Datenbank: " for="dbmake" />
+    <h:outputText value="#{dbModel.dbMake}" id="dbmake" />
 
-  <h:outputLabel value="Temp-DB: " for="tempdbmake" />
-  <h:outputText value="#{dbModel.tempDbMake}" id="tempdbmake" />
-</h:panelGrid>
+    <h:outputLabel value="Temp-DB: " for="tempdbmake" />
+    <h:outputText value="#{dbModel.tempDbMake}" id="tempdbmake" />
+  </h:panelGrid>
+  <hr />
+  <h:link value="home" outcome="home" />
 </h:body>
 </html>

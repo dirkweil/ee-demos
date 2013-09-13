@@ -4,25 +4,38 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
-//@Entity
-//@Access(AccessType.FIELD)
+import javax.persistence.Access;
+import javax.persistence.AccessType;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = Cocktail.TABLE_NAME)
+@Access(AccessType.FIELD)
 public class Cocktail implements Comparable<Cocktail>
 {
-  // @Id
+  public static final String TABLE_NAME = "CDI_COCKTAIL";
+
+  @Id
   private String             id;
 
   private String             name;
 
-  // @ManyToMany
-  private Set<CocktailZutat> zutaten = new HashSet<CocktailZutat>();
+  @ManyToMany
+  private Set<CocktailZutat> zutaten    = new HashSet<CocktailZutat>();
 
-  // @ManyToOne
+  @ManyToOne
   private CocktailZutat      basisZutat;
 
   public Cocktail(String id, String name)
   {
     this.id = id;
     this.name = name;
+
+    this.zutaten = new HashSet<CocktailZutat>();
   }
 
   public String getId()
