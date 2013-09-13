@@ -96,4 +96,11 @@
     TARGET="rules:#view#unsync#personEdit.xhtml" TITLE="back" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:" SHAPE="32,641,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::0" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="home::#index" NAME="output" PATH="/index"
+    TARGET="rules:#index" TITLE="home" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#index" PATH="/index" SHAPE="240,657,0,0" model-entity="JSFProcessGroup"/>
 </PROCESS>

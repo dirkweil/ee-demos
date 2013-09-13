@@ -1,0 +1,31 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <title>ee-demos-jpa</title>
+</h:head>
+<h:body>
+  <h2>Demoprojekt zum Buchkapitel Java Persistence</h2>
+
+  <h:panelGrid columns="2">
+    <h:outputLink value="${request.contextPath}/view/countryCrudDemo.xhtml">view/countryCrudDemo.xhtml</h:outputLink>
+      Demo von Create/Read/Update/Delete
+
+      <h:outputLink value="${request.contextPath}/view/orderDemo.xhtml">view/orderDemo.xhtml</h:outputLink>
+      Demo von Kaskadierung ond Orphan Removal
+
+      <h:outputLink value="${request.contextPath}/view/default/personList.xhtml">view/default/personList.xhtml</h:outputLink>
+      Demo einer Request-übergreifenen Datenerfassung (Variante mit 'normalem', TX-gebundenem EntityManager)
+
+      <h:outputLink value="${request.contextPath}/view/appmngd/personList.xhtml">view/appmngd/personList.xhtml</h:outputLink>
+      Demo einer Request-übergreifenen Datenerfassung (Variante mit Applikations- und Konversations-gebundenem EntityManager)
+
+      <h:outputLink value="${request.contextPath}/view/unsync/personList.xhtml">view/unsync/personList.xhtml</h:outputLink>
+      Demo einer Request-übergreifenen Datenerfassung (Variante mit unsynchronisiertem und Konversations-gebundenem EntityManager)
+
+    </h:panelGrid>
+
+  <p />
+  Weitere Demos sind in diesem Projekt als SE-Demos programmiert. Sie finden sie als JUnit-Tests in src/test/java. 
+  </h:body>
+</html>

@@ -24,20 +24,20 @@ import org.apache.commons.logging.Log;
 @ConversationScoped
 public class PersonModelUnsynchronizedEntityManager implements Serializable
 {
-  private static final long                    serialVersionUID = 1L;
+  private static final long                   serialVersionUID = 1L;
 
   @Inject
   PersonRepositoryUnsynchronizedEntityManager personRepository;
 
   @Inject
-  ConversationService                          conversationService;
+  ConversationService                         conversationService;
 
   @Inject
-  Log                                          logger;
+  Log                                         logger;
 
-  List<Person>                                 personen;
+  List<Person>                                personen;
 
-  Person                                       person;
+  Person                                      person;
 
   /**
    * Alle Personen aus der DB liefern.
