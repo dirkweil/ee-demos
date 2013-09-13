@@ -43,7 +43,7 @@
       <h:inputText id="bemerkungen" value="#{beanValDemoModel.fragebogen.bemerkungen}" />
       <h:message for="bemerkungen" />
 
-      <h:commandButton value="ok">
+      <h:commandButton value="ok" action="#{beanValDemoModel.doOk()}">
         <f:ajax execute="@form" render="@form" />
       </h:commandButton>
     </h:panelGrid>
@@ -89,7 +89,7 @@
         <h:message for="bemerkungen" />
       </f:validateBean>
 
-      <h:commandButton value="ok">
+      <h:commandButton value="ok" action="#{beanValDemoModel.doOk()}">
         <f:ajax execute="@form" render="@form" />
       </h:commandButton>
     </h:panelGrid>

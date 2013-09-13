@@ -12,6 +12,8 @@ import javax.inject.Inject;
 import javax.validation.ConstraintViolation;
 import javax.validation.Validator;
 
+import org.apache.commons.logging.Log;
+
 @Model
 public class BeanValDemoModel implements Serializable
 {
@@ -19,6 +21,9 @@ public class BeanValDemoModel implements Serializable
 
   @Inject
   private Validator         validator;
+
+  @Inject
+  private Log               log;
 
   private StringBuilder     message;
 
@@ -32,6 +37,11 @@ public class BeanValDemoModel implements Serializable
   public Fragebogen getFragebogen()
   {
     return this.fragebogen;
+  }
+
+  public void doOk()
+  {
+    this.log.debug("Fragebogen: " + this.fragebogen);
   }
 
   public void validateFragebogenNull()

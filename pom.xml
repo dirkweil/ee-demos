@@ -22,7 +22,6 @@
     <module>ee-demos-cdi-sublib2</module>
     <module>ee-demos-jpa</module>
     <module>ee-demos-ejb</module>
-    <module>ee-demos-jsf</module>
     <module>ee-demos-jsf-extflow</module>
     <module>ee-demos-provs</module>
   </modules>
