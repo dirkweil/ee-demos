@@ -113,6 +113,11 @@
   <profiles>
     <profile>
       <id>weld</id>
+      
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      
       <dependencies>
         <dependency>
           <groupId>org.apache.deltaspike.cdictrl</groupId>
@@ -128,8 +133,12 @@
       </dependencies>
     </profile>
 
+<!--
+  Apache Open WebBeans steht noch nicht für CDI 1.1 zur Verfügung
+   
     <profile>
       <id>owb</id>
+      
       <dependencies>
         <dependency>
           <groupId>org.apache.openwebbeans</groupId>
@@ -150,5 +159,6 @@
         </dependency>
       </dependencies>
     </profile>
+ -->
   </profiles>
 </project>
