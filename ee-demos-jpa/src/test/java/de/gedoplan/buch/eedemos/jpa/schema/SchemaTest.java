@@ -14,7 +14,7 @@ import org.junit.Test;
 public class SchemaTest extends TestBase
 {
   /**
-   * Test: Erstellung eines Create Scripts.
+   * Test: Erstellung Create Script.
    */
   @Test
   public void testCreateScript()
@@ -40,7 +40,7 @@ public class SchemaTest extends TestBase
   }
 
   /**
-   * Test: Erstellung eines Drop Scripts.
+   * Test: Erstellung Drop Script.
    */
   @Test
   public void testDropScript()
