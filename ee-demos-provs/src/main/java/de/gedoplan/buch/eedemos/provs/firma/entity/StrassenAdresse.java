@@ -10,6 +10,7 @@
  */
 package de.gedoplan.buch.eedemos.provs.firma.entity;
 
+import de.gedoplan.buch.eedemos.provs.common.util.StringUtil;
 import de.gedoplan.buch.eedemos.provs.firma.validation.constraint.ValidStrassenAdresse;
 
 import java.text.MessageFormat;
@@ -98,7 +99,7 @@ public class StrassenAdresse
    */
   public void setStrasse(String strasse)
   {
-    this.strasse = strasse;
+    this.strasse = StringUtil.interpretEmptyStringAsNull(strasse);
   }
 
   /**
@@ -118,7 +119,7 @@ public class StrassenAdresse
    */
   public void setHausNummer(String hausNummer)
   {
-    this.hausNummer = hausNummer;
+    this.hausNummer = StringUtil.interpretEmptyStringAsNull(hausNummer);
   }
 
   /**
@@ -138,7 +139,7 @@ public class StrassenAdresse
    */
   public void setPlz(String plz)
   {
-    this.plz = plz;
+    this.plz = StringUtil.interpretEmptyStringAsNull(plz);
   }
 
   /**
@@ -158,7 +159,7 @@ public class StrassenAdresse
    */
   public void setOrt(String ort)
   {
-    this.ort = ort;
+    this.ort = StringUtil.interpretEmptyStringAsNull(ort);
   }
 
   /**

@@ -5,6 +5,7 @@ import de.gedoplan.baselibs.utils.constraint.NotEmpty;
 import de.gedoplan.baselibs.utils.constraint.ValidMailAddress;
 import de.gedoplan.baselibs.utils.constraint.ValidTelNumber;
 import de.gedoplan.baselibs.utils.validator.TelNumberValidator;
+import de.gedoplan.buch.eedemos.provs.common.util.StringUtil;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -155,7 +156,7 @@ public class Person extends GeneratedIntegerIdEntity implements Comparable<Perso
    */
   public void setName(String name)
   {
-    this.name = name;
+    this.name = StringUtil.interpretEmptyStringAsNull(name);
   }
 
   /**
@@ -171,11 +172,11 @@ public class Person extends GeneratedIntegerIdEntity implements Comparable<Perso
   /**
    * Wert setzen: {@link #vorname}.
    * 
-   * @param subName Wert
+   * @param vorName Wert
    */
-  public void setVorname(String subName)
+  public void setVorname(String vorName)
   {
-    this.vorname = subName;
+    this.vorname = StringUtil.interpretEmptyStringAsNull(vorName);
   }
 
   /**
@@ -262,7 +263,7 @@ public class Person extends GeneratedIntegerIdEntity implements Comparable<Perso
    */
   public void setMailAdresse(String mailAdresse)
   {
-    this.mailAdresse = mailAdresse;
+    this.mailAdresse = StringUtil.interpretEmptyStringAsNull(mailAdresse);
   }
 
   /**
@@ -282,7 +283,7 @@ public class Person extends GeneratedIntegerIdEntity implements Comparable<Perso
    */
   public void setUserId(String userId)
   {
-    this.userId = userId;
+    this.userId = StringUtil.interpretEmptyStringAsNull(userId);
   }
 
   /**
