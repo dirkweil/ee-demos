@@ -1,20 +1,20 @@
 package de.gedoplan.buch.eedemos.cdi.entity;
 
+import de.gedoplan.baselibs.persistence.entity.StringIdEntity;
+
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = CocktailZutat.TABLE_NAME)
 @Access(AccessType.FIELD)
-public class CocktailZutat
+@Table(name = CocktailZutat.TABLE_NAME)
+public class CocktailZutat extends StringIdEntity
 {
-  public static final String TABLE_NAME = "CDI_COCKTAIL";
+  private static final long  serialVersionUID = 1L;
 
-  @Id
-  private String             id;
+  public static final String TABLE_NAME       = "CDI_COCKTAILZUTAT";
 
   private String             name;
 
@@ -22,14 +22,9 @@ public class CocktailZutat
 
   public CocktailZutat(String id, String name, double volProz)
   {
-    this.id = id;
+    super(id);
     this.name = name;
     this.volProz = volProz;
-  }
-
-  public String getId()
-  {
-    return this.id;
   }
 
   public String getName()
@@ -50,38 +45,6 @@ public class CocktailZutat
   public void setVolProz(double volProz)
   {
     this.volProz = volProz;
-  }
-
-  @Override
-  public int hashCode()
-  {
-    return this.id != null ? this.id.hashCode() : 0;
-  }
-
-  @Override
-  public boolean equals(Object obj)
-  {
-    if (this == obj)
-    {
-      return true;
-    }
-    if (obj == null)
-    {
-      return false;
-    }
-    if (getClass() != obj.getClass())
-    {
-      return false;
-    }
-    final CocktailZutat other = (CocktailZutat) obj;
-
-    return this.id != null && this.id.equals(other.id);
-  }
-
-  @Override
-  public String toString()
-  {
-    return this.getClass().getSimpleName() + "{id=" + this.id + ",name=" + this.name + ",volProz=" + this.volProz + "}";
   }
 
   protected CocktailZutat()
