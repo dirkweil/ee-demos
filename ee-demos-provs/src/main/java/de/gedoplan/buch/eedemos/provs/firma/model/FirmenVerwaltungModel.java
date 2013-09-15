@@ -10,7 +10,6 @@ import de.gedoplan.buch.eedemos.provs.firma.entity.Mitarbeiter;
 import de.gedoplan.buch.eedemos.provs.firma.entity.Person;
 import de.gedoplan.buch.eedemos.provs.firma.entity.Standort;
 import de.gedoplan.buch.eedemos.provs.firma.repository.FirmaRepository;
-import de.gedoplan.buch.eedemos.provs.firma.repository.LandRepository;
 import de.gedoplan.buch.eedemos.provs.firma.repository.PersonRepository;
 
 import java.io.Serializable;
@@ -38,9 +37,6 @@ public class FirmenVerwaltungModel implements Serializable
 
   @Inject
   private FirmaRepository       firmaRepository;
-
-  @Inject
-  private LandRepository        landRepository;
 
   @Inject
   private PersonRepository      personRepository;

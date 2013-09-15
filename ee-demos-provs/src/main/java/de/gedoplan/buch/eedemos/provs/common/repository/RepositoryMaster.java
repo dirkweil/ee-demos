@@ -42,6 +42,7 @@ public class RepositoryMaster implements Serializable
     catch (RuntimeException e) // CHECKSTYLE:IGNORE
     {
       this.log.error("Fehler beim Speichern", e);
+      throw e;
     }
   }
 }

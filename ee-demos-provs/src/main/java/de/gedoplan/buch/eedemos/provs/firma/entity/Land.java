@@ -2,6 +2,7 @@ package de.gedoplan.buch.eedemos.provs.firma.entity;
 
 import de.gedoplan.baselibs.persistence.entity.StringIdEntity;
 import de.gedoplan.baselibs.utils.constraint.NotEmpty;
+import de.gedoplan.buch.eedemos.provs.common.util.StringUtil;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
@@ -122,7 +123,7 @@ public class Land extends StringIdEntity
    */
   public void setName(String name)
   {
-    this.name = name;
+    this.name = StringUtil.interpretEmptyStringAsNull(name);
   }
 
   /**
@@ -142,7 +143,7 @@ public class Land extends StringIdEntity
    */
   public void setPlzPraefix(String plzPraefix)
   {
-    this.plzPraefix = plzPraefix;
+    this.plzPraefix = StringUtil.interpretEmptyStringAsNull(plzPraefix);
   }
 
   /**
@@ -162,7 +163,7 @@ public class Land extends StringIdEntity
    */
   public void setAdressFormat(String adressFormat)
   {
-    this.adressFormat = adressFormat;
+    this.adressFormat = StringUtil.interpretEmptyStringAsNull(adressFormat);
   }
 
   /**
@@ -182,7 +183,7 @@ public class Land extends StringIdEntity
    */
   public void setPostfachFormat(String postfachFormat)
   {
-    this.postfachFormat = postfachFormat;
+    this.postfachFormat = StringUtil.interpretEmptyStringAsNull(postfachFormat);
   }
 
   /**
@@ -202,7 +203,7 @@ public class Land extends StringIdEntity
    */
   public void setTelefonVorwahl(String telefonVorwahl)
   {
-    this.telefonVorwahl = telefonVorwahl;
+    this.telefonVorwahl = StringUtil.interpretEmptyStringAsNull(telefonVorwahl);
   }
 
   /**

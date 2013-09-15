@@ -2,6 +2,7 @@ package de.gedoplan.buch.eedemos.provs.projekt.entity;
 
 import de.gedoplan.baselibs.persistence.entity.GeneratedIntegerIdEntity;
 import de.gedoplan.baselibs.utils.constraint.NotEmpty;
+import de.gedoplan.buch.eedemos.provs.common.util.StringUtil;
 import de.gedoplan.buch.eedemos.provs.firma.entity.Mitarbeiter;
 
 import java.util.ArrayList;
@@ -124,7 +125,7 @@ public class Aufgabe extends GeneratedIntegerIdEntity
    */
   public void setNummer(String nummer)
   {
-    this.nummer = nummer;
+    this.nummer = StringUtil.interpretEmptyStringAsNull(nummer);
   }
 
   /**
@@ -144,7 +145,7 @@ public class Aufgabe extends GeneratedIntegerIdEntity
    */
   public void setTitel(String titel)
   {
-    this.titel = titel;
+    this.titel = StringUtil.interpretEmptyStringAsNull(titel);
   }
 
   /**

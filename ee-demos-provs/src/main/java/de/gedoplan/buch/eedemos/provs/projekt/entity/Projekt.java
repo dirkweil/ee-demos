@@ -1,5 +1,6 @@
 package de.gedoplan.buch.eedemos.provs.projekt.entity;
 
+import de.gedoplan.buch.eedemos.provs.common.util.StringUtil;
 import de.gedoplan.buch.eedemos.provs.firma.entity.Firma;
 import de.gedoplan.buch.eedemos.provs.firma.entity.Mitarbeiter;
 
@@ -75,7 +76,7 @@ public class Projekt extends Aufgabe
    */
   public void setAuftragsnummer(String auftragsnummer)
   {
-    this.auftragsnummer = auftragsnummer;
+    this.auftragsnummer = StringUtil.interpretEmptyStringAsNull(auftragsnummer);
   }
 
   /**

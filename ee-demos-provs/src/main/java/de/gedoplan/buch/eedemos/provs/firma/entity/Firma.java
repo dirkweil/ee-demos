@@ -4,6 +4,7 @@ import de.gedoplan.baselibs.persistence.entity.GeneratedIntegerIdEntity;
 import de.gedoplan.baselibs.utils.constraint.NotEmpty;
 import de.gedoplan.baselibs.utils.constraint.ValidMailAddress;
 import de.gedoplan.baselibs.utils.constraint.ValidTelNumber;
+import de.gedoplan.buch.eedemos.provs.common.util.StringUtil;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -138,7 +139,7 @@ public class Firma extends GeneratedIntegerIdEntity
    */
   public void setName(String name)
   {
-    this.name = name;
+    this.name = StringUtil.interpretEmptyStringAsNull(name);
   }
 
   /**
@@ -178,7 +179,7 @@ public class Firma extends GeneratedIntegerIdEntity
    */
   public void setTelefonNummer(String telefonNummer)
   {
-    this.telefonNummer = telefonNummer;
+    this.telefonNummer = StringUtil.interpretEmptyStringAsNull(telefonNummer);
   }
 
   /**
@@ -198,7 +199,7 @@ public class Firma extends GeneratedIntegerIdEntity
    */
   public void setFaxNummer(String faxNummer)
   {
-    this.faxNummer = faxNummer;
+    this.faxNummer = StringUtil.interpretEmptyStringAsNull(faxNummer);
   }
 
   /**
@@ -218,7 +219,7 @@ public class Firma extends GeneratedIntegerIdEntity
    */
   public void setMailAdresse(String mailAdresse)
   {
-    this.mailAdresse = mailAdresse;
+    this.mailAdresse = StringUtil.interpretEmptyStringAsNull(mailAdresse);
   }
 
   /**

@@ -4,6 +4,7 @@ import de.gedoplan.baselibs.persistence.entity.GeneratedIntegerIdEntity;
 import de.gedoplan.baselibs.utils.constraint.ValidMailAddress;
 import de.gedoplan.baselibs.utils.constraint.ValidTelNumber;
 import de.gedoplan.baselibs.utils.validator.TelNumberValidator;
+import de.gedoplan.buch.eedemos.provs.common.util.StringUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -235,7 +236,7 @@ public class Mitarbeiter extends GeneratedIntegerIdEntity
    */
   public void setAbteilung(String abteilung)
   {
-    this.abteilung = abteilung;
+    this.abteilung = StringUtil.interpretEmptyStringAsNull(abteilung);
   }
 
   /**
@@ -306,7 +307,7 @@ public class Mitarbeiter extends GeneratedIntegerIdEntity
    */
   public void setMailAdresse(String mailAdresse)
   {
-    this.mailAdresse = mailAdresse;
+    this.mailAdresse = StringUtil.interpretEmptyStringAsNull(mailAdresse);
   }
 
   /**
