@@ -51,14 +51,6 @@
       <artifactId>baselibs-persistence</artifactId>
     </dependency>
 
-<!-- 
-    <dependency>
-      <groupId>joda-time</groupId>
-      <artifactId>joda-time</artifactId>
-      <scope>runtime</scope>
-    </dependency>
- -->
-
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
@@ -75,58 +67,6 @@
       <artifactId>deltaspike-core-impl</artifactId>
       <scope>runtime</scope>
     </dependency>
-
-<!-- 
-    <dependency>
-      <groupId>org.jboss.seam.international</groupId>
-      <artifactId>seam-international</artifactId>
-      <scope>runtime</scope>
-    </dependency>
-
-    <dependency>
-      <groupId>org.jboss.seam.international</groupId>
-      <artifactId>seam-international-api</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>org.jboss.seam.faces</groupId>
-      <artifactId>seam-faces-api</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>org.jboss.seam.faces</groupId>
-      <artifactId>seam-faces</artifactId>
-      <scope>runtime</scope>
-    </dependency>
-
-    <dependency>
-      <groupId>org.jboss.seam.persistence</groupId>
-      <artifactId>seam-persistence-api</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>org.jboss.seam.persistence</groupId>
-      <artifactId>seam-persistence</artifactId>
-      <scope>runtime</scope>
-    </dependency>
-
-    <dependency>
-      <groupId>org.jboss.solder</groupId>
-      <artifactId>solder-api</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>org.jboss.solder</groupId>
-      <artifactId>solder-impl</artifactId>
-      <scope>runtime</scope>
-    </dependency>
-
-    <dependency>
-      <groupId>com.ocpsoft</groupId>
-      <artifactId>prettyfaces-jsf2</artifactId>
-      <scope>runtime</scope>
-    </dependency>
- -->
 
     <dependency>
       <groupId>log4j</groupId>
