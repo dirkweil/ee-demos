@@ -7,37 +7,61 @@ Maven selbst wie auch ein Java-SDK müssen vorweg installiert werden. Benötigt 
 - Maven 3.0.3 (s. http://maven.apache.org/download.html)
 - JDK 7 (s. http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 
+Definieren Sie bitte zwei Environment-Variablen, die die Installationsverzeichnisse von Maven und JDK enthalten:
+  
+  Variable   Wert
+  ---------  --------------------------------------------------------------------------
+  M2_HOME    Installations-Verzeichnis von Maven (z. B. D:\programme\apache-maven-3.0.5)
+  JAVA_HOME  Installations-Verzeichnis des JDK (z. B. C:\Program Files\Java\jdk1.7.0_21)
+  
+Ergänzen Sie dann noch die Variable PATH um die jeweiligen bin-Verzeichnisse
+  
+  PATH       Windows: %M2_HOME%\bin;%JAVA_HOME%\bin;...
+             Unix:    $M2_HOME/bin:$JAVA_HOME/bin:...
+  
 Ein "mvn" auf der Kommandozeile im obersten Projekt sollte ausreichen, um die Anwendungen zu bauen (im pom.xml ist als Default-Goal 
-"install" eingetragen).
-Die Build-Ergebnisse finden sich dann Maven-typisch in den Ordnern "target" der Teilprojekte. 
+"install" eingetragen). Die Build-Ergebnisse finden sich dann Maven-typisch in den Ordnern "target" der Teilprojekte.
 
-Einfacher ist zweifellos die Bearbeitung mit einer IDE. Wenn Sie Eclipse nutzen, benötigen Sie dazu ein Maven-Plugin.
-Ich habe gute Erfahrungen mit der Kombination Eclipse 3.7 (Indigo) + JBoss Tools gemacht. Leider war es einige Zeit lang so, dass 
-die aus dem Eclipse-Marketplace installierbare Version der JBoss Tools nicht passend war. Eine Alternative, die das ausschließt, 
-ist das JBoss Developer Studio (https://devstudio.jboss.com). Anders als der Name es vermuten lässt, ist es nicht nur für den JBoss 
-Application Server nutzbar. Diese beiden Varianten erlauben den Import des Projektes als Maven-Projekt:
-File -> Import -> Maven -> Existing Maven Projects. Als Root Directory dann das Startverzeichnis der Projekte auswählen. Ggf. wird 
-während des Imports noch das eine oder andere Plugin in Eclipse installiert; dieser Prozess sollte aber einigermaßen selbsterklärend 
-sein. Eclipse enthält diverse Validatoren, die die Korrektheit von Deskriptoren etc. testen sollen. Leider funktionieren diese
-Validatoren (zumindest für Maven-Projekte) nicht korrekt. Wenn nach dem Import der Beispielprojekte Validierungsfehler (z. B. "JPA Problem")
-angezeigt werden, sollten Sie die Validatoren deaktiviern (Window -> Preferences -> Validation: Disable All).
+Bequemer ist zweifellos die Bearbeitung mit einer IDE. Hinweise dazu finden Sie im Ordner ide. Das Maß der Dinge ist aber der
+Maven-Build. Nur wenn der problemlos durchführbar ist, sollten Sie die Projekte in eine IDE ihrer Wahl importieren.
+
+Einige Projekte enthalten JUnit Tests (im jeweiligen Source-Ordner src/test). Für den normalen Build sind die Tests allerdings
+ausgeschaltet. Zur Ausführung der Tests mit Maven muss daher ein Parameter zur Aktivierung der Test angegeben werden:
+  mvn -DskipTests=false test
+
+Einige Projekte erlauben die Nutzung unterschiedlicher Provider (JPA, App-Server, ...). Dazu sind entsprechende Maven-Profile
+vorhanden. Sie werden auf der Kommandozeile wie folgt aktiviert (z. B. für die Nutzung von Hibernate im JPA-Projekt):
+  mvn -Phibernate ...
+Innerhalb von Eclipse kann das Profile gewählt werden, indem mit der rechten Maustaste auf das Projekt geklickt wird und dann im
+Kontextmenü "Maven" -> "Select Maven Profiles" genutzt wird.   
 
 Die folgenden Teilprojekte sind unterhalb von "ee-demos" vorhanden:
 
   Projekt         Inhalt                                               Nutzung
   --------------  ----------------------------------                   --------------------------------------------------------------------------------------------------
   ee-demos-cdi    Begleitprojekt zum Kapitel 2 "CDI"                   Auf den gewünschten Server deployen und per Browser aufrufen: http://localhost:8080/ee-demos-cdi/.
-  ee-demos-jpa    Begleitprojekt zum Kapitel 3 "JPA"                   Im Source-Ordner src/test/java sind einige Main-Programme enthalten, die direkt gestartet werden
-                                                                       können. Zudem kann die Anwendung auf einen Server deployt werden. Im Browser sind unter
+                                                                       Die Projekte ee-demos-cdi-... sind Unterprojekte von ee-demos-cdi und werden als Dependencies
+                                                                       dort hinein paketiert.
+                                                                       Zudem enthält das Projekt einige JUnit Tests im Ordner src/test/java.
+                                                                       
+  ee-demos-jpa    Begleitprojekt zum Kapitel 3 "JPA"                   Im Source-Ordner src/test/java sind einige Test-Programme enthalten, die direkt gestartet werden
+                                                                       können (als JUnit Tests). Diese SE-Tests nutzen per Default EclipseLink als JPA-Provider. Mit dem
+                                                                       Maven-Profil "hibernate" kann stattdessen Hibernate eingesetzt werden. 
+                                                                       Zudem kann die Anwendung auf einen Server deployt werden. Im Browser sind unter
                                                                        http://localhost:8080/ee-demos-jpa zwei weitere Demos aufrufbar.
+                                                                       
   ee-demos-bv     Begleitprojekt zum Kapitel 4 "Bean Validation"       Auf den gewünschten Server deployen und per Browser aufrufen: http://localhost:8080/ee-demos-bv/.
                                                                        Zusätzlich sind einige SE-Demos in src/test/java verfügbar.
+                                                                       
   ee-demos-jsf    Begleitprojekt zum Kapitel 5 "JavaServer Faces"      Auf den gewünschten Server deployen und per Browser aufrufen: http://localhost:8080/ee-demos-jsf/.
+                                                                       Das Projekt ee-demos-jsf-extflow ist ein Unterprojekt von ee-demos-jsf und wird als Dependency
+                                                                       dort hinein paketiert.
+                                                                       
   ee-demos-ejb    Begleitprojekt zum Kapitel 6 "Enterprise JavaBeans"  Auf den gewünschten Server deployen. Um die Tests unter src/test/java zu nutzen, muss das zum
-                                                                       Server passende Maven-Profil aktiviert werden: glassfish-3.1.x bzw. jboss-7.1.x. Das kann bspw.
-                                                                       in Eclipse geschehen, indem mit der rechten Maustaste auf das Projekt geklickt wird und dann im
-                                                                       Kontextmenü "Maven" -> "Select Maven Profiles" genutzt wird. Zusätzlich zu dieses Tests sind auch
-                                                                       im Browser unter http://localhost:8080/ee-demos-ejb weitere Demos aufrufbar.
+                                                                       Server passende Maven-Profil aktiviert werden: glassfish bzw. wildfly.
+                                                                       Zusätzlich zu dieses Tests sind auch im Browser unter http://localhost:8080/ee-demos-ejb weitere 
+                                                                       Demos aufrufbar.
+                                                                       
   ee-demos-provs  Übergreifendes Demoprojekt zu Kapitel 7              Auf den gewünschten Server deployen. Dann zunächst Testdaten erzeugen, indem per Browser der URL
                                                                        http://localhost:8080/ee-demos-provs/playground/createTestData.xhtml aufgerufen und der dortige
                                                                        Button "createTestFixture" genutzt wird. Anschließend kann die Anwendung unter 
@@ -49,8 +73,44 @@ Die folgenden Teilprojekte sind unterhalb von "ee-demos" vorhanden:
 Server
 ======
 
-Die Projekte sind grundsätzlich unabhängig vom Ziel-Server. Getestet wurden Sie auf GlassFish 4.0.x und WildFly 8.0.0.
-Siehe server-readme.txt.
+Zur Server-Installation siehe server-readme.txt.
+
+Die Projekte sind grundsätzlich unabhängig vom Ziel-Server. Getestet wurden Sie auf den folgenden Servern:
+
+  Projekt         GlassFish 4.0.1 (B03)    WildFly 8.0.0 (Alpha 4)
+  --------------  -----------------------  -----------------------
+  ee-demos-cdi    ok                       ok
+  
+  ee-demos-jpa    [UnsyncEM]               [UnsynchEM]
+  ee-demos-bv     [EmptyNull]              [EmptyNull]
+  ee-demos-jsf    [ExtComp]                ok
+  ee-demos-ejb    ?                        ?
+  ee-demos-provs  ok                       ok
+  
+Einige Projekte enthalten auch JUnit Tests, wobei teilweise verschiedene Provider (CDI/JPA) eingesetzt werden können:
+  
+  Projekt         Weld 2.0.0.SP1
+                  (Default)
+  --------------  -----------------------
+  ee-demos-cdi    ok
+                  
+
+  Projekt         EclipseLink 2.5.0        Hibernate 4.3.0.Beta3
+                  (Default)                (Profil "hibernate")
+  --------------  -----------------------  -----------------------
+  ee-demos-jpa    [TreatComp]              [SqlCtor]
+                  [DDLScript]
+                  [EntityGraph]            [EntityGraph]
+
+Folgende Bugs sind derzeit noch enthalten:
+
+  [DDLScript]     Create und Drop Scripts werden nicht erstellt
+  [EmptyNull]     Leere JSF-Eingabewerte des Typs String werden nicht als null geliefert
+  [EntityGraph]   Load und Fetch Graphs werden nicht (vollständig) unterstützt
+  [ExtComp]       Composite Components in externen JARs werden nicht gefunden
+  [SqlCtor]       Native Query mit @ConstructorResult liefert Ergebnistyp Object[]
+  [TreatComp]     Attribute mit TREAT umgetypter Objekte lassen sich nicht mit < oder > vergleichen
+  [UnsyncEM]      @PersistenceContext(synchronization = SynchronizationType.UNSYNCHRONIZED) liefert TX-gebundenen EM
 
 
 Datenbank
