@@ -4,6 +4,10 @@ import de.gedoplan.baselibs.enterprise.stereotype.DataRepository;
 import de.gedoplan.baselibs.persistence.repository.SingleIdEntityRepository;
 import de.gedoplan.buch.eedemos.provs.firma.entity.Land;
 
+import java.util.List;
+
+import javax.enterprise.inject.Produces;
+
 /**
  * Data-Repository für Land.
  * 
@@ -13,4 +17,12 @@ import de.gedoplan.buch.eedemos.provs.firma.entity.Land;
 public class LandRepository extends SingleIdEntityRepository<String, Land>
 {
   private static final long serialVersionUID = 1L;
+
+  @Override
+  @Produces
+  public List<Land> findAll()
+  {
+    return super.findAll();
+  }
+
 }

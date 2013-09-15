@@ -7,6 +7,8 @@ import de.gedoplan.buch.eedemos.provs.firma.entity.Firma_;
 
 import java.util.List;
 
+import javax.enterprise.inject.Produces;
+
 /**
  * Data-Repository für Firma.
  * 
@@ -16,6 +18,13 @@ import java.util.List;
 public class FirmaRepository extends SingleIdEntityRepository<Integer, Firma>
 {
   private static final long serialVersionUID = 1L;
+
+  @Produces
+  @Override
+  public List<Firma> findAll()
+  {
+    return super.findAll();
+  }
 
   /**
    * Firma anhand ihres Namens finden.

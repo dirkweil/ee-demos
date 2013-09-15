@@ -54,6 +54,9 @@ public class FirmenVerwaltungModel implements Serializable
   @Inject
   private FacesValidationHelper facesValidationHelper;
 
+  @Inject
+  private List<Land>            laender;
+
   /**
    * Aktuelle Firma.
    */
@@ -86,7 +89,7 @@ public class FirmenVerwaltungModel implements Serializable
    */
   public List<Land> getLaender()
   {
-    return this.landRepository.findAll();
+    return this.laender;
   }
 
   /**
