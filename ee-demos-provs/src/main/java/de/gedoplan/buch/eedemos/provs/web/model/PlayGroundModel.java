@@ -18,7 +18,6 @@ import org.apache.commons.logging.Log;
 import org.primefaces.model.DefaultTreeNode;
 import org.primefaces.model.TreeNode;
 
-//@ConversationScoped
 @Model
 public class PlayGroundModel //implements Serializable
 {
