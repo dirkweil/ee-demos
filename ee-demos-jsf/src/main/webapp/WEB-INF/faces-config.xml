@@ -1,86 +1,89 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<faces-config version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+<faces-config version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
  <!-- 
 <faces-config version="2.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd">
  -->
-  <navigation-rule>
-    <description>Globale Navigation</description>
-    <navigation-case>
-      <from-outcome>home</from-outcome>
-      <to-view-id>/index</to-view-id>
-    </navigation-case>
-  </navigation-rule>
-  <navigation-rule>
-    <description>Navigation von /pages/waehrungsRechner* aus</description>
-    <from-view-id>/view/waehrungsRechner*</from-view-id>
-    <navigation-case>
-      <from-outcome>help</from-outcome>
-      <to-view-id>/view/waehrungsRechner_help.xhtml</to-view-id>
-    </navigation-case>
-  </navigation-rule>
-  <navigation-rule>
-    <from-view-id>/view/bank*</from-view-id>
-    <navigation-case>
-      <from-outcome>edit</from-outcome>
-      <to-view-id>/view/bankEdit.xhtml</to-view-id>
-    </navigation-case>
-    <navigation-case>
-      <from-outcome>home</from-outcome>
-      <to-view-id>/view/bankListAndEdit.xhtml</to-view-id>
-    </navigation-case>
-  </navigation-rule>
-  <navigation-rule>
-    <description>Navigation für /pages/getSupport*</description>
-    <from-view-id>/view/getSupport*</from-view-id>
-    <navigation-case>
-      <from-outcome>getSupport</from-outcome>
-      <to-view-id>/view/getSupport.xhtml</to-view-id>
-    </navigation-case>
-    <navigation-case>
-      <from-outcome>getSupport2</from-outcome>
-      <to-view-id>/view/getSupport2.xhtml</to-view-id>
-    </navigation-case>
-  </navigation-rule>
-  <navigation-rule>
-    <description>Navigation für Rückkehr von Flows</description>
-    <from-view-id>*</from-view-id>
-    <navigation-case>
-      <from-outcome>exitFlowB1</from-outcome>
-      <to-view-id>/view/flowDemo.xhtml</to-view-id>
-    </navigation-case>
-    <navigation-case>
-      <from-outcome>exitFlowB2</from-outcome>
-      <to-view-id>/view/flowDemo.xhtml</to-view-id>
-    </navigation-case>
-    <navigation-case>
-      <from-outcome>exitFlowC</from-outcome>
-      <to-view-id>/view/flowDemo.xhtml</to-view-id>
-    </navigation-case>
-    <navigation-case>
-      <from-outcome>exitFlowD</from-outcome>
-      <to-view-id>/view/flowDemo.xhtml</to-view-id>
-    </navigation-case>
-    <navigation-case>
-      <from-outcome>exitFlowE</from-outcome>
-      <to-view-id>/view/flowDemo.xhtml</to-view-id>
-    </navigation-case>
-  </navigation-rule>
-  <application>
-    <locale-config>
-      <default-locale>en</default-locale>
-      <supported-locale>de_CH</supported-locale>
-      <supported-locale>de</supported-locale>
-      <supported-locale>en</supported-locale>
-    </locale-config>
-    <message-bundle>de.gedoplan.buch.eedemos.jsf.messages</message-bundle>
-    <resource-bundle>
-      <base-name>de.gedoplan.buch.eedemos.jsf.messages</base-name>
-      <var>messages</var>
-    </resource-bundle>
-  </application>
+ <navigation-rule>
+  <description>Globale Navigation</description>
+  <navigation-case>
+   <from-outcome>home</from-outcome>
+   <to-view-id>/index</to-view-id>
+  </navigation-case>
+ </navigation-rule>
+ <navigation-rule>
+  <description>Navigation von /pages/waehrungsRechner* aus</description>
+  <from-view-id>/view/waehrungsRechner*</from-view-id>
+  <navigation-case>
+   <from-outcome>help</from-outcome>
+   <to-view-id>/view/waehrungsRechner_help.xhtml</to-view-id>
+  </navigation-case>
+ </navigation-rule>
+ <navigation-rule>
+  <from-view-id>/view/bank*</from-view-id>
+  <navigation-case>
+   <from-outcome>edit</from-outcome>
+   <to-view-id>/view/bankEdit.xhtml</to-view-id>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>home</from-outcome>
+   <to-view-id>/view/bankListAndEdit.xhtml</to-view-id>
+  </navigation-case>
+ </navigation-rule>
+ <navigation-rule>
+  <description>Navigation für /pages/getSupport*</description>
+  <from-view-id>/view/getSupport*</from-view-id>
+  <navigation-case>
+   <from-outcome>getSupport</from-outcome>
+   <to-view-id>/view/getSupport.xhtml</to-view-id>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>getSupport2</from-outcome>
+   <to-view-id>/view/getSupport2.xhtml</to-view-id>
+  </navigation-case>
+ </navigation-rule>
+ <navigation-rule>
+  <description>Navigation für Rückkehr von Flows</description>
+  <from-view-id>*</from-view-id>
+  <navigation-case>
+   <from-outcome>exitFlowB1</from-outcome>
+   <to-view-id>/view/flowDemo.xhtml</to-view-id>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>exitFlowB2</from-outcome>
+   <to-view-id>/view/flowDemo.xhtml</to-view-id>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>exitFlowC</from-outcome>
+   <to-view-id>/view/flowDemo.xhtml</to-view-id>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>exitFlowD</from-outcome>
+   <to-view-id>/view/flowDemo.xhtml</to-view-id>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>exitFlowE</from-outcome>
+   <to-view-id>/view/flowDemo.xhtml</to-view-id>
+  </navigation-case>
+ </navigation-rule>
+ <application>
+  <locale-config>
+   <default-locale>en</default-locale>
+   <supported-locale>de_CH</supported-locale>
+   <supported-locale>de</supported-locale>
+   <supported-locale>en</supported-locale>
+  </locale-config>
+  <message-bundle>de.gedoplan.buch.eedemos.jsf.messages</message-bundle>
+  <resource-bundle>
+   <base-name>de.gedoplan.buch.eedemos.jsf.messages</base-name>
+   <var>messages</var>
+  </resource-bundle>
+ </application>
+ <factory>
+  <exception-handler-factory>de.gedoplan.buch.eedemos.jsf.exception.DemoExceptionHandlerFactory</exception-handler-factory>
+ </factory>
  <!-- Globale Registrierung eines PhaseListeners als Alternative zu f:phaseListener 
-
     <lifecycle>
     <phase-listener>de.gedoplan.buch.eedemos.jsf.listener.DemoPhaseListener</phase-listener>
     </lifecycle>
