@@ -84,7 +84,7 @@ Die Projekte sind grundsätzlich unabhängig vom Ziel-Server. Getestet wurden Si
   ee-demos-jpa    [UnsyncEM]               [UnsynchEM]
   ee-demos-bv     [EmptyNull]              [EmptyNull]
   ee-demos-jsf    [ExtComp]                ok
-  ee-demos-ejb    ?                        ?
+  ee-demos-ejb    ok                       ok
   ee-demos-provs  ok                       ok
   
 Einige Projekte enthalten auch JUnit Tests, wobei teilweise verschiedene Provider (CDI/JPA) eingesetzt werden können:
