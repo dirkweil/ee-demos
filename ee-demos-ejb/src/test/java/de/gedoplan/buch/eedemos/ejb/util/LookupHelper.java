@@ -29,14 +29,23 @@ public class LookupHelper
       initialize();
     }
 
+    if (serverType == null || serverType.startsWith("$"))
+    {
+      throw new IllegalArgumentException("Server-Typ ist nicht gesetzt; haben Sie das Maven-Profil für den gewünschten Server aktiviert?");
+    }
+
     if ("jboss".equalsIgnoreCase(serverType))
     {
-      if ("7.1".equals(serverVersion))
+      if (serverVersion.startsWith("7") || serverVersion.startsWith("8"))
       {
         return getJBoss7EjbLookupName(remoteClass, beanName, stateful);
       }
-
       return getJBoss6EjbLookupName(remoteClass, beanName);
+    }
+
+    if ("wildfly".equalsIgnoreCase(serverType))
+    {
+      return getJBoss7EjbLookupName(remoteClass, beanName, stateful);
     }
 
     return getGlobalEjbLookupName(remoteClass, beanName);
@@ -83,7 +92,7 @@ public class LookupHelper
 
   private static String getJBoss7EjbLookupName(Class<?> remoteClass, String beanName, boolean stateful)
   {
-    StringBuilder lookUpName = new StringBuilder("ejb:");
+    StringBuilder lookUpName = new StringBuilder();
 
     if (applicationName != null)
     {
@@ -101,11 +110,6 @@ public class LookupHelper
 
     lookUpName.append("!");
     lookUpName.append(remoteClass.getName());
-
-    if (stateful)
-    {
-      lookUpName.append("?stateful");
-    }
 
     return lookUpName.toString();
   }
