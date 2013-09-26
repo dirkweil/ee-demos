@@ -15,6 +15,8 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.NamedAttributeNode;
 import javax.persistence.NamedEntityGraph;
+import javax.persistence.NamedEntityGraphs;
+import javax.persistence.NamedSubgraph;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -23,9 +25,10 @@ import javax.persistence.Table;
 @Table(name = Publisher.TABLE_NAME)
 //@NamedEntityGraphs({
 @NamedEntityGraph(
-    name = "Publisher_books",
-    attributeNodes = @NamedAttributeNode(value = "books"))
-//,
+        name = "Publisher_books",
+        attributeNodes =
+        @NamedAttributeNode(value = "books"))
+//    ,
 //    @NamedEntityGraph(
 //        name = "Publisher_booksAndAuthors",
 //        attributeNodes = @NamedAttributeNode(value = "books", subgraph = "Book_authors"),
@@ -33,20 +36,17 @@ import javax.persistence.Table;
 //})
 public class Publisher extends GeneratedIntegerIdEntity
 {
-  private static final long  serialVersionUID      = 1L;
 
-  public static final String TABLE_NAME            = "JPA_PUBLISHER";
+  private static final long serialVersionUID = 1L;
+  public static final String TABLE_NAME = "JPA_PUBLISHER";
   public static final String CATEGORIES_TABLE_NAME = "JPA_PUBLISHER_CATEGORIES";
-
-  private String             name;
-
+  private String name;
   @OneToMany(mappedBy = "publisher", fetch = FetchType.LAZY)
   // @OrderColumn(name = "order_index")
-  private List<Book>         books;
-
-  @ElementCollection(fetch = FetchType.LAZY)
+  private List<Book> books;
+  @ElementCollection(fetch = FetchType.EAGER)
   @CollectionTable(name = Publisher.CATEGORIES_TABLE_NAME)
-  private List<String>       categories;
+  private List<String> categories;
 
   protected Publisher()
   {
