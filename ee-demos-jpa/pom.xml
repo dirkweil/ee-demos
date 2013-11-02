@@ -18,6 +18,8 @@
       <jar-file>../classes</jar-file>
       <exclude-unlisted-classes>false</exclude-unlisted-classes>
     ]]></persistentClasses>
+    
+    <javax.persistence.agent>org.eclipse.persistence:org.eclipse.persistence.jpa:${eclipselink.version}</javax.persistence.agent>
 
     <javax.persistence.jdbc.driver>org.h2.Driver</javax.persistence.jdbc.driver>
     <javax.persistence.jdbc.url>jdbc:h2:mem:test;DB_CLOSE_DELAY=-1</javax.persistence.jdbc.url>
@@ -126,6 +128,8 @@
           <jar-file>target/classes</jar-file>
           <exclude-unlisted-classes>false</exclude-unlisted-classes>
         ]]></persistentClasses>
+
+        <javax.persistence.agent></javax.persistence.agent>
       </properties>
 
     </profile>
