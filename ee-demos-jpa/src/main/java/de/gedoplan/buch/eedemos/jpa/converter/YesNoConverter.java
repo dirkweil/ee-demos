@@ -1,9 +1,9 @@
 package de.gedoplan.buch.eedemos.jpa.converter;
 
 import javax.persistence.AttributeConverter;
+import javax.persistence.Converter;
 
-// TODO: Konverter wegen Hibernate/WildFly-Bug HHH-8316 derzeit deaktiviert
-//@Converter
+@Converter
 public class YesNoConverter implements AttributeConverter<Boolean, String>
 {
 

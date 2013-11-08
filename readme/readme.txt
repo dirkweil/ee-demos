@@ -95,10 +95,10 @@ Einige Projekte enthalten auch JUnit Tests, wobei teilweise verschiedene Provide
   ee-demos-cdi    ok
                   
 
-  Projekt         EclipseLink 2.5.0        Hibernate 4.3.0.Beta3
+  Projekt         EclipseLink 2.5.0        Hibernate 4.3.0.Beta5
                   (Default)                (Profil "hibernate")
   --------------  -----------------------  -----------------------
-  ee-demos-jpa    [TreatComp]              [SqlCtor]
+  ee-demos-jpa    [TreatComp]              
                   [DDLScript]
                   [EntityGraph]            [EntityGraph]
 
@@ -108,7 +108,6 @@ Folgende Bugs sind derzeit noch enthalten:
   [EmptyNull]     Leere JSF-Eingabewerte des Typs String werden nicht als null geliefert
   [EntityGraph]   Load und Fetch Graphs werden nicht (vollständig) unterstützt
   [ExtComp]       Composite Components in externen JARs werden nicht gefunden
-  [SqlCtor]       Native Query mit @ConstructorResult liefert Ergebnistyp Object[]
   [TreatComp]     Attribute mit TREAT umgetypter Objekte lassen sich nicht mit < oder > vergleichen
   [UnsyncEM]      @PersistenceContext(synchronization = SynchronizationType.UNSYNCHRONIZED) liefert TX-gebundenen EM
 
