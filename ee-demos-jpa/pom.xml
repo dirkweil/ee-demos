@@ -13,14 +13,35 @@
   <packaging>war</packaging>
 
   <properties>
+    <!--
+      Provider-Klasse (Default: EclipseLink).
+      Dieser Wert wird per Recource Filtering in persistence.xml eingetragen
+    -->
     <javax.persistence.provider>org.eclipse.persistence.jpa.PersistenceProvider</javax.persistence.provider>
+    
+    <!--
+      Persistente Klassen (Default: Alle Entity-Klassen, auch in target/classes)
+      Dieser Wert wird per Recource Filtering in persistence.xml eingetragen.
+      Der Default-Wert führt für EclipseLink dazu, dass die persistenten Klassen automatisch gefunden werden und auch das Verzeichnis
+      target/classes berücksichtigt wird (für den Fall, dass persistence.xml in target/test-classes/META-INF steht. Diese Konfiguration
+      ist von der Spezifikation nicht gedeckt. Danach müssen die Klassen im SE-Fall alle einzeln angegeben werden.  
+    -->
     <persistentClasses><![CDATA[
       <jar-file>../classes</jar-file>
       <exclude-unlisted-classes>false</exclude-unlisted-classes>
     ]]></persistentClasses>
     
-    <javax.persistence.agent>org.eclipse.persistence:org.eclipse.persistence.jpa:${eclipselink.version}</javax.persistence.agent>
+    <!--
+      Java-Agent zum Enhancement der persistenten Klassen.
+      Dieser Parameter steht hier rein informativ, d. h. er wird vom Programm nicht verwendet. Vielmehr muss er beim Start der JVM
+      auf der Kommandozeile angegeben werden, wobei die Maven-Koordinaten (groupId:artifactId:version) durch den vollen Pfad zum
+      dadurch referenzierten Jar-File ersetzt werden müssen.
+     -->
+    <javax.persistence.agent>-javaagent:org.eclipse.persistence:org.eclipse.persistence.jpa:${eclipselink.version}</javax.persistence.agent>
 
+    <!--
+      DB-Verbindungsparameter. 
+     -->
     <javax.persistence.jdbc.driver>org.h2.Driver</javax.persistence.jdbc.driver>
     <javax.persistence.jdbc.url>jdbc:h2:mem:test;DB_CLOSE_DELAY=-1</javax.persistence.jdbc.url>
     <javax.persistence.jdbc.user>test</javax.persistence.jdbc.user>
@@ -69,6 +90,15 @@
       <artifactId>junit</artifactId>
       <scope>test</scope>
     </dependency>
+
+<!-- Derzeit disabled - s. Kommentar beim DataNucleus-Profil unten 
+    <dependency>
+      <groupId>org.datanucleus</groupId>
+      <artifactId>datanucleus-accessplatform-jpa-rdbms</artifactId>
+      <type>pom</type>
+      <scope>provided</scope>
+    </dependency>
+ -->
 
     <dependency>
       <groupId>org.eclipse.persistence</groupId>
@@ -131,8 +161,61 @@
 
         <javax.persistence.agent></javax.persistence.agent>
       </properties>
-
     </profile>
+
+    <!-- DataNucleus -->
+    <!-- Funktioniert in Version 3.3.3 nicht (z. B. Klassen im zusammengesetzten Id als Ableitung von SingleIdEntity -> Exception) 
+    <profile>
+      <id>datanucleus</id>
+      <activation>
+        <activeByDefault>false</activeByDefault>
+      </activation>
+
+      <properties>
+        <javax.persistence.provider>org.datanucleus.api.jpa.PersistenceProviderImpl</javax.persistence.provider>
+        <persistentClasses><![CDATA[
+          <class>de.gedoplan.baselibs.persistence.entity.GeneratedIntegerIdEntity</class>
+          <class>de.gedoplan.baselibs.persistence.entity.GeneratedLongIdEntity</class>
+          <class>de.gedoplan.baselibs.persistence.entity.SingleIdEntity</class>
+          <class>de.gedoplan.baselibs.persistence.entity.StringIdEntity</class>
+
+          <class>de.gedoplan.buch.eedemos.jpa.entity.Address</class>
+          <class>de.gedoplan.buch.eedemos.jpa.entity.AirCraft</class>
+          <class>de.gedoplan.buch.eedemos.jpa.entity.Application</class>
+          <class>de.gedoplan.buch.eedemos.jpa.entity.Book</class>
+          <class>de.gedoplan.buch.eedemos.jpa.entity.BranchId</class>
+          <class>de.gedoplan.buch.eedemos.jpa.entity.Car</class>
+          <class>de.gedoplan.buch.eedemos.jpa.entity.City</class>
+          <class>de.gedoplan.buch.eedemos.jpa.entity.Cocktail</class>
+          <class>de.gedoplan.buch.eedemos.jpa.entity.CocktailZutat</class>
+          <class>de.gedoplan.buch.eedemos.jpa.entity.CommRegEntry</class>
+          <class>de.gedoplan.buch.eedemos.jpa.entity.Company</class>
+          <class>de.gedoplan.buch.eedemos.jpa.entity.Continent</class>
+          <class>de.gedoplan.buch.eedemos.jpa.entity.Country</class>
+          <class>de.gedoplan.buch.eedemos.jpa.entity.Department</class>
+          <class>de.gedoplan.buch.eedemos.jpa.entity.Employee</class>
+          <class>de.gedoplan.buch.eedemos.jpa.entity.Flight</class>
+          <class>de.gedoplan.buch.eedemos.jpa.entity.Lorry</class>
+          <class>de.gedoplan.buch.eedemos.jpa.entity.MailAddress</class>
+          <class>de.gedoplan.buch.eedemos.jpa.entity.Order</class>
+          <class>de.gedoplan.buch.eedemos.jpa.entity.OrderLine</class>
+          <class>de.gedoplan.buch.eedemos.jpa.entity.Person</class>
+          <class>de.gedoplan.buch.eedemos.jpa.entity.PopulationDensity</class>
+          <class>de.gedoplan.buch.eedemos.jpa.entity.ProjectCompositeId</class>
+          <class>de.gedoplan.buch.eedemos.jpa.entity.ProjectEmbeddedId</class>
+          <class>de.gedoplan.buch.eedemos.jpa.entity.ProjectId</class>
+          <class>de.gedoplan.buch.eedemos.jpa.entity.Publisher</class>
+          <class>de.gedoplan.buch.eedemos.jpa.entity.Ship</class>
+          <class>de.gedoplan.buch.eedemos.jpa.entity.SuperMarketCompositeId</class>
+          <class>de.gedoplan.buch.eedemos.jpa.entity.SuperMarketEmbeddedId</class>
+          <class>de.gedoplan.buch.eedemos.jpa.entity.User</class>
+          <class>de.gedoplan.buch.eedemos.jpa.entity.Vehicle</class>
+        ]]></persistentClasses>
+
+        <javax.persistence.agent>-javaagent:org.datanucleus:datanucleus-core:${datanucleus-version}=-api=JPA</javax.persistence.agent>
+      </properties>
+    </profile>
+     -->
 
     <profile>
       <id>h2-file</id>
