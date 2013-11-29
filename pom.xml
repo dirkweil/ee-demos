@@ -32,7 +32,7 @@
     <deltaspike.version>0.5</deltaspike.version>
     <h2.version>1.3.171</h2.version>
     <!-- TODO: Finale Version -->
-    <hibernate.version>4.3.0.Beta5</hibernate.version>
+    <hibernate.version>4.3.0.CR1</hibernate.version>
     <!-- Derzeit noch keine OWB-Version für CDI 1.1 (OWB 2.x.x?) -->
     <owb.version>1.2.0</owb.version>
     <!-- Letzte Weld-Version für CDI 1.0: 1.1.9.Final, CDI 1.1: 2.0.0.SP1

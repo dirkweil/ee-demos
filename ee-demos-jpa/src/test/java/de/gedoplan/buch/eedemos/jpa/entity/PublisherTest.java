@@ -15,7 +15,6 @@ import javax.persistence.criteria.Root;
 
 import org.junit.Assert;
 import org.junit.BeforeClass;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.unitils.reflectionassert.ReflectionAssert;
 import org.unitils.reflectionassert.ReflectionComparatorMode;
@@ -283,7 +282,7 @@ public class PublisherTest extends TestBase
   }
 
   @Test
-  @Ignore("Entity Graph Support ist derzeit noch zu unvollstaendig implementiert, um komplexe Graphen sinnvoll zu testen")
+  //  @Ignore("Entity Graph Support ist derzeit noch zu unvollstaendig implementiert, um komplexe Graphen sinnvoll zu testen")
   public void testQueryWithComplexLoadGraph()
   {
     System.out.println("----- testQueryWithComplexLoadGraph -----");
