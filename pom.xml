@@ -34,6 +34,18 @@
 			<id>gedoplanPublic</id>
 			<url>http://svn.involva-gruppe.de/nexus/content/groups/public</url>
 		</repository>
+		<repository>
+      <id>public-jboss</id>
+      <url>http://repository.jboss.org/nexus/content/groups/public-jboss</url>
+    </repository>
+		<repository>
+      <id>primefaces</id>
+      <url>http://repository.primefaces.org</url>
+    </repository>
+		<repository>
+      <id>eclipselink</id>
+      <url>http://download.eclipse.org/rt/eclipselink/maven.repo</url>
+    </repository>
 	</repositories>
 
   <pluginRepositories>
