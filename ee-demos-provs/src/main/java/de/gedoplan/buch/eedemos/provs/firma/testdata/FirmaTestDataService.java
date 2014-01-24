@@ -23,6 +23,7 @@ import java.util.Date;
 
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
+import javax.transaction.Transactional;
 
 import org.apache.commons.logging.Log;
 
@@ -70,6 +71,7 @@ public class FirmaTestDataService implements TestDataService
    * @see de.gedoplan.baselibs.enterprise.testdata.TestDataService#loadTestData(java.lang.String, java.util.Date)
    */
   @Override
+  @Transactional
   public void loadTestData(String szenarioName, Date moment)
   {
     TestDataSzenario szenario = TestDataSzenario.getSzenario(szenarioName);
@@ -219,8 +221,11 @@ public class FirmaTestDataService implements TestDataService
    * @see de.gedoplan.baselibs.enterprise.testdata.TestDataService#unloadTestData()
    */
   @Override
+  @Transactional
   public void unloadTestData()
   {
+    this.entityManager.joinTransaction();
+
     this.entityManager.createNativeQuery("delete from " + Mitarbeiter.TABLE_NAME_TELEFONNUMMERN).executeUpdate();
     this.entityManager.createQuery("delete from Mitarbeiter").executeUpdate();
     this.entityManager.createNativeQuery("delete from " + Person.TABLE_NAME_TELEFONNUMMERN).executeUpdate();

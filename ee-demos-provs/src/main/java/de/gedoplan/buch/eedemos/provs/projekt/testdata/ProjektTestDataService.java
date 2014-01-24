@@ -29,6 +29,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
+import javax.transaction.Transactional;
 
 /**
  * Testdaten-Service für die Komponente projekt.
@@ -73,6 +74,7 @@ public class ProjektTestDataService implements TestDataService
    * @see de.gedoplan.baselibs.enterprise.testdata.TestDataService#loadTestData(java.lang.String, java.util.Date)
    */
   @Override
+  @Transactional
   public void loadTestData(String szenarioName, Date moment)
   {
     TestDataSzenario szenario = TestDataSzenario.getSzenario(szenarioName);
@@ -435,8 +437,11 @@ public class ProjektTestDataService implements TestDataService
    * @see de.gedoplan.fw.test.TestDataService#unloadTestData()
    */
   @Override
+  @Transactional
   public void unloadTestData()
   {
+    this.entityManager.joinTransaction();
+
     this.entityManager.createNativeQuery("delete from " + ProjektZeit.TABLE_NAME).executeUpdate();
     this.entityManager.createNativeQuery("delete from " + MitarbeiterAufgabe.TABLE_NAME).executeUpdate();
     this.entityManager.createNativeQuery("update " + Aufgabe.TABLE_NAME + " set VATERAUFGABE_ID=null").executeUpdate();
