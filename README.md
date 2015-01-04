@@ -11,6 +11,6 @@ Nutzen Sie in https://github.com/dirkweil/ee-demos/tree/javaee7 den Button "Down
 
 b) Git
 
-Hierzu benötigen Sie eine lokale Installation von Git (s. http://git-scm.com/downloads). Mit dem Befehl "git clone https://github.com/dirkweil/ee-demos.git" erzeugen Sie eine Kopie des Repositories von GitHub in das Verzeichnis ee-demos. Gehen Sie mit "cd ee-demos" in dieses Verzeichnis und wechseln Sie zum Branch "javaee7" mit "git branch javaee7" 
+Hierzu benötigen Sie eine lokale Installation von Git (s. http://git-scm.com/downloads). Mit dem Befehl "git clone https://github.com/dirkweil/ee-demos.git" erzeugen Sie eine Kopie des Repositories von GitHub in das Verzeichnis ee-demos. Gehen Sie mit "cd ee-demos" in dieses Verzeichnis und wechseln Sie zum Branch "javaee7" mit "git checkout javaee7" 
 
 In beiden Varianten haben Sie die Software in einem Verzeichnis namens "ee-demos". Weitere Informationen zum Aufbau der Projekte, zum Buildsystem und zur Laufzeitumgebung finden Sie in den Dateien im Unterverzeichnis readme.
