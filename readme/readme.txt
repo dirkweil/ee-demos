@@ -100,13 +100,11 @@ Einige Projekte enthalten auch JUnit Tests, wobei teilweise verschiedene Provide
   --------------  -----------------------  -----------------------
   ee-demos-jpa    [TreatComp]              
                   [DDLScript]
-                  [EntityGraph]            [EntityGraph]
 
 Folgende Bugs sind derzeit noch enthalten:
 
   [DDLScript]     Create und Drop Scripts werden nicht erstellt
   [EmptyNull]     Leere JSF-Eingabewerte des Typs String werden nicht als null geliefert
-  [EntityGraph]   Load und Fetch Graphs werden nicht (vollständig) unterstützt
   [ExtComp]       Composite Components in externen JARs werden nicht gefunden
   [IntrcptSubJar] Interceptor wird benutzt, obwohl er nur in Subdeployment aktiviert ist
   [TreatComp]     Attribute mit TREAT umgetypter Objekte lassen sich nicht mit < oder > vergleichen

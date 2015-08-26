@@ -14,7 +14,7 @@ import org.apache.commons.logging.Log;
 
 /**
  * Producer für einen konversationsgebundenen, unsynchronisierten Entity Manager.
- * 
+ *
  * @author dw
  */
 @ApplicationScoped
@@ -28,7 +28,7 @@ public class UnsynchronizedEntityManagerProducer
 
   /**
    * Konversationsgebundenen EntityManager erstellen.
-   * 
+   *
    * @return Entity Manager
    */
   @Produces
@@ -36,15 +36,15 @@ public class UnsynchronizedEntityManagerProducer
   @Unsynchronized
   public EntityManager createEntityManager()
   {
-    //    if (!(this.entityManager instanceof Serializable))
-    //    {
-    //      if (this.log.isTraceEnabled())
-    //      {
-    //        this.log.trace("EntityManager is not serializable; creating serializable wrapper");
-    //      }
+    // if (!(this.entityManager instanceof Serializable))
+    // {
+    // if (this.log.isTraceEnabled())
+    // {
+    // this.log.trace("EntityManager is not serializable; creating serializable wrapper");
+    // }
     //
-    //      this.entityManager = ObjectUtil.createSerializableObject(this.entityManager, EntityManager.class);
-    //    }
+    // this.entityManager = ObjectUtil.createSerializableObject(this.entityManager, EntityManager.class);
+    // }
 
     if (this.log.isTraceEnabled())
     {

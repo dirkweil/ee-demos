@@ -17,7 +17,7 @@ import org.apache.commons.logging.Log;
 
 /**
  * Präsentationsmodel für Person-bezogene Views.
- * 
+ *
  * @author dw
  */
 @Model
@@ -41,7 +41,7 @@ public class PersonModelUnsynchronizedEntityManager implements Serializable
 
   /**
    * Alle Personen aus der DB liefern.
-   * 
+   *
    * @return Personen
    */
   public List<Person> getPersonen()
@@ -63,7 +63,7 @@ public class PersonModelUnsynchronizedEntityManager implements Serializable
 
   /**
    * Aktuell bearbeitete Person liefern.
-   * 
+   *
    * @return Person
    */
   public Person getPerson()
@@ -73,7 +73,7 @@ public class PersonModelUnsynchronizedEntityManager implements Serializable
 
   /**
    * Aktionsmethode zum Editieren einer Person.
-   * 
+   *
    * @param person Person
    * @return "edit"
    */
@@ -92,7 +92,7 @@ public class PersonModelUnsynchronizedEntityManager implements Serializable
 
   /**
    * Aktionsmethode zum Erzeugen und Editieren einer neuen Person.
-   * 
+   *
    * @return "edit"
    */
   public String create()
@@ -107,7 +107,7 @@ public class PersonModelUnsynchronizedEntityManager implements Serializable
 
   /**
    * Aktionsmethode zum Löschen einer Person.
-   * 
+   *
    * @param person Person
    */
   public void delete(Person person)
@@ -122,7 +122,7 @@ public class PersonModelUnsynchronizedEntityManager implements Serializable
 
   /**
    * Aktionsmethode zum Speichern der aktuell bearbeiteten Person.
-   * 
+   *
    * @return "ok", falls gespeichert, <code>null</code> im Fehlerfall
    */
   public String save()
@@ -140,7 +140,7 @@ public class PersonModelUnsynchronizedEntityManager implements Serializable
 
   /**
    * Aktionsmethode zum Abbrechen der Bearbeitung der aktuellen Person.
-   * 
+   *
    * @return "ok"
    */
   public String cancel()
