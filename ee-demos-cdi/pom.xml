@@ -5,7 +5,7 @@
   <parent>
     <groupId>de.gedoplan.buch</groupId>
     <artifactId>ee-demos</artifactId>
-    <version>7.0.0-SNAPSHOT</version>
+    <version>7.0.2-SNAPSHOT</version>
   </parent>
 
   <artifactId>ee-demos-cdi</artifactId>
@@ -19,7 +19,7 @@
   <dependencies>
     <!--
       Die Dependency javax:javaee-api ist hier am Anfang aufgeführt, obwohl sie im Parent auch eingetragen ist.
-      Damit wird ereicht, dass die Java-EE-7-API am Anfang des Classpath ist. 
+      Damit wird ereicht, dass die Java-EE-7-API am Anfang des Classpath ist.
     -->
     <dependency>
       <groupId>javax</groupId>
@@ -113,11 +113,11 @@
   <profiles>
     <profile>
       <id>weld</id>
-      
+
       <activation>
         <activeByDefault>true</activeByDefault>
       </activation>
-      
+
       <dependencies>
         <dependency>
           <groupId>org.apache.deltaspike.cdictrl</groupId>
@@ -133,12 +133,13 @@
       </dependencies>
     </profile>
 
-<!--
-  Apache Open WebBeans steht noch nicht für CDI 1.1 zur Verfügung
-   
+    <!--
+      Apache Open WebBeans steht noch nicht für CDI 1.1 zur Verfügung
+    -->
+
     <profile>
       <id>owb</id>
-      
+
       <dependencies>
         <dependency>
           <groupId>org.apache.openwebbeans</groupId>
@@ -157,8 +158,15 @@
           <artifactId>deltaspike-cdictrl-owb</artifactId>
           <scope>test</scope>
         </dependency>
+
+        <!-- OWB benötigt offenbar Resource-Dateien aus der Servlet-Library ... -->
+        <dependency>
+          <groupId>javax.servlet</groupId>
+          <artifactId>javax.servlet-api</artifactId>
+          <version>3.1.0</version>
+          <scope>test</scope>
+        </dependency>
       </dependencies>
     </profile>
- -->
   </profiles>
 </project>
