@@ -18,13 +18,13 @@ public abstract class SingleIdEntityLazyDataModel<E extends SingleIdEntity<?>> e
   private static final long serialVersionUID = 1L;
 
   @Override
-  public List<E> load(int first, int pageSize, String sortField, SortOrder sortOrder, Map<String, String> filters)
+  public List<E> load(int first, int pageSize, String sortField, SortOrder sortOrder, Map<String, Object> filters)
   {
     List<QueryFilter> queryFilterList = new ArrayList<>();
-    for (Entry<String, String> filter : filters.entrySet())
+    for (Entry<String, Object> filter : filters.entrySet())
     {
       final String field = filter.getKey();
-      final String value = filter.getValue();
+      final String value = (String) filter.getValue();
       QueryFilter queryFilter = new QueryFilter(getPathExpression(field), value, getFilterOperation(field));
       queryFilterList.add(queryFilter);
     }
