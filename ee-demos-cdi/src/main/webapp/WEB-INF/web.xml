@@ -35,7 +35,7 @@
     <url-pattern>*.xhtml</url-pattern>
   </servlet-mapping>
   <session-config>
-    <session-timeout>1</session-timeout>
+    <session-timeout>5</session-timeout>
   </session-config>
   <resource-ref>
     <res-ref-name>jdbc/tempDb</res-ref-name>
