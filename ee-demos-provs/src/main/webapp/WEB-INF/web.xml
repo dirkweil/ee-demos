@@ -76,12 +76,6 @@
     </auth-constraint>
   </security-constraint>
 
-  <!-- PrimeFaces Theme -->
-  <context-param>
-    <param-name>primefaces.THEME</param-name>
-    <param-value>sam</param-value>
-  </context-param>
-
   <!-- Disable Seam Persistence TransactionServletListener -->
   <context-param>
     <param-name>org.jboss.seam.transaction.disableListener</param-name>
