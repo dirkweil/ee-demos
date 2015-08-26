@@ -77,15 +77,15 @@ Zur Server-Installation siehe server-readme.txt.
 
 Die Projekte sind grundsätzlich unabhängig vom Ziel-Server. Getestet wurden Sie auf den folgenden Servern:
 
-  Projekt         GlassFish 4.0.1 (B03)    WildFly 9.1.0.Final
-  --------------  -----------------------  -----------------------
-  ee-demos-cdi    ok                       ok
+  Projekt         GlassFish 4.1 (build 13)  WildFly 9.1.0.Final
+  --------------  ------------------------  -----------------------
+  ee-demos-cdi    ok                        ok
   
-  ee-demos-jpa    [UnsyncEM]               [UnsynchEM]
-  ee-demos-bv     [EmptyNull]              [EmptyNull]
-  ee-demos-jsf    [ExtComp]                ok
-  ee-demos-ejb    ok                       ok
-  ee-demos-provs  ok                       ok
+  ee-demos-jpa    [UnsyncEM]                [UnsynchEM]
+  ee-demos-bv     [EmptyNull]               [EmptyNull]
+  ee-demos-jsf    [ExtComp]                 ok
+  ee-demos-ejb    ok                        ok
+  ee-demos-provs  ok                        ok
   
 Einige Projekte enthalten auch JUnit Tests, wobei teilweise verschiedene Provider (CDI/JPA) eingesetzt werden können:
   
