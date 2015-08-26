@@ -4,15 +4,15 @@ Allgemeines
 Die Projekte sind als Maven-Projekte aufgebaut. Das oberste Projekt "ee-demos" dient als Einstieg und zum Build aller Teilprojekte.
 
 Maven selbst wie auch ein Java-SDK müssen vorweg installiert werden. Benötigt werden zumindest diese Versionen:
-- Maven 3.0.3 (s. http://maven.apache.org/download.html)
+- Maven 3.x (s. http://maven.apache.org/download.html)
 - JDK 7 (s. http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 
 Definieren Sie bitte zwei Environment-Variablen, die die Installationsverzeichnisse von Maven und JDK enthalten:
   
   Variable   Wert
   ---------  --------------------------------------------------------------------------
-  M2_HOME    Installations-Verzeichnis von Maven (z. B. D:\programme\apache-maven-3.0.5)
-  JAVA_HOME  Installations-Verzeichnis des JDK (z. B. C:\Program Files\Java\jdk1.7.0_21)
+  M2_HOME    Installations-Verzeichnis von Maven (z. B. D:\programme\apache-maven-3.3.3)
+  JAVA_HOME  Installations-Verzeichnis des JDK (z. B. C:\Program Files\Java\jdk1.8.0_51)
   
 Ergänzen Sie dann noch die Variable PATH um die jeweiligen bin-Verzeichnisse
   
@@ -77,7 +77,7 @@ Zur Server-Installation siehe server-readme.txt.
 
 Die Projekte sind grundsätzlich unabhängig vom Ziel-Server. Getestet wurden Sie auf den folgenden Servern:
 
-  Projekt         GlassFish 4.0.1 (B03)    WildFly 8.0.0 (Alpha 4)
+  Projekt         GlassFish 4.0.1 (B03)    WildFly 9.1.0.Final
   --------------  -----------------------  -----------------------
   ee-demos-cdi    ok                       ok
   
@@ -89,13 +89,13 @@ Die Projekte sind grundsätzlich unabhängig vom Ziel-Server. Getestet wurden Si
   
 Einige Projekte enthalten auch JUnit Tests, wobei teilweise verschiedene Provider (CDI/JPA) eingesetzt werden können:
   
-  Projekt         Weld 2.0.0.SP1
-                  (Default)
-  --------------  -----------------------
-  ee-demos-cdi    ok
+  Projekt         Weld 2.2.15.Final        OpenWebBeans 1.6.2
+                  (Default)                (Profil "owb")
+  --------------  -----------------------  -----------------------
+  ee-demos-cdi    ok                       [IntrcptSubJar]
                   
 
-  Projekt         EclipseLink 2.5.0        Hibernate 4.3.0.Beta5
+  Projekt         EclipseLink 2.6.0        Hibernate 4.3.10.Final
                   (Default)                (Profil "hibernate")
   --------------  -----------------------  -----------------------
   ee-demos-jpa    [TreatComp]              
@@ -108,6 +108,7 @@ Folgende Bugs sind derzeit noch enthalten:
   [EmptyNull]     Leere JSF-Eingabewerte des Typs String werden nicht als null geliefert
   [EntityGraph]   Load und Fetch Graphs werden nicht (vollständig) unterstützt
   [ExtComp]       Composite Components in externen JARs werden nicht gefunden
+  [IntrcptSubJar] Interceptor wird benutzt, obwohl er nur in Subdeployment aktiviert ist
   [TreatComp]     Attribute mit TREAT umgetypter Objekte lassen sich nicht mit < oder > vergleichen
   [UnsyncEM]      @PersistenceContext(synchronization = SynchronizationType.UNSYNCHRONIZED) liefert TX-gebundenen EM
 

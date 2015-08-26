@@ -4,6 +4,7 @@ import de.gedoplan.buch.eedemos.cdi.TestBase;
 import de.gedoplan.buch.eedemos.cdi.sub1.beans.SomeService;
 import de.gedoplan.buch.eedemos.cdi.sub1.interceptor.OneInterceptor;
 import de.gedoplan.buch.eedemos.cdi.sub1.interceptor.OneTwoThreeInterceptor;
+import de.gedoplan.buch.eedemos.cdi.sub1.interceptor.OneTwoThreeInterceptor.HistoryEntry;
 import de.gedoplan.buch.eedemos.cdi.sub1.interceptor.ThreeInterceptor;
 import de.gedoplan.buch.eedemos.cdi.sub1.interceptor.TwoInterceptor;
 
@@ -26,26 +27,39 @@ public class InterceptModelTest extends TestBase
     interceptModel.doSomething();
 
     List<OneTwoThreeInterceptor.HistoryEntry> actualHistory = new ArrayList<>(OneTwoThreeInterceptor.getHistory());
-    Assert.assertEquals("Interceptor calls", 6, actualHistory.size());
-
-    String method1 = "public void " + InterceptModel.class.getName() + ".doSomething()";
-    Assert.assertEquals("Interceptor", actualHistory.get(0).getInterceptorClass(), OneInterceptor.class);
-    Assert.assertEquals("Intercepted method", actualHistory.get(0).getInterceptedMethod(), method1);
-    Assert.assertEquals("Interceptor", actualHistory.get(1).getInterceptorClass(), TwoInterceptor.class);
-    Assert.assertEquals("Intercepted method", actualHistory.get(1).getInterceptedMethod(), method1);
-    Assert.assertEquals("Interceptor", actualHistory.get(2).getInterceptorClass(), ThreeInterceptor.class);
-    Assert.assertEquals("Intercepted method", actualHistory.get(2).getInterceptedMethod(), method1);
-
-    String method2 = "public void " + SomeService.class.getName() + ".doSomething()";
-    Assert.assertEquals("Interceptor", actualHistory.get(3).getInterceptorClass(), OneInterceptor.class);
-    Assert.assertEquals("Intercepted method", actualHistory.get(3).getInterceptedMethod(), method2);
-    Assert.assertEquals("Interceptor", actualHistory.get(4).getInterceptorClass(), TwoInterceptor.class);
-    Assert.assertEquals("Intercepted method", actualHistory.get(4).getInterceptedMethod(), method2);
-    Assert.assertEquals("Interceptor", actualHistory.get(5).getInterceptorClass(), ThreeInterceptor.class);
-    Assert.assertEquals("Intercepted method", actualHistory.get(5).getInterceptedMethod(), method2);
+    Assert.assertEquals("Interceptor calls", 5, actualHistory.size());
 
     /*
-     *  TODO: Hier werden offensichtlich alle Interceptors aufgerufen, obwohl der 3. nur im Sub.Deployment aktiviert ist. Auf GLF 4_86 ist das nicht so! Was ist richtig? 
+     * Für den Aufruf von InterceptModel.doSomething wird erwartet, dass die Interceptors OneInterceptor und TwoInterceptor
+     * laufen, da beide mit Hilfe von @Priority global aktiviert sind.
      */
+    String method1 = "public void " + InterceptModel.class.getName() + ".doSomething()";
+
+    int index = 0;
+    HistoryEntry historyEntry = actualHistory.get(index++);
+    Assert.assertEquals("Interceptor", historyEntry.getInterceptorClass(), OneInterceptor.class);
+    Assert.assertEquals("Intercepted method", historyEntry.getInterceptedMethod(), method1);
+
+    historyEntry = actualHistory.get(index++);
+    Assert.assertEquals("Interceptor", historyEntry.getInterceptorClass(), TwoInterceptor.class);
+    Assert.assertEquals("Intercepted method", historyEntry.getInterceptedMethod(), method1);
+
+    /*
+     * Für den Aufruf von SomeService.doSomething werden die gleichen Interceptors erwartet und zusätzlich ThreeInterceptor, da
+     * dieser im Subdeployment, in dem sich SomeService befindet, aktiviert ist.
+     */
+    String method2 = "public void " + SomeService.class.getName() + ".doSomething()";
+
+    historyEntry = actualHistory.get(index++);
+    Assert.assertEquals("Interceptor", historyEntry.getInterceptorClass(), OneInterceptor.class);
+    Assert.assertEquals("Intercepted method", historyEntry.getInterceptedMethod(), method2);
+
+    historyEntry = actualHistory.get(index++);
+    Assert.assertEquals("Interceptor", historyEntry.getInterceptorClass(), TwoInterceptor.class);
+    Assert.assertEquals("Intercepted method", historyEntry.getInterceptedMethod(), method2);
+
+    historyEntry = actualHistory.get(index++);
+    Assert.assertEquals("Interceptor", historyEntry.getInterceptorClass(), ThreeInterceptor.class);
+    Assert.assertEquals("Intercepted method", historyEntry.getInterceptedMethod(), method2);
   }
 }
