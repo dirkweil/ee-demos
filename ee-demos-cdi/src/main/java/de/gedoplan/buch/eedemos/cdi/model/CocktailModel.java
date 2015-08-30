@@ -1,10 +1,9 @@
 package de.gedoplan.buch.eedemos.cdi.model;
 
-import de.gedoplan.buch.eedemos.cdi.beans.CocktailOrder;
 import de.gedoplan.buch.eedemos.cdi.entity.Cocktail;
-import de.gedoplan.buch.eedemos.cdi.qualifier.Inhouse;
-import de.gedoplan.buch.eedemos.cdi.qualifier.Takeaway;
+import de.gedoplan.buch.eedemos.cdi.qualifier.Selected;
 import de.gedoplan.buch.eedemos.cdi.repository.CocktailRepository;
+import de.gedoplan.buch.eedemos.cdi.service.CocktailOrderService;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -15,6 +14,8 @@ import javax.annotation.PostConstruct;
 import javax.enterprise.context.Conversation;
 import javax.enterprise.event.Event;
 import javax.enterprise.inject.Model;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 
 @Model
@@ -42,63 +43,51 @@ public class CocktailModel implements Serializable
   private Conversation         conversation;
 
   @Inject
-  private CocktailOrder        cocktailOrder;
-
-  @Inject
-  @Inhouse
-  private Event<CocktailOrder> cocktailOrderEvent;
-
-  @Inject
-  @Takeaway
-  private Event<CocktailOrder> cocktailTakeawayOrderEvent;
-
-  public void selectCocktail(Cocktail cocktail)
-  {
-    if (this.conversation.isTransient())
-    {
-      this.conversation.begin();
-    }
-
-    this.cocktailOrder.addCocktail(cocktail);
-  }
+  private CocktailOrderService cocktailOrderService;
 
   public List<Cocktail> getSelectedCocktails()
   {
-    return this.cocktailOrder.getCocktails();
+    return this.cocktailOrderService.getCocktails();
   }
 
-  public void bestellungAbschliessen(boolean takeaway)
+  @Inject
+  @Selected
+  private Event<Cocktail> cocktailSelectEvent;
+
+  public void selectCocktail(Cocktail cocktail)
   {
-    if (!this.conversation.isTransient())
+    try
     {
-      if (takeaway)
-      {
-        // Version 1: Spezielle Event Source
-        this.cocktailTakeawayOrderEvent.fire(this.cocktailOrder);
+      this.cocktailSelectEvent.fire(cocktail);
 
-        // Version 2: Dynamisch hinzugefügter Qualifier
-        // this.cocktailOrderEvent.select(new AnnotationLiteral<Takeaway>(){}).fire(this.cocktailOrder);
-
-        // Version 2b: Wie 2, aber mit Annotationsliteral
-        // this.cocktailOrderEvent.select(TakeawayLiteral.INSTANCE).fire(this.cocktailOrder);
-      }
-      else
+      if (this.conversation.isTransient())
       {
-        this.cocktailOrderEvent.fire(this.cocktailOrder);
+        this.conversation.begin();
       }
 
-      beenden();
+      this.cocktailOrderService.addCocktail(cocktail);
+    }
+    catch (Exception e)
+    {
+      FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
     }
   }
 
-  public void beenden()
+  public String bestellen()
+  {
+    this.cocktailOrderService.order();
+
+    return abbrechen();
+  }
+
+  public String abbrechen()
   {
     if (!this.conversation.isTransient())
     {
       this.conversation.end();
-
-      this.cocktailOrder.clear();
     }
+
+    return FacesContext.getCurrentInstance().getViewRoot().getViewId() + "?faces-redirect=true";
   }
 
   @PostConstruct

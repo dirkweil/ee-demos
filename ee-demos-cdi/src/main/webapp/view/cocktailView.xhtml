@@ -51,9 +51,8 @@
       </h:column>
     </h:dataTable>
 
-    <h:commandButton value="bestellen" actionListener="${cocktailModel.bestellungAbschliessen(false)}" />
-    <h:commandButton value="mitnehmen" actionListener="${cocktailModel.bestellungAbschliessen(true)}" />
-    <h:commandButton value="abbrechen" actionListener="${cocktailModel.beenden()}" />
+    <h:commandButton value="bestellen" actionListener="${cocktailModel.bestellen()}" />
+    <h:commandButton value="abbrechen" actionListener="${cocktailModel.abbrechen()}" />
   </h:form>
 
   <hr />
