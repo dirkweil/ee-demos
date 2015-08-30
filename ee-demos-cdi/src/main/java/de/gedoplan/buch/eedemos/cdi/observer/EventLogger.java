@@ -1,26 +1,28 @@
 package de.gedoplan.buch.eedemos.cdi.observer;
 
 import javax.enterprise.event.Observes;
+import javax.enterprise.inject.spi.EventMetadata;
 
 import org.apache.commons.logging.Log;
 
 public class EventLogger
 {
-  public static void logEvent(@Observes Object event, Log log)
+  public static void logEvent(@Observes Object event, EventMetadata eventMetadata, Log log)
   {
     if (log.isTraceEnabled())
     {
-      log.trace("Event: " + event);
+      String metaData = "";
+      if (eventMetadata != null)
+      {
+        metaData = ", qualifiers: " + eventMetadata.getQualifiers() + ", injectionPoint: " + eventMetadata.getInjectionPoint();
+      }
+      else
+      {
+        metaData = " (no event meta data!)";
+      }
+
+      log.trace("Event: " + event + metaData);
     }
   }
-
-  // TODO: Injektion von EventMetaData in GLF-4.0-b86 schlägt fehl
-  //  public static void logEvent(@Observes Object event, EventMetadata eventMetadata, Log log)
-  //  {
-  //    if (log.isTraceEnabled())
-  //    {
-  //      log.trace("Event: " + eventMetadata.getQualifiers() + " " + event);
-  //    }
-  //  }
 
 }
