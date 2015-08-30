@@ -19,7 +19,7 @@ public class CocktailCounter
   @Inject
   private Log logger;
 
-  public void logCocktail(@Observes @Ordered Cocktail cocktail)
+  public void countCocktail(@Observes @Ordered Cocktail cocktail)
   {
     if (this.logger.isDebugEnabled())
     {

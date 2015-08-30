@@ -52,7 +52,7 @@ public class CocktailOrderService implements Serializable
 
       // Version 2b: Wie 2, aber mit Annotationsliteral
       // this.cocktailOrderEvent.select(TakeawayLiteral.INSTANCE).fire(this.cocktailOrder);
-      // this.cocktailEvent.select(new OrderedLiteral()).fire(cocktail);
+      // this.cocktailEvent.select(OrderedLiteral.INSTANCE).fire(cocktail);
     }
   }
 }
