@@ -12,9 +12,9 @@ import org.apache.commons.logging.Log;
 
 /**
  * Repository-Master für ProVS.
- * 
+ *
  * Diese Klasse bietet Repository-übergreifende Methoden (derzeit nur {@link #saveAll()}) an.
- * 
+ *
  * @author dw
  */
 @DataRepository
@@ -36,7 +36,7 @@ public class RepositoryMaster implements Serializable
   {
     try
     {
-      this.entityManager.joinTransaction();
+      // this.entityManager.joinTransaction();
       this.entityManager.flush();
     }
     catch (RuntimeException e) // CHECKSTYLE:IGNORE

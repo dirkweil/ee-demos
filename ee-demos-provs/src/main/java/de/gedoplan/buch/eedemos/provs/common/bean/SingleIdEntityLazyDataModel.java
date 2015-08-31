@@ -17,14 +17,16 @@ public abstract class SingleIdEntityLazyDataModel<E extends SingleIdEntity<?>> e
 {
   private static final long serialVersionUID = 1L;
 
+  // TODO Umstellung auf PrimeFaces 5.1 zurückgenommen, da Sortierung auf Exception lief
   @Override
-  public List<E> load(int first, int pageSize, String sortField, SortOrder sortOrder, Map<String, Object> filters)
+  public List<E> load(int first, int pageSize, String sortField, SortOrder sortOrder, Map<String, String> filters)
+  // public List<E> load(int first, int pageSize, String sortField, SortOrder sortOrder, Map<String, Object> filters)
   {
     List<QueryFilter> queryFilterList = new ArrayList<>();
-    for (Entry<String, Object> filter : filters.entrySet())
+    for (Entry<String, String> filter : filters.entrySet())
     {
       final String field = filter.getKey();
-      final String value = (String) filter.getValue();
+      final String value = filter.getValue();
       QueryFilter queryFilter = new QueryFilter(getPathExpression(field), value, getFilterOperation(field));
       queryFilterList.add(queryFilter);
     }
