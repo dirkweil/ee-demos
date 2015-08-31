@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>de.gedoplan.buch</groupId>
+    <artifactId>ee-demos</artifactId>
+    <version>7.0.2-SNAPSHOT</version>
+  </parent>
+
+  <artifactId>ee-demos-rs</artifactId>
+
+  <packaging>war</packaging>
+
+  <build>
+    <finalName>${project.artifactId}</finalName>
+  </build>
+
+  <dependencies>
+    <!--
+      Die Dependency javax:javaee-api ist hier am Anfang aufgeführt, obwohl sie im Parent auch eingetragen ist.
+      Damit wird ereicht, dass die Java-EE-7-API am Anfang des Classpath ist.
+    -->
+    <dependency>
+      <groupId>javax</groupId>
+      <artifactId>javaee-api</artifactId>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>commons-logging</groupId>
+      <artifactId>commons-logging</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>de.gedoplan</groupId>
+      <artifactId>baselibs-persistence</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>log4j</groupId>
+      <artifactId>log4j</artifactId>
+      <scope>test</scope>
+    </dependency>
+
+  </dependencies>
+
+</project>
