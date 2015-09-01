@@ -57,7 +57,12 @@ public class TalkResource
   {
     if (!id.equals(talk.getId()))
     {
-      throw new BadRequestException("id of updated object must be unchanged");
+      throw new BadRequestException("id in url and updated object must be identical");
+    }
+
+    if (this.talkRepository.findById(id) == null)
+    {
+      throw new NotFoundException();
     }
 
     this.talkRepository.merge(talk);
@@ -73,7 +78,11 @@ public class TalkResource
 
     this.talkRepository.persist(talk);
 
-    URI createdUri = uriInfo.getAbsolutePathBuilder().path(TalkResource.class, "getTalk").resolveTemplate("id", talk.getId()).build();
+    URI createdUri = uriInfo.getBaseUriBuilder()
+        .path(TalkResource.class)
+        .path(TalkResource.class, "getTalk")
+        .resolveTemplate("id", talk.getId())
+        .build();
     return Response.created(createdUri).build();
   }
 
