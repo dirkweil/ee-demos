@@ -39,7 +39,7 @@ public class SingleIdEntityCsvMessageBodyProvider implements MessageBodyWriter<S
   @Override
   public boolean isWriteable(Class<?> type, Type genericType, Annotation[] annotations, MediaType mediaType)
   {
-    return isProcessable(type, genericType, annotations, mediaType);
+    return SingleIdEntity.class.isAssignableFrom(type);
   }
 
   @Override
@@ -91,7 +91,7 @@ public class SingleIdEntityCsvMessageBodyProvider implements MessageBodyWriter<S
   @Override
   public boolean isReadable(Class<?> type, Type genericType, Annotation[] annotations, MediaType mediaType)
   {
-    return isProcessable(type, genericType, annotations, mediaType);
+    return isWriteable(type, genericType, annotations, mediaType);
   }
 
   @Override
@@ -171,11 +171,5 @@ public class SingleIdEntityCsvMessageBodyProvider implements MessageBodyWriter<S
     {
       throw new WebApplicationException(e);
     }
-  }
-
-  private boolean isProcessable(Class<?> type, Type genericType, Annotation[] annotations, MediaType mediaType)
-  {
-    // Handle SingleIdEntity and classes derived therefrom
-    return SingleIdEntity.class.isAssignableFrom(type);
   }
 }
