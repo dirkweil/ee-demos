@@ -8,6 +8,7 @@ import java.net.URISyntaxException;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.persistence.EntityNotFoundException;
 import javax.ws.rs.BadRequestException;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -60,12 +61,14 @@ public class TalkResource
       throw new BadRequestException("id in url and updated object must be identical");
     }
 
-    if (this.talkRepository.findById(id) == null)
+    try
+    {
+      this.talkRepository.update(talk);
+    }
+    catch (EntityNotFoundException e)
     {
       throw new NotFoundException();
     }
-
-    this.talkRepository.merge(talk);
   }
 
   @POST

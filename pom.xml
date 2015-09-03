@@ -93,7 +93,7 @@
       <dependency>
         <groupId>de.gedoplan</groupId>
         <artifactId>baselibs-persistence</artifactId>
-        <version>1.0.24</version>
+        <version>1.0.25</version>
       </dependency>
 
       <dependency>
