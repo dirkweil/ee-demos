@@ -77,7 +77,7 @@ public class Talk extends GeneratedIntegerIdEntity
     }
   }
 
-  protected Talk()
+  public Talk()
   {
   }
 

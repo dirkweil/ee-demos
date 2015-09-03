@@ -39,7 +39,7 @@ public class Track extends GeneratedIntegerIdEntity
     this.talks = new HashSet<>();
   }
 
-  protected Track()
+  public Track()
   {
   }
 

@@ -24,8 +24,8 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 
 @Path("talk")
-@Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
-@Consumes({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
+@Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON, "application/csv" })
+@Consumes({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON, "application/csv" })
 public class TalkResource
 {
   @Inject
