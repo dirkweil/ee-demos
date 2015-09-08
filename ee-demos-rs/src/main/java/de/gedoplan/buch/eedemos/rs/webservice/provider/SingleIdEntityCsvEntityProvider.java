@@ -32,7 +32,7 @@ import javax.ws.rs.ext.Provider;
 @Provider
 @Produces("application/csv")
 @Consumes("application/csv")
-public class SingleIdEntityCsvMessageBodyProvider implements MessageBodyWriter<SingleIdEntity<?>>, MessageBodyReader<SingleIdEntity<?>>
+public class SingleIdEntityCsvEntityProvider implements MessageBodyWriter<SingleIdEntity<?>>, MessageBodyReader<SingleIdEntity<?>>
 {
   private static final String SEPARATOR = ",";
 
@@ -55,35 +55,40 @@ public class SingleIdEntityCsvMessageBodyProvider implements MessageBodyWriter<S
   {
     try (PrintWriter printWriter = new PrintWriter(entityStream))
     {
-      Iterator<Entry<String, PropertyMeta>> iter = entity.getPropertyMap().entrySet().iterator();
-      while (iter.hasNext())
-      {
-        Entry<String, PropertyMeta> entry = iter.next();
-        Method getter = entry.getValue().getter;
-        if (getter != null)
-        {
-          try
-          {
-            Object value = getter.invoke(entity, (Object[]) null);
-            if (value instanceof Date)
-            {
-              printWriter.print(((Date) value).getTime());
-            }
-            else
-            {
-              printWriter.print(value);
-            }
-          }
-          catch (Exception ex) // CHECKSTYLE:IGNORE
-          {
-            printWriter.print(ex);
-          }
-        }
+      writeEntity(entity, printWriter);
+    }
+  }
 
-        if (iter.hasNext())
+  public static void writeEntity(SingleIdEntity<?> entity, PrintWriter printWriter)
+  {
+    Iterator<Entry<String, PropertyMeta>> iter = entity.getPropertyMap().entrySet().iterator();
+    while (iter.hasNext())
+    {
+      Entry<String, PropertyMeta> entry = iter.next();
+      Method getter = entry.getValue().getter;
+      if (getter != null)
+      {
+        try
         {
-          printWriter.print(SEPARATOR);
+          Object value = getter.invoke(entity, (Object[]) null);
+          if (value instanceof Date)
+          {
+            printWriter.print(((Date) value).getTime());
+          }
+          else
+          {
+            printWriter.print(value);
+          }
         }
+        catch (Exception ex) // CHECKSTYLE:IGNORE
+        {
+          printWriter.print(ex);
+        }
+      }
+
+      if (iter.hasNext())
+      {
+        printWriter.print(SEPARATOR);
       }
     }
   }
