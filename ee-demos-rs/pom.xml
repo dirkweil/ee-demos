@@ -51,4 +51,54 @@
 
   </dependencies>
 
+  <profiles>
+
+    <!--
+      Die (Test-) Clients nutzen per Default RESTEasy als Implementierung.
+      Alternativ kann das Profil jersey-client aktiviert werden, um mit Jersey zu arbeiten.
+    -->
+    <profile>
+      <id>resteasy-client</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <dependencies>
+        <!-- RESTEasy Client -->
+        <dependency>
+          <groupId>org.jboss.resteasy</groupId>
+          <artifactId>resteasy-client</artifactId>
+          <version>3.0.12.Final</version>
+          <scope>test</scope>
+        </dependency>
+        <!-- JSON-Zusätze, u. a. Message Body Reader/Writer für Collections -->
+        <dependency>
+          <groupId>org.jboss.resteasy</groupId>
+          <artifactId>resteasy-jackson-provider</artifactId>
+          <version>3.0.12.Final</version>
+          <scope>test</scope>
+        </dependency>
+        <!-- JAXB-Zusätze, u. a. Message Body Reader/Writer für Collections -->
+        <dependency>
+          <groupId>org.jboss.resteasy</groupId>
+          <artifactId>resteasy-jaxb-provider</artifactId>
+          <version>3.0.12.Final</version>
+          <scope>test</scope>
+        </dependency>
+      </dependencies>
+    </profile>
+
+    <profile>
+      <id>jersey-client</id>
+      <dependencies>
+        <dependency>
+          <groupId>org.glassfish.jersey.core</groupId>
+          <artifactId>jersey-client</artifactId>
+          <version>2.21</version>
+          <scope>test</scope>
+        </dependency>
+      </dependencies>
+    </profile>
+
+  </profiles>
+
 </project>
