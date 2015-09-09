@@ -32,7 +32,8 @@ public class TalkResourceTest
   private static final String serverUrlWebContext  = serverUrl + "/ee-demos-rs";
   private static final String serverUrlRestContext = serverUrlWebContext + "/rest";
 
-  private static Integer      firstTalkId          = 2801;
+  private static Integer      talkIdForGet         = null;
+  private static Integer      talkIdForDelete      = null;
 
   private static Client       client;
   private static WebTarget    baseTarget;
@@ -55,9 +56,10 @@ public class TalkResourceTest
   {
     System.out.println("----- test_01_GetTalks -----");
 
-    List<Talk> talks = baseTarget.request(MediaType.APPLICATION_JSON).get(new GenericType<List<Talk>>()
-    {
-    });
+    List<Talk> talks = baseTarget
+        .request()
+        .accept(MediaType.APPLICATION_JSON)
+        .get(new GenericType<List<Talk>>() {});
 
     assertFalse("Talk list must not be empty", talks.isEmpty());
 
@@ -66,10 +68,12 @@ public class TalkResourceTest
     {
       System.out.println("  " + talk.toDebugString());
 
-      if (firstTalkId == null)
+      if (talkIdForGet == null)
       {
-        firstTalkId = talk.getId();
+        talkIdForGet = talk.getId();
       }
+
+      talkIdForDelete = talk.getId();
     }
   }
 
@@ -78,13 +82,27 @@ public class TalkResourceTest
   {
     System.out.println("----- test_02_GetTalkById -----");
 
-    WebTarget talkTarget = baseTarget.path(firstTalkId.toString());
-    Talk talk = talkTarget.request(MediaType.APPLICATION_JSON).get(Talk.class);
+    if (talkIdForGet != null)
+    {
 
-    assertNotNull("Talk should not be null", talk);
-    assertEquals("Talk ID", firstTalkId, talk.getId());
+      Talk talk = baseTarget
+          .path("{id}")
+          .resolveTemplate("id", talkIdForGet)
+          .request()
+          .accept(MediaType.APPLICATION_JSON)
+          .get(Talk.class);
 
-    System.out.println("Talk: " + talk.toDebugString());
+      assertNotNull("Talk should not be null", talk);
+      assertEquals("Talk ID", talkIdForGet, talk.getId());
+
+      System.out.println("Talk: " + talk.toDebugString());
+    }
+    else
+    {
+      System.out.println("This test requires talkIdForGet to be set.\n"
+          + "Either run all test in one execution (the first test method will set talkIdForGet)\n"
+          + "or modify the class code appropriately.");
+    }
   }
 
   @Test
@@ -94,22 +112,71 @@ public class TalkResourceTest
 
     Talk talk = new Talk("Duck Typing Made Simple", TalkType.SESSION, null, 75, "Donald Duck");
 
-    Response response = baseTarget.request().post(Entity.json(talk));
-
-    StatusType statusInfo = response.getStatusInfo();
-    System.out.printf("Response status: %03d %s\n", statusInfo.getStatusCode(), statusInfo.getReasonPhrase());
-
-    switch (statusInfo.getStatusCode())
+    Response response = null;
+    try
     {
-    case 201:
-      System.out.printf("URI: %s\n", response.getHeaderString(HttpHeaders.LOCATION));
-      break;
+      response = baseTarget
+          .request()
+          .post(Entity.json(talk));
 
-    case 500:
-      System.out.println(response.readEntity(String.class));
-      break;
+      StatusType statusInfo = response.getStatusInfo();
+      System.out.printf("Response status: %03d %s\n", statusInfo.getStatusCode(), statusInfo.getReasonPhrase());
+
+      switch (statusInfo.getStatusCode())
+      {
+      case 201:
+        System.out.printf("URI: %s\n", response.getHeaderString(HttpHeaders.LOCATION));
+        break;
+
+      case 500:
+        System.out.println(response.readEntity(String.class));
+        break;
+      }
+
+      assertEquals("Response status", 201, statusInfo.getStatusCode());
     }
+    finally
+    {
+      try
+      {
+        response.close();
+      }
+      catch (Exception e)
+      {
+        // ignore
+      }
+    }
+  }
 
-    assertEquals("Response status", 201, statusInfo.getStatusCode());
+  @Test
+  public void test_04_DeleteTalk()
+  {
+    System.out.println("----- test_04_DeleteTalk -----");
+
+    Response response = null;
+    try
+    {
+      response = baseTarget
+          .path("{id}")
+          .resolveTemplate("id", talkIdForDelete != null ? talkIdForDelete : 99999)
+          .request()
+          .delete();
+
+      StatusType statusInfo = response.getStatusInfo();
+      System.out.printf("Response status: %03d %s\n", statusInfo.getStatusCode(), statusInfo.getReasonPhrase());
+
+      assertEquals("Response status", 204, statusInfo.getStatusCode());
+    }
+    finally
+    {
+      try
+      {
+        response.close();
+      }
+      catch (Exception e)
+      {
+        // ignore
+      }
+    }
   }
 }
