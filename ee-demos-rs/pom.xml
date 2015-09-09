@@ -90,9 +90,24 @@
     <profile>
       <id>jersey-client</id>
       <dependencies>
+        <!-- Jersey Client -->
         <dependency>
           <groupId>org.glassfish.jersey.core</groupId>
           <artifactId>jersey-client</artifactId>
+          <version>2.21</version>
+          <scope>test</scope>
+        </dependency>
+        <!-- JSON-Zusätze, u. a. Message Body Reader/Writer -->
+        <dependency>
+          <groupId>org.glassfish.jersey.media</groupId>
+          <artifactId>jersey-media-json-jackson</artifactId>
+          <version>2.21</version>
+          <scope>test</scope>
+        </dependency>
+        <!-- JAXB-Zusätze, u. a. Message Body Reader/Writer -->
+        <dependency>
+          <groupId>org.glassfish.jersey.media</groupId>
+          <artifactId>jersey-media-jaxb</artifactId>
           <version>2.21</version>
           <scope>test</scope>
         </dependency>
