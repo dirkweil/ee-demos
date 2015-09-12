@@ -12,6 +12,7 @@ import javax.persistence.EntityNotFoundException;
 import javax.ws.rs.BadRequestException;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
+import javax.ws.rs.DefaultValue;
 import javax.ws.rs.GET;
 import javax.ws.rs.NotFoundException;
 import javax.ws.rs.POST;
@@ -19,6 +20,7 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -33,10 +35,9 @@ public class TalkResource
   TalkRepository talkRepository;
 
   @GET
-  public List<Talk> getTalks()
+  public List<Talk> getTalks(@QueryParam("start") @DefaultValue("0") int start, @QueryParam("count") @DefaultValue("10") int count)
   {
-    List<Talk> allTalks = this.talkRepository.findAll();
-    return allTalks;
+    return this.talkRepository.findAll(start, count >= 0 ? count : Integer.MAX_VALUE, null, false, null);
   }
 
   @GET

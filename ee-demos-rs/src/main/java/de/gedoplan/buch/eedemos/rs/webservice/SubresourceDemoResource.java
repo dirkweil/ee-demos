@@ -12,36 +12,43 @@ import javax.ws.rs.core.MediaType;
 @Path("subresource")
 public class SubresourceDemoResource
 {
-  @Path("option-{option}")
-  public Object getSubresource(@PathParam("option") String option)
+  @Path("v{version}")
+  public Object getSubresource(@PathParam("version") String version)
   {
-    switch (option)
+    switch (version)
     {
-    case "A":
-      return new AResource();
+    case "1":
+      return new Version1Resource();
 
-    case "B":
-      return new BResource();
+    case "2":
+      return new Version2Resource();
 
     default:
       throw new BadRequestException();
     }
   }
 
-  public static class AResource
+  public static class Version1Resource
   {
     @GET
     @Path("name")
-    @Produces(MediaType.APPLICATION_OCTET_STREAM)
+    @Produces(MediaType.TEXT_PLAIN)
     public String getName()
     {
-      return "This is AResource";
+      return "This is Version1Resource";
     }
-
   }
 
-  public static class BResource
+  public static class Version2Resource
   {
+    @GET
+    @Path("name")
+    @Produces(MediaType.TEXT_PLAIN)
+    public String getName()
+    {
+      return "This is Version2Resource";
+    }
+
     @GET
     @Path("date")
     @Produces(MediaType.TEXT_PLAIN)
@@ -49,7 +56,5 @@ public class SubresourceDemoResource
     {
       return new Date();
     }
-
   }
-
 }

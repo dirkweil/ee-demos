@@ -1,5 +1,7 @@
 package de.gedoplan.buch.eedemos.rs.webservice;
 
+import java.sql.Date;
+
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -19,9 +21,9 @@ public class ExtendedMatchingResource
 
   @GET
   @Path("{date : \\d{4}-\\d?\\d-\\d?\\d}")
-  public String getDate(@PathParam("date") String yyyyMmDd)
+  public String getDate(@PathParam("date") Date date)
   {
-    return "Date: " + java.sql.Date.valueOf(yyyyMmDd);
+    return "Date: " + date;
   }
 
   @GET
