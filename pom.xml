@@ -46,7 +46,7 @@
   <repositories>
     <repository>
       <id>gedoplanPublic</id>
-      <url>http://svn.involva-gruppe.de/nexus/content/groups/public</url>
+      <url>http://service.gedoplan.de/nexus/content/groups/public</url>
     </repository>
 
     <repository>
@@ -58,7 +58,7 @@
   <pluginRepositories>
     <pluginRepository>
       <id>gedoplanPublic</id>
-      <url>http://svn.involva-gruppe.de/nexus/content/groups/public</url>
+      <url>http://service.gedoplan.de/nexus/content/groups/public</url>
     </pluginRepository>
   </pluginRepositories>
 
